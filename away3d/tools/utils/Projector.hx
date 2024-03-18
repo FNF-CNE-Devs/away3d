@@ -53,7 +53,7 @@ class Projector {
 
 	private static function parse(obj:ObjectContainer3D):Void {
 		var child:ObjectContainer3D;
-		if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (obj, Mesh) && obj.numChildren == 0)
+		if (isOfType(obj, Mesh) && obj.numChildren == 0)
 			remapMesh(cast(obj, Mesh));
 
 		for (i in 0...obj.numChildren) {
@@ -215,7 +215,7 @@ class Projector {
 					}
 			}
 
-			if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (sub_geom, CompactSubGeometry))
+			if (isOfType(sub_geom, CompactSubGeometry))
 				cast(sub_geom, CompactSubGeometry).updateData(uvs)
 			else
 				cast(sub_geom, SubGeometry).updateUVData(uvs);
@@ -283,7 +283,7 @@ class Projector {
 					}
 			}
 
-			if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (sub_geom, CompactSubGeometry))
+			if (isOfType(sub_geom, CompactSubGeometry))
 				cast(sub_geom, CompactSubGeometry).updateData(uvs)
 			else
 				cast(sub_geom, SubGeometry).updateUVData(uvs);
@@ -334,7 +334,7 @@ class Projector {
 				uvs[uvIndex + 1] = _uv.v;
 			}
 
-			if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (sub_geom, CompactSubGeometry))
+			if (isOfType(sub_geom, CompactSubGeometry))
 				cast(sub_geom, CompactSubGeometry).updateData(uvs)
 			else
 				cast(sub_geom, SubGeometry).updateUVData(uvs);

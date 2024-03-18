@@ -40,7 +40,7 @@ class MipmapGenerator {
 
 			mipmap.draw(source, _matrix, null, null, null, true);
 
-			if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (target, Texture))
+			if (isOfType(target, Texture))
 				cast(target, Texture).uploadFromBitmapData(mipmap, i++);
 			else
 				cast(target, CubeTexture).uploadFromBitmapData(mipmap, side, i++);

@@ -127,7 +127,7 @@ class SingleFileLoader extends EventDispatcher {
 	 * @param parser An optional parser object that will translate the data into a usable resource. If not provided, AssetLoader will attempt to auto-detect the file type.
 	 */
 	public function parseData(data:Dynamic, parser:ParserBase = null, req:URLRequest = null):Void {
-		if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (data, Class))
+		if (isOfType(data, Class))
 			data = Type.createInstance(data, []);
 
 		if (parser != null)

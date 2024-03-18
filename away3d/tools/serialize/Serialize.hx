@@ -25,7 +25,7 @@ class Serialize {
 	}
 
 	public static function serializeObjectContainer(objectContainer3D:ObjectContainer3D, serializer:SerializerBase):Void {
-		if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (objectContainer3D, Mesh))
+		if (isOfType(objectContainer3D, Mesh))
 			serializeMesh(cast(objectContainer3D, Mesh), serializer); // do not indent any extra for first level here
 		else
 			serializeObjectContainerInternal(objectContainer3D, serializer, true /* serializeChildrenAndEnd */);
@@ -72,7 +72,7 @@ class Serialize {
 	public static function serializeMaterial(material:MaterialBase, serializer:SerializerBase):Void {
 		serializer.beginObject(classNameFromInstance(material), material.name);
 
-		if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (material.lightPicker, StaticLightPicker))
+		if (isOfType(material.lightPicker, StaticLightPicker))
 			serializer.writeString("lights", Std.string(cast(material.lightPicker, StaticLightPicker).lights));
 		serializer.writeBoolean("mipmap", material.mipmap);
 		serializer.writeBoolean("smooth", material.smooth);

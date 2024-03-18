@@ -107,7 +107,7 @@ class SpriteSheetAnimator extends AnimatorBase implements IAnimator {
 	 */
 	public function setRenderState(stage3DProxy:Stage3DProxy, renderable:IRenderable, vertexConstantOffset:Int, vertexStreamOffset:Int, camera:Camera3D):Void {
 		var material:MaterialBase = renderable.material;
-		if (material == null || !#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (material, TextureMaterial))
+		if (material == null || !isOfType(material, TextureMaterial))
 			return;
 
 		var subMesh:SubMesh = cast(renderable, SubMesh);
@@ -117,7 +117,7 @@ class SpriteSheetAnimator extends AnimatorBase implements IAnimator {
 		// because textures are already uploaded, we can't offset the uv's yet
 		var swapped:Bool = false;
 
-		if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (material, SpriteSheetMaterial) && _mapDirty)
+		if (isOfType(material, SpriteSheetMaterial) && _mapDirty)
 			swapped = cast((material), SpriteSheetMaterial).swap(_frame.mapID);
 
 		if (!swapped) {

@@ -133,7 +133,7 @@ class Geometry extends NamedAssetBase implements IAsset {
 
 		for (i in 0...numSubGeoms) {
 			subGeom = _subGeometries[i];
-			if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (subGeom, SubGeometry))
+			if (isOfType(subGeom, SubGeometry))
 				continue;
 
 			_removableCompactSubGeometries.push(subGeom);

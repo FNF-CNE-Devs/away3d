@@ -313,7 +313,7 @@ class Drag3D {
 	}
 
 	private function init():Void {
-		if (!#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (_view.camera.lens, PerspectiveLens))
+		if (!isOfType(_view.camera.lens, PerspectiveLens))
 			_view.camera.lens = new PerspectiveLens();
 	}
 

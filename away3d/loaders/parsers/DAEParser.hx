@@ -137,8 +137,7 @@ class DAEParser extends ParserBase {
 	override private function resolveDependency(resourceDependency:ResourceDependency):Void {
 		if (resourceDependency.assets.length != 1)
 			return;
-		var resource:Texture2DBase = #if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (resourceDependency.assets[0],
-			Texture2DBase) ? cast resourceDependency.assets[0] : null;
+		var resource:Texture2DBase = isOfType(resourceDependency.assets[0], Texture2DBase) ? cast resourceDependency.assets[0] : null;
 		_dependencyCount--;
 
 		if (resource != null && cast(resource, BitmapTexture).bitmapData != null) {
@@ -560,7 +559,7 @@ class DAEParser extends ParserBase {
 			if (container != null)
 				container.addChild(mesh);
 
-			if (controller.skin != null && #if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (controller.skin.userData, Skeleton)) {
+			if (controller.skin != null && isOfType(controller.skin.userData, Skeleton)) {
 				if (animationSet == null)
 					animationSet = new SkeletonAnimationSet(controller.skin.maxBones);
 
@@ -810,9 +809,9 @@ class DAEParser extends ParserBase {
 		var ambient:DAEColorOrTexture = effect.shader.props.ambient;
 		var diffuse:DAEColorOrTexture = effect.shader.props.diffuse;
 		var specular:DAEColorOrTexture = effect.shader.props.specular;
-		var shininess:Float = effect.shader.props.hasField("shininess") ? (Std.isOfType(effect.shader.props.shininess,
+		var shininess:Float = effect.shader.props.hasField("shininess") ? (isOfType(effect.shader.props.shininess,
 			String) ? Std.parseFloat(effect.shader.props.shininess) : effect.shader.props.shininess) : 10;
-		var transparency:Float = effect.shader.props.hasField("transparency") ? (Std.isOfType(effect.shader.props.transparency,
+		var transparency:Float = effect.shader.props.hasField("transparency") ? (isOfType(effect.shader.props.transparency,
 			String) ? Std.parseFloat(effect.shader.props.transparency) : effect.shader.props.transparency) : 1;
 
 		if (diffuse != null && diffuse.texture != null && effect.surface != null && _libImages != null) {

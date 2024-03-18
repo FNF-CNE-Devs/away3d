@@ -317,7 +317,7 @@ class ViewVolume extends NodeBase {
 		object = iterator.next();
 
 		while (object != null) {
-			var entity:Entity = #if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (object, Entity) ? cast object : null;
+			var entity:Entity = isOfType(object, Entity) ? cast object : null;
 			if (entity != null && staticIntersects(entity, minBounds, maxBounds)) {
 				var node:EntityNode = entity.getEntityPartitionNode();
 				if (visibleStatics.indexOf(node) == -1) {

@@ -65,13 +65,13 @@ class LightsHelper {
 	}
 
 	private static function parseContainer(objectContainer3D:ObjectContainer3D):Void {
-		if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (objectContainer3D, Mesh) && objectContainer3D.numChildren == 0)
+		if (isOfType(objectContainer3D, Mesh) && objectContainer3D.numChildren == 0)
 			parseMesh(cast(objectContainer3D, Mesh));
 
 		var child;
 		for (i in 0...objectContainer3D.numChildren) {
 			child = objectContainer3D.getChildAt(i);
-			if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (child, ObjectContainer3D))
+			if (isOfType(child, ObjectContainer3D))
 				parseContainer(cast child);
 		}
 	}
@@ -87,8 +87,7 @@ class LightsHelper {
 		if (materialOwner.material != null) {
 			switch (_state) {
 				case 0:
-					picker = #if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (materialOwner.material.lightPicker,
-						StaticLightPicker) ? cast materialOwner.material.lightPicker : null;
+					picker = isOfType(materialOwner.material.lightPicker, StaticLightPicker) ? cast materialOwner.material.lightPicker : null;
 					if (picker == null || picker.lights != _lightsArray)
 						materialOwner.material.lightPicker = new StaticLightPicker(_lightsArray);
 
@@ -96,7 +95,7 @@ class LightsHelper {
 					if (materialOwner.material.lightPicker == null)
 						materialOwner.material.lightPicker = new StaticLightPicker([]);
 					picker = null;
-					if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (materialOwner.material.lightPicker, StaticLightPicker))
+					if (isOfType(materialOwner.material.lightPicker, StaticLightPicker))
 						picker = cast materialOwner.material.lightPicker;
 					if (picker != null) {
 						aLights = picker.lights;
@@ -122,7 +121,7 @@ class LightsHelper {
 					if (materialOwner.material.lightPicker == null)
 						materialOwner.material.lightPicker = new StaticLightPicker([]);
 					picker = null;
-					if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (materialOwner.material.lightPicker, StaticLightPicker))
+					if (isOfType(materialOwner.material.lightPicker, StaticLightPicker))
 						picker = cast materialOwner.material.lightPicker;
 					if (picker != null) {
 						aLights = picker.lights;

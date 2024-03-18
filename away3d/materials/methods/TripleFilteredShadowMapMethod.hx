@@ -16,7 +16,7 @@ class TripleFilteredShadowMapMethod extends SimpleShadowMapMethodBase {
 	 */
 	public function new(castingLight:DirectionalLight) {
 		super(castingLight);
-		if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (castingLight, PointLight))
+		if (isOfType(castingLight, PointLight))
 			throw new Error("FilteredShadowMapMethod not supported for Point Lights");
 	}
 

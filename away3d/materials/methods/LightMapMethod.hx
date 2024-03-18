@@ -106,9 +106,9 @@ class LightMapMethod extends EffectMethodBase {
 		code = getTex2DSampleCode(vo, temp, lightMapReg, _texture, _useSecondaryUV ? _sharedRegisters.secondaryUVVarying : _sharedRegisters.uvVarying);
 
 		switch (_blendMode) {
-			case MULTIPLY:
+			case BlendMode.MULTIPLY:
 				code += "mul " + targetReg + ", " + targetReg + ", " + temp + "\n";
-			case ADD:
+			case BlendMode.ADD:
 				code += "add " + targetReg + ", " + targetReg + ", " + temp + "\n";
 			default:
 		}

@@ -360,7 +360,7 @@ class Entity extends ObjectContainer3D {
 	override private function updateMouseChildren():Void {
 		// If there is a parent and this child does not have a triangle collider, use its parent's triangle collider.
 		if (_parent == null && pickingCollider != null) {
-			if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (_parent, Entity)) {
+			if (isOfType(_parent, Entity)) {
 				var collider:IPickingCollider = cast(_parent, Entity).pickingCollider;
 				if (collider != null)
 					pickingCollider = collider;

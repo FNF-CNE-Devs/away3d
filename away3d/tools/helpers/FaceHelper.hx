@@ -28,7 +28,7 @@ class FaceHelper {
 			subGeom = new SubGeometry();
 			mesh.geometry.addSubGeometry(subGeom);
 		} else {
-			if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (mesh.geometry.subGeometries[0], CompactSubGeometry))
+			if (isOfType(mesh.geometry.subGeometries[0], CompactSubGeometry))
 				mesh.geometry.convertToSeparateBuffers();
 		}
 
@@ -651,7 +651,7 @@ class FaceHelper {
 	private static function applyMethod(methodID:Int, mesh:Mesh, value:Float = 0):Void {
 		var subGeoms:Vector<ISubGeometry> = mesh.geometry.subGeometries;
 
-		if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (subGeoms[0], CompactSubGeometry))
+		if (isOfType(subGeoms[0], CompactSubGeometry))
 			throw new Error("Convert to CompactSubGeometry using mesh.geometry.convertToSeparateBuffers() ");
 
 		var indices:Vector<UInt>;
@@ -694,7 +694,7 @@ class FaceHelper {
 	private static function getSubGeometry(mesh:Mesh, subGeomIndice:Int):SubGeometry {
 		var subGeoms:Vector<ISubGeometry> = mesh.geometry.subGeometries;
 
-		if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (subGeoms[0], CompactSubGeometry))
+		if (isOfType(subGeoms[0], CompactSubGeometry))
 			throw new Error("Convert to CompactSubGeometry using mesh.geometry.convertToSeparateBuffers() ");
 
 		if (subGeomIndice > subGeoms.length - 1)

@@ -49,13 +49,13 @@ class ImageParser extends ParserBase {
 	 */
 	public static function supportsData(data:Dynamic):Bool {
 		// shortcut if asset is IFlexAsset
-		if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (data, Bitmap))
+		if (isOfType(data, Bitmap))
 			return true;
 
-		if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (data, BitmapData))
+		if (isOfType(data, BitmapData))
 			return true;
 
-		if (!(#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (data, ByteArrayData)))
+		if (!(isOfType(data, ByteArrayData)))
 			return false;
 
 		var ba:ByteArray = cast(data, ByteArray);
@@ -87,13 +87,13 @@ class ImageParser extends ParserBase {
 	 */
 	private override function proceedParsing():Bool {
 		var asset:Texture2DBase;
-		if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (_data, Bitmap)) {
+		if (isOfType(_data, Bitmap)) {
 			asset = new BitmapTexture(cast(_data, Bitmap).bitmapData);
 			finalizeAsset(asset, _fileName);
 			return ParserBase.PARSING_DONE;
 		}
 
-		if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (_data, BitmapData)) {
+		if (isOfType(_data, BitmapData)) {
 			asset = new BitmapTexture(cast(_data, BitmapData));
 			finalizeAsset(asset, _fileName);
 			return ParserBase.PARSING_DONE;

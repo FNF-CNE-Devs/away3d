@@ -86,7 +86,7 @@ class Weld {
 	private function parse(obj:ObjectContainer3D):Int {
 		var removedVertCnt:Int = 0;
 		var child:ObjectContainer3D;
-		if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (obj, Mesh) && obj.numChildren == 0)
+		if (isOfType(obj, Mesh) && obj.numChildren == 0)
 			removedVertCnt += applyToGeom(cast(obj, Mesh).geometry);
 
 		for (i in 0...obj.numChildren) {
@@ -106,7 +106,7 @@ class Weld {
 
 			// TODO: Remove this check when ISubGeometry can always
 			// be updated using a single unified method (from vectors.)
-			if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (subGeom, CompactSubGeometry))
+			if (isOfType(subGeom, CompactSubGeometry))
 				removedVertsCnt += applyToSubGeom(subGeom, cast(subGeom, CompactSubGeometry));
 			else {
 				outSubGeom = new CompactSubGeometry();

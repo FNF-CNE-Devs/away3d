@@ -82,7 +82,7 @@ class MeshHelper {
 	public static function recenterContainer(obj:ObjectContainer3D, keepPosition:Bool = true):Void {
 		var child:ObjectContainer3D;
 
-		if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (obj, Mesh) && obj.numChildren == 0)
+		if (isOfType(obj, Mesh) && obj.numChildren == 0)
 			recenter(cast(obj, Mesh), keepPosition);
 
 		for (i in 0...obj.numChildren) {
@@ -141,7 +141,7 @@ class MeshHelper {
 				normals[nOffs + j * nStride + 2] = holder.z;
 			}
 
-			if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (subGeom, CompactSubGeometry))
+			if (isOfType(subGeom, CompactSubGeometry))
 				cast(subGeom, CompactSubGeometry).updateData(vertices);
 			else {
 				cast(subGeom, SubGeometry).updateVertexData(vertices);
@@ -159,7 +159,7 @@ class MeshHelper {
 	public static function applyRotationsContainer(obj:ObjectContainer3D):Void {
 		var child:ObjectContainer3D;
 
-		if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (obj, Mesh) && obj.numChildren == 0)
+		if (isOfType(obj, Mesh) && obj.numChildren == 0)
 			applyRotations(cast(obj, Mesh));
 
 		for (i in 0...obj.numChildren) {
@@ -207,7 +207,7 @@ class MeshHelper {
 				vertices[vOffs + j * vStride + 2] *= scaleZ;
 			}
 
-			if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (subGeom, CompactSubGeometry))
+			if (isOfType(subGeom, CompactSubGeometry))
 				cast(subGeom, CompactSubGeometry).updateData(vertices);
 			else
 				cast(subGeom, SubGeometry).updateVertexData(vertices);
@@ -232,7 +232,7 @@ class MeshHelper {
 	public static function applyScalesContainer(obj:ObjectContainer3D, scaleX:Float, scaleY:Float, scaleZ:Float, parent:ObjectContainer3D = null):Void {
 		var child:ObjectContainer3D;
 
-		if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (obj, Mesh) && obj.numChildren == 0)
+		if (isOfType(obj, Mesh) && obj.numChildren == 0)
 			applyScales(cast(obj, Mesh), scaleX, scaleY, scaleZ, obj);
 
 		for (i in 0...obj.numChildren) {
@@ -269,7 +269,7 @@ class MeshHelper {
 				vertices[vOffs + j * vStride + 2] += dz;
 			}
 
-			if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (subGeom, CompactSubGeometry))
+			if (isOfType(subGeom, CompactSubGeometry))
 				cast(subGeom, CompactSubGeometry).updateData(vertices);
 			else
 				cast(subGeom, SubGeometry).updateVertexData(vertices);
@@ -302,7 +302,7 @@ class MeshHelper {
 	public static function invertFacesInContainer(obj:ObjectContainer3D):Void {
 		var child:ObjectContainer3D;
 
-		if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (obj, Mesh) && obj.numChildren == 0)
+		if (isOfType(obj, Mesh) && obj.numChildren == 0)
 			invertFaces(cast(obj, Mesh));
 
 		for (i in 0...obj.numChildren) {
@@ -367,7 +367,7 @@ class MeshHelper {
 					uvs[uOffs + j * uStride + 0] = 1 - uvs[uOffs + j * uStride + 0];
 			}
 
-			if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (subGeom, CompactSubGeometry))
+			if (isOfType(subGeom, CompactSubGeometry))
 				cast(subGeom, CompactSubGeometry).updateData(subGeom.vertexData);
 			else {
 				cast(subGeom, SubGeometry).updateIndexData(indices);
@@ -532,7 +532,7 @@ class MeshHelper {
 			return meshes;
 		}
 
-		if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (geometries[0], CompactSubGeometry))
+		if (isOfType(geometries[0], CompactSubGeometry))
 			return splitMeshCsg(mesh, disposeSource);
 
 		var vertices:Vector<Float>;
@@ -550,7 +550,7 @@ class MeshHelper {
 		var j:Int = 0;
 
 		for (i in 0...numSubGeoms) {
-			if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (geometries[0], SubGeometry))
+			if (isOfType(geometries[0], SubGeometry))
 				subGeom = cast(geometries[i], SubGeometry);
 
 			vertices = subGeom.vertexData;

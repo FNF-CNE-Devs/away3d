@@ -223,7 +223,7 @@ class MouseEvent3D extends Event {
 	 * The position in scene space where the event took place
 	 */
 	private function get_scenePosition():Vector3D {
-		if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (object, ObjectContainer3D))
+		if (isOfType(object, ObjectContainer3D))
 			return Matrix3DUtils.transformVector(cast(object, ObjectContainer3D).sceneTransform, localPosition);
 		else
 			return localPosition;
@@ -237,7 +237,7 @@ class MouseEvent3D extends Event {
 	public function getScenePosition(v:Vector3D = null):Vector3D {
 		if (v == null)
 			v = new Vector3D();
-		if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (object, ObjectContainer3D)) {
+		if (isOfType(object, ObjectContainer3D)) {
 			Matrix3DUtils.transformVector(cast(object, ObjectContainer3D).sceneTransform, localPosition, v);
 		} else {
 			v.x = localPosition.x;
@@ -251,7 +251,7 @@ class MouseEvent3D extends Event {
 	 * The normal in scene space where the event took place
 	 */
 	private function get_sceneNormal():Vector3D {
-		if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (object, ObjectContainer3D)) {
+		if (isOfType(object, ObjectContainer3D)) {
 			var sceneNormal:Vector3D = Matrix3DUtils.deltaTransformVector(cast(object, ObjectContainer3D).sceneTransform, localNormal);
 			sceneNormal.normalize();
 			return sceneNormal;
@@ -267,7 +267,7 @@ class MouseEvent3D extends Event {
 	public function getSceneNormal(v:Vector3D = null):Vector3D {
 		if (v == null)
 			v = new Vector3D();
-		if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (object, ObjectContainer3D)) {
+		if (isOfType(object, ObjectContainer3D)) {
 			Matrix3DUtils.deltaTransformVector(cast(object, ObjectContainer3D).sceneTransform, localNormal, v);
 			v.normalize();
 		} else {

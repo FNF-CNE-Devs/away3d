@@ -82,8 +82,8 @@ class AWD1Parser extends ParserBase {
 			str1 = ba.readUTFBytes(2);
 			str2 = ba.readUTFBytes(readLength);
 		} else {
-			str1 = #if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (data, String) ? cast(data, String).substr(0, 5) : null;
-			str2 = #if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (data, String) ? cast(data, String).substr(0, readLength) : null;
+			str1 = isOfType(data, String) ? cast(data, String).substr(0, 5) : null;
+			str2 = isOfType(data, String) ? cast(data, String).substr(0, readLength) : null;
 		}
 		if ((str1 == '//') && (str2.indexOf("#v:") != -1))
 			return true;
@@ -98,8 +98,7 @@ class AWD1Parser extends ParserBase {
 		if (resourceDependency.assets.length != 1)
 			return;
 
-		var asset:Texture2DBase = #if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (resourceDependency.assets[0],
-			Texture2DBase) ? cast resourceDependency.assets[0] : null;
+		var asset:Texture2DBase = isOfType(resourceDependency.assets[0], Texture2DBase) ? cast resourceDependency.assets[0] : null;
 		var m:Mesh = retrieveMeshFromID(resourceDependency.id);
 
 		if (m != null && asset != null) {

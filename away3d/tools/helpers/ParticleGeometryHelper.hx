@@ -86,8 +86,7 @@ class ParticleGeometryHelper {
 
 				var k:Int;
 				var tempLen:Int;
-				var compact:CompactSubGeometry = #if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (sourceSubGeometry,
-					CompactSubGeometry) ? cast sourceSubGeometry : null;
+				var compact:CompactSubGeometry = isOfType(sourceSubGeometry, CompactSubGeometry) ? cast sourceSubGeometry : null;
 				var product:Int;
 				var sourceVertices:Vector<Float>;
 

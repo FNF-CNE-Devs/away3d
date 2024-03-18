@@ -321,7 +321,7 @@ class Merge {
 	private function parseContainer(receiver:Mesh, object:ObjectContainer3D):Void {
 		var child:ObjectContainer3D;
 
-		if (#if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (object, Mesh) && object != receiver)
+		if (isOfType(object, Mesh) && object != receiver)
 			collect(cast(object, Mesh), _disposeSources);
 
 		for (i in 0...object.numChildren) {
