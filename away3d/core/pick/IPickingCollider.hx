@@ -1,7 +1,6 @@
 package away3d.core.pick;
 
 import away3d.core.base.SubMesh;
-
 import openfl.geom.Vector3D;
 
 /**
@@ -11,8 +10,7 @@ import openfl.geom.Vector3D;
  * @see away3d.entities.Entity#pickingCollider
  * @see away3d.core.pick.RaycastPicker
  */
-interface IPickingCollider
-{
+interface IPickingCollider {
 	/**
 	 * Sets the position and direction of a picking ray in local coordinates to the entity.
 	 *
@@ -20,7 +18,7 @@ interface IPickingCollider
 	 * @param localPosition The direction vector in local coordinates
 	 */
 	function setLocalRay(localPosition:Vector3D, localDirection:Vector3D):Void;
-	
+
 	/**
 	 * Tests a <code>SubMesh</code> object for a collision with the picking ray.
 	 *

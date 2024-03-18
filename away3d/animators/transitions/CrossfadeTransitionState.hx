@@ -7,25 +7,22 @@ import away3d.events.*;
 /**
  *
  */
-class CrossfadeTransitionState extends SkeletonBinaryLERPState
-{
+class CrossfadeTransitionState extends SkeletonBinaryLERPState {
 	private var _crossfadeAnimationNode:CrossfadeTransitionNode;
 	private var _animationStateTransitionComplete:AnimationStateEvent;
-	
-	public function new(animator:IAnimator, crossfadeAnimationNode:CrossfadeTransitionNode)
-	{
+
+	public function new(animator:IAnimator, crossfadeAnimationNode:CrossfadeTransitionNode) {
 		super(animator, crossfadeAnimationNode);
-		
+
 		_crossfadeAnimationNode = crossfadeAnimationNode;
 	}
-	
+
 	/**
 	 * @inheritDoc
 	 */
-	override private function updateTime(time:Int):Void
-	{
-		blendWeight = Math.abs(time - _crossfadeAnimationNode.startBlend)/(1000*_crossfadeAnimationNode.blendSpeed);
-		
+	override private function updateTime(time:Int):Void {
+		blendWeight = Math.abs(time - _crossfadeAnimationNode.startBlend) / (1000 * _crossfadeAnimationNode.blendSpeed);
+
 		if (blendWeight >= 1) {
 			blendWeight = 1;
 			if (_animationStateTransitionComplete == null) {
@@ -33,7 +30,7 @@ class CrossfadeTransitionState extends SkeletonBinaryLERPState
 			}
 			_crossfadeAnimationNode.dispatchEvent(_animationStateTransitionComplete);
 		}
-		
+
 		super.updateTime(time);
 	}
 }

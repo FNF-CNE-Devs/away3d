@@ -18,7 +18,6 @@ import away3d.materials.methods.ShaderMethodSetup;
 import away3d.materials.methods.ShadowMapMethodBase;
 import away3d.textures.Texture2DBase;
 import away3d.textures.Anisotropy;
-
 import openfl.display3D.Context3D;
 import openfl.display3D.Context3DProgramType;
 import openfl.geom.Matrix;
@@ -29,8 +28,7 @@ import openfl.Vector;
  * CompiledPass forms an abstract base class for the default compiled pass materials provided by Away3D,
  * using material methods to define their appearance.
  */
-class CompiledPass extends MaterialPassBase
-{
+class CompiledPass extends MaterialPassBase {
 	public var enableLightFallOff(get, set):Bool;
 	public var forceSeparateMVP(get, set):Bool;
 	public var numPointLights(get, never):Int;
@@ -47,17 +45,17 @@ class CompiledPass extends MaterialPassBase
 	public var specularMethod(get, set):BasicSpecularMethod;
 	public var specularLightSources(get, set):Int;
 	public var diffuseLightSources(get, set):Int;
-	
+
 	public var _passes:Vector<MaterialPassBase>;
 	public var _passesDirty:Bool;
-	
+
 	private var _specularLightSources:Int = 0x01;
 	private var _diffuseLightSources:Int = 0x03;
-	
+
 	private var _vertexCode:String;
 	private var _fragmentLightCode:String;
 	private var _framentPostLightCode:String;
-	
+
 	private var _vertexConstantData:Vector<Float> = new Vector<Float>();
 	private var _fragmentConstantData:Vector<Float> = new Vector<Float>();
 	private var _commonsDataIndex:Int;
@@ -74,37 +72,36 @@ class CompiledPass extends MaterialPassBase
 	private var _uvTransformIndex2:Int;
 	private var _lightProbeDiffuseIndices:Vector<UInt>;
 	private var _lightProbeSpecularIndices:Vector<UInt>;
-	
+
 	private var _ambientLightR:Float;
 	private var _ambientLightG:Float;
 	private var _ambientLightB:Float;
-	
+
 	private var _compiler:ShaderCompiler;
-	
+
 	private var _methodSetup:ShaderMethodSetup;
-	
+
 	private var _usingSpecularMethod:Bool;
 	private var _usesNormals:Bool;
 	private var _preserveAlpha:Bool = true;
 	private var _animateUVs:Bool;
 	private var _animateUVs2:Bool;
-	
+
 	private var _numPointLights:Int;
 	private var _numDirectionalLights:Int;
 	private var _numLightProbes:Int;
-	
+
 	private var _enableLightFallOff:Bool = true;
-	
+
 	private var _forceSeparateMVP:Bool;
 
 	/**
 	 * Creates a new CompiledPass object.
 	 * @param material The material to which this pass belongs.
 	 */
-	public function new(material:MaterialBase)
-	{
+	public function new(material:MaterialBase) {
 		_material = material;
-		
+
 		init();
 		super();
 	}
@@ -113,13 +110,11 @@ class CompiledPass extends MaterialPassBase
 	 * Whether or not to use fallOff and radius properties for lights. This can be used to improve performance and
 	 * compatibility for constrained mode.
 	 */
-	private function get_enableLightFallOff():Bool
-	{
+	private function get_enableLightFallOff():Bool {
 		return _enableLightFallOff;
 	}
-	
-	private function set_enableLightFallOff(value:Bool):Bool
-	{
+
+	private function set_enableLightFallOff(value:Bool):Bool {
 		if (value != _enableLightFallOff)
 			invalidateShaderProgram(true);
 		_enableLightFallOff = value;
@@ -131,13 +126,11 @@ class CompiledPass extends MaterialPassBase
 	 * view-projection matrix. This is used to prevent rounding errors when using multiple passes with different
 	 * projection code.
 	 */
-	private function get_forceSeparateMVP():Bool
-	{
+	private function get_forceSeparateMVP():Bool {
 		return _forceSeparateMVP;
 	}
-	
-	private function set_forceSeparateMVP(value:Bool):Bool
-	{
+
+	private function set_forceSeparateMVP(value:Bool):Bool {
 		_forceSeparateMVP = value;
 		return value;
 	}
@@ -145,43 +138,38 @@ class CompiledPass extends MaterialPassBase
 	/**
 	 * The amount of point lights that need to be supported.
 	 */
-	private function get_numPointLights():Int
-	{
+	private function get_numPointLights():Int {
 		return _numPointLights;
 	}
 
 	/**
 	 * The amount of directional lights that need to be supported.
 	 */
-	private function get_numDirectionalLights():Int
-	{
+	private function get_numDirectionalLights():Int {
 		return _numDirectionalLights;
 	}
 
 	/**
 	 * The amount of light probes that need to be supported.
 	 */
-	private function get_numLightProbes():Int
-	{
+	private function get_numLightProbes():Int {
 		return _numLightProbes;
 	}
-	
+
 	/**
 	 * @inheritDoc
 	 */
-	override private function updateProgram(stage3DProxy:Stage3DProxy):Void
-	{
+	override private function updateProgram(stage3DProxy:Stage3DProxy):Void {
 		reset(stage3DProxy.profile);
 		super.updateProgram(stage3DProxy);
 	}
-	
+
 	/**
 	 * Resets the compilation state.
 	 *
 	 * @param profile The compatibility profile used by the renderer.
 	 */
-	private function reset(profile:String):Void
-	{
+	private function reset(profile:String):Void {
 		initCompiler(profile);
 		updateShaderProperties();
 		initConstantData();
@@ -191,8 +179,7 @@ class CompiledPass extends MaterialPassBase
 	/**
 	 * Updates the amount of used register indices.
 	 */
-	private function updateUsedOffsets():Void
-	{
+	private function updateUsedOffsets():Void {
 		_numUsedVertexConstants = _compiler.numUsedVertexConstants;
 		_numUsedFragmentConstants = _compiler.numUsedFragmentConstants;
 		_numUsedStreams = _compiler.numUsedStreams;
@@ -204,17 +191,16 @@ class CompiledPass extends MaterialPassBase
 	/**
 	 * Initializes the unchanging constant data for this material.
 	 */
-	private function initConstantData():Void
-	{
-		_vertexConstantData.length = _numUsedVertexConstants*4;
-		_fragmentConstantData.length = _numUsedFragmentConstants*4;
-		
+	private function initConstantData():Void {
+		_vertexConstantData.length = _numUsedVertexConstants * 4;
+		_fragmentConstantData.length = _numUsedFragmentConstants * 4;
+
 		initCommonsData();
 		if (_uvTransformIndex >= 0)
 			initUVTransformData();
 		if (_cameraPositionIndex >= 0)
 			_vertexConstantData[_cameraPositionIndex + 3] = 1;
-		
+
 		updateMethodConstants();
 	}
 
@@ -222,8 +208,7 @@ class CompiledPass extends MaterialPassBase
 	 * Initializes the compiler for this pass.
 	 * @param profile The compatibility profile used by the renderer.
 	 */
-	private function initCompiler(profile:String):Void
-	{
+	private function initCompiler(profile:String):Void {
 		_compiler = createCompiler(profile);
 		_compiler.forceSeperateMVP = _forceSeparateMVP;
 		_compiler.numPointLights = _numPointLights;
@@ -246,8 +231,7 @@ class CompiledPass extends MaterialPassBase
 	 * Factory method to create a concrete compiler object for this pass.
 	 * @param profile The compatibility profile used by the renderer.
 	 */
-	private function createCompiler(profile:String):ShaderCompiler
-	{
+	private function createCompiler(profile:String):ShaderCompiler {
 		throw new AbstractMethodError();
 		return null;
 	}
@@ -255,8 +239,7 @@ class CompiledPass extends MaterialPassBase
 	/**
 	 * Copies the shader's properties from the compiler.
 	 */
-	private function updateShaderProperties():Void
-	{
+	private function updateShaderProperties():Void {
 		_animatableAttributes = _compiler.animatableAttributes;
 		_animationTargetRegisters = _compiler.animationTargetRegisters;
 		_vertexCode = _compiler.vertexCode;
@@ -268,7 +251,7 @@ class CompiledPass extends MaterialPassBase
 		_needUVAnimation = _compiler.needUVAnimation;
 		_UVSource = _compiler.UVSource;
 		_UVTarget = _compiler.UVTarget;
-		
+
 		updateRegisterIndices();
 		updateUsedOffsets();
 	}
@@ -276,8 +259,7 @@ class CompiledPass extends MaterialPassBase
 	/**
 	 * Updates the indices for various registers.
 	 */
-	private function updateRegisterIndices():Void
-	{
+	private function updateRegisterIndices():Void {
 		_uvBufferIndex = _compiler.uvBufferIndex;
 		_uvTransformIndex = _compiler.uvTransformIndex;
 		_uvTransformIndex2 = _compiler.uvTransformIndex2;
@@ -297,13 +279,11 @@ class CompiledPass extends MaterialPassBase
 	/**
 	 * Indicates whether the output alpha value should remain unchanged compared to the material's original alpha.
 	 */
-	private function get_preserveAlpha():Bool 
-	{
+	private function get_preserveAlpha():Bool {
 		return _preserveAlpha;
 	}
-	
-	private function set_preserveAlpha(value:Bool):Bool
-	{
+
+	private function set_preserveAlpha(value:Bool):Bool {
 		if (_preserveAlpha == value)
 			return value;
 		_preserveAlpha = value;
@@ -314,53 +294,48 @@ class CompiledPass extends MaterialPassBase
 	/**
 	 * Indicate whether UV coordinates need to be animated using the renderable's transformUV matrix.
 	 */
-	private function get_animateUVs():Bool
-	{
+	private function get_animateUVs():Bool {
 		return _animateUVs;
 	}
-	
-	private function set_animateUVs(value:Bool):Bool
-	{
+
+	private function set_animateUVs(value:Bool):Bool {
 		if (_animateUVs == value)
 			return value;
-		
+
 		_animateUVs = value;
 		invalidateShaderProgram();
 		return value;
 	}
-	
+
 	/**
 	 * Indicate whether UV coordinates need to be animated using the renderable's transformUV matrix.
 	 */
-	private function get_animateUVs2():Bool
-	{
+	private function get_animateUVs2():Bool {
 		return _animateUVs2;
 	}
 
-	private function set_animateUVs2(value:Bool):Bool
-	{
-		if (_animateUVs2 == value) return value;
+	private function set_animateUVs2(value:Bool):Bool {
+		if (_animateUVs2 == value)
+			return value;
 		_animateUVs2 = value;
 		invalidateShaderProgram();
 		return value;
 	}
-	
+
 	/**
 	 * @inheritDoc
 	 */
-	override private function set_mipmap(value:Bool):Bool
-	{
+	override private function set_mipmap(value:Bool):Bool {
 		if (_mipmap == value)
 			return value;
 		super.mipmap = value;
 		return value;
 	}
-	
+
 	/**
 	 * @inheritDoc
 	 */
-	override private function set_anisotropy(value:Anisotropy):Anisotropy
-	{
+	override private function set_anisotropy(value:Anisotropy):Anisotropy {
 		if (_anisotropy == value)
 			return value;
 		super.anisotropy = value;
@@ -371,13 +346,11 @@ class CompiledPass extends MaterialPassBase
 	 * The normal map to modulate the direction of the surface for each texel. The default normal method expects
 	 * tangent-space normal maps, but others could expect object-space maps.
 	 */
-	private function get_normalMap():Texture2DBase
-	{
+	private function get_normalMap():Texture2DBase {
 		return _methodSetup._normalMethod.normalMap;
 	}
-	
-	private function set_normalMap(value:Texture2DBase):Texture2DBase
-	{
+
+	private function set_normalMap(value:Texture2DBase):Texture2DBase {
 		_methodSetup._normalMethod.normalMap = value;
 		return value;
 	}
@@ -385,13 +358,11 @@ class CompiledPass extends MaterialPassBase
 	/**
 	 * The method used to generate the per-pixel normals. Defaults to BasicNormalMethod.
 	 */
-	private function get_normalMethod():BasicNormalMethod
-	{
+	private function get_normalMethod():BasicNormalMethod {
 		return _methodSetup.normalMethod;
 	}
-	
-	private function set_normalMethod(value:BasicNormalMethod):BasicNormalMethod
-	{
+
+	private function set_normalMethod(value:BasicNormalMethod):BasicNormalMethod {
 		_methodSetup.normalMethod = value;
 		return value;
 	}
@@ -399,13 +370,11 @@ class CompiledPass extends MaterialPassBase
 	/**
 	 * The method that provides the ambient lighting contribution. Defaults to BasicAmbientMethod.
 	 */
-	private function get_ambientMethod():BasicAmbientMethod
-	{
+	private function get_ambientMethod():BasicAmbientMethod {
 		return _methodSetup.ambientMethod;
 	}
-	
-	private function set_ambientMethod(value:BasicAmbientMethod):BasicAmbientMethod
-	{
+
+	private function set_ambientMethod(value:BasicAmbientMethod):BasicAmbientMethod {
 		_methodSetup.ambientMethod = value;
 		return value;
 	}
@@ -413,13 +382,11 @@ class CompiledPass extends MaterialPassBase
 	/**
 	 * The method used to render shadows cast on this surface, or null if no shadows are to be rendered. Defaults to null.
 	 */
-	private function get_shadowMethod():ShadowMapMethodBase
-	{
+	private function get_shadowMethod():ShadowMapMethodBase {
 		return _methodSetup.shadowMethod;
 	}
-	
-	private function set_shadowMethod(value:ShadowMapMethodBase):ShadowMapMethodBase
-	{
+
+	private function set_shadowMethod(value:ShadowMapMethodBase):ShadowMapMethodBase {
 		_methodSetup.shadowMethod = value;
 		return value;
 	}
@@ -427,13 +394,11 @@ class CompiledPass extends MaterialPassBase
 	/**
 	 * The method that provides the diffuse lighting contribution. Defaults to BasicDiffuseMethod.
 	 */
-	private function get_diffuseMethod():BasicDiffuseMethod
-	{
+	private function get_diffuseMethod():BasicDiffuseMethod {
 		return _methodSetup.diffuseMethod;
 	}
-	
-	private function set_diffuseMethod(value:BasicDiffuseMethod):BasicDiffuseMethod
-	{
+
+	private function set_diffuseMethod(value:BasicDiffuseMethod):BasicDiffuseMethod {
 		_methodSetup.diffuseMethod = value;
 		return value;
 	}
@@ -441,13 +406,11 @@ class CompiledPass extends MaterialPassBase
 	/**
 	 * The method that provides the specular lighting contribution. Defaults to BasicSpecularMethod.
 	 */
-	private function get_specularMethod():BasicSpecularMethod
-	{
+	private function get_specularMethod():BasicSpecularMethod {
 		return _methodSetup.specularMethod;
 	}
-	
-	private function set_specularMethod(value:BasicSpecularMethod):BasicSpecularMethod
-	{
+
+	private function set_specularMethod(value:BasicSpecularMethod):BasicSpecularMethod {
 		_methodSetup.specularMethod = value;
 		return value;
 	}
@@ -455,54 +418,50 @@ class CompiledPass extends MaterialPassBase
 	/**
 	 * Initializes the pass.
 	 */
-	private function init():Void
-	{
+	private function init():Void {
 		_methodSetup = new ShaderMethodSetup();
 		_methodSetup.addEventListener(ShadingMethodEvent.SHADER_INVALIDATED, onShaderInvalidated);
 	}
-	
+
 	/**
 	 * @inheritDoc
 	 */
-	override public function dispose():Void
-	{
+	override public function dispose():Void {
 		super.dispose();
 		_methodSetup.removeEventListener(ShadingMethodEvent.SHADER_INVALIDATED, onShaderInvalidated);
 		_methodSetup.dispose();
 		_methodSetup = null;
 	}
-	
+
 	/**
 	 * @inheritDoc
 	 */
-	override private function invalidateShaderProgram(updateMaterial:Bool = true):Void
-	{
+	override private function invalidateShaderProgram(updateMaterial:Bool = true):Void {
 		var oldPasses:Vector<MaterialPassBase> = _passes;
 		_passes = new Vector<MaterialPassBase>();
-		
-		if (_methodSetup != null) 
+
+		if (_methodSetup != null)
 			addPassesFromMethods();
-		
+
 		if (oldPasses == null || _passes.length != oldPasses.length) {
 			_passesDirty = true;
 			return;
 		}
-		
+
 		for (i in 0..._passes.length) {
 			if (_passes[i] != oldPasses[i]) {
 				_passesDirty = true;
 				return;
 			}
 		}
-		
+
 		super.invalidateShaderProgram(updateMaterial);
 	}
 
 	/**
 	 * Adds any possible passes needed by the used methods.
 	 */
-	private function addPassesFromMethods():Void
-	{
+	private function addPassesFromMethods():Void {
 		if (_methodSetup._normalMethod != null && _methodSetup._normalMethod.hasOutput)
 			addPasses(_methodSetup._normalMethod.passes);
 		if (_methodSetup._ambientMethod != null)
@@ -514,19 +473,18 @@ class CompiledPass extends MaterialPassBase
 		if (_methodSetup._specularMethod != null)
 			addPasses(_methodSetup._specularMethod.passes);
 	}
-	
+
 	/**
 	 * Adds internal passes to the material.
 	 *
 	 * @param passes The passes to add.
 	 */
-	private function addPasses(passes:Vector<MaterialPassBase>):Void
-	{
+	private function addPasses(passes:Vector<MaterialPassBase>):Void {
 		if (passes == null)
 			return;
-		
+
 		var len:Int = passes.length;
-		
+
 		for (i in 0...len) {
 			passes[i].material = material;
 			passes[i].lightPicker = _lightPicker;
@@ -537,8 +495,7 @@ class CompiledPass extends MaterialPassBase
 	/**
 	 * Initializes the default UV transformation matrix.
 	 */
-	private function initUVTransformData():Void
-	{
+	private function initUVTransformData():Void {
 		_vertexConstantData[_uvTransformIndex] = 1;
 		_vertexConstantData[_uvTransformIndex + 1] = 0;
 		_vertexConstantData[_uvTransformIndex + 2] = 0;
@@ -552,8 +509,7 @@ class CompiledPass extends MaterialPassBase
 	/**
 	 * Initializes the default UV transformation matrix.
 	 */
-	private function initUVTransformData2():Void
-	{
+	private function initUVTransformData2():Void {
 		_vertexConstantData[_uvTransformIndex2] = 1;
 		_vertexConstantData[_uvTransformIndex2 + 1] = 0;
 		_vertexConstantData[_uvTransformIndex2 + 2] = 0;
@@ -567,19 +523,17 @@ class CompiledPass extends MaterialPassBase
 	/**
 	 * Initializes commonly required constant values.
 	 */
-	private function initCommonsData():Void
-	{
+	private function initCommonsData():Void {
 		_fragmentConstantData[_commonsDataIndex] = .5;
 		_fragmentConstantData[_commonsDataIndex + 1] = 0;
-		_fragmentConstantData[_commonsDataIndex + 2] = 1/255;
+		_fragmentConstantData[_commonsDataIndex + 2] = 1 / 255;
 		_fragmentConstantData[_commonsDataIndex + 3] = 1;
 	}
 
 	/**
 	 * Cleans up the after compiling.
 	 */
-	private function cleanUp():Void
-	{
+	private function cleanUp():Void {
 		_compiler.dispose();
 		_compiler = null;
 	}
@@ -587,8 +541,7 @@ class CompiledPass extends MaterialPassBase
 	/**
 	 * Updates method constants if they have changed.
 	 */
-	private function updateMethodConstants():Void
-	{
+	private function updateMethodConstants():Void {
 		if (_methodSetup._normalMethod != null)
 			_methodSetup._normalMethod.initConstants(_methodSetup._normalMethodVO);
 		if (_methodSetup._diffuseMethod != null)
@@ -604,52 +557,44 @@ class CompiledPass extends MaterialPassBase
 	/**
 	 * Updates constant data render state used by the lights. This method is optional for subclasses to implement.
 	 */
-	private function updateLightConstants():Void
-	{
-	    // up to subclasses to optionally implement
+	private function updateLightConstants():Void {
+		// up to subclasses to optionally implement
 	}
 
 	/**
 	 * Updates constant data render state used by the light probes. This method is optional for subclasses to implement.
 	 */
-	private function updateProbes(stage3DProxy:Stage3DProxy):Void
-	{
-	
-	}
+	private function updateProbes(stage3DProxy:Stage3DProxy):Void {}
 
 	/**
 	 * Called when any method's shader code is invalidated.
 	 */
-	private function onShaderInvalidated(event:ShadingMethodEvent):Void
-	{
+	private function onShaderInvalidated(event:ShadingMethodEvent):Void {
 		invalidateShaderProgram();
 	}
-	
+
 	/**
 	 * @inheritDoc
 	 */
-	override private function getVertexCode():String
-	{
+	override private function getVertexCode():String {
 		return _vertexCode;
 	}
-	
+
 	/**
 	 * @inheritDoc
 	 */
-	override private function getFragmentCode(animatorCode:String):String
-	{
+	override private function getFragmentCode(animatorCode:String):String {
 		return _fragmentLightCode + animatorCode + _framentPostLightCode;
 	}
-	
+
 	// RENDER LOOP
-	
+
 	/**
 	 * @inheritDoc
 	 */
-	override private function activate(stage3DProxy:Stage3DProxy, camera:Camera3D):Void
-	{
+	override private function activate(stage3DProxy:Stage3DProxy, camera:Camera3D):Void {
 		super.activate(stage3DProxy, camera);
-		
+
 		if (_usesNormals)
 			_methodSetup._normalMethod.activate(_methodSetup._normalMethodVO, stage3DProxy);
 		_methodSetup._ambientMethod.activate(_methodSetup._ambientMethodVO, stage3DProxy);
@@ -659,12 +604,11 @@ class CompiledPass extends MaterialPassBase
 		if (_usingSpecularMethod)
 			_methodSetup._specularMethod.activate(_methodSetup._specularMethodVO, stage3DProxy);
 	}
-	
+
 	/**
 	 * @inheritDoc
 	 */
-	override private function render(renderable:IRenderable, stage3DProxy:Stage3DProxy, camera:Camera3D, viewProjection:Matrix3D):Void
-	{
+	override private function render(renderable:IRenderable, stage3DProxy:Stage3DProxy, camera:Camera3D, viewProjection:Matrix3D):Void {
 		var i:Int = 0;
 		var context:Context3D = stage3DProxy._context3D;
 		if (_uvBufferIndex >= 0)
@@ -675,7 +619,7 @@ class CompiledPass extends MaterialPassBase
 			renderable.activateVertexNormalBuffer(_normalBufferIndex, stage3DProxy);
 		if (_tangentBufferIndex >= 0)
 			renderable.activateVertexTangentBuffer(_tangentBufferIndex, stage3DProxy);
-		
+
 		if (_animateUVs) {
 			var uvTransform:Matrix = renderable.uvTransform;
 			if (uvTransform != null) {
@@ -694,7 +638,7 @@ class CompiledPass extends MaterialPassBase
 				_vertexConstantData[_uvTransformIndex + 7] = 0;
 			}
 		}
-		
+
 		if (_animateUVs2) {
 			var uvTransform2:Matrix = renderable.uvTransform2;
 			if (uvTransform2 != null) {
@@ -704,9 +648,7 @@ class CompiledPass extends MaterialPassBase
 				_vertexConstantData[_uvTransformIndex2 + 4] = uvTransform2.c;
 				_vertexConstantData[_uvTransformIndex2 + 5] = uvTransform2.d;
 				_vertexConstantData[_uvTransformIndex2 + 7] = uvTransform2.ty;
-			}
-
-			else {
+			} else {
 				_vertexConstantData[_uvTransformIndex2] = 1;
 				_vertexConstantData[_uvTransformIndex2 + 1] = 0;
 				_vertexConstantData[_uvTransformIndex2 + 3] = 0;
@@ -715,7 +657,7 @@ class CompiledPass extends MaterialPassBase
 				_vertexConstantData[_uvTransformIndex2 + 7] = 0;
 			}
 		}
-		
+
 		_ambientLightR = _ambientLightG = _ambientLightB = 0;
 
 		if (usesLights())
@@ -723,7 +665,7 @@ class CompiledPass extends MaterialPassBase
 
 		if (usesProbes())
 			updateProbes(stage3DProxy);
-		
+
 		if (_sceneMatrixIndex >= 0) {
 			renderable.getRenderSceneTransform(camera).copyRawDataTo(_vertexConstantData, _sceneMatrixIndex, true);
 			viewProjection.copyRawDataTo(_vertexConstantData, 0, true);
@@ -733,19 +675,19 @@ class CompiledPass extends MaterialPassBase
 			matrix3D.append(viewProjection);
 			matrix3D.copyRawDataTo(_vertexConstantData, 0, true);
 		}
-		
+
 		if (_sceneNormalMatrixIndex >= 0)
 			renderable.inverseSceneTransform.copyRawDataTo(_vertexConstantData, _sceneNormalMatrixIndex, false);
-		
+
 		if (_usesNormals)
 			_methodSetup._normalMethod.setRenderState(_methodSetup._normalMethodVO, renderable, stage3DProxy, camera);
-		
+
 		var ambientMethod:BasicAmbientMethod = _methodSetup._ambientMethod;
 		ambientMethod._lightAmbientR = _ambientLightR;
 		ambientMethod._lightAmbientG = _ambientLightG;
 		ambientMethod._lightAmbientB = _ambientLightB;
 		ambientMethod.setRenderState(_methodSetup._ambientMethodVO, renderable, stage3DProxy, camera);
-		
+
 		if (_methodSetup._shadowMethod != null)
 			_methodSetup._shadowMethod.setRenderState(_methodSetup._shadowMethodVO, renderable, stage3DProxy, camera);
 		_methodSetup._diffuseMethod.setRenderState(_methodSetup._diffuseMethodVO, renderable, stage3DProxy, camera);
@@ -753,17 +695,17 @@ class CompiledPass extends MaterialPassBase
 			_methodSetup._specularMethod.setRenderState(_methodSetup._specularMethodVO, renderable, stage3DProxy, camera);
 		if (_methodSetup._colorTransformMethod != null)
 			_methodSetup._colorTransformMethod.setRenderState(_methodSetup._colorTransformMethodVO, renderable, stage3DProxy, camera);
-		
+
 		var methods:Vector<MethodVOSet> = _methodSetup._methods;
 		var len:Int = methods.length;
 		for (i in 0...len) {
 			var set:MethodVOSet = methods[i];
 			set.method.setRenderState(set.data, renderable, stage3DProxy, camera);
 		}
-		
+
 		context.setProgramConstantsFromVector(Context3DProgramType.VERTEX, 0, _vertexConstantData, _numUsedVertexConstants);
 		context.setProgramConstantsFromVector(Context3DProgramType.FRAGMENT, 0, _fragmentConstantData, _numUsedFragmentConstants);
-		
+
 		renderable.activateVertexBuffer(0, stage3DProxy);
 		stage3DProxy.drawTriangles(renderable.getIndexBuffer(stage3DProxy), 0, renderable.numTriangles);
 	}
@@ -771,26 +713,24 @@ class CompiledPass extends MaterialPassBase
 	/**
 	 * Indicates whether the shader uses any light probes.
 	 */
-	private function usesProbes():Bool
-	{
+	private function usesProbes():Bool {
 		return _numLightProbes > 0 && ((_diffuseLightSources | _specularLightSources) & LightSources.PROBES) != 0;
 	}
 
 	/**
 	 * Indicates whether the shader uses any lights.
 	 */
-	private function usesLights():Bool
-	{
-		return (_numPointLights > 0 || _numDirectionalLights > 0) && ((_diffuseLightSources | _specularLightSources) & LightSources.LIGHTS) != 0;
+	private function usesLights():Bool {
+		return (_numPointLights > 0 || _numDirectionalLights > 0)
+			&& ((_diffuseLightSources | _specularLightSources) & LightSources.LIGHTS) != 0;
 	}
-	
+
 	/**
 	 * @inheritDoc
 	 */
-	override private function deactivate(stage3DProxy:Stage3DProxy):Void
-	{
+	override private function deactivate(stage3DProxy:Stage3DProxy):Void {
 		super.deactivate(stage3DProxy);
-		
+
 		if (_usesNormals)
 			_methodSetup._normalMethod.deactivate(_methodSetup._normalMethodVO, stage3DProxy);
 		_methodSetup._ambientMethod.deactivate(_methodSetup._ambientMethodVO, stage3DProxy);
@@ -807,13 +747,11 @@ class CompiledPass extends MaterialPassBase
 	 *
 	 * @see away3d.materials.LightSources
 	 */
-	private function get_specularLightSources():Int
-	{
+	private function get_specularLightSources():Int {
 		return _specularLightSources;
 	}
-	
-	private function set_specularLightSources(value:Int):Int
-	{
+
+	private function set_specularLightSources(value:Int):Int {
 		_specularLightSources = value;
 		return value;
 	}
@@ -824,13 +762,11 @@ class CompiledPass extends MaterialPassBase
 	 *
 	 * @see away3d.materials.LightSources
 	 */
-	private function get_diffuseLightSources():Int
-	{
+	private function get_diffuseLightSources():Int {
 		return _diffuseLightSources;
 	}
-	
-	private function set_diffuseLightSources(value:Int):Int
-	{
+
+	private function set_diffuseLightSources(value:Int):Int {
 		_diffuseLightSources = value;
 		return value;
 	}

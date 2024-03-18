@@ -6,12 +6,11 @@ import openfl.Vector;
 /**
  * A WireframeSphere primitive mesh
  */
-class WireframeSphere extends WireframePrimitiveBase
-{
+class WireframeSphere extends WireframePrimitiveBase {
 	private var _segmentsW:Int;
 	private var _segmentsH:Int;
 	private var _radius:Float;
-	
+
 	/**
 	 * Creates a new WireframeSphere object.
 	 * @param radius The radius of the sphere.
@@ -20,53 +19,51 @@ class WireframeSphere extends WireframePrimitiveBase
 	 * @param color The colour of the wireframe lines
 	 * @param thickness The thickness of the wireframe lines
 	 */
-	public function new(radius:Float = 50, segmentsW:Int = 16, segmentsH:Int = 12, color:Int = 0xFFFFFF, thickness:Float = 1)
-	{
+	public function new(radius:Float = 50, segmentsW:Int = 16, segmentsH:Int = 12, color:Int = 0xFFFFFF, thickness:Float = 1) {
 		super(color, thickness);
-		
+
 		_radius = radius;
 		_segmentsW = segmentsW;
 		_segmentsH = segmentsH;
 	}
-	
+
 	/**
 	 * @inheritDoc
 	 */
-	override private function buildGeometry():Void
-	{
+	override private function buildGeometry():Void {
 		var vertices:Vector<Float> = new Vector<Float>();
 		var v0:Vector3D = new Vector3D();
 		var v1:Vector3D = new Vector3D();
 		var numVerts:Int = 0;
 		var index:Int = 0;
-		
+
 		var horangle:Float, z:Float, ringradius:Float;
 		var verangle:Float, x:Float, y:Float;
-		
+
 		for (j in 0...(_segmentsH + 1)) {
-			horangle = Math.PI*j/_segmentsH;
-			z = -_radius*Math.cos(horangle);
-			ringradius = _radius*Math.sin(horangle);
-			
+			horangle = Math.PI * j / _segmentsH;
+			z = -_radius * Math.cos(horangle);
+			ringradius = _radius * Math.sin(horangle);
+
 			for (i in 0...(_segmentsW + 1)) {
-				verangle = 2*Math.PI*i/_segmentsW;
-				x = ringradius*Math.cos(verangle);
-				y = ringradius*Math.sin(verangle);
+				verangle = 2 * Math.PI * i / _segmentsW;
+				x = ringradius * Math.cos(verangle);
+				y = ringradius * Math.sin(verangle);
 				vertices[numVerts++] = x;
 				vertices[numVerts++] = -z;
 				vertices[numVerts++] = y;
 			}
 		}
-		
+
 		var a:Int, b:Int, c:Int, d:Int;
-		
+
 		for (j in 1...(_segmentsH + 1)) {
 			for (i in 1...(_segmentsH + 1)) {
-				a = ((_segmentsW + 1)*j + i)*3;
-				b = ((_segmentsW + 1)*j + i - 1)*3;
-				c = ((_segmentsW + 1)*(j - 1) + i - 1)*3;
-				d = ((_segmentsW + 1)*(j - 1) + i)*3;
-				
+				a = ((_segmentsW + 1) * j + i) * 3;
+				b = ((_segmentsW + 1) * j + i - 1) * 3;
+				c = ((_segmentsW + 1) * (j - 1) + i - 1) * 3;
+				d = ((_segmentsW + 1) * (j - 1) + i) * 3;
+
 				if (j == _segmentsH) {
 					v0.x = vertices[c];
 					v0.y = vertices[c + 1];

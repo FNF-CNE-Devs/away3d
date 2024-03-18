@@ -2,29 +2,25 @@ package away3d.animators.utils;
 
 import away3d.animators.data.*;
 import away3d.animators.nodes.*;
-
 import openfl.errors.Error;
 import openfl.geom.*;
 import openfl.Vector;
 
-class SkeletonUtils
-{
-	public static function generateDifferenceClip(source:SkeletonClipNode, referencePose:SkeletonPose):SkeletonClipNode
-	{
+class SkeletonUtils {
+	public static function generateDifferenceClip(source:SkeletonClipNode, referencePose:SkeletonPose):SkeletonClipNode {
 		var diff:SkeletonClipNode = new SkeletonClipNode();
 		var numFrames:Int = source.frames.length;
-		
+
 		for (i in 0...numFrames)
 			diff.addFrame(generateDifferencePose(source.frames[i], referencePose), source.durations[i]);
-		
+
 		return diff;
 	}
-	
-	public static function generateDifferencePose(source:SkeletonPose, reference:SkeletonPose):SkeletonPose
-	{
+
+	public static function generateDifferencePose(source:SkeletonPose, reference:SkeletonPose):SkeletonPose {
 		if (source.numJointPoses != reference.numJointPoses)
 			throw new Error("joint counts don't match!");
-		
+
 		var numJoints:Int = source.numJointPoses;
 		var diff:SkeletonPose = new SkeletonPose();
 		var srcPose:JointPose;
@@ -33,14 +29,14 @@ class SkeletonUtils
 		var mtx:Matrix3D = new Matrix3D();
 		var tempMtx:Matrix3D = new Matrix3D();
 		var vec:Vector<Vector3D>;
-		
+
 		for (i in 0...numJoints) {
 			srcPose = source.jointPoses[i];
 			refPose = reference.jointPoses[i];
 			diffPose = new JointPose();
 			diff.jointPoses[i] = diffPose;
 			diffPose.name = srcPose.name;
-			
+
 			refPose.toMatrix3D(mtx);
 			mtx.invert();
 			mtx.append(srcPose.toMatrix3D(tempMtx));
@@ -51,7 +47,7 @@ class SkeletonUtils
 			diffPose.orientation.z = vec[1].z;
 			diffPose.orientation.w = vec[1].w;
 		}
-		
+
 		return diff;
 	}
 }

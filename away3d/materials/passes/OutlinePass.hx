@@ -9,7 +9,6 @@ import away3d.core.base.SubMesh;
 import away3d.core.managers.Stage3DProxy;
 import away3d.core.math.Matrix3DUtils;
 import away3d.entities.Mesh;
-
 import openfl.display3D.Context3D;
 import openfl.display3D.Context3DCompareMode;
 import openfl.display3D.Context3DProgramType;
@@ -22,19 +21,18 @@ import openfl.Vector;
  *
  * @see away3d.materials.methods.OutlineMethod
  */
-class OutlinePass extends MaterialPassBase
-{
+class OutlinePass extends MaterialPassBase {
 	public var showInnerLines(get, set):Bool;
 	public var outlineColor(get, set):Int;
 	public var outlineSize(get, set):Float;
-	
+
 	private var _outlineColor:Int;
 	private var _colorData:Vector<Float>;
 	private var _offsetData:Vector<Float>;
 	private var _showInnerLines:Bool;
 	private var _outlineMeshes:Map<IRenderable, Mesh>;
 	private var _dedicatedMeshes:Bool;
-	
+
 	/**
 	 * Creates a new OutlinePass object.
 	 * @param outlineColor The colour of the outline stroke
@@ -42,8 +40,7 @@ class OutlinePass extends MaterialPassBase
 	 * @param showInnerLines Indicates whether or not strokes should be potentially drawn over the existing model.
 	 * @param dedicatedWaterProofMesh Used to stitch holes appearing due to mismatching normals for overlapping vertices. Warning: this will create a new mesh that is incompatible with animations!
 	 */
-	public function new(outlineColor:Int = 0x000000, outlineSize:Float = 20, showInnerLines:Bool = true, dedicatedMeshes:Bool = false)
-	{
+	public function new(outlineColor:Int = 0x000000, outlineSize:Float = 20, showInnerLines:Bool = true, dedicatedMeshes:Bool = false) {
 		super();
 		mipmap = false;
 		_colorData = new Vector<Float>(4, true);
@@ -58,17 +55,15 @@ class OutlinePass extends MaterialPassBase
 		_dedicatedMeshes = dedicatedMeshes;
 		if (dedicatedMeshes)
 			_outlineMeshes = new Map<IRenderable, Mesh>();
-		
+
 		_animatableAttributes = Vector.ofArray(["va0", "va1"]);
 		_animationTargetRegisters = Vector.ofArray(["vt0", "vt1"]);
-	
 	}
-	
+
 	/**
 	 * Clears the dedicated mesh associated with a Mesh object to free up memory.
 	 */
-	public function clearDedicatedMesh(mesh:Mesh):Void
-	{
+	public function clearDedicatedMesh(mesh:Mesh):Void {
 		if (_dedicatedMeshes) {
 			for (i in 0...mesh.subMeshes.length)
 				disposeDedicated(mesh.subMeshes[i]);
@@ -78,22 +73,19 @@ class OutlinePass extends MaterialPassBase
 	/**
 	 * Disposes a single dedicated sub-mesh.
 	 */
-	private function disposeDedicated(keySubMesh:Dynamic):Void
-	{
+	private function disposeDedicated(keySubMesh:Dynamic):Void {
 		var mesh:Mesh = _outlineMeshes[keySubMesh];
 		mesh.geometry.dispose();
 		mesh.dispose();
 		_outlineMeshes.remove(keySubMesh);
 	}
 
-
 	/**
 	 * @inheritDoc
 	 */
-	override public function dispose():Void
-	{
+	override public function dispose():Void {
 		super.dispose();
-		
+
 		if (_dedicatedMeshes) {
 			for (key in _outlineMeshes)
 				disposeDedicated(key);
@@ -105,13 +97,11 @@ class OutlinePass extends MaterialPassBase
 	 * Set this to true to draw outlines for geometry overlapping in the view, useful to achieve a cel-shaded drawing outline.
 	 * Setting this to false will only cause the outline to appear around the 2D projection of the geometry.
 	 */
-	private function get_showInnerLines():Bool
-	{
+	private function get_showInnerLines():Bool {
 		return _showInnerLines;
 	}
-	
-	private function set_showInnerLines(value:Bool):Bool
-	{
+
+	private function set_showInnerLines(value:Bool):Bool {
 		_showInnerLines = value;
 		return value;
 	}
@@ -119,65 +109,56 @@ class OutlinePass extends MaterialPassBase
 	/**
 	 * The colour of the outline.
 	 */
-	private function get_outlineColor():Int
-	{
+	private function get_outlineColor():Int {
 		return _outlineColor;
 	}
-	
-	private function set_outlineColor(value:Int):Int
-	{
+
+	private function set_outlineColor(value:Int):Int {
 		_outlineColor = value;
-		_colorData[0] = ((value >> 16) & 0xff)/0xff;
-		_colorData[1] = ((value >> 8) & 0xff)/0xff;
-		_colorData[2] = (value & 0xff)/0xff;
+		_colorData[0] = ((value >> 16) & 0xff) / 0xff;
+		_colorData[1] = ((value >> 8) & 0xff) / 0xff;
+		_colorData[2] = (value & 0xff) / 0xff;
 		return value;
 	}
 
 	/**
 	 * The size of the outline.
 	 */
-	private function get_outlineSize():Float
-	{
+	private function get_outlineSize():Float {
 		return _offsetData[0];
 	}
-	
-	private function set_outlineSize(value:Float):Float
-	{
+
+	private function set_outlineSize(value:Float):Float {
 		_offsetData[0] = value;
 		return value;
 	}
-	
+
 	/**
 	 * @inheritDoc
 	 */
-	override private function getVertexCode():String
-	{
+	override private function getVertexCode():String {
 		var code:String;
 		// offset
-		code = "mul vt7, vt1, vc5.x\n" +
-			"add vt7, vt7, vt0\n" +
-			"mov vt7.w, vt0.w\n" +
-			// project and scale to viewport
+		code = "mul vt7, vt1, vc5.x\n" + "add vt7, vt7, vt0\n" + "mov vt7.w, vt0.w\n" + // project and scale to viewport
 			"m44 op, vt7, vc0		\n";
-		
+
 		return code;
 	}
-	
+
 	/**
 	 * @inheritDoc
 	 */
 	override private function getFragmentCode(animationCode:String):String {
 		return "mov oc, fc0\n";
 	}
-	
+
 	/**
 	 * @inheritDoc
 	 */
-	override private function activate(stage3DProxy:Stage3DProxy, camera:Camera3D):Void
-	{
+	override private function activate(stage3DProxy:Stage3DProxy, camera:Camera3D):Void {
 		var context:Context3D = stage3DProxy._context3D;
 		super.activate(stage3DProxy, camera);
-		
+
 		// do not write depth if not drawing inner lines (will cause the overdraw to hide inner lines)
 		if (!_showInnerLines)
 			context.setDepthTest(false, Context3DCompareMode.LESS);
@@ -189,8 +170,7 @@ class OutlinePass extends MaterialPassBase
 	/**
 	 * @inheritDoc
 	 */
-	override private function deactivate(stage3DProxy:Stage3DProxy):Void
-	{
+	override private function deactivate(stage3DProxy:Stage3DProxy):Void {
 		super.deactivate(stage3DProxy);
 		if (!_showInnerLines)
 			stage3DProxy._context3D.setDepthTest(true, Context3DCompareMode.LESS);
@@ -199,28 +179,27 @@ class OutlinePass extends MaterialPassBase
 	/**
 	 * @inheritDoc
 	 */
-	override private function render(renderable:IRenderable, stage3DProxy:Stage3DProxy, camera:Camera3D, viewProjection:Matrix3D):Void
-	{
+	override private function render(renderable:IRenderable, stage3DProxy:Stage3DProxy, camera:Camera3D, viewProjection:Matrix3D):Void {
 		var mesh:Mesh = null, dedicatedRenderable:IRenderable;
-		
+
 		var context:Context3D = stage3DProxy._context3D;
 		var matrix3D:Matrix3D = Matrix3DUtils.CALCULATION_MATRIX;
 		matrix3D.copyFrom(renderable.getRenderSceneTransform(camera));
 		matrix3D.append(viewProjection);
-		
+
 		if (_dedicatedMeshes) {
 			if (!_outlineMeshes.exists(renderable))
 				_outlineMeshes[renderable] = createDedicatedMesh(cast(renderable, SubMesh).subGeometry);
 			mesh = _outlineMeshes[renderable];
 			dedicatedRenderable = mesh.subMeshes[0];
-			
+
 			context.setProgramConstantsFromMatrix(Context3DProgramType.VERTEX, 0, matrix3D, true);
 			dedicatedRenderable.activateVertexBuffer(0, stage3DProxy);
 			dedicatedRenderable.activateVertexNormalBuffer(1, stage3DProxy);
 			stage3DProxy.drawTriangles(dedicatedRenderable.getIndexBuffer(stage3DProxy), 0, dedicatedRenderable.numTriangles);
 		} else {
 			renderable.activateVertexNormalBuffer(1, stage3DProxy);
-			
+
 			context.setProgramConstantsFromMatrix(Context3DProgramType.VERTEX, 0, matrix3D, true);
 			renderable.activateVertexBuffer(0, stage3DProxy);
 			stage3DProxy.drawTriangles(renderable.getIndexBuffer(stage3DProxy), 0, renderable.numTriangles);
@@ -233,8 +212,7 @@ class OutlinePass extends MaterialPassBase
 	 *
 	 * @param source The ISubGeometry object for which to generate a dedicated mesh.
 	 */
-	private function createDedicatedMesh(source:ISubGeometry):Mesh
-	{
+	private function createDedicatedMesh(source:ISubGeometry):Mesh {
 		var mesh:Mesh = new Mesh(new Geometry(), null);
 		var dest:SubGeometry = new SubGeometry();
 		var indexLookUp:Map<String, Int> = new Map<String, Int>();
@@ -251,39 +229,38 @@ class OutlinePass extends MaterialPassBase
 		var maxIndex:Int = 0;
 		var stride:Int = source.vertexStride;
 		var offset:Int = source.vertexOffset;
-		
+
 		for (i in 0...len) {
-			index = offset + srcIndices[i]*stride;
+			index = offset + srcIndices[i] * stride;
 			x = srcVertices[index];
 			y = srcVertices[index + 1];
 			z = srcVertices[index + 2];
 			key = toPrecision(x, 5) + "/" + toPrecision(y, 5) + "/" + toPrecision(z, 5);
-			
+
 			if (indexLookUp.exists(key))
 				index = indexLookUp[key] - 1;
 			else {
-				index = Std.int(vertexCount/3);
+				index = Std.int(vertexCount / 3);
 				indexLookUp[key] = index + 1;
 				dstVertices[vertexCount++] = x;
 				dstVertices[vertexCount++] = y;
 				dstVertices[vertexCount++] = z;
 			}
-			
+
 			if (index > maxIndex)
 				maxIndex = index;
 			dstIndices[indexCount++] = index;
 		}
-		
+
 		dest.autoDeriveVertexNormals = true;
 		dest.updateVertexData(dstVertices);
 		dest.updateIndexData(dstIndices);
 		mesh.geometry.addSubGeometry(dest);
 		return mesh;
 	}
-	
-	private function toPrecision (value:Float, precision:Int):String
-	{
+
+	private function toPrecision(value:Float, precision:Int):String {
 		var mult = precision * 10;
-		return Std.string (Std.int(value * mult)/mult);
+		return Std.string(Std.int(value * mult) / mult);
 	}
 }

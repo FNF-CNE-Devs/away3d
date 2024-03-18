@@ -12,9 +12,7 @@ import openfl.geom.Rectangle;
 import openfl.text.TextFieldAutoSize;
 import openfl.Vector;
 
-
 class TextField extends Mesh {
-	
 	private var vertexData:Vector<Float> = new Vector<Float>();
 	private var indexData:Vector<UInt> = new Vector<UInt>();
 	private var mText:String = "";
@@ -31,26 +29,28 @@ class TextField extends Mesh {
 	private var mKerning:Bool;
 	private var mLetterSpacing:Float = 0;
 	private var mBorder:DisplayObjectContainer;
+
 	public var mWidth:Float;
 	public var mHeight:Float;
-	
+
 	public var disposeMaterial:Bool = true;
-	
+
 	private var _boundsRect:Rectangle = new Rectangle();
-	
+
 	private var _textHeight:Float;
 	private var _textWidth:Float;
-	
+
 	private var _subGeometry:CompactSubGeometry;
 	private var colorTransformMethod:ColorTransformMethod;
 	private var textureMaterial:TextureMaterial;
-	
-	public function new(width:Float, height:Float, text:String, bitmapFont:BitmapFont, fontSize:Float = 12, color:UInt = 0x0, bold:Bool = false, _hAlign:String="left") {
+
+	public function new(width:Float, height:Float, text:String, bitmapFont:BitmapFont, fontSize:Float = 12, color:UInt = 0x0, bold:Bool = false,
+			_hAlign:String = "left") {
 		super(new Geometry(), bitmapFont.fontMaterial);
-		
+
 		mText = text;
 		mBitmapFont = bitmapFont;
-		
+
 		mWidth = width;
 		mHeight = height;
 		mFontSize = fontSize;
@@ -65,7 +65,7 @@ class TextField extends Mesh {
 		_subGeometry.autoDeriveVertexNormals = true;
 		_subGeometry.autoDeriveVertexTangents = true;
 		geometry.addSubGeometry(_subGeometry);
-		
+
 		textureMaterial = bitmapFont.fontMaterial;
 		var rgb:Vector<UInt> = HexToRGB(color);
 		if (textureMaterial.colorTransform == null) {
@@ -75,20 +75,19 @@ class TextField extends Mesh {
 		textureMaterial.colorTransform.greenMultiplier = rgb[1] / 255;
 		textureMaterial.colorTransform.blueMultiplier = rgb[2] / 255;
 		textureMaterial.colorTransform.alphaMultiplier = textureMaterial.alpha;
-		
+
 		material = textureMaterial;
-		
+
 		material.alphaPremultiplied = true;
-		var castMat:SinglePassMaterialBase = #if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end(material, SinglePassMaterialBase) ? cast material : null;
+		var castMat:SinglePassMaterialBase = #if (haxe_ver >= 4.2) Std.isOfType #else Std.is #end (material, SinglePassMaterialBase) ? cast material : null;
 		if (castMat != null) {
 			castMat.alphaBlending = true;
 		}
-		
+
 		updateText();
 	}
-	
-	public function HexToRGB(hex:UInt):Vector<UInt>
-	{
+
+	public function HexToRGB(hex:UInt):Vector<UInt> {
 		var rgb = new Vector<UInt>();
 		var r:UInt = hex >> 16 & 0xFF;
 		var g:UInt = hex >> 8 & 0xFF;
@@ -100,21 +99,21 @@ class TextField extends Mesh {
 	}
 
 	override public function dispose():Void {
-		if(disposeMaterial)material.dispose();
+		if (disposeMaterial)
+			material.dispose();
 		super.dispose();
 	}
 
 	private function updateText():Void {
-		
 		mBitmapFont.fillBatched(vertexData, indexData, mWidth, mHeight, mText, mFontSize, mHAlign, mVAlign, mAutoScale, mKerning, mLetterSpacing);
-		
+
 		_subGeometry.updateData(vertexData);
 		_subGeometry.updateIndexData(indexData);
 	}
 
-
 	/** Indicates whether the text is bold. @default false */
 	public var bold(get, set):Bool;
+
 	private function get_bold():Bool {
 		return mBold;
 	}
@@ -129,6 +128,7 @@ class TextField extends Mesh {
 
 	/** Indicates whether the text is italicized. @default false */
 	public var italic(get, set):Bool;
+
 	private function get_italic():Bool {
 		return mItalic;
 	}
@@ -143,6 +143,7 @@ class TextField extends Mesh {
 
 	/** Indicates whether the text is underlined. @default false */
 	public var underline(get, set):Bool;
+
 	private function get_underline():Bool {
 		return mUnderline;
 	}
@@ -157,6 +158,7 @@ class TextField extends Mesh {
 
 	/** Indicates whether kerning is enabled. @default true */
 	public var kerning(get, set):Bool;
+
 	private function get_kerning():Bool {
 		return mKerning;
 	}
@@ -169,12 +171,12 @@ class TextField extends Mesh {
 		return value;
 	}
 
-
 	/** A number representing the amount of space that is uniformly distributed between all characters.
 	 * The value specifies the number of pixels that are added to the advance after each character.
 	 * The default value is null, which means that 0 pixels of letter spacing is used.
 	 * You can use decimal values such as 1.75. @default 0 */
 	public var letterSpacing(get, set):Float;
+
 	private function get_letterSpacing():Float {
 		return mLetterSpacing;
 	}
@@ -190,6 +192,7 @@ class TextField extends Mesh {
 	/** Indicates whether the font size is scaled down so that the complete text fits
 	 *  into the text field. @default false */
 	public var autoScale(get, set):Bool;
+
 	private function get_autoScale():Bool {
 		return mAutoScale;
 	}
@@ -207,6 +210,7 @@ class TextField extends Mesh {
 	 *  implications on alignment: horizontally auto-sized text will always be left-,
 	 *  vertically auto-sized text will always be top-aligned. @default "none" */
 	public var autoSize(get, set):TextFieldAutoSize;
+
 	private function get_autoSize():TextFieldAutoSize {
 		return mAutoSize;
 	}
@@ -218,45 +222,44 @@ class TextField extends Mesh {
 		}
 		return value;
 	}
-	
+
 	public var textHeight(get, null):Float;
-	private function get_textHeight():Float 
-	{
+
+	private function get_textHeight():Float {
 		_textHeight = Math.abs(bounds.min.z - bounds.max.z);
 		return _textHeight;
 	}
-	
+
 	public var textWidth(get, null):Float;
-	private function get_textWidth():Float 
-	{
+
+	private function get_textWidth():Float {
 		_textWidth = Math.abs(bounds.min.x - bounds.max.x);
 		return _textWidth;
 	}
-	
+
 	public var boundsRect(get, null):Rectangle;
-	private function get_boundsRect():Rectangle 
-	{
+
+	private function get_boundsRect():Rectangle {
 		var minX:Float = bounds.min.x;
 		var maxX:Float = bounds.max.x;
-		
+
 		var minY:Float = bounds.min.y;
 		var maxY:Float = bounds.max.y;
-		
+
 		var minZ:Float = bounds.min.z;
 		var maxZ:Float = bounds.max.z;
-		
+
 		_boundsRect.setTo(minX, minZ, maxX - minX, maxZ - minZ);
 		return _boundsRect;
 	}
-	
+
 	public var alpha(get, set):Float;
-	private function get_alpha():Float 
-	{
+
+	private function get_alpha():Float {
 		return textureMaterial.colorTransform.alphaMultiplier;
 	}
-	
-	private function set_alpha(value:Float):Float 
-	{
+
+	private function set_alpha(value:Float):Float {
 		return textureMaterial.colorTransform.alphaMultiplier = value;
-	}	
+	}
 }

@@ -5,7 +5,6 @@ import away3d.core.base.*;
 import away3d.core.traverse.*;
 import away3d.library.assets.*;
 import away3d.lights.*;
-
 import openfl.geom.Vector3D;
 import openfl.Vector;
 
@@ -16,8 +15,7 @@ import openfl.Vector;
  *
  * @see StaticLightPicker
  */
-class LightPickerBase extends NamedAssetBase implements IAsset
-{
+class LightPickerBase extends NamedAssetBase implements IAsset {
 	public var assetType(get, never):String;
 	public var numDirectionalLights(get, never):Int;
 	public var numPointLights(get, never):Int;
@@ -31,7 +29,7 @@ class LightPickerBase extends NamedAssetBase implements IAsset
 	public var lightProbes(get, never):Vector<LightProbe>;
 	public var lightProbeWeights(get, never):Vector<Float>;
 	public var allPickedLights(get, never):Vector<LightBase>;
-	
+
 	private var _numPointLights:Int;
 	private var _numDirectionalLights:Int;
 	private var _numCastingPointLights:Int;
@@ -44,131 +42,114 @@ class LightPickerBase extends NamedAssetBase implements IAsset
 	private var _castingDirectionalLights:Vector<DirectionalLight>;
 	private var _lightProbes:Vector<LightProbe>;
 	private var _lightProbeWeights:Vector<Float>;
-	
+
 	/**
 	 * Creates a new LightPickerBase object.
 	 */
-	public function new()
-	{
+	public function new() {
 		super();
 	}
 
 	/**
 	 * Disposes resources used by the light picker.
 	 */
-	public function dispose():Void
-	{
-	}
+	public function dispose():Void {}
 
 	/**
 	 * @inheritDoc
 	 */
-	private function get_assetType():String
-	{
+	private function get_assetType():String {
 		return Asset3DType.LIGHT_PICKER;
 	}
-	
+
 	/**
 	 * The maximum amount of directional lights that will be provided.
 	 */
-	private function get_numDirectionalLights():Int
-	{
+	private function get_numDirectionalLights():Int {
 		return _numDirectionalLights;
 	}
-	
+
 	/**
 	 * The maximum amount of point lights that will be provided.
 	 */
-	private function get_numPointLights():Int
-	{
+	private function get_numPointLights():Int {
 		return _numPointLights;
 	}
-	
+
 	/**
 	 * The maximum amount of directional lights that cast shadows.
 	 */
-	private function get_numCastingDirectionalLights():Int
-	{
+	private function get_numCastingDirectionalLights():Int {
 		return _numCastingDirectionalLights;
 	}
-	
+
 	/**
 	 * The amount of point lights that cast shadows.
 	 */
-	private function get_numCastingPointLights():Int
-	{
+	private function get_numCastingPointLights():Int {
 		return _numCastingPointLights;
 	}
-	
+
 	/**
 	 * The maximum amount of light probes that will be provided.
 	 */
-	private function get_numLightProbes():Int
-	{
+	private function get_numLightProbes():Int {
 		return _numLightProbes;
 	}
 
 	/**
 	 * The collected point lights to be used for shading.
 	 */
-	private function get_pointLights():Vector<PointLight>
-	{
+	private function get_pointLights():Vector<PointLight> {
 		return _pointLights;
 	}
 
 	/**
 	 * The collected directional lights to be used for shading.
 	 */
-	private function get_directionalLights():Vector<DirectionalLight>
-	{
+	private function get_directionalLights():Vector<DirectionalLight> {
 		return _directionalLights;
 	}
 
 	/**
 	 * The collected point lights that cast shadows to be used for shading.
 	 */
-	private function get_castingPointLights():Vector<PointLight>
-	{
+	private function get_castingPointLights():Vector<PointLight> {
 		return _castingPointLights;
 	}
 
 	/**
 	 * The collected directional lights that cast shadows to be used for shading.
 	 */
-	private function get_castingDirectionalLights():Vector<DirectionalLight>
-	{
+	private function get_castingDirectionalLights():Vector<DirectionalLight> {
 		return _castingDirectionalLights;
 	}
 
 	/**
 	 * The collected light probes to be used for shading.
 	 */
-	private function get_lightProbes():Vector<LightProbe>
-	{
+	private function get_lightProbes():Vector<LightProbe> {
 		return _lightProbes;
 	}
 
 	/**
 	 * The weights for each light probe, defining their influence on the object.
 	 */
-	private function get_lightProbeWeights():Vector<Float>
-	{
+	private function get_lightProbeWeights():Vector<Float> {
 		return _lightProbeWeights;
 	}
 
 	/**
 	 * A collection of all the collected lights.
 	 */
-	private function get_allPickedLights():Vector<LightBase>
-	{
+	private function get_allPickedLights():Vector<LightBase> {
 		return _allPickedLights;
 	}
-	
+
 	/**
 	 * Updates set of lights for a given renderable and EntityCollector. Always call super.collectLights() after custom overridden code.
 	 */
-	public function collectLights(renderable:IRenderable, entityCollector:EntityCollector):Void
-	{
+	public function collectLights(renderable:IRenderable, entityCollector:EntityCollector):Void {
 		updateProbeWeights(renderable);
 	}
 
@@ -176,15 +157,16 @@ class LightPickerBase extends NamedAssetBase implements IAsset
 	 * Updates the weights for the light probes, based on the renderable's position relative to them.
 	 * @param renderable The renderble for which to calculate the light probes' influence.
 	 */
-	private function updateProbeWeights(renderable:IRenderable):Void
-	{
+	private function updateProbeWeights(renderable:IRenderable):Void {
 		// todo: this will cause the same calculations to occur per SubMesh. See if this can be improved.
 		var objectPos:Vector3D = renderable.sourceEntity.scenePosition;
 		var lightPos:Vector3D;
-		var rx:Float = objectPos.x, ry:Float = objectPos.y, rz:Float = objectPos.z;
+		var rx:Float = objectPos.x,
+			ry:Float = objectPos.y,
+			rz:Float = objectPos.z;
 		var dx:Float, dy:Float, dz:Float;
 		var w:Float, total:Float = 0;
-		
+
 		// calculates weights for probes
 		for (i in 0..._numLightProbes) {
 			lightPos = _lightProbes[i].scenePosition;
@@ -192,16 +174,16 @@ class LightPickerBase extends NamedAssetBase implements IAsset
 			dy = ry - lightPos.y;
 			dz = rz - lightPos.z;
 			// weight is inversely proportional to square of distance
-			w = dx*dx + dy*dy + dz*dz;
-			
+			w = dx * dx + dy * dy + dz * dz;
+
 			// just... huge if at the same spot
-			w = w > .00001? 1/w : 50000000;
+			w = w > .00001 ? 1 / w : 50000000;
 			_lightProbeWeights[i] = w;
 			total += w;
 		}
-		
+
 		// normalize
-		total = 1/total;
+		total = 1 / total;
 		for (i in 0..._numLightProbes)
 			_lightProbeWeights[i] *= total;
 	}

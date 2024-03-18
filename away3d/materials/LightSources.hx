@@ -11,20 +11,19 @@ package away3d.materials;
  * @see away3d.materials.TextureMaterial.diffuseLightSources
  * @see away3d.materials.TextureMaterial.specularLightSources
  */
-class LightSources
-{
+class LightSources {
 	/**
 	 * Defines normal lights are to be used as the source for the lighting
 	 * component.
 	 */
 	public static inline var LIGHTS:Int = 0x01;
-	
+
 	/**
 	 * Defines that global lighting probes are to be used as the source for the
 	 * lighting component.
 	 */
 	public static inline var PROBES:Int = 0x02;
-	
+
 	/**
 	 * Defines that both normal and global lighting probes  are to be used as the
 	 * source for the lighting component. This is equivalent to LIGHTS | PROBES.

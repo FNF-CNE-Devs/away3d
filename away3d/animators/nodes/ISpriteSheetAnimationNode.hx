@@ -7,13 +7,12 @@ import away3d.animators.data.SpriteSheetAnimationFrame;
  *
  * @see away3d.animators.SpriteSheetAnimator
  */
-interface ISpriteSheetAnimationNode
-{
+interface ISpriteSheetAnimationNode {
 	/**
 	 * Returns the current SpriteSheetAnimationFrame of animation in the clip based on the internal playhead position.
 	 */
 	var currentFrameData(get, never):SpriteSheetAnimationFrame;
-	
+
 	/**
 	 * Returns the current frame number.
 	 */

@@ -1,17 +1,15 @@
 package away3d.events;
 
 import away3d.library.assets.IAsset;
-
 import openfl.events.Event;
 
 /**
  * Dispatched whenever a ressource (asset) is parsed and created completly.
  */
-class Asset3DEvent extends Event
-{
+class Asset3DEvent extends Event {
 	public var asset(get, never):IAsset;
 	public var assetPrevName(get, never):String;
-	
+
 	public static inline var ASSET_COMPLETE:String = "assetComplete";
 	public static inline var ENTITY_COMPLETE:String = "entityComplete";
 	public static inline var SKYBOX_COMPLETE:String = "skyboxComplete";
@@ -37,33 +35,29 @@ class Asset3DEvent extends Event
 	public static inline var ASSET_RENAME:String = "assetRename";
 	public static inline var ASSET_CONFLICT_RESOLVED:String = "assetConflictResolved";
 	public static inline var TEXTURE_SIZE_ERROR:String = "textureSizeError";
-	
+
 	private var _asset:IAsset;
 	private var _prevName:String;
-	
-	public function new(type:String, asset:IAsset = null, prevName:String = null)
-	{
+
+	public function new(type:String, asset:IAsset = null, prevName:String = null) {
 		super(type);
-		
+
 		_asset = asset;
 		if (prevName != null)
 			_prevName = prevName;
 		else
 			_prevName = ((_asset != null) ? _asset.name : null);
 	}
-	
-	private function get_asset():IAsset
-	{
+
+	private function get_asset():IAsset {
 		return _asset;
 	}
-	
-	private function get_assetPrevName():String
-	{
+
+	private function get_assetPrevName():String {
 		return _prevName;
 	}
-	
-	override public function clone():Event
-	{
+
+	override public function clone():Event {
 		return new Asset3DEvent(type, asset, assetPrevName);
 	}
 }

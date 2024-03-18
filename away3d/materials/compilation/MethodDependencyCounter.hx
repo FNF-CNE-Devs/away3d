@@ -11,8 +11,7 @@ import away3d.materials.methods.MethodVO;
  *
  * @see RegisterPool.addUsage
  */
-class MethodDependencyCounter
-{
+class MethodDependencyCounter {
 	public var tangentDependencies(get, never):Int;
 	public var usesGlobalPosFragment(get, never):Bool;
 	public var projectionDependencies(get, never):Int;
@@ -21,7 +20,7 @@ class MethodDependencyCounter
 	public var uvDependencies(get, never):Int;
 	public var secondaryUVDependencies(get, never):Int;
 	public var globalPosDependencies(get, never):Int;
-	
+
 	private var _projectionDependencies:Int;
 	private var _normalDependencies:Int;
 	private var _viewDirDependencies:Int;
@@ -32,19 +31,16 @@ class MethodDependencyCounter
 	private var _usesGlobalPosFragment:Bool = false;
 	private var _numPointLights:Int;
 	private var _lightSourceMask:Int;
-	
+
 	/**
 	 * Creates a new MethodDependencyCounter object.
 	 */
-	public function new()
-	{
-	}
+	public function new() {}
 
 	/**
 	 * Clears dependency counts for all registers. Called when recompiling a pass.
 	 */
-	public function reset():Void
-	{
+	public function reset():Void {
 		_projectionDependencies = 0;
 		_normalDependencies = 0;
 		_viewDirDependencies = 0;
@@ -60,8 +56,7 @@ class MethodDependencyCounter
 	 * @param numPointLights The amount of point lights.
 	 * @param lightSourceMask The light source types used by the material.
 	 */
-	public function setPositionedLights(numPointLights:Int, lightSourceMask:Int):Void
-	{
+	public function setPositionedLights(numPointLights:Int, lightSourceMask:Int):Void {
 		_numPointLights = numPointLights;
 		_lightSourceMask = lightSourceMask;
 	}
@@ -70,8 +65,7 @@ class MethodDependencyCounter
 	 * Increases dependency counters for the named registers listed as required by the given MethodVO.
 	 * @param methodVO the MethodVO object for which to include dependencies.
 	 */
-	public function includeMethodVO(methodVO:MethodVO):Void
-	{
+	public function includeMethodVO(methodVO:MethodVO):Void {
 		if (methodVO.needsProjection)
 			++_projectionDependencies;
 		if (methodVO.needsGlobalVertexPos) {
@@ -97,56 +91,49 @@ class MethodDependencyCounter
 	/**
 	 * The amount of tangent vector dependencies (fragment shader).
 	 */
-	private function get_tangentDependencies():Int
-	{
+	private function get_tangentDependencies():Int {
 		return _tangentDependencies;
 	}
 
 	/**
 	 * Indicates whether there are any dependencies on the world-space position vector.
 	 */
-	private function get_usesGlobalPosFragment():Bool
-	{
+	private function get_usesGlobalPosFragment():Bool {
 		return _usesGlobalPosFragment;
 	}
 
 	/**
 	 * The amount of dependencies on the projected position.
 	 */
-	private function get_projectionDependencies():Int
-	{
+	private function get_projectionDependencies():Int {
 		return _projectionDependencies;
 	}
 
 	/**
 	 * The amount of dependencies on the normal vector.
 	 */
-	private function get_normalDependencies():Int
-	{
+	private function get_normalDependencies():Int {
 		return _normalDependencies;
 	}
 
 	/**
 	 * The amount of dependencies on the view direction.
 	 */
-	private function get_viewDirDependencies():Int
-	{
+	private function get_viewDirDependencies():Int {
 		return _viewDirDependencies;
 	}
 
 	/**
 	 * The amount of dependencies on the primary UV coordinates.
 	 */
-	private function get_uvDependencies():Int
-	{
+	private function get_uvDependencies():Int {
 		return _uvDependencies;
 	}
 
 	/**
 	 * The amount of dependencies on the secondary UV coordinates.
 	 */
-	private function get_secondaryUVDependencies():Int
-	{
+	private function get_secondaryUVDependencies():Int {
 		return _secondaryUVDependencies;
 	}
 
@@ -154,19 +141,17 @@ class MethodDependencyCounter
 	 * The amount of dependencies on the global position. This can be 0 while hasGlobalPosDependencies is true when
 	 * the global position is used as a temporary value (fe to calculate the view direction)
 	 */
-	private function get_globalPosDependencies():Int
-	{
+	private function get_globalPosDependencies():Int {
 		return _globalPosDependencies;
 	}
 
 	/**
 	 * Adds any external world space dependencies, used to force world space calculations.
 	 */
-	public function addWorldSpaceDependencies(fragmentLights:Bool):Void
-	{
+	public function addWorldSpaceDependencies(fragmentLights:Bool):Void {
 		if (_viewDirDependencies > 0)
 			++_globalPosDependencies;
-		
+
 		if (_numPointLights > 0 && (_lightSourceMask & LightSources.LIGHTS) != 0) {
 			++_globalPosDependencies;
 			if (fragmentLights)
