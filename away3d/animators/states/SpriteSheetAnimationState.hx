@@ -11,6 +11,7 @@ class SpriteSheetAnimationState extends AnimationClipState implements ISpriteShe
 	public var currentFrameData(get, never):SpriteSheetAnimationFrame;
 	public var currentFrameNumber(get, set):Int;
 	public var totalFrames(get, never):Int;
+	public var paused:Bool = false;
 
 	private var _frames:Vector<SpriteSheetAnimationFrame>;
 	private var _clipNode:SpriteSheetClipNode;
@@ -76,6 +77,8 @@ class SpriteSheetAnimationState extends AnimationClipState implements ISpriteShe
 	 * @inheritDoc
 	 */
 	override private function updateFrames():Void {
+		if (paused)
+			return;
 		if (_forcedFrame) {
 			_forcedFrame = false;
 			return;

@@ -13,7 +13,7 @@ class TextureUtils {
 	}
 
 	public static function isDimensionValid(d:Int):Bool {
-		return d >= 1 && d <= MAX_SIZE;// && isPowerOfTwo(d);
+		return d >= 1 && d <= MAX_SIZE; // && isPowerOfTwo(d);
 	}
 
 	public static function isPowerOfTwo(value:Int):Bool {

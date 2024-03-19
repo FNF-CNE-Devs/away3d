@@ -378,8 +378,8 @@ import openfl.Vector;
 		if (_timer != null) {
 			_timer.removeEventListener(TimerEvent.TIMER, onInterval);
 			_timer.stop();
+			_timer = null;
 		}
-		_timer = null;
 		_parsingComplete = true;
 		dispatchEvent(new ParserEvent(ParserEvent.PARSE_COMPLETE));
 	}
