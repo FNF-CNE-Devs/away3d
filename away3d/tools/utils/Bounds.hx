@@ -221,7 +221,7 @@ class Bounds {
 		var containerBounds:Vector<Float> = _containers[obj];
 
 		var child:ObjectContainer3D;
-		var isEntity:Entity = isOfType(obj, Entity) ? cast obj : null;
+		var isEntity:Entity = expect(obj, Entity);
 		var containerTransform:Matrix3D = new Matrix3D();
 
 		if (isEntity != null && parentTransform != null) {
@@ -270,7 +270,7 @@ class Bounds {
 		if (isOfType(oC, LightBase))
 			return;
 
-		var e:Entity = isOfType(oC, Entity) ? cast oC : null;
+		var e:Entity = expect(oC, Entity);
 		var corners:Vector<Float>;
 		var mat:Matrix3D = oC.transform.clone();
 		var cB:Vector<Float> = _containers[oC];

@@ -87,16 +87,14 @@ class LightsHelper {
 		if (materialOwner.material != null) {
 			switch (_state) {
 				case 0:
-					picker = isOfType(materialOwner.material.lightPicker, StaticLightPicker) ? cast materialOwner.material.lightPicker : null;
+					picker = expect(materialOwner.material.lightPicker, StaticLightPicker);
 					if (picker == null || picker.lights != _lightsArray)
 						materialOwner.material.lightPicker = new StaticLightPicker(_lightsArray);
 
 				case 1:
 					if (materialOwner.material.lightPicker == null)
 						materialOwner.material.lightPicker = new StaticLightPicker([]);
-					picker = null;
-					if (isOfType(materialOwner.material.lightPicker, StaticLightPicker))
-						picker = cast materialOwner.material.lightPicker;
+					picker = expect(materialOwner.material.lightPicker, StaticLightPicker);
 					if (picker != null) {
 						aLights = picker.lights;
 						if (aLights != null && aLights.length > 0) {
@@ -120,9 +118,7 @@ class LightsHelper {
 				case 2:
 					if (materialOwner.material.lightPicker == null)
 						materialOwner.material.lightPicker = new StaticLightPicker([]);
-					picker = null;
-					if (isOfType(materialOwner.material.lightPicker, StaticLightPicker))
-						picker = cast materialOwner.material.lightPicker;
+					picker = expect(materialOwner.material.lightPicker, StaticLightPicker);
 					if (picker != null) {
 						aLights = picker.lights;
 						if (aLights != null) {

@@ -36,7 +36,7 @@ class NearShadowMapMethod extends SimpleShadowMapMethodBase {
 		super(baseMethod.castingLight);
 		_baseMethod = baseMethod;
 		_fadeRatio = fadeRatio;
-		_nearShadowMapper = isOfType(_castingLight.shadowMapper, NearDirectionalShadowMapper) ? cast _castingLight.shadowMapper : null;
+		_nearShadowMapper = expect(_castingLight.shadowMapper, NearDirectionalShadowMapper);
 		if (_nearShadowMapper == null)
 			throw new Error("NearShadowMapMethod requires a light that has a NearDirectionalShadowMapper instance assigned to shadowMapper.");
 		_baseMethod.addEventListener(ShadingMethodEvent.SHADER_INVALIDATED, onShaderInvalidated);
