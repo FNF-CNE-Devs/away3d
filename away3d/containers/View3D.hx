@@ -884,31 +884,42 @@ class View3D extends Sprite {
 	 * Disposes all memory occupied by the view. This will also dispose the renderer.
 	 */
 	public function dispose():Void {
-		_stage3DProxy.removeEventListener(Stage3DEvent.VIEWPORT_UPDATED, onViewportUpdated);
-		_stage3DProxy.removeEventListener(Stage3DEvent.CONTEXT3D_RECREATED, onContext3DRecreated);
-		if (!shareContext)
-			_stage3DProxy.dispose();
-		_renderer.dispose();
+		if (_stage3DProxy != null) {
+			_stage3DProxy.removeEventListener(Stage3DEvent.VIEWPORT_UPDATED, onViewportUpdated);
+			_stage3DProxy.removeEventListener(Stage3DEvent.CONTEXT3D_RECREATED, onContext3DRecreated);
+			if (!shareContext)
+				_stage3DProxy.dispose();
+			_stage3DProxy = null;
+		}
 
-		if (_depthRender != null)
+		if (_renderer != null) {
+			_renderer.dispose();
+			_renderer = null;
+		}
+
+		if (_depthRender != null) {
 			_depthRender.dispose();
+			_depthRender = null;
+		}
 
-		if (_rttBufferManager != null)
+		if (_rttBufferManager != null) {
 			_rttBufferManager.dispose();
+			_rttBufferManager = null;
+		}
 
-		_mouse3DManager.disableMouseListeners(this);
-		_mouse3DManager.dispose();
+		if (_mouse3DManager != null) {
+			_mouse3DManager.disableMouseListeners(this);
+			_mouse3DManager.dispose();
+			_mouse3DManager = null;
+		}
 
-		_touch3DManager.disableTouchListeners(this);
-		_touch3DManager.dispose();
+		if (_touch3DManager != null) {
+			_touch3DManager.disableTouchListeners(this);
+			_touch3DManager.dispose();
+			_touch3DManager = null;
+		}
 
-		_rttBufferManager = null;
-		_depthRender = null;
-		_mouse3DManager = null;
-		_touch3DManager = null;
 		_depthRenderer = null;
-		_stage3DProxy = null;
-		_renderer = null;
 		_entityCollector = null;
 	}
 

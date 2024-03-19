@@ -139,14 +139,15 @@ class Loader3D extends ObjectContainer3D {
 			_loadingSessions = null;
 			return;
 		}
-		var i:Int;
-		var length:Int = _loadingSessions.length;
-		for (i in 0...length) {
-			removeListeners(_loadingSessions[i]);
-			_loadingSessions[i].stop();
-			_loadingSessions[i] = null;
+		if (_loadingSessions != null) {
+			var length:Int = _loadingSessions.length;
+			for (i in 0...length) {
+				removeListeners(_loadingSessions[i]);
+				_loadingSessions[i].stop();
+				_loadingSessions[i] = null;
+			}
+			_loadingSessions = null;
 		}
-		_loadingSessions = null;
 	}
 
 	/**

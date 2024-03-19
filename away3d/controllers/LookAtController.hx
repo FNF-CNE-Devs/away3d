@@ -78,7 +78,7 @@ class LookAtController extends ControllerBase {
 	}
 
 	private function set_lookAtObject(val:ObjectContainer3D):ObjectContainer3D {
-		if (_lookAtPosition != null)
+		if (_lookAtPosition != null) // (neo) useless line
 			_lookAtPosition = null;
 
 		if (_lookAtObject == val)

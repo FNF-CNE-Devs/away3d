@@ -101,9 +101,11 @@ class ShadowMapperBase {
 
 	public function dispose():Void {
 		_casterCollector = null;
-		if (_depthMap != null && !_explicitDepthMap)
-			_depthMap.dispose();
-		_depthMap = null;
+		if (_depthMap != null) {
+			if (!_explicitDepthMap)
+				_depthMap.dispose();
+			_depthMap = null;
+		}
 	}
 
 	private function createDepthTexture():TextureProxyBase {

@@ -577,13 +577,17 @@ class AC3DParser extends ParserBase {
 	}
 
 	private function cleanUpBuffers():Void {
-		for (i in 0..._vertices.length)
-			_vertices[i] = null;
+		if (_vertices != null) {
+			for (i in 0..._vertices.length)
+				_vertices[i] = null;
+			_vertices = null;
+		}
 
-		for (i in 0..._uvs.length)
-			_uvs[i] = null;
+		if (_uvs != null) {
+			for (i in 0..._uvs.length)
+				_uvs[i] = null;
 
-		_vertices = null;
-		_uvs = null;
+			_uvs = null;
+		}
 	}
 }

@@ -381,7 +381,7 @@ class Asset3DLibraryBundle extends EventDispatcher {
 
 	public function stopAllLoadingSessions():Void {
 		if (_loadingSessions == null)
-			_loadingSessions = new Vector<AssetLoader>();
+			return;
 		var length:Int = _loadingSessions.length;
 		for (i in 0...length)
 			killLoadingSession(_loadingSessions[i]);

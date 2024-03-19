@@ -194,7 +194,7 @@ class MeshDebugger {
 	 */
 	public function removeDebug(mesh:Mesh):Void {
 		var meshDebugData:MeshDebugData;
-		for (i in 0..._meshesData.length) {
+		for (i in 0..._meshesData.length) { // (neo) Maybe nullcheck?
 			meshDebugData = _meshesData[i];
 			if (meshDebugData.mesh == mesh) {
 				if (meshDebugData.addChilded)
@@ -203,7 +203,7 @@ class MeshDebugger {
 				meshDebugData.meshDebug.clearAll();
 				meshDebugData.meshDebug = null;
 				meshDebugData = null;
-				_meshesData.splice(i, 1);
+				_meshesData.splice(i, 1); // (neo) This causes skipped items
 				break;
 			}
 		}

@@ -621,8 +621,10 @@ class ShaderCompiler {
 	 */
 	public function dispose():Void {
 		cleanUpMethods();
-		_registerCache.dispose();
-		_registerCache = null;
+		if (_registerCache != null) {
+			_registerCache.dispose();
+			_registerCache = null;
+		}
 		_sharedRegisters = null;
 	}
 

@@ -467,14 +467,18 @@ class ShaderPicker implements IPicker {
 	}
 
 	public function dispose():Void {
-		_bitmapData.dispose();
-		if (_triangleProgram3D != null)
+		if (_bitmapData != null) {
+			_bitmapData.dispose();
+			_bitmapData = null;
+		}
+		if (_triangleProgram3D != null) {
 			_triangleProgram3D.dispose();
-		if (_objectProgram3D != null)
+			_triangleProgram3D = null;
+		}
+		if (_objectProgram3D != null) {
 			_objectProgram3D.dispose();
-		_triangleProgram3D = null;
-		_objectProgram3D = null;
-		_bitmapData = null;
+			_objectProgram3D = null;
+		}
 		_hitRenderable = null;
 		_hitEntity = null;
 	}

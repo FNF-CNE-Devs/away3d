@@ -459,6 +459,8 @@ class SubGeometryBase {
 	 * @param buffers The vector of buffers to dispose.
 	 */
 	private function disposeVertexBuffers(buffers:Vector<VertexBuffer3D>):Void {
+		if (buffers == null)
+			return;
 		for (i in 0...8) {
 			if (buffers[i] != null) {
 				Stage3DProxy.disposeVertexBuffer(buffers[i]);

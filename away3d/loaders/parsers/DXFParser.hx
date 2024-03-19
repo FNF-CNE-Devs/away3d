@@ -517,10 +517,12 @@ class DXFParser extends ParserBase {
 		_subGeometry.fromVectors(_vertices, _uvs, null, null);
 		_subGeometry.updateIndexData(_indices);
 
-		finalizeAsset(_activeMesh);
+		if (_activeMesh != null) {
+			finalizeAsset(_activeMesh);
+			_activeMesh = null;
+		}
 
 		_itemColor = 0;
-		_activeMesh = null;
 	}
 
 	private function cleanUP():Void {

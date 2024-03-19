@@ -134,11 +134,13 @@ class WebcamTexture extends BitmapTexture {
 	 */
 	override public function dispose():Void {
 		super.dispose();
-		stop();
 		bitmapData.dispose();
-		_video.attachCamera(null);
+		if (_video != null) {
+			stop();
+			_video.attachCamera(null);
+			_video = null;
+		}
 		_camera = null;
-		_video = null;
 		_matrix = null;
 	}
 

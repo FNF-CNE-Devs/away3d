@@ -469,9 +469,11 @@ class AssetLoader extends EventDispatcher {
 		_token = null;
 		_stack = null;
 
-		if (_loadingDependency != null && _loadingDependency.loader != null)
-			removeEventListeners(_loadingDependency.loader);
-		_loadingDependency = null;
+		if (_loadingDependency != null) {
+			if (_loadingDependency.loader != null)
+				removeEventListeners(_loadingDependency.loader);
+			_loadingDependency = null;
+		}
 	}
 
 	/**

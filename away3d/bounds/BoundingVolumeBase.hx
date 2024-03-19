@@ -85,9 +85,10 @@ class BoundingVolumeBase {
 	 * Disposes of the bounds renderable object. Used to clear memory after a bounds rendeable is no longer required.
 	 */
 	public function disposeRenderable():Void {
-		if (_boundingRenderable != null)
+		if (_boundingRenderable != null) {
 			_boundingRenderable.dispose();
-		_boundingRenderable = null;
+			_boundingRenderable = null;
+		}
 	}
 
 	/**

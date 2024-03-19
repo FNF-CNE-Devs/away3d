@@ -219,10 +219,12 @@ class ShaderMethodSetup extends EventDispatcher {
 		clearListeners(_ambientMethod);
 		clearListeners(_specularMethod);
 
-		for (i in 0..._methods.length)
-			clearListeners(_methods[i].method);
+		if (_methods != null) {
+			for (i in 0..._methods.length)
+				clearListeners(_methods[i].method);
 
-		_methods = null;
+			_methods = null;
+		}
 	}
 
 	/**

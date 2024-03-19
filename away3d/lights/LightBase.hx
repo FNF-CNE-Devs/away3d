@@ -71,9 +71,10 @@ class LightBase extends Entity {
 				_shadowMapper = createShadowMapper();
 			_shadowMapper.light = this;
 		} else {
-			if (_shadowMapper != null)
+			if (_shadowMapper != null) {
 				_shadowMapper.dispose();
-			_shadowMapper = null;
+				_shadowMapper = null;
+			}
 		}
 
 		dispatchEvent(new LightEvent(LightEvent.CASTS_SHADOW_CHANGE));

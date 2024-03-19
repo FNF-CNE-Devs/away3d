@@ -510,8 +510,8 @@ class Stage3DProxy extends EventDispatcher {
 		if (_context3D != null) {
 			_context3D.dispose();
 			dispatchEvent(new Stage3DEvent(Stage3DEvent.CONTEXT3D_DISPOSED));
+			_context3D = null;
 		}
-		_context3D = null;
 	}
 
 	/*

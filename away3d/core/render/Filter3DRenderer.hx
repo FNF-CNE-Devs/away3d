@@ -162,9 +162,13 @@ class Filter3DRenderer {
 	}
 
 	public function dispose():Void {
-		_rttManager.removeEventListener(Event.RESIZE, onRTTResize);
-		_rttManager = null;
-		_stage3DProxy.removeEventListener(Stage3DEvent.CONTEXT3D_RECREATED, onContext3DRecreated);
-		_stage3DProxy = null;
+		if (_rttManager != null) {
+			_rttManager.removeEventListener(Event.RESIZE, onRTTResize);
+			_rttManager = null;
+		}
+		if (_stage3DProxy != null) {
+			_stage3DProxy.removeEventListener(Stage3DEvent.CONTEXT3D_RECREATED, onContext3DRecreated);
+			_stage3DProxy = null;
+		}
 	}
 }

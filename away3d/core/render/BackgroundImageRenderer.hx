@@ -46,8 +46,12 @@ class BackgroundImageRenderer {
 		if (_vertexBuffer != null) {
 			Stage3DProxy.disposeVertexBuffer(_vertexBuffer);
 			_vertexBuffer = null;
+		}
+		if (_program3d != null) {
 			_program3d.dispose();
 			_program3d = null;
+		}
+		if (_indexBuffer != null) {
 			Stage3DProxy.disposeIndexBuffer(_indexBuffer);
 			_indexBuffer = null;
 		}

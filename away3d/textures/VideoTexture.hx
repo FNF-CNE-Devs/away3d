@@ -74,8 +74,10 @@ class VideoTexture extends BitmapTexture {
 		super.dispose();
 		autoUpdate = false;
 		bitmapData.dispose();
-		_player.dispose();
-		_player = null;
+		if (_player != null) {
+			_player.dispose();
+			_player = null;
+		}
 		_broadcaster = null;
 		_clippingRect = null;
 	}

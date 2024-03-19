@@ -92,7 +92,9 @@ class SpecularBitmapTexture extends BitmapTexture {
 	}
 
 	override public function dispose():Void {
-		bitmapData.dispose();
-		bitmapData = null;
+		if (bitmapData != null) {
+			bitmapData.dispose();
+			bitmapData = null;
+		}
 	}
 }

@@ -53,10 +53,10 @@ class EntityNode extends NodeBase {
 	 * Detaches the node from its parent.
 	 */
 	public function removeFromParent():Void {
-		if (_parent != null)
+		if (_parent != null) {
 			_parent.removeNode(this);
-
-		_parent = null;
+			_parent = null;
+		}
 	}
 
 	override public function isInFrustum(planes:Vector<Plane3D>, numPlanes:Int):Bool {

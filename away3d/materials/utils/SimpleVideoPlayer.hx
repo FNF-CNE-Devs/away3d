@@ -119,27 +119,36 @@ class SimpleVideoPlayer implements IVideoPlayer {
 	}
 
 	public function dispose():Void {
-		_ns.close();
+		if (_ns != null)
+			_ns.close();
 
-		_video.attachNetStream(null);
+		if (_video != null) {
+			_video.attachNetStream(null);
+			_video = null;
+		}
 
-		_ns.removeEventListener(NetStatusEvent.NET_STATUS, netStatusHandler);
-		_ns.removeEventListener(AsyncErrorEvent.ASYNC_ERROR, asyncErrorHandler);
-		_ns.removeEventListener(IOErrorEvent.IO_ERROR, ioErrorHandler);
+		if (_ns != null) {
+			_ns.removeEventListener(NetStatusEvent.NET_STATUS, netStatusHandler);
+			_ns.removeEventListener(AsyncErrorEvent.ASYNC_ERROR, asyncErrorHandler);
+			_ns.removeEventListener(IOErrorEvent.IO_ERROR, ioErrorHandler);
+			_ns = null;
+		}
 
-		_nc.removeEventListener(NetStatusEvent.NET_STATUS, netStatusHandler);
-		_nc.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, securityErrorHandler);
-		_nc.removeEventListener(IOErrorEvent.IO_ERROR, ioErrorHandler);
-		_nc.removeEventListener(AsyncErrorEvent.ASYNC_ERROR, asyncErrorHandler);
+		if (_nc != null) {
+			_nc.removeEventListener(NetStatusEvent.NET_STATUS, netStatusHandler);
+			_nc.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, securityErrorHandler);
+			_nc.removeEventListener(IOErrorEvent.IO_ERROR, ioErrorHandler);
+			_nc.removeEventListener(AsyncErrorEvent.ASYNC_ERROR, asyncErrorHandler);
+			_nc = null;
+		}
 
-		_container.removeChild(_video);
-		_container = null;
+		if (_container != null) {
+			_container.removeChild(_video);
+			_container = null;
+		}
 
 		_src = null;
-		_ns = null;
-		_nc = null;
 		_nsClient = null;
-		_video = null;
 		_soundTransform = null;
 
 		_playing = false;

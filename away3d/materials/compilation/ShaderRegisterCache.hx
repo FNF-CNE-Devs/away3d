@@ -77,17 +77,27 @@ class ShaderRegisterCache {
 	 * Disposes all resources used.
 	 */
 	public function dispose():Void {
-		_fragmentTempCache.dispose();
-		_vertexTempCache.dispose();
-		_varyingCache.dispose();
-		_fragmentConstantsCache.dispose();
-		_vertexAttributesCache.dispose();
+		if (_fragmentTempCache != null) {
+			_fragmentTempCache.dispose();
+			_fragmentTempCache = null;
+		}
+		if (_vertexTempCache != null) {
+			_vertexTempCache.dispose();
+			_vertexTempCache = null;
+		}
+		if (_varyingCache != null) {
+			_varyingCache.dispose();
+			_varyingCache = null;
+		}
+		if (_fragmentConstantsCache != null) {
+			_fragmentConstantsCache.dispose();
+			_fragmentConstantsCache = null;
+		}
+		if (_vertexAttributesCache != null) {
+			_vertexAttributesCache.dispose();
+			_vertexAttributesCache = null;
+		}
 
-		_fragmentTempCache = null;
-		_vertexTempCache = null;
-		_varyingCache = null;
-		_fragmentConstantsCache = null;
-		_vertexAttributesCache = null;
 		_fragmentOutputRegister = null;
 		_vertexOutputRegister = null;
 	}

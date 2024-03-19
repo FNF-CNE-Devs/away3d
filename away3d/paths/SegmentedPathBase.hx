@@ -99,11 +99,13 @@ class SegmentedPathBase implements IPath {
 	}
 
 	public function dispose():Void {
-		var len:Int = _segments.length;
-		for (i in 0...len)
-			_segments[i].dispose();
+		if (_segments != null) {
+			var len:Int = _segments.length;
+			for (i in 0...len)
+				_segments[i].dispose();
 
-		_segments = null;
+			_segments = null;
+		}
 	}
 
 	public function getPointOnCurve(t:Float, target:Vector3D = null):Vector3D {

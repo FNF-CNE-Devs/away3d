@@ -228,9 +228,13 @@ class DefaultRenderer extends RendererBase {
 
 	override private function dispose():Void {
 		super.dispose();
-		_depthRenderer.dispose();
-		_distanceRenderer.dispose();
-		_depthRenderer = null;
-		_distanceRenderer = null;
+		if (_depthRenderer != null) {
+			_depthRenderer.dispose();
+			_depthRenderer = null;
+		}
+		if (_distanceRenderer != null) {
+			_distanceRenderer.dispose();
+			_distanceRenderer = null;
+		}
 	}
 }

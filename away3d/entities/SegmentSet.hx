@@ -204,6 +204,14 @@ class SegmentSet extends Entity implements IRenderable {
 	 * Empties the segmentSet from all its segments data
 	 */
 	public function removeAllSegments():Void {
+		// (neo) workaround to fix possible crash
+		if (_subSets == null) {
+			_subSetCount = 0;
+			_subSets = new Vector<SubSet>();
+		}
+		if (_segments == null)
+			_segments = new Map();
+
 		var subSet:SubSet;
 		for (i in 0..._subSetCount) {
 			subSet = _subSets[i];
@@ -409,10 +417,12 @@ class SegmentSet extends Entity implements IRenderable {
 		removeAllSegments();
 		_segments = null;
 		_material = null;
-		var subSet:SubSet = _subSets[0];
-		subSet.vertices = null;
-		subSet.indices = null;
-		_subSets = null;
+		if (_subSets != null) {
+			var subSet:SubSet = _subSets[0];
+			subSet.vertices = null;
+			subSet.indices = null;
+			_subSets = null;
+		}
 	}
 
 	/**

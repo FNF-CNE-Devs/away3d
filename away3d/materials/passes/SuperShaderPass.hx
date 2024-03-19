@@ -77,7 +77,7 @@ class SuperShaderPass extends CompiledPass {
 			_methodSetup._colorTransformMethod.colorTransform = value;
 		} else if (value == null) {
 			if (_methodSetup._colorTransformMethod != null)
-				colorTransformMethod = null;
+				colorTransformMethod = null; // (neo) Unnecessary code
 			colorTransformMethod = _methodSetup._colorTransformMethod = null;
 		}
 		return value;

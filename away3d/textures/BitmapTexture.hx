@@ -86,7 +86,7 @@ class BitmapTexture extends Texture2DBase {
 
 		if (--_mipMapUses[holderWidth][holderHeight] == 0) {
 			_mipMaps[holderWidth][holderHeight].dispose();
-			_mipMaps[holderWidth][holderHeight] = null;
+			_mipMaps[holderWidth][holderHeight] = null; // (neo) nullcheck here maybe?
 		}
 	}
 

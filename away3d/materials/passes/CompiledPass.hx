@@ -428,9 +428,11 @@ class CompiledPass extends MaterialPassBase {
 	 */
 	override public function dispose():Void {
 		super.dispose();
-		_methodSetup.removeEventListener(ShadingMethodEvent.SHADER_INVALIDATED, onShaderInvalidated);
-		_methodSetup.dispose();
-		_methodSetup = null;
+		if (_methodSetup != null) {
+			_methodSetup.removeEventListener(ShadingMethodEvent.SHADER_INVALIDATED, onShaderInvalidated);
+			_methodSetup.dispose();
+			_methodSetup = null;
+		}
 	}
 
 	/**
@@ -534,8 +536,10 @@ class CompiledPass extends MaterialPassBase {
 	 * Cleans up the after compiling.
 	 */
 	private function cleanUp():Void {
-		_compiler.dispose();
-		_compiler = null;
+		if (_compiler != null) {
+			_compiler.dispose();
+			_compiler = null;
+		}
 	}
 
 	/**

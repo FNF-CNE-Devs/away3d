@@ -64,12 +64,14 @@ class AGALProgram3DCache {
 	}
 
 	public function dispose():Void {
-		var keys:Iterator<String> = _program3Ds.keys();
-		for (key in keys)
-			destroyProgram(key);
+		if (_program3Ds != null) {
+			var keys:Iterator<String> = _program3Ds.keys();
+			for (key in keys)
+				destroyProgram(key);
 
+			_program3Ds = null;
+		}
 		_keys = null;
-		_program3Ds = null;
 		_usages = null;
 	}
 

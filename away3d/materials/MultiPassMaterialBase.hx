@@ -618,11 +618,11 @@ class MultiPassMaterialBase extends MaterialBase {
 	}
 
 	private function removeCasterLightPass():Void {
-		if (_casterLightPass == null)
-			return;
-		_casterLightPass.dispose();
-		removePass(_casterLightPass);
-		_casterLightPass = null;
+		if (_casterLightPass == null) {
+			removePass(_casterLightPass);
+			_casterLightPass.dispose();
+			_casterLightPass = null;
+		}
 	}
 
 	private function initNonCasterLightPasses():Void {
@@ -668,21 +668,23 @@ class MultiPassMaterialBase extends MaterialBase {
 	}
 
 	private function removeNonCasterLightPasses():Void {
-		if (_nonCasterLightPasses == null)
-			return;
-		for (i in 0..._nonCasterLightPasses.length) {
-			removePass(_nonCasterLightPasses[i]);
-			_nonCasterLightPasses[i].dispose();
+		if (_nonCasterLightPasses != null) {
+			for (i in 0..._nonCasterLightPasses.length) {
+				removePass(_nonCasterLightPasses[i]);
+				_nonCasterLightPasses[i].dispose();
+			}
+			_nonCasterLightPasses = null;
 		}
-		_nonCasterLightPasses = null;
 	}
 
 	private function removeEffectsPass():Void {
 		if (_effectsPass.diffuseMethod != _diffuseMethod)
 			_effectsPass.diffuseMethod.dispose();
-		removePass(_effectsPass);
-		_effectsPass.dispose();
-		_effectsPass = null;
+		if (_effectsPass != null) {
+			removePass(_effectsPass);
+			_effectsPass.dispose();
+			_effectsPass = null;
+		}
 	}
 
 	private function initEffectsPass():SuperShaderPass {
