@@ -550,7 +550,7 @@ class MeshHelper {
 		var j:Int = 0;
 
 		for (i in 0...numSubGeoms) {
-			if (isOfType(geometries[0], SubGeometry))
+			if (isOfType(geometries[0], SubGeometry)) // (neo) bug here maybe?
 				subGeom = cast(geometries[i], SubGeometry);
 
 			vertices = subGeom.vertexData;
