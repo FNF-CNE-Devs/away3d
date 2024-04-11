@@ -41,9 +41,9 @@ class Camera3D extends Entity {
 		super();
 
 		// setup default lens
+		if (lens == null)
+			lens = new PerspectiveLens();
 		_lens = lens;
-		if (_lens == null)
-			_lens = new PerspectiveLens();
 
 		_lens.addEventListener(LensEvent.MATRIX_CHANGED, onLensMatrixChanged);
 

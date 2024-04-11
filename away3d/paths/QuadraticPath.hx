@@ -82,6 +82,8 @@ class QuadraticPath extends SegmentedPathBase implements IPath {
 		var seg1:Vector3D = null;
 		var tmp:Vector<Vector3D> = new Vector<Vector3D>();
 
+		// (neo) TODO: rewrite this
+
 		var seg:QuadraticPathSegment = cast(_segments[0], QuadraticPathSegment);
 		var segnext:QuadraticPathSegment = cast(_segments[_segments.length - 1], QuadraticPathSegment);
 

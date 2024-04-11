@@ -78,8 +78,6 @@ class Filter3DRenderer {
 	}
 
 	private function updateFilterTasks(stage3DProxy:Stage3DProxy):Void {
-		var len:Int;
-
 		if (_filterSizesInvalid)
 			updateFilterSizes();
 
@@ -90,7 +88,7 @@ class Filter3DRenderer {
 
 		_tasks = new Vector<Filter3DTaskBase>();
 
-		len = _filters.length - 1;
+		var len:Int = _filters.length - 1;
 
 		var filter:Filter3DBase;
 
@@ -105,8 +103,6 @@ class Filter3DRenderer {
 	}
 
 	public function render(stage3DProxy:Stage3DProxy, camera3D:Camera3D, depthTexture:Texture):Void {
-		var len:Int;
-		var i:Int;
 		var task:Filter3DTaskBase;
 		var context:Context3D = stage3DProxy.context3D;
 		var indexBuffer:IndexBuffer3D = _rttManager.indexBuffer;
@@ -119,10 +115,12 @@ class Filter3DRenderer {
 		if (_filterTasksInvalid)
 			updateFilterTasks(stage3DProxy);
 
-		len = _filters.length;
+		// Update filters
+		var len:Int = _filters.length;
 		for (i in 0...len)
 			_filters[i].update(stage3DProxy, camera3D);
 
+		// render tasks
 		len = _tasks.length;
 
 		if (len > 1) {

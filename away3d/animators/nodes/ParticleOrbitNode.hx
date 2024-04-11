@@ -71,9 +71,9 @@ class ParticleOrbitNode extends ParticleNodeBase {
 		_cycleDuration = cycleDuration;
 		_cyclePhase = cyclePhase;
 
+		if (eulers == null)
+			eulers = new Vector3D();
 		_eulers = eulers;
-		if (_eulers == null)
-			_eulers = new Vector3D();
 	}
 
 	/**

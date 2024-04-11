@@ -24,15 +24,12 @@ class RenderableMergeSort implements IEntitySorter {
 	}
 
 	private function mergeSortByDepth(head:RenderableListItem):RenderableListItem {
-		var headB:RenderableListItem;
-		var fast:RenderableListItem, slow:RenderableListItem;
-
 		if (head == null || head.next == null)
 			return head;
 
 		// split in two sublists
-		slow = head;
-		fast = head.next;
+		var slow:RenderableListItem = head;
+		var fast:RenderableListItem = head.next;
 
 		while (fast != null) {
 			fast = fast.next;
@@ -42,7 +39,7 @@ class RenderableMergeSort implements IEntitySorter {
 			}
 		}
 
-		headB = slow.next;
+		var headB:RenderableListItem = slow.next;
 		slow.next = null;
 
 		// recurse
@@ -85,15 +82,12 @@ class RenderableMergeSort implements IEntitySorter {
 	}
 
 	private function mergeSortByMaterial(head:RenderableListItem):RenderableListItem {
-		var headB:RenderableListItem;
-		var fast:RenderableListItem, slow:RenderableListItem;
-
 		if (head == null || head.next == null)
 			return head;
 
 		// split in two sublists
-		slow = head;
-		fast = head.next;
+		var slow:RenderableListItem = head;
+		var fast:RenderableListItem = head.next;
 
 		while (fast != null) {
 			fast = fast.next;
@@ -103,7 +97,7 @@ class RenderableMergeSort implements IEntitySorter {
 			}
 		}
 
-		headB = slow.next;
+		var headB:RenderableListItem = slow.next;
 		slow.next = null;
 
 		// recurse

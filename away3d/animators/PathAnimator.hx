@@ -149,9 +149,7 @@ class PathAnimator extends EventDispatcher {
 					_rot.z = _rotations[_index].z + ((_rotations[_index + 1].z - _rotations[_index].z) * nT);
 				}
 
-				_upAxis.x = 0;
-				_upAxis.y = 1;
-				_upAxis.z = 0;
+				_upAxis.setTo(0, 1, 0);
 				_upAxis = Vector3DUtils.rotatePoint(_upAxis, _rot);
 
 				_target.lookAt(_basePosition, _upAxis);

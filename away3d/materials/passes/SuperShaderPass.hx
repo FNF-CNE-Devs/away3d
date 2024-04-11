@@ -75,9 +75,7 @@ class SuperShaderPass extends CompiledPass {
 			if (colorTransformMethod == null)
 				colorTransformMethod = new ColorTransformMethod();
 			_methodSetup._colorTransformMethod.colorTransform = value;
-		} else if (value == null) {
-			if (_methodSetup._colorTransformMethod != null)
-				colorTransformMethod = null; // (neo) Unnecessary code
+		} else {
 			colorTransformMethod = _methodSetup._colorTransformMethod = null;
 		}
 		return value;
@@ -88,13 +86,12 @@ class SuperShaderPass extends CompiledPass {
 	 */
 	public var colorTransformMethod(get, set):ColorTransformMethod;
 
-	private function get_colorTransformMethod():ColorTransformMethod {
+	private inline function get_colorTransformMethod():ColorTransformMethod {
 		return _methodSetup.colorTransformMethod;
 	}
 
-	private function set_colorTransformMethod(value:ColorTransformMethod):ColorTransformMethod {
-		_methodSetup.colorTransformMethod = value;
-		return value;
+	private inline function set_colorTransformMethod(value:ColorTransformMethod):ColorTransformMethod {
+		return _methodSetup.colorTransformMethod = value;
 	}
 
 	/**
@@ -109,9 +106,9 @@ class SuperShaderPass extends CompiledPass {
 	/**
 	 * The number of "effect" methods added to the material.
 	 */
-	public var numMethods(get, null):Int;
+	public var numMethods(get, never):Int;
 
-	private function get_numMethods():Int {
+	private inline function get_numMethods():Int {
 		return _methodSetup.numMethods;
 	}
 
@@ -232,14 +229,14 @@ class SuperShaderPass extends CompiledPass {
 	/**
 	 * Indicates whether any light probes are used to contribute to the specular shading.
 	 */
-	private function usesProbesForSpecular():Bool {
+	private inline function usesProbesForSpecular():Bool {
 		return _numLightProbes > 0 && (_specularLightSources & LightSources.PROBES) != 0;
 	}
 
 	/**
 	 * Indicates whether any light probes are used to contribute to the diffuse shading.
 	 */
-	private function usesProbesForDiffuse():Bool {
+	private inline function usesProbesForDiffuse():Bool {
 		return _numLightProbes > 0 && (_diffuseLightSources & LightSources.PROBES) != 0;
 	}
 
@@ -384,12 +381,11 @@ class SuperShaderPass extends CompiledPass {
 	 */
 	@:allow(away3d) private var ignoreLights(get, set):Bool;
 
-	private function set_ignoreLights(ignoreLights:Bool):Bool {
-		_ignoreLights = ignoreLights;
-		return _ignoreLights;
+	private inline function set_ignoreLights(val:Bool):Bool {
+		return _ignoreLights = val;
 	}
 
-	private function get_ignoreLights():Bool {
+	private inline function get_ignoreLights():Bool {
 		return _ignoreLights;
 	}
 }

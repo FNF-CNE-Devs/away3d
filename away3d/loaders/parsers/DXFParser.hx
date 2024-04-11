@@ -109,10 +109,7 @@ class DXFParser extends ParserBase {
 		if (str == null)
 			return false;
 
-		if (str.indexOf("ENDSEC") != -1 && str.indexOf("EOF") != -1)
-			return true;
-
-		return false;
+		return str.indexOf("ENDSEC") != -1 && str.indexOf("EOF") != -1;
 	}
 
 	/**

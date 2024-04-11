@@ -12,9 +12,6 @@ import openfl.display3D.Context3DVertexBufferFormat;
 import openfl.errors.Error;
 import openfl.geom.Vector3D;
 
-/**
- * ...
- */
 class ParticleOscillatorState extends ParticleStateBase {
 	public var oscillator(get, set):Vector3D;
 

@@ -19,10 +19,7 @@ class NamedAssetBase extends EventDispatcher {
 
 	public static inline var DEFAULT_NAMESPACE:String = "default";
 
-	public function new(name:String = null) {
-		if (name == null)
-			name = "null";
-
+	public function new(name:String = "null") {
 		_name = name;
 		_originalName = name;
 

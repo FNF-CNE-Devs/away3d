@@ -27,7 +27,7 @@ class SkeletonBinaryLERPState extends AnimationStateBase implements ISkeletonAni
 	 * @see inputA
 	 * @see inputB
 	 */
-	private function get_blendWeight():Float {
+	private inline function get_blendWeight():Float {
 		return _blendWeight;
 	}
 

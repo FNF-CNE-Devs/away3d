@@ -30,9 +30,9 @@ class WebcamTexture extends BitmapTexture {
 		super(new BitmapData(_materialSize, _materialSize, false, 0));
 
 		// Use default camera if none supplied
+		if (camera == null)
+			camera = Camera.getCamera();
 		_camera = camera;
-		if (_camera == null)
-			_camera = Camera.getCamera();
 		_video = new Video(cameraWidth, cameraHeight);
 
 		_matrix = new Matrix();

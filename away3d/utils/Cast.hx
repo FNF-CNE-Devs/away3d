@@ -69,6 +69,7 @@ class Cast {
 			return data;
 
 		if (isOfType(data, String)) {
+			var data = cast(data, String);
 			if (data == "random")
 				return Std.int(Math.random() * 0x1000000);
 
@@ -217,12 +218,11 @@ class Cast {
 				_colorNames["transparent"] = 0xFF000000;
 			}
 
-			var dataString:String = data;
 			if (_colorNames.exists(data))
 				return _colorNames[data];
 
-			if ((dataString.length == 6) && isHex(data))
-				return Std.parseInt("0x" + dataString);
+			if ((data.length == 6) && isHex(data))
+				return Std.parseInt("0x" + data);
 		}
 
 		return 0xFFFFFF;

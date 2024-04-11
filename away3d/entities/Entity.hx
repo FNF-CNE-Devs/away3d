@@ -64,8 +64,7 @@ class Entity extends ObjectContainer3D {
 	}
 
 	private function set_shaderPickingDetails(value:Bool):Bool {
-		_shaderPickingDetails = value;
-		return value;
+		return _shaderPickingDetails = value;
 	}
 
 	/**
@@ -77,8 +76,7 @@ class Entity extends ObjectContainer3D {
 	}
 
 	private function set_staticNode(value:Bool):Bool {
-		_staticNode = value;
-		return value;
+		return _staticNode = value;
 	}
 
 	/**
@@ -259,8 +257,7 @@ class Entity extends ObjectContainer3D {
 	}
 
 	private function set_pickingCollider(value:IPickingCollider):IPickingCollider {
-		_pickingCollider = value;
-		return value;
+		return _pickingCollider = value;
 	}
 
 	/**

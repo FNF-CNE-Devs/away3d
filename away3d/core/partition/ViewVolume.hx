@@ -70,11 +70,11 @@ class ViewVolume extends NodeBase {
 		super();
 	}
 
-	private function get_minBound():Vector3D {
+	private inline function get_minBound():Vector3D {
 		return new Vector3D(_minX, _minY, _minZ);
 	}
 
-	private function get_maxBound():Vector3D {
+	private inline function get_maxBound():Vector3D {
 		return new Vector3D(_maxX, _maxY, _maxZ);
 	}
 
@@ -109,17 +109,19 @@ class ViewVolume extends NodeBase {
 			throw new Error("Entity being added as a visible static object must have static set to true");
 
 		var index:Int = getCellIndex(indexX, indexY, indexZ);
-		if (_cells[index].visibleStatics == null)
-			_cells[index].visibleStatics = new Vector<EntityNode>();
-		_cells[index].visibleStatics.push(entity.getEntityPartitionNode());
+		var _cell:ViewCell = _cells[index];
+		if (_cell.visibleStatics == null)
+			_cell.visibleStatics = new Vector<EntityNode>();
+		_cell.visibleStatics.push(entity.getEntityPartitionNode());
 		updateNumEntities(_numEntities + 1);
 	}
 
 	public function addVisibleDynamicCell(cell:InvertedOctreeNode, indexX:Int = 0, indexY:Int = 0, indexZ:Int = 0):Void {
 		var index:Int = getCellIndex(indexX, indexY, indexZ);
-		if (_cells[index].visibleDynamics == null)
-			_cells[index].visibleDynamics = new Vector<InvertedOctreeNode>();
-		_cells[index].visibleDynamics.push(cell);
+		var _cell:ViewCell = _cells[index];
+		if (_cell.visibleDynamics == null)
+			_cell.visibleDynamics = new Vector<InvertedOctreeNode>();
+		_cell.visibleDynamics.push(cell);
 		updateNumEntities(_numEntities + 1);
 	}
 
@@ -186,51 +188,51 @@ class ViewVolume extends NodeBase {
 		_cells[index] = null;
 	}
 
-	private function get_width():Float {
+	private inline function get_width():Float {
 		return _width;
 	}
 
-	private function get_height():Float {
+	private inline function get_height():Float {
 		return _height;
 	}
 
-	private function get_depth():Float {
+	private inline function get_depth():Float {
 		return _depth;
 	}
 
-	private function get_numCellsX():Int {
+	private inline function get_numCellsX():Int {
 		return _numCellsX;
 	}
 
-	private function get_numCellsY():Int {
+	private inline function get_numCellsY():Int {
 		return _numCellsY;
 	}
 
-	private function get_numCellsZ():Int {
+	private inline function get_numCellsZ():Int {
 		return _numCellsZ;
 	}
 
-	private function get_minX():Float {
+	private inline function get_minX():Float {
 		return _minX;
 	}
 
-	private function get_minY():Float {
+	private inline function get_minY():Float {
 		return _minY;
 	}
 
-	private function get_minZ():Float {
+	private inline function get_minZ():Float {
 		return _minZ;
 	}
 
-	private function get_maxX():Float {
+	private inline function get_maxX():Float {
 		return _maxX;
 	}
 
-	private function get_maxY():Float {
+	private inline function get_maxY():Float {
 		return _maxY;
 	}
 
-	private function get_maxZ():Float {
+	private inline function get_maxZ():Float {
 		return _maxZ;
 	}
 

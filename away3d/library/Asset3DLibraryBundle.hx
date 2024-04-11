@@ -86,9 +86,6 @@ class Asset3DLibraryBundle extends EventDispatcher {
 	 * @return An instance of the asset library
 	 */
 	public static function getInstance(key:String = 'default'):Asset3DLibraryBundle {
-		if (key == null)
-			key = 'default';
-
 		if (!Asset3DLibrary._instances.exists(key))
 			Asset3DLibrary._instances[key] = new Asset3DLibraryBundle();
 

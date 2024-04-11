@@ -53,12 +53,12 @@ class Face {
 	 * @param    uvs            [optional] 6 entries long Vector.&lt;Number&gt; representing the u and v of uv0, uv1, and uv2 of a face
 	 */
 	public function new(vertices:Vector<Float> = null, uvs:Vector<Float> = null) {
+		if (vertices == null)
+			vertices = Vector.ofArray([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]);
 		_vertices = vertices;
-		if (_vertices == null)
-			_vertices = Vector.ofArray([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]);
+		if (uvs == null)
+			uvs = Vector.ofArray([0.0, 0.0, 0.0, 0.0, 0.0, 0.0]);
 		_uvs = uvs;
-		if (_uvs == null)
-			_uvs = Vector.ofArray([0.0, 0.0, 0.0, 0.0, 0.0, 0.0]);
 	}
 
 	// uvs
@@ -69,7 +69,7 @@ class Face {
 	 * @param    u            The horizontal coordinate of the texture value.
 	 * @param    v            The vertical coordinate of the texture value.
 	 */
-	public function setUVat(index:Int, u:Float, v:Float):Void {
+	public inline function setUVat(index:Int, u:Float, v:Float):Void {
 		var ind:Int = (index * 2);
 		_uvs[ind] = u;
 		_uvs[ind + 1] = v;
@@ -222,7 +222,7 @@ class Face {
 	 * @param    y            The y value of the vertex.
 	 * @param    z            The z value of the vertex.
 	 */
-	public function setVertexAt(index:Int, x:Float, y:Float, z:Float):Void {
+	public inline function setVertexAt(index:Int, x:Float, y:Float, z:Float):Void {
 		var ind:Int = (index * 3);
 		_vertices[ind] = x;
 		_vertices[ind + 1] = y;

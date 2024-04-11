@@ -109,20 +109,19 @@ class SimpleWaterNormalMethod extends BasicNormalMethod {
 	override private function set_normalMap(value:Texture2DBase):Texture2DBase {
 		if (value == null)
 			return value;
-		super.normalMap = value;
+		super.normalMap = value; // (neo) WTF?
 		return value;
 	}
 
 	/**
 	 * A second normal map that will be combined with the first to create a wave-like animation pattern.
 	 */
-	private function get_secondaryNormalMap():Texture2DBase {
+	private inline function get_secondaryNormalMap():Texture2DBase {
 		return _texture2;
 	}
 
-	private function set_secondaryNormalMap(value:Texture2DBase):Texture2DBase {
-		_texture2 = value;
-		return value;
+	private inline function set_secondaryNormalMap(value:Texture2DBase):Texture2DBase {
+		return _texture2 = value;
 	}
 
 	/**

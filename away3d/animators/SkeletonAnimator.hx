@@ -447,7 +447,6 @@ class SkeletonAnimator extends AnimatorBase implements IAnimator {
 	 */
 	private function localToGlobalPose(sourcePose:SkeletonPose, targetPose:SkeletonPose, skeleton:Skeleton):Void {
 		var globalPoses:Vector<JointPose> = targetPose.jointPoses;
-		var globalJointPose:JointPose;
 		var joints:Vector<SkeletonJoint> = skeleton.joints;
 		var len:Int = sourcePose.numJointPoses;
 		var jointPoses:Vector<JointPose> = sourcePose.jointPoses;
@@ -468,18 +467,19 @@ class SkeletonAnimator extends AnimatorBase implements IAnimator {
 		if (globalPoses.length != len)
 			globalPoses.length = len;
 
-		for (i in 0...len) {
-			if (globalPoses[i] == null)
-				globalPoses[i] = new JointPose();
+		var globalPose:JointPose;
 
-			globalJointPose = globalPoses[i];
+		for (i in 0...len) {
+			globalPose = globalPoses[i];
+			if (globalPoses[i] == null)
+				globalPose = globalPoses[i] = new JointPose();
 
 			joint = joints[i];
 			parentIndex = joint.parentIndex;
 			pose = jointPoses[i];
 
-			q = globalJointPose.orientation;
-			t = globalJointPose.translation;
+			q = globalPose.orientation;
+			t = globalPose.translation;
 
 			if (parentIndex < 0) {
 				tr = pose.translation;
@@ -495,8 +495,7 @@ class SkeletonAnimator extends AnimatorBase implements IAnimator {
 				// append parent pose
 				parentPose = globalPoses[parentIndex];
 				if (parentPose == null) {
-					parentPose = new JointPose();
-					globalPoses[parentIndex] = parentPose;
+					parentPose = globalPoses[parentIndex] = new JointPose();
 				}
 				// rotate point
 				or = parentPose.orientation;

@@ -123,8 +123,8 @@ class SpriteSheetAnimator extends AnimatorBase implements IAnimator {
 		// because textures are already uploaded, we can't offset the uv's yet
 		var swapped:Bool = false;
 
-		if (isOfType(material, SpriteSheetMaterial) && _mapDirty)
-			swapped = cast((material), SpriteSheetMaterial).swap(_frame.mapID);
+		if (_mapDirty && isOfType(material, SpriteSheetMaterial))
+			swapped = cast(material, SpriteSheetMaterial).swap(_frame.mapID);
 
 		if (!swapped) {
 			_vectorFrame[0] = _frame.offsetU;
@@ -191,7 +191,7 @@ class SpriteSheetAnimator extends AnimatorBase implements IAnimator {
 
 		cast(_activeState, SpriteSheetAnimationState).currentFrameNumber = ((frameNumber == 0)) ? frameNumber : frameNumber - 1;
 		var currentMapID:Int = _frame.mapID;
-		_frame = cast((_activeSpriteSheetState), SpriteSheetAnimationState).currentFrameData;
+		_frame = cast(_activeSpriteSheetState, SpriteSheetAnimationState).currentFrameData;
 
 		if (doPlay)
 			start();

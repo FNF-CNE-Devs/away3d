@@ -133,20 +133,17 @@ class SegmentSet extends Entity implements IRenderable {
 	 *    if segment #1 is removed, segment#2 will get index 0 instead of 1.
 	 */
 	public function removeSegmentByIndex(index:Int, dispose:Bool = false):Void {
-		var segRef:SegRef;
 		if (index >= _indexSegments)
 			return;
-
-		if (_segments.exists(index))
-			segRef = _segments[index];
-		else
+		if (!_segments.exists(index))
 			return;
 
-		var subSet:SubSet;
+		var segRef:SegRef = _segments[index];
+
 		if (_subSets[segRef.subSetIndex] == null)
 			return;
 		var subSetIndex:Int = segRef.subSetIndex;
-		subSet = _subSets[segRef.subSetIndex];
+		var subSet:SubSet = _subSets[segRef.subSetIndex];
 
 		var segment:Segment = segRef.segment;
 		var indices:Vector<UInt> = subSet.indices;

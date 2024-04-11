@@ -34,9 +34,9 @@ class VideoTexture extends BitmapTexture {
 		_clippingRect = new Rectangle(0, 0, _materialWidth, _materialHeight);
 
 		// assigns the provided player or creates a simple player if null.
+		if (player == null)
+			player = new SimpleVideoPlayer();
 		_player = player;
-		if (_player == null)
-			_player = new SimpleVideoPlayer();
 		_player.loop = loop;
 		_player.source = source;
 		_player.width = _materialWidth;

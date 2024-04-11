@@ -33,19 +33,18 @@ class StereoRenderer {
 	private var _rightTextureInvalid:Bool = true;
 
 	public function new(renderMethod:StereoRenderMethodBase = null) {
+		if (renderMethod == null)
+			renderMethod = new InterleavedStereoRenderMethod();
 		_method = renderMethod;
-		if (_method == null)
-			_method = new InterleavedStereoRenderMethod();
 	}
 
-	private function get_renderMethod():StereoRenderMethodBase {
+	private inline function get_renderMethod():StereoRenderMethodBase {
 		return _method;
 	}
 
-	private function set_renderMethod(value:StereoRenderMethodBase):StereoRenderMethodBase {
-		_method = value;
+	private inline function set_renderMethod(value:StereoRenderMethodBase):StereoRenderMethodBase {
 		_program3DInvalid = true;
-		return value;
+		return _method = value;
 	}
 
 	public function getLeftInputTexture(stage3DProxy:Stage3DProxy):Texture {

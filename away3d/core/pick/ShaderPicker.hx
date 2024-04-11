@@ -120,11 +120,11 @@ class ShaderPicker implements IPicker {
 
 		draw(collector, null);
 
-		// clear buffers
-		_context.setVertexBufferAt(0, null);
-
 		if (_context == null || !_potentialFound)
 			return null;
+
+		// clear buffers
+		_context.setVertexBufferAt(0, null);
 
 		if (_bitmapData == null)
 			_bitmapData = new BitmapData(1, 1, false, 0);

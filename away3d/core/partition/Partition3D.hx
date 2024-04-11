@@ -20,9 +20,9 @@ class Partition3D {
 	 * @param rootNode The root node of the space partition system. This will indicate which type of data structure will be used.
 	 */
 	public function new(rootNode:NodeBase) {
-		_rootNode = rootNode;
 		if (rootNode == null)
-			_rootNode = new NullNode();
+			rootNode = new NullNode();
+		_rootNode = rootNode;
 	}
 
 	private function get_showDebugBounds():Bool {
@@ -44,7 +44,7 @@ class Partition3D {
 		if (_updatesMade)
 			updateEntities();
 
-		++PartitionTraverser._collectionMark;
+		PartitionTraverser._collectionMark++;
 
 		_rootNode.acceptTraverser(traverser);
 	}

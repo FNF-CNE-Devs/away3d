@@ -32,9 +32,9 @@ class ParticlePositionNode extends ParticleNodeBase {
 
 		_stateConstructor = cast ParticlePositionState.new;
 
+		if (position == null)
+			position = new Vector3D();
 		_position = position;
-		if (_position == null)
-			_position = new Vector3D();
 	}
 
 	/**

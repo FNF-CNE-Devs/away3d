@@ -130,11 +130,8 @@ class SingleObjectDepthPass extends MaterialPassBase {
 	 * @inheritDoc
 	 */
 	override private function render(renderable:IRenderable, stage3DProxy:Stage3DProxy, camera:Camera3D, viewProjection:Matrix3D):Void {
-		var matrix:Matrix3D;
 		var contextIndex:Int = stage3DProxy._stage3DIndex;
 		var context:Context3D = stage3DProxy._context3D;
-		var len:Int;
-		var light:LightBase;
 		var lights:Vector<LightBase> = _lightPicker.allPickedLights;
 
 		if (_textures[contextIndex] == null)
@@ -143,11 +140,11 @@ class SingleObjectDepthPass extends MaterialPassBase {
 		if (!_projections.exists(renderable))
 			_projections[renderable] = new Matrix3D();
 
-		len = lights.length;
+		var len:Int = lights.length;
 		// local position = enough
-		light = lights[0];
+		var light:LightBase = lights[0];
 
-		matrix = light.getObjectProjectionMatrix(renderable, camera, _projections[renderable]);
+		var matrix:Matrix3D = light.getObjectProjectionMatrix(renderable, camera, _projections[renderable]);
 
 		// todo: use texture proxy?
 		if (!_textures[contextIndex].exists(renderable))

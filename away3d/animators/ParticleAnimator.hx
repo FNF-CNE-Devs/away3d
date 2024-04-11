@@ -71,13 +71,13 @@ class ParticleAnimator extends AnimatorBase implements IAnimator {
 	 * @inheritDoc
 	 */
 	public function setRenderState(stage3DProxy:Stage3DProxy, renderable:IRenderable, vertexConstantOffset:Int, vertexStreamOffset:Int, camera:Camera3D):Void {
-		var animationRegisterCache:AnimationRegisterCache = _particleAnimationSet._animationRegisterCache;
-
 		var subMesh:SubMesh = expect(renderable, SubMesh);
-		var state:ParticleStateBase;
 
 		if (subMesh == null)
 			throw new Error("Must be subMesh");
+
+		var animationRegisterCache:AnimationRegisterCache = _particleAnimationSet._animationRegisterCache;
+		var state:ParticleStateBase;
 
 		// process animation sub geometries
 		if (subMesh.animationSubGeometry == null)

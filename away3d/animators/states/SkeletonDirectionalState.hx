@@ -43,7 +43,7 @@ class SkeletonDirectionalState extends AnimationStateBase implements ISkeletonAn
 		return value;
 	}
 
-	private function get_direction():Float {
+	private inline function get_direction():Float {
 		return _direction;
 	}
 

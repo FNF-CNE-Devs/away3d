@@ -43,12 +43,10 @@ class Stage3DManager {
 		if (_instances == null)
 			_instances = new Map();
 
-		var manager:Stage3DManager = _instances[stage];
-		if (manager == null) {
-			manager = new Stage3DManager(stage);
-			_instances[stage] = manager;
-		}
-		return manager;
+		if (_instances.exists(stage))
+			return _instances[stage];
+
+		return _instances[stage] = new Stage3DManager(stage);
 	}
 
 	/**

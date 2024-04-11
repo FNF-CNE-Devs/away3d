@@ -47,9 +47,10 @@ class Sound3D extends ObjectContainer3D {
 	public function new(sound:Sound, reference:ObjectContainer3D, driver:ISound3DDriver = null, volume:Float = 1, scale:Float = 1000) {
 		_sound = sound;
 		_reference = reference;
+		if (driver == null)
+			driver = new SimplePanVolumeDriver();
 		_driver = driver;
-		if (_driver == null)
-			_driver = new SimplePanVolumeDriver();
+
 		_driver.sourceSound = _sound;
 		_driver.volume = volume;
 		_driver.scale = scale;
@@ -69,13 +70,12 @@ class Sound3D extends ObjectContainer3D {
 	 *
 	 * @see ISound3DDriver.volume
 	 */
-	private function get_volume():Float {
+	private inline function get_volume():Float {
 		return _driver.volume;
 	}
 
-	private function set_volume(val:Float):Float {
-		_driver.volume = val;
-		return val;
+	private inline function set_volume(val:Float):Float {
+		return _driver.volume = val;
 	}
 
 	/**
@@ -86,20 +86,19 @@ class Sound3D extends ObjectContainer3D {
 	 *
 	 * @see ISound3DDriver.scale
 	 */
-	private function get_scaleDistance():Float {
+	private inline function get_scaleDistance():Float {
 		return _driver.scale;
 	}
 
-	private function set_scaleDistance(val:Float):Float {
-		_driver.scale = val;
-		return val;
+	private inline function set_scaleDistance(val:Float):Float {
+		return _driver.scale = val;
 	}
 
 	/**
 	 * Returns a boolean indicating whether or not the sound is currently
 	 * playing.
 	 */
-	private function get_playing():Bool {
+	private inline function get_playing():Bool {
 		return _playing;
 	}
 
@@ -107,7 +106,7 @@ class Sound3D extends ObjectContainer3D {
 	 * Returns a boolean indicating whether or not playback is currently
 	 * paused.
 	 */
-	private function get_paused():Bool {
+	private inline function get_paused():Bool {
 		return _paused;
 	}
 

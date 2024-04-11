@@ -32,9 +32,9 @@ class ParticleOscillatorNode extends ParticleNodeBase {
 
 		_stateConstructor = cast ParticleOscillatorState.new;
 
+		if (oscillator == null)
+			oscillator = new Vector3D();
 		_oscillator = oscillator;
-		if (_oscillator == null)
-			_oscillator = new Vector3D();
 	}
 
 	/**

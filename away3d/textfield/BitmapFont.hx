@@ -53,14 +53,14 @@ class BitmapFont {
 	private static var CHAR_NEWLINE:Int = 10;
 	private static var CHAR_CARRIAGE_RETURN:Int = 13;
 
-	private var mFontMaterial:TextureMaterial;
-	private var mChars:Map<Int, BitmapChar>;
-	private var mName:String;
-	private var mSize:Float;
-	private var mLineHeight:Float;
-	private var mBaseline:Float;
-	private var mOffsetX:Float;
-	private var mOffsetY:Float;
+	private var _fontMaterial:TextureMaterial;
+	private var _chars:Map<Int, BitmapChar>;
+	private var _name:String;
+	private var _size:Float;
+	private var _lineHeight:Float;
+	private var _baseline:Float;
+	private var _offsetX:Float;
+	private var _offsetY:Float;
 
 	/** Helper objects. */
 	private static var sLines = new Vector<Vector<CharLocation>>();
@@ -74,19 +74,19 @@ class BitmapFont {
 			fontXml = MiniBitmapFont.xml;
 		}
 
-		mName = "unknown";
-		mLineHeight = mSize = mBaseline = 14;
-		mOffsetX = mOffsetY = 0.0;
-		mFontMaterial = texture;
-		mChars = new Map<Int, BitmapChar>();
+		_name = "unknown";
+		_lineHeight = _size = _baseline = 14;
+		_offsetX = _offsetY = 0.0;
+		_fontMaterial = texture;
+		_chars = new Map<Int, BitmapChar>();
 
 		parseFontXml(fontXml);
 	}
 
 	/** Disposes the texture of the bitmap font! */
 	public function dispose():Void {
-		if (mFontMaterial != null)
-			mFontMaterial.dispose();
+		if (_fontMaterial != null)
+			_fontMaterial.dispose();
 	}
 
 	private function parseFontXml(fontXml:Xml):Void {
@@ -98,14 +98,14 @@ class BitmapFont {
 			if (font.nodeType == Xml.Element) {
 				for (info in font.elementsNamed("info")) {
 					if (info.nodeType == Xml.Element) {
-						mName = info.get("face");
-						mSize = Std.parseFloat(info.get("size")) / scale;
+						_name = info.get("face");
+						_size = Std.parseFloat(info.get("size")) / scale;
 					}
 				}
 				for (common in font.elementsNamed("common")) {
 					if (common.nodeType == Xml.Element) {
-						mLineHeight = Std.parseFloat(common.get("lineHeight")) / scale;
-						mBaseline = Std.parseFloat(common.get("base")) / scale;
+						_lineHeight = Std.parseFloat(common.get("lineHeight")) / scale;
+						_baseline = Std.parseFloat(common.get("base")) / scale;
 					}
 				}
 				for (chars in font.elementsNamed("chars")) {
@@ -137,7 +137,7 @@ class BitmapFont {
 								var first:Int = Std.parseInt(kerning.get("first"));
 								var second:Int = Std.parseInt(kerning.get("second"));
 								var amount:Float = Std.parseFloat(kerning.get("amount")) / scale;
-								if (mChars.exists(second)) {
+								if (_chars.exists(second)) {
 									getChar(second).addKerning(first, amount);
 								}
 							}
@@ -149,13 +149,13 @@ class BitmapFont {
 	}
 
 	/** Returns a single bitmap char with a certain character ID. */
-	public function getChar(charID:Int):BitmapChar {
-		return mChars[charID];
+	public inline function getChar(charID:Int):BitmapChar {
+		return _chars[charID];
 	}
 
 	/** Adds a bitmap char with a certain character ID. */
-	public function addChar(charID:Int, bitmapChar:BitmapChar):Void {
-		mChars[charID] = bitmapChar;
+	public inline function addChar(charID:Int, bitmapChar:BitmapChar):Void {
+		_chars[charID] = bitmapChar;
 	}
 
 	/** Returns a vector containing all the character IDs that are contained in this font. */
@@ -163,7 +163,7 @@ class BitmapFont {
 		if (result == null)
 			result = new Vector<Int>();
 
-		var keys = mChars.keys();
+		var keys = _chars.keys();
 		for (k in keys) {
 			var key:Int = k;
 			result[result.length] = key;
@@ -220,10 +220,10 @@ class BitmapFont {
 			var width:Float = char.width * scale;
 			var height:Float = char.height * scale;
 
-			var u1:Float = char.x / mFontMaterial.texture.width;
-			var u2:Float = (char.x + char.width) / mFontMaterial.texture.width;
-			var v1:Float = char.y / mFontMaterial.texture.height;
-			var v2:Float = (char.y + char.height) / mFontMaterial.texture.height;
+			var u1:Float = char.x / _fontMaterial.texture.width;
+			var u2:Float = (char.x + char.width) / _fontMaterial.texture.width;
+			var v1:Float = char.y / _fontMaterial.texture.height;
+			var v2:Float = (char.y + char.height) / _fontMaterial.texture.height;
 
 			// 1
 			data[k++] = x;
@@ -306,7 +306,7 @@ class BitmapFont {
 	}
 
 	public function getMaterialClone():TextureMaterial {
-		return new TextureMaterial(mFontMaterial.texture, mFontMaterial.smooth, mFontMaterial.repeat, mFontMaterial.mipmap);
+		return new TextureMaterial(_fontMaterial.texture, _fontMaterial.smooth, _fontMaterial.repeat, _fontMaterial.mipmap);
 	}
 
 	/** Arranges the characters of a text inside a rectangle, adhering to the given settings.
@@ -321,7 +321,7 @@ class BitmapFont {
 		if (text == null || text.length == 0)
 			return CharLocation.vectorFromPool();
 		if (fontSize < 0)
-			fontSize *= -mSize;
+			fontSize *= -_size;
 
 		var finished:Bool = false;
 		var charLocation:CharLocation;
@@ -336,11 +336,11 @@ class BitmapFont {
 		while (!finished) {
 			sLines = new Vector<Vector<CharLocation>>();
 
-			scale = fontSize / mSize;
+			scale = fontSize / _size;
 			containerWidth = width / scale;
 			containerHeight = height / scale;
 
-			if (mLineHeight <= containerHeight) {
+			if (_lineHeight <= containerHeight) {
 				var lastWhiteSpace:Int = -1;
 				var lastCharID:Int = -1;
 				currentX = 0;
@@ -399,10 +399,10 @@ class BitmapFont {
 						if (lastWhiteSpace == i)
 							currentLine.pop();
 
-						if (currentY + 2 * mLineHeight <= containerHeight) {
+						if (currentY + 2 * _lineHeight <= containerHeight) {
 							currentLine = CharLocation.vectorFromPool();
 							currentX = 0;
-							currentY += mLineHeight;
+							currentY += _lineHeight;
 							lastWhiteSpace = -1;
 							lastCharID = -1;
 						} else {
@@ -410,7 +410,7 @@ class BitmapFont {
 						}
 					}
 				} // for each char
-			} // if (mLineHeight <= containerHeight)
+			} // if (_lineHeight <= containerHeight)
 
 			if (autoScale && !finished && fontSize > 3)
 				fontSize -= 1;
@@ -420,7 +420,7 @@ class BitmapFont {
 
 		var finalLocations:Vector<CharLocation> = CharLocation.vectorFromPool();
 		var numLines:Int = sLines.length;
-		var bottom:Float = currentY + mLineHeight;
+		var bottom:Float = currentY + _lineHeight;
 		var yOffset:Int = 0;
 
 		if (vAlign == VAlign.BOTTOM)
@@ -446,8 +446,8 @@ class BitmapFont {
 
 			for (c in 0...numChars) {
 				charLocation = line[c];
-				charLocation.x = scale * (charLocation.x + xOffset + mOffsetX);
-				charLocation.y = scale * (charLocation.y + yOffset + mOffsetY);
+				charLocation.x = scale * (charLocation.x + xOffset + _offsetX);
+				charLocation.y = scale * (charLocation.y + yOffset + _offsetY);
 				charLocation.scale = scale;
 
 				if (charLocation.char.width > 0 && charLocation.char.height > 0)
@@ -459,70 +459,75 @@ class BitmapFont {
 	}
 
 	/** The name of the font as it was parsed from the font file. */
-	public var name(get, null):String;
+	public var name(get, set):String;
 
-	private function get_name():String {
-		return mName;
+	private inline function get_name():String {
+		return _name;
+	}
+	private inline function set_name(val:String):String {
+		return _name = val;
 	}
 
 	/** The native size of the font. */
-	public var size(get, null):Float;
+	public var size(get, set):Float;
 
-	private function get_size():Float {
-		return mSize;
+	private inline function get_size():Float {
+		return _size;
+	}
+	private inline function set_size(val:Float):Float {
+		return _size = val;
 	}
 
 	/** The height of one line in points. */
 	public var lineHeight(get, set):Float;
 
-	private function get_lineHeight():Float {
-		return mLineHeight;
+	private inline function get_lineHeight():Float {
+		return _lineHeight;
 	}
-
-	private function set_lineHeight(value:Float):Float {
-		return mLineHeight = value;
+	private inline function set_lineHeight(value:Float):Float {
+		return _lineHeight = value;
 	}
 
 	/** The baseline of the font. This property does not affect text rendering;
 	 *  it's just an information that may be useful for exact text placement. */
 	public var baseline(get, set):Float;
 
-	private function get_baseline():Float {
-		return mBaseline;
+	private inline function get_baseline():Float {
+		return _baseline;
 	}
-
-	private function set_baseline(value:Float):Float {
-		return mBaseline = value;
+	private inline function set_baseline(value:Float):Float {
+		return _baseline = value;
 	}
 
 	/** An offset that moves any generated text along the x-axis (in points).
 	 *  Useful to make up for incorrect font data. @default 0. */
 	public var offsetX(get, set):Float;
 
-	private function get_offsetX():Float {
-		return mOffsetX;
+	private inline function get_offsetX():Float {
+		return _offsetX;
 	}
-
-	private function set_offsetX(value:Float):Float {
-		return mOffsetX = value;
+	private inline function set_offsetX(value:Float):Float {
+		return _offsetX = value;
 	}
 
 	/** An offset that moves any generated text along the y-axis (in points).
 	 *  Useful to make up for incorrect font data. @default 0. */
 	public var offsetY(get, set):Float;
 
-	private function get_offsetY():Float {
-		return mOffsetY;
+	private inline function get_offsetY():Float {
+		return _offsetY;
 	}
-
-	private function set_offsetY(value:Float):Float {
-		return mOffsetY = value;
+	private inline function set_offsetY(value:Float):Float {
+		return _offsetY = value;
 	}
 
 	/** The underlying texture that contains all the chars. */
-	public var fontMaterial(get, null):TextureMaterial;
+	public var fontMaterial(get, set):TextureMaterial;
 
-	private function get_fontMaterial():TextureMaterial {
-		return mFontMaterial;
+	private inline function get_fontMaterial():TextureMaterial {
+		return _fontMaterial;
+	}
+	private inline function set_fontMaterial(val:TextureMaterial):TextureMaterial {
+		return _fontMaterial = val;
 	}
 }

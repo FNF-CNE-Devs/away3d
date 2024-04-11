@@ -32,9 +32,9 @@ class ParticleVelocityNode extends ParticleNodeBase {
 
 		_stateConstructor = cast ParticleVelocityState.new;
 
+		if (velocity == null)
+			velocity = new Vector3D();
 		_velocity = velocity;
-		if (_velocity == null)
-			_velocity = new Vector3D();
 	}
 
 	/**

@@ -23,9 +23,8 @@ class CrossfadeTransitionState extends SkeletonBinaryLERPState {
 
 		if (blendWeight >= 1) {
 			blendWeight = 1;
-			if (_animationStateTransitionComplete == null) {
+			if (_animationStateTransitionComplete == null)
 				_animationStateTransitionComplete = new AnimationStateEvent(AnimationStateEvent.TRANSITION_COMPLETE, _animator, this, _crossfadeAnimationNode);
-			}
 			_crossfadeAnimationNode.dispatchEvent(_animationStateTransitionComplete);
 		}
 

@@ -17,8 +17,6 @@ class AwayFont {
 	private static var registeredTexture = new Map<String, BitmapTexture>();
 	private static var registeredData = new Map<String, Xml>();
 
-	public function new() {}
-
 	/**
 	 *
 	 * @param	type

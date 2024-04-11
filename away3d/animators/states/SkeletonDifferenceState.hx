@@ -31,7 +31,7 @@ class SkeletonDifferenceState extends AnimationStateBase implements ISkeletonAni
 	 * @see #baseInput
 	 * @see #differenceInput
 	 */
-	private function get_blendWeight():Float {
+	private inline function get_blendWeight():Float {
 		return _blendWeight;
 	}
 

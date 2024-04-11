@@ -79,13 +79,13 @@ class ParticleColorNode extends ParticleNodeBase {
 		_usesCycle = usesCycle;
 		_usesPhase = usesPhase;
 
+		if (startColor == null)
+			startColor = new ColorTransform();
 		_startColor = startColor;
-		if (_startColor == null)
-			_startColor = new ColorTransform();
 
+		if (endColor == null)
+			endColor = new ColorTransform();
 		_endColor = endColor;
-		if (_endColor == null)
-			_endColor = new ColorTransform();
 
 		_cycleDuration = cycleDuration;
 		_cyclePhase = cyclePhase;

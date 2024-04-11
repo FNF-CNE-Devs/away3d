@@ -106,6 +106,7 @@ class AWDParser extends ParserBase {
 			_parser.addEventListener(ParserEvent.PARSE_COMPLETE, onParseComplete);
 			_parser.addEventListener(ParserEvent.READY_FOR_DEPENDENCIES, onReadyForDependencies);
 			_parser.addEventListener(ParserEvent.PARSE_ERROR, onParseError);
+			// Assets
 			_parser.addEventListener(Asset3DEvent.ASSET_COMPLETE, onAssetComplete);
 			_parser.addEventListener(Asset3DEvent.ANIMATION_SET_COMPLETE, onAssetComplete);
 			_parser.addEventListener(Asset3DEvent.ANIMATION_STATE_COMPLETE, onAssetComplete);
@@ -161,6 +162,7 @@ class AWDParser extends ParserBase {
 		_parser.removeEventListener(ParserEvent.READY_FOR_DEPENDENCIES, onReadyForDependencies);
 		_parser.removeEventListener(ParserEvent.PARSE_COMPLETE, onParseComplete);
 		_parser.removeEventListener(ParserEvent.PARSE_ERROR, onParseError);
+		// Assets
 		_parser.removeEventListener(Asset3DEvent.ASSET_COMPLETE, onAssetComplete);
 		_parser.removeEventListener(Asset3DEvent.ANIMATION_SET_COMPLETE, onAssetComplete);
 		_parser.removeEventListener(Asset3DEvent.ANIMATION_STATE_COMPLETE, onAssetComplete);

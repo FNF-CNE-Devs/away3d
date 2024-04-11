@@ -39,13 +39,13 @@ class ParticleBezierCurveNode extends ParticleNodeBase {
 
 		_stateConstructor = cast ParticleBezierCurveState.new;
 
+		if (controlPoint == null)
+			controlPoint = new Vector3D();
 		_controlPoint = controlPoint;
-		if (_controlPoint == null)
-			_controlPoint = new Vector3D();
 
+		if (endPoint == null)
+			endPoint = new Vector3D();
 		_endPoint = endPoint;
-		if (_endPoint == null)
-			_endPoint = new Vector3D();
 	}
 
 	/**
@@ -127,7 +127,6 @@ class ParticleBezierCurveNode extends ParticleNodeBase {
 	 */
 	override public function generatePropertyOfOneParticle(param:ParticleProperties):Void {
 		var bezierControl:Vector3D = param.nodes[ParticleNodeEnum.BEZIER_CONTROL_VECTOR3D];
-
 		if (bezierControl == null)
 			throw new Error("there is no " + ParticleNodeEnum.BEZIER_CONTROL_VECTOR3D + " in param!");
 

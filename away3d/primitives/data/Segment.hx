@@ -61,7 +61,7 @@ class Segment {
 	/**
 	 * Defines the starting vertex.
 	 */
-	private function get_start():Vector3D {
+	private inline function get_start():Vector3D {
 		return _start;
 	}
 
@@ -74,7 +74,7 @@ class Segment {
 	/**
 	 * Defines the ending vertex.
 	 */
-	private function get_end():Vector3D {
+	private inline function get_end():Vector3D {
 		return _end;
 	}
 
@@ -87,7 +87,7 @@ class Segment {
 	/**
 	 * Defines the ending vertex.
 	 */
-	private function get_thickness():Float {
+	private inline function get_thickness():Float {
 		return _thickness * 2;
 	}
 
@@ -100,7 +100,7 @@ class Segment {
 	/**
 	 * Defines the startColor
 	 */
-	private function get_startColor():Int {
+	private inline function get_startColor():Int {
 		return _startColor;
 	}
 
@@ -118,7 +118,7 @@ class Segment {
 	/**
 	 * Defines the endColor
 	 */
-	private function get_endColor():Int {
+	private inline function get_endColor():Int {
 		return _endColor;
 	}
 
@@ -138,32 +138,28 @@ class Segment {
 		_end = null;
 	}
 
-	private function get_index():Int {
+	private inline function get_index():Int {
 		return _index;
 	}
 
-	private function set_index(ind:Int):Int {
-		_index = ind;
-		return ind;
+	private inline function set_index(ind:Int):Int {
+		return _index = ind;
 	}
 
-	private function get_subSetIndex():Int {
+	private inline function get_subSetIndex():Int {
 		return _subSetIndex;
 	}
 
-	private function set_subSetIndex(ind:Int):Int {
-		_subSetIndex = ind;
-		return ind;
+	private inline function set_subSetIndex(ind:Int):Int {
+		return _subSetIndex = ind;
 	}
 
-	private function set_segmentsBase(segBase:SegmentSet):SegmentSet {
-		_segmentsBase = segBase;
-		return segBase;
+	private inline function set_segmentsBase(segBase:SegmentSet):SegmentSet {
+		return _segmentsBase = segBase;
 	}
 
 	private function update():Void {
-		if (_segmentsBase == null)
-			return;
-		_segmentsBase.updateSegment(this);
+		if (_segmentsBase != null)
+			_segmentsBase.updateSegment(this);
 	}
 }

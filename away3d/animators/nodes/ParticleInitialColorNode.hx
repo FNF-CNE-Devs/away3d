@@ -34,9 +34,10 @@ class ParticleInitialColorNode extends ParticleNodeBase {
 
 		_usesMultiplier = usesMultiplier;
 		_usesOffset = usesOffset;
+
+		if (initialColor == null)
+			initialColor = new ColorTransform();
 		_initialColor = initialColor;
-		if (_initialColor == null)
-			_initialColor = new ColorTransform();
 
 		super("ParticleInitialColor", mode, (_usesMultiplier && _usesOffset) ? 8 : 4, ParticleAnimationSet.COLOR_PRIORITY);
 	}

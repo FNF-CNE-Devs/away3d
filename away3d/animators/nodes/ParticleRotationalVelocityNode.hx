@@ -31,9 +31,9 @@ class ParticleRotationalVelocityNode extends ParticleNodeBase {
 
 		super("ParticleRotationalVelocity", mode, 4);
 
+		if (rotationalVelocity == null)
+			rotationalVelocity = new Vector3D();
 		_rotationalVelocity = rotationalVelocity;
-		if (_rotationalVelocity == null)
-			_rotationalVelocity = new Vector3D();
 	}
 
 	/**

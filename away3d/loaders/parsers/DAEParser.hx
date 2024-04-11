@@ -125,10 +125,7 @@ class DAEParser extends ParserBase {
 	 */
 	public static function supportsData(data:Dynamic):Bool {
 		var text = Std.string(data);
-		if (text.indexOf("COLLADA") != -1 || text.indexOf("collada") != -1)
-			return true;
-
-		return false;
+		return text.indexOf("COLLADA") != -1 || text.indexOf("collada") != -1;
 	}
 
 	/**
@@ -383,12 +380,10 @@ class DAEParser extends ParserBase {
 			}
 		}
 
-		if (!Math.isFinite(info.minTime)) {
+		if (!Math.isFinite(info.minTime))
 			info.minTime = 0;
-		}
-		if (!Math.isFinite(info.maxTime)) {
+		if (!Math.isFinite(info.maxTime))
 			info.maxTime = 0;
-		}
 
 		return info;
 	}
@@ -435,10 +430,10 @@ class DAEParser extends ParserBase {
 	}
 
 	private function processController(controller:DAEController, instance:DAEInstanceController):Geometry {
-		var geometry:Geometry = null;
 		if (controller == null)
 			return null;
 
+		var geometry:Geometry = null;
 		if (controller.morph != null)
 			geometry = processControllerMorph(controller, instance);
 		else if (controller.skin != null)
@@ -832,24 +827,26 @@ class DAEParser extends ParserBase {
 		Debug.trace("mat = " + materialMode);
 		if (mat != null) {
 			if (materialMode < 2) {
-				cast(mat, SinglePassMaterialBase).ambientMethod = new BasicAmbientMethod();
-				cast(mat, SinglePassMaterialBase).diffuseMethod = new BasicDiffuseMethod();
-				cast(mat, SinglePassMaterialBase).specularMethod = new BasicSpecularMethod();
-				cast(mat, SinglePassMaterialBase).colorTransform = new ColorTransform();
-				cast(mat, SinglePassMaterialBase).ambientColor = (ambient != null && ambient.color != null) ? ambient.color.rgb : 0x303030;
-				cast(mat, SinglePassMaterialBase).specularColor = (specular != null && specular.color != null) ? specular.color.rgb : 0x202020;
-				cast(mat, SinglePassMaterialBase).gloss = shininess;
-				cast(mat, SinglePassMaterialBase).ambient = 1;
-				cast(mat, SinglePassMaterialBase).specular = 1;
+				var mat = cast(mat, SinglePassMaterialBase);
+				mat.ambientMethod = new BasicAmbientMethod();
+				mat.diffuseMethod = new BasicDiffuseMethod();
+				mat.specularMethod = new BasicSpecularMethod();
+				mat.colorTransform = new ColorTransform();
+				mat.ambientColor = (ambient != null && ambient.color != null) ? ambient.color.rgb : 0x303030;
+				mat.specularColor = (specular != null && specular.color != null) ? specular.color.rgb : 0x202020;
+				mat.gloss = shininess;
+				mat.ambient = 1;
+				mat.specular = 1;
 			} else {
-				cast(mat, MultiPassMaterialBase).ambientMethod = new BasicAmbientMethod();
-				cast(mat, MultiPassMaterialBase).diffuseMethod = new BasicDiffuseMethod();
-				cast(mat, MultiPassMaterialBase).specularMethod = new BasicSpecularMethod();
-				cast(mat, MultiPassMaterialBase).ambientColor = (ambient != null && ambient.color != null) ? ambient.color.rgb : 0x303030;
-				cast(mat, MultiPassMaterialBase).specularColor = (specular != null && specular.color != null) ? specular.color.rgb : 0x202020;
-				cast(mat, MultiPassMaterialBase).gloss = shininess;
-				cast(mat, MultiPassMaterialBase).ambient = 1;
-				cast(mat, MultiPassMaterialBase).specular = 1;
+				var mat = cast(mat, MultiPassMaterialBase);
+				mat.ambientMethod = new BasicAmbientMethod();
+				mat.diffuseMethod = new BasicDiffuseMethod();
+				mat.specularMethod = new BasicSpecularMethod();
+				mat.ambientColor = (ambient != null && ambient.color != null) ? ambient.color.rgb : 0x303030;
+				mat.specularColor = (specular != null && specular.color != null) ? specular.color.rgb : 0x202020;
+				mat.gloss = shininess;
+				mat.ambient = 1;
+				mat.specular = 1;
 			}
 		}
 

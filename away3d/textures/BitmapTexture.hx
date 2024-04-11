@@ -26,7 +26,7 @@ class BitmapTexture extends Texture2DBase {
 
 	public var bitmapData(get, set):BitmapData;
 
-	private function get_bitmapData():BitmapData {
+	private inline function get_bitmapData():BitmapData {
 		return _bitmapData;
 	}
 
@@ -35,7 +35,7 @@ class BitmapTexture extends Texture2DBase {
 			return null;
 
 		if (!TextureUtils.isBitmapDataValid(value))
-			throw new Error("Invalid bitmapData: Width and height must be power of 2 and cannot exceed 2048");
+			throw new Error('Invalid bitmapData: Width and height cannot exceed ${TextureUtils.MAX_SIZE}'); // must be power of 2 and
 
 		invalidateContent();
 		setSize(value.width, value.height);
@@ -67,6 +67,7 @@ class BitmapTexture extends Texture2DBase {
 			freeMipMapHolder();
 		}
 
+		// (neo) TODO: rewrite this
 		if (_mipMaps[newW] == null) {
 			_mipMaps[newW] = [];
 			_mipMapUses[newW] = [];

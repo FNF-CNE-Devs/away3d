@@ -36,7 +36,7 @@ class DitheredShadowMapMethod extends SimpleShadowMapMethodBase {
 
 		this.numSamples = numSamples;
 
-		++_grainUsages;
+		_grainUsages++;
 
 		if (_grainTexture == null)
 			initGrainTexture();
@@ -46,7 +46,7 @@ class DitheredShadowMapMethod extends SimpleShadowMapMethodBase {
 	 * The amount of samples to take for dithering. Minimum 1, maximum 24. The actual maximum may depend on the
 	 * complexity of the shader.
 	 */
-	private function get_numSamples():Int {
+	private inline function get_numSamples():Int {
 		return _numSamples;
 	}
 
@@ -82,13 +82,12 @@ class DitheredShadowMapMethod extends SimpleShadowMapMethodBase {
 	/**
 	 * The range in the shadow map in which to distribute the samples.
 	 */
-	private function get_range():Float {
+	private inline function get_range():Float {
 		return _range * 2;
 	}
 
-	private function set_range(value:Float):Float {
-		_range = value / 2;
-		return value;
+	private inline function set_range(value:Float):Float {
+		return _range = value / 2;
 	}
 
 	/**

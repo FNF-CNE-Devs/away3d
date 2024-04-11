@@ -296,7 +296,7 @@ class AnimatorBase extends NamedAssetBase implements IAsset {
 	@:allow(away3d) private function dispatchCycleEvent():Void {
 		if (hasEventListener(AnimatorEvent.CYCLE_COMPLETE)) {
 			if (_cycleEvent == null)
-				(_cycleEvent = new AnimatorEvent(AnimatorEvent.CYCLE_COMPLETE, this));
+				_cycleEvent = new AnimatorEvent(AnimatorEvent.CYCLE_COMPLETE, this);
 			dispatchEvent(_cycleEvent);
 		}
 	}
