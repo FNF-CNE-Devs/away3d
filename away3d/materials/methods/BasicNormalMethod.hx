@@ -86,8 +86,7 @@ class BasicNormalMethod extends ShadingMethodBase {
 	 * @inheritDoc
 	 */
 	override public function dispose():Void {
-		if (_texture != null) // (neo) missing super.dispose(), and unnecessary line
-			_texture = null;
+		_texture = null;
 	}
 
 	/**

@@ -463,20 +463,19 @@ class AC3DParser extends ParserBase {
 	}
 
 	/*
-	private function getVersionFromHex(char:String):int
-	{
-		return switch (char)
+		private function getVersionFromHex(char:String):int
 		{
-			case "A" | "a": 10;
-			case "B" | "b": 11;
-			case "C" | "c": 12;
-			case "D" | "d": 13;
-			case "E" | "e": 14;
-			case "F" | "f": 15;
-			default: Std.parseInt(char);
-		}
+			return switch (char)
+			{
+				case "A" | "a": 10;
+				case "B" | "b": 11;
+				case "C" | "c": 12;
+				case "D" | "d": 13;
+				case "E" | "e": 14;
+				case "F" | "f": 15;
+				default: Std.parseInt(char);
+			}
 	}*/
-
 	private inline function generateMaterial(materialString:String):Void {
 		_materialList.push(parseMaterialLine(materialString));
 	}

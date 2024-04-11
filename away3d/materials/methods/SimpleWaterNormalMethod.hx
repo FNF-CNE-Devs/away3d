@@ -109,7 +109,7 @@ class SimpleWaterNormalMethod extends BasicNormalMethod {
 	override private function set_normalMap(value:Texture2DBase):Texture2DBase {
 		if (value == null)
 			return value;
-		super.normalMap = value; // (neo) WTF?
+		super.set_normalMap(value);
 		return value;
 	}
 

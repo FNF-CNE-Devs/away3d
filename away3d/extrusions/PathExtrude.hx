@@ -239,7 +239,7 @@ class PathExtrude extends Mesh {
 	}
 
 	private inline function set_path(val:IPath):IPath {
-		if(_path == val)
+		if (_path == val)
 			return val;
 		_geomDirty = true;
 		return _path = val;
@@ -272,7 +272,7 @@ class PathExtrude extends Mesh {
 	}
 
 	private function set_scales(val:Vector<Vector3D>):Vector<Vector3D> {
-		if(_scales == val)
+		if (_scales == val)
 			return val;
 		_geomDirty = true;
 		return _scales = val;
@@ -286,7 +286,7 @@ class PathExtrude extends Mesh {
 	}
 
 	private function set_rotations(val:Vector<Vector3D>):Vector<Vector3D> {
-		if(_rotations == val)
+		if (_rotations == val)
 			return val;
 		_geomDirty = true;
 		return _rotations = val;

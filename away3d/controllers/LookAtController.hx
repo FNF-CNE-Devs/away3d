@@ -43,7 +43,7 @@ class LookAtController extends ControllerBase {
 			this.lookAtPosition = new Vector3D();
 	}
 
-	private function get_upAxis():Vector3D {
+	private inline function get_upAxis():Vector3D {
 		return _upAxis;
 	}
 
@@ -54,7 +54,7 @@ class LookAtController extends ControllerBase {
 		return upAxis;
 	}
 
-	private function get_lookAtPosition():Vector3D {
+	private inline function get_lookAtPosition():Vector3D {
 		return _lookAtPosition;
 	}
 
@@ -73,13 +73,12 @@ class LookAtController extends ControllerBase {
 	/**
 	 * The 3d object that the target looks at.
 	 */
-	private function get_lookAtObject():ObjectContainer3D {
+	private inline function get_lookAtObject():ObjectContainer3D {
 		return _lookAtObject;
 	}
 
 	private function set_lookAtObject(val:ObjectContainer3D):ObjectContainer3D {
-		if (_lookAtPosition != null) // (neo) useless line
-			_lookAtPosition = null;
+		_lookAtPosition = null;
 
 		if (_lookAtObject == val)
 			return val;

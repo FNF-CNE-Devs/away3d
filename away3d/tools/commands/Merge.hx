@@ -95,7 +95,7 @@ class Merge {
 	}
 
 	/**
-	 * Merges all the meshes found in the Vector.&lt;Mesh&gt; into a single Mesh.
+	 * Merges all the meshes found in the Vector.<Mesh> into a single Mesh.
 	 *
 	 * @param    receiver    The Mesh to receive the merged contents of the meshes.
 	 * @param    meshes      A series of Meshes to be merged with the reciever mesh.

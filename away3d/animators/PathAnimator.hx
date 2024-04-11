@@ -51,7 +51,7 @@ class PathAnimator extends EventDispatcher {
 	 * @param                 [optional] offset              A Vector3D to define the target offset to its location on the path.
 	 * @param                 [optional] alignToPath         Defines if the object animated along the path is orientated to the path. Default is true.
 	 * @param                 [optional] lookAtTarget        An Object3D that the target will constantly look at during animation.
-	 * @param                 [optional] rotations           A Vector.&lt;Vector3D&gt; to define rotations per pathsegments. If PathExtrude is used to simulate the "road", use the very same rotations vector.
+	 * @param                 [optional] rotations           A Vector.<Vector3D> to define rotations per pathsegments. If PathExtrude is used to simulate the "road", use the very same rotations vector.
 	 */
 	public function new(path:IPath = null, target:Object3D = null, offset:Vector3D = null, alignToPath:Bool = true, lookAtTarget:Object3D = null,
 			rotations:Vector<Vector3D> = null) {
@@ -303,7 +303,7 @@ class PathAnimator extends EventDispatcher {
 	}
 
 	/**
-	 * sets an optional Vector.&lt;Vector3D&gt; of rotations. if the object3d is animated along a PathExtrude object, use the very same vector to follow the "curves".
+	 * sets an optional Vector.<Vector3D> of rotations. if the object3d is animated along a PathExtrude object, use the very same vector to follow the "curves".
 	 */
 	private function set_rotations(value:Vector<Vector3D>):Vector<Vector3D> {
 		_rotations = value;
@@ -349,7 +349,7 @@ class PathAnimator extends EventDispatcher {
 	}
 
 	/**
-	 * Default method for adding a range event listener. Event fired when the time is &gt;= from and &lt;= to variables.
+	 * Default method for adding a range event listener. Event fired when the time is >= from and <= to variables.
 	 *
 	 * @param        listener        The listener function
 	 */

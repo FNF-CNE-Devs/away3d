@@ -40,7 +40,7 @@ class PathDuplicator {
 	 * Class replicates and distribute one or more mesh(es) along a path. The offsets are defined by the position of the object. 0,0,0 would place the center of the mesh exactly on Path.
 	 *
 	 * @param    path                [optional]    A Path object. The _path definition. either Cubic or Quadratic path
-	 * @param    meshes                [optional]    Vector.&lt;Mesh&gt;. One or more meshes to repeat along the path.
+	 * @param    meshes                [optional]    Vector.<Mesh>. One or more meshes to repeat along the path.
 	 * @param    scene                [optional]    Scene3D. The scene where to addchild the meshes if no ObjectContainer3D is provided.
 	 * @param    repeat                [optional]    uint. How many times a mesh is cloned per PathSegment. Default is 1.
 	 * @param    alignToPath            [optional]    Boolean. If the alignment of the clones must follow the path. Default is true.
@@ -136,7 +136,7 @@ class PathDuplicator {
 	}
 
 	/**
-	 * Defines an optional Vector.&lt;Mesh&gt;. One or more meshes to repeat along the path.
+	 * Defines an optional Vector.<Mesh>. One or more meshes to repeat along the path.
 	 * When the last in the vector is reached, the first in the array will be used, this process go on and on until the last segment.
 	 *
 	 * @param    ms    A Vector.<Mesh>. One or more meshes to repeat along the path. Required for this class.

@@ -49,8 +49,8 @@ class Face {
 	/**
 	 * Creates a new <code>Face</code> value object.
 	 *
-	 * @param    vertices        [optional] 9 entries long Vector.&lt;Number&gt; representing the x, y and z of v0, v1, and v2 of a face
-	 * @param    uvs            [optional] 6 entries long Vector.&lt;Number&gt; representing the u and v of uv0, uv1, and uv2 of a face
+	 * @param    vertices        [optional] 9 entries long Vector.<Number> representing the x, y and z of v0, v1, and v2 of a face
+	 * @param    uvs            [optional] 6 entries long Vector.<Number> representing the u and v of uv0, uv1, and uv2 of a face
 	 */
 	public function new(vertices:Vector<Float> = null, uvs:Vector<Float> = null) {
 		if (vertices == null)

@@ -59,6 +59,7 @@ class BitmapChar {
 	private inline function get_charID():Int {
 		return _charID;
 	}
+
 	private inline function set_charID(val:Int):Int {
 		return _charID = val;
 	}
@@ -69,6 +70,7 @@ class BitmapChar {
 	private inline function get_xOffset():Float {
 		return _xOffset;
 	}
+
 	private inline function set_xOffset(val:Float):Float {
 		return _xOffset = val;
 	}
@@ -79,6 +81,7 @@ class BitmapChar {
 	private inline function get_yOffset():Float {
 		return _yOffset;
 	}
+
 	private inline function set_yOffset(val:Float):Float {
 		return _yOffset = val;
 	}
@@ -89,6 +92,7 @@ class BitmapChar {
 	private inline function get_xAdvance():Float {
 		return _xAdvance;
 	}
+
 	private inline function set_xAdvance(val:Float):Float {
 		return _xAdvance = val;
 	}
@@ -99,6 +103,7 @@ class BitmapChar {
 	private inline function get_width():Float {
 		return _width;
 	}
+
 	private inline function set_width(val:Float):Float {
 		return _width = val;
 	}
@@ -109,6 +114,7 @@ class BitmapChar {
 	private inline function get_height():Float {
 		return _height;
 	}
+
 	private inline function set_height(val:Float):Float {
 		return _height = val;
 	}
@@ -118,6 +124,7 @@ class BitmapChar {
 	private inline function get_x():Float {
 		return _x;
 	}
+
 	private inline function set_x(val:Float):Float {
 		return _x = val;
 	}
@@ -127,6 +134,7 @@ class BitmapChar {
 	private inline function get_y():Float {
 		return _y;
 	}
+
 	private inline function set_y(val:Float):Float {
 		return _y = val;
 	}

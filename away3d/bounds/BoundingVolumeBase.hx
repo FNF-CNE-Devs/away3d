@@ -95,7 +95,7 @@ class BoundingVolumeBase {
 	/**
 	 * Updates the bounds to fit a list of vertices
 	 *
-	 * @param vertices A Vector.&lt;Number&gt; of vertex data to be bounded.
+	 * @param vertices A Vector.<Number> of vertex data to be bounded.
 	 */
 	public function fromVertices(vertices:Vector<Float>):Void {
 		var i:Int = 0;

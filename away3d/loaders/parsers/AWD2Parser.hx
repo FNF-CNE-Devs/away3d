@@ -1456,21 +1456,17 @@ class AWD2Parser extends ParserBase {
 						if (!assetVO.enable)
 							_blocks[blockID].addError("Could not find the LightMap (ID = " + targetID + " ) for this LightMapDiffuseMethod");
 						if (spezialType == 0)
-							single.diffuseMethod = new LightMapDiffuseMethod(assetVO.data, blendModeDic[props.get(401, 10)], false,
-								single.diffuseMethod);
+							single.diffuseMethod = new LightMapDiffuseMethod(assetVO.data, blendModeDic[props.get(401, 10)], false, single.diffuseMethod);
 						if (spezialType == 1)
-							multi.diffuseMethod = new LightMapDiffuseMethod(assetVO.data, blendModeDic[props.get(401, 10)], false,
-								multi.diffuseMethod);
+							multi.diffuseMethod = new LightMapDiffuseMethod(assetVO.data, blendModeDic[props.get(401, 10)], false, multi.diffuseMethod);
 						debugString += " | LightMapDiffuseMethod | LightMapTexture-Name =" + cast(assetVO.data, Texture2DBase).name;
 					case 55: // CelDiffuseMethod
 						if (spezialType == 0) {
-							single.diffuseMethod = new CelDiffuseMethod(props.get(401, 3),
-								single.diffuseMethod);
+							single.diffuseMethod = new CelDiffuseMethod(props.get(401, 3), single.diffuseMethod);
 							cast(single.diffuseMethod, CelDiffuseMethod).smoothness = props.get(101, 0.1);
 						}
 						if (spezialType == 1) {
-							multi.diffuseMethod = new CelDiffuseMethod(props.get(401, 3),
-								multi.diffuseMethod);
+							multi.diffuseMethod = new CelDiffuseMethod(props.get(401, 3), multi.diffuseMethod);
 							cast(multi.diffuseMethod, CelDiffuseMethod).smoothness = props.get(101, 0.1);
 						}
 						debugString += " | CelDiffuseMethod";
@@ -1504,26 +1500,22 @@ class AWD2Parser extends ParserBase {
 						debugString += " | PhongSpecularMethod";
 					case 103: // CellSpecularMethod
 						if (spezialType == 0) {
-							single.specularMethod = new CelSpecularMethod(props.get(101, 0.5),
-								single.specularMethod);
+							single.specularMethod = new CelSpecularMethod(props.get(101, 0.5), single.specularMethod);
 							cast(single.specularMethod, CelSpecularMethod).smoothness = props.get(102, 0.1);
 						}
 						if (spezialType == 1) {
-							multi.specularMethod = new CelSpecularMethod(props.get(101, 0.5),
-								multi.specularMethod);
+							multi.specularMethod = new CelSpecularMethod(props.get(101, 0.5), multi.specularMethod);
 							cast(multi.specularMethod, CelSpecularMethod).smoothness = props.get(102, 0.1);
 						}
 						debugString += " | CellSpecularMethod";
 					case 104: // FresnelSpecularMethod
 						if (spezialType == 0) {
-							single.specularMethod = new FresnelSpecularMethod(props.get(701, true),
-								single.specularMethod);
+							single.specularMethod = new FresnelSpecularMethod(props.get(701, true), single.specularMethod);
 							cast(single.specularMethod, FresnelSpecularMethod).fresnelPower = props.get(101, 5);
 							cast(single.specularMethod, FresnelSpecularMethod).normalReflectance = props.get(102, 0.1);
 						}
 						if (spezialType == 1) {
-							multi.specularMethod = new FresnelSpecularMethod(props.get(701, true),
-								multi.specularMethod);
+							multi.specularMethod = new FresnelSpecularMethod(props.get(701, true), multi.specularMethod);
 							cast(multi.specularMethod, FresnelSpecularMethod).fresnelPower = props.get(101, 5);
 							cast(multi.specularMethod, FresnelSpecularMethod).normalReflectance = props.get(102, 0.1);
 						}
@@ -1538,15 +1530,13 @@ class AWD2Parser extends ParserBase {
 							if (single.normalMap == null)
 								_blocks[blockID].addError("Could not find a normal Map on this Material to use with this SimpleWaterNormalMethod");
 							single.normalMap = assetVO.data;
-							single.normalMethod = new SimpleWaterNormalMethod(single.normalMap,
-								assetVO.data);
+							single.normalMethod = new SimpleWaterNormalMethod(single.normalMap, assetVO.data);
 						}
 						if (spezialType == 1) {
 							if (multi.normalMap == null)
 								_blocks[blockID].addError("Could not find a normal Map on this Material to use with this SimpleWaterNormalMethod");
 							multi.normalMap = assetVO.data;
-							multi.normalMethod = new SimpleWaterNormalMethod(multi.normalMap,
-								assetVO.data);
+							multi.normalMethod = new SimpleWaterNormalMethod(multi.normalMap, assetVO.data);
 						}
 						debugString += " | SimpleWaterNormalMethod | Second-NormalTexture-Name = " + cast(assetVO.data, Texture2DBase).name;
 				}
@@ -2359,7 +2349,9 @@ class AWD2Parser extends ParserBase {
 					case UINT32, BADDR: _newBlockBytes.readUnsignedInt();
 					case FLOAT32: _newBlockBytes.readFloat();
 					case FLOAT64: _newBlockBytes.readDouble();
-					default: _newBlockBytes.position += attr_len; 'unimplemented attribute type ' + attr_type;
+					default:
+						_newBlockBytes.position += attr_len;
+						'unimplemented attribute type ' + attr_type;
 				}
 
 				if (_debug)

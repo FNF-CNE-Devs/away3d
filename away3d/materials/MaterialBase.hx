@@ -493,9 +493,9 @@ class MaterialBase extends NamedAssetBase implements IAsset {
 		if (_owners.length == 0) {
 			_animationSet = null;
 			for (i in 0..._numPasses)
-				_passes[i].animationSet = _animationSet; // (neo) why not set to null
-			_depthPass.animationSet = _animationSet;
-			_distancePass.animationSet = _animationSet;
+				_passes[i].animationSet = null;
+			_depthPass.animationSet = null;
+			_distancePass.animationSet = null;
 			invalidatePasses(null);
 		}
 	}

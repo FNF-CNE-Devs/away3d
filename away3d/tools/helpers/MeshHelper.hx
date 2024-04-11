@@ -380,9 +380,9 @@ class MeshHelper {
 
 	/**
 	 * Build a Mesh from Vectors
-	 * @param vertices                Vector.&lt;Number&gt;. The vertices Vector.&lt;Number&gt;, must hold a multiple of 3 numbers.
-	 * @param indices                Vector.&lt;uint&gt;. The indices Vector.&lt;uint&gt;, holding the face order
-	 * @param uvs                    [optional] Vector.&lt;Number&gt;. The uvs Vector, must hold a series of numbers of (vertices.length/3 * 2) entries. If none is set, default uv's are applied
+	 * @param vertices                Vector.<Number>. The vertices Vector.<Number>, must hold a multiple of 3 numbers.
+	 * @param indices                Vector.<uint>. The indices Vector.<uint>, holding the face order
+	 * @param uvs                    [optional] Vector.<Number>. The uvs Vector, must hold a series of numbers of (vertices.length/3 * 2) entries. If none is set, default uv's are applied
 	 * if no uv's are defined, default uv mapping is set.
 	 * @param name                    [optional] String. new name for the generated mesh. Default = "";
 	 * @param material                [optional] MaterialBase. new name for the duplicated mesh. Default = null;
@@ -518,7 +518,7 @@ class MeshHelper {
 	 * @param mesh                    Mesh. The mesh to split in a series of independant meshes from its subgeometries.
 	 * @param disposeSource        Boolean. If the mesh source must be destroyed after the split. Default is false;
 	 *
-	 * @ returns Vector..&lt;Mesh&gt;
+	 * @ returns Vector..<Mesh>
 	 */
 	public static function splitMesh(mesh:Mesh, disposeSource:Bool = false):Vector<Mesh> {
 		var meshes:Vector<Mesh> = new Vector<Mesh>();

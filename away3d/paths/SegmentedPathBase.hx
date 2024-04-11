@@ -50,9 +50,9 @@ class SegmentedPathBase implements IPath {
 	}
 
 	/**
-	 * returns the Vector.&lt;PathSegment&gt; holding the elements (PathSegment) of the path
+	 * returns the Vector.<PathSegment> holding the elements (PathSegment) of the path
 	 *
-	 * @return    a Vector.&lt;PathSegment&gt;: holding the elements (PathSegment) of the path
+	 * @return    a Vector.<PathSegment>: holding the elements (PathSegment) of the path
 	 */
 	private function get_segments():Vector<IPathSegment> {
 		return _segments;

@@ -22,20 +22,20 @@ import openfl.geom.Rectangle;
  *  This is what the file format looks like:
  *
  *  <pre>
- *  &lt;font&gt;
- *	&lt;info face="BranchingMouse" size="40" /&gt;
- *	&lt;common lineHeight="40" /&gt;
- *	&lt;pages&gt;  &lt;!-- currently, only one page is supported --&gt;
- *	  &lt;page id="0" file="texture.png" /&gt;
- *	&lt;/pages&gt;
- *	&lt;chars&gt;
- *	  &lt;char id="32" x="60" y="29" width="1" height="1" xoffset="0" yoffset="27" xadvance="8" /&gt;
- *	  &lt;char id="33" x="155" y="144" width="9" height="21" xoffset="0" yoffset="6" xadvance="9" /&gt;
- *	&lt;/chars&gt;
- *	&lt;kernings&gt; &lt;!-- Kerning is optional --&gt;
- *	  &lt;kerning first="83" second="83" amount="-4"/&gt;
- *	&lt;/kernings&gt;
- *  &lt;/font&gt;
+ *  <font>
+ *	<info face="BranchingMouse" size="40" />
+ *	<common lineHeight="40" />
+ *	<pages>  <!-- currently, only one page is supported -->
+ *	  <page id="0" file="texture.png" />
+ *	</pages>
+ *	<chars>
+ *	  <char id="32" x="60" y="29" width="1" height="1" xoffset="0" yoffset="27" xadvance="8" />
+ *	  <char id="33" x="155" y="144" width="9" height="21" xoffset="0" yoffset="6" xadvance="9" />
+ *	</chars>
+ *	<kernings> <!-- Kerning is optional -->
+ *	  <kerning first="83" second="83" amount="-4"/>
+ *	</kernings>
+ *  </font>
  *  </pre>
  *
  *  Pass an instance of this class to the method <code>registerBitmapFont</code> of the
@@ -464,6 +464,7 @@ class BitmapFont {
 	private inline function get_name():String {
 		return _name;
 	}
+
 	private inline function set_name(val:String):String {
 		return _name = val;
 	}
@@ -474,6 +475,7 @@ class BitmapFont {
 	private inline function get_size():Float {
 		return _size;
 	}
+
 	private inline function set_size(val:Float):Float {
 		return _size = val;
 	}
@@ -484,6 +486,7 @@ class BitmapFont {
 	private inline function get_lineHeight():Float {
 		return _lineHeight;
 	}
+
 	private inline function set_lineHeight(value:Float):Float {
 		return _lineHeight = value;
 	}
@@ -495,6 +498,7 @@ class BitmapFont {
 	private inline function get_baseline():Float {
 		return _baseline;
 	}
+
 	private inline function set_baseline(value:Float):Float {
 		return _baseline = value;
 	}
@@ -506,6 +510,7 @@ class BitmapFont {
 	private inline function get_offsetX():Float {
 		return _offsetX;
 	}
+
 	private inline function set_offsetX(value:Float):Float {
 		return _offsetX = value;
 	}
@@ -517,6 +522,7 @@ class BitmapFont {
 	private inline function get_offsetY():Float {
 		return _offsetY;
 	}
+
 	private inline function set_offsetY(value:Float):Float {
 		return _offsetY = value;
 	}
@@ -527,6 +533,7 @@ class BitmapFont {
 	private inline function get_fontMaterial():TextureMaterial {
 		return _fontMaterial;
 	}
+
 	private inline function set_fontMaterial(val:TextureMaterial):TextureMaterial {
 		return _fontMaterial = val;
 	}

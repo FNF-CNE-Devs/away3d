@@ -82,7 +82,7 @@ class AWD1Parser extends ParserBase {
 			str1 = ba.readUTFBytes(2);
 			str2 = ba.readUTFBytes(readLength);
 		} else {
-			if(isOfType(data, String)) {
+			if (isOfType(data, String)) {
 				var data = cast(data, String);
 				str1 = data.substr(0, 5);
 				str2 = data.substr(0, readLength);
@@ -321,8 +321,8 @@ class AWD1Parser extends ParserBase {
 
 		var aRef:Array<String> = geo.f.split(",");
 
-		//var mRef:Array<String>;
-		//if (geo.m != null)
+		// var mRef:Array<String>;
+		// if (geo.m != null)
 		//	mRef = geo.m.split(",");
 
 		var sub_geom:CompactSubGeometry;
@@ -388,7 +388,7 @@ class AWD1Parser extends ParserBase {
 
 	private function retrieveMeshFromID(id:String):Mesh {
 		for (i in 0..._meshList.length) {
-			//if (cast(_meshList[i], Mesh).name == id)
+			// if (cast(_meshList[i], Mesh).name == id)
 			//	return cast(_meshList[i], Mesh);
 			if (_meshList[i].name == id)
 				return _meshList[i];

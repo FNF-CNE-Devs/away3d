@@ -47,14 +47,14 @@ class SkinExtrude extends Mesh {
 	private var _flip:Bool;
 
 	/*
-		* Class SkinExtrude generates (and becomes) a mesh from a multidimentional vector of vector3D's . <code>SkinExtrude</code>
-		*@param	material			MaterialBase. The SkinExtrude (Mesh) material
-		*@param	profiles			Vector.&;t;Vector.&lt;Vector3D&gt;&gt; Multidimentional vector of vectors holding the vector3d's defining the shape. &lt; &lt;va0, va1&gt;, &lt;vb0, vb1&gt; &gt;
-		*@param	subdivision		[optional] uint. The _subdivision between vectors. Default is 1.
-		*@param	centerMesh	[optional] Boolean. If the final mesh must be _centerMeshed. Default is false.
-		*@param	closeShape		[optional] Boolean. If the last vector must be linked to the first vector. Default is false.
-		*@param	coverAll			[optional] Boolean. If the mapping is stretched over the entire mesh or from vector to vector. Default is false.
-		*@param	flip				[optional] Boolean. If the faces need to be inverted. Default is false.
+	 * Class SkinExtrude generates (and becomes) a mesh from a multidimentional vector of vector3D's . <code>SkinExtrude</code>
+	 * @param	material			MaterialBase. The SkinExtrude (Mesh) material
+	 * @param	profiles			Vector.<Vector.<Vector3D>> Multidimentional vector of vectors holding the vector3d's defining the shape. < <va0, va1>, <vb0, vb1> >
+	 * @param	subdivision		[optional] uint. The _subdivision between vectors. Default is 1.
+	 * @param	centerMesh	[optional] Boolean. If the final mesh must be _centerMeshed. Default is false.
+	 * @param	closeShape		[optional] Boolean. If the last vector must be linked to the first vector. Default is false.
+	 * @param	coverAll			[optional] Boolean. If the mapping is stretched over the entire mesh or from vector to vector. Default is false.
+	 * @param	flip				[optional] Boolean. If the faces need to be inverted. Default is false.
 	 */
 	public function new(material:MaterialBase, profiles:Vector<Vector<Vector3D>>, subdivision:Int = 1, centerMesh:Bool = false, closeShape:Bool = false,
 			coverAll:Bool = false, flip:Bool = false) {
@@ -74,11 +74,14 @@ class SkinExtrude extends Mesh {
 	/**
 	 * Defines if the texture(s) should be stretched to cover the entire mesh or per step between segments. Defaults to false.
 	 */
-	private function get_profiles():Vector<Vector<Vector3D>> {
+	private inline function get_profiles():Vector<Vector<Vector3D>> {
 		return _profiles;
 	}
 
 	private function set_profiles(val:Vector<Vector<Vector3D>>):Vector<Vector<Vector3D>> {
+		if (_profiles == val)
+			return val;
+
 		_profiles = val;
 		invalidateGeometry();
 		return val;
@@ -87,7 +90,7 @@ class SkinExtrude extends Mesh {
 	/**
 	 * Defines if the texture(s) should be stretched to cover the entire mesh or per step between segments. Defaults to false.
 	 */
-	private function get_coverAll():Bool {
+	private inline function get_coverAll():Bool {
 		return _coverAll;
 	}
 
@@ -101,9 +104,9 @@ class SkinExtrude extends Mesh {
 	}
 
 	/**
-	 * Defines if the last vector of Vector3D are joined to the first one, closing the shape. works from 3 vector.&lt;Vector3D&gt; entered.
+	 * Defines if the last vector of Vector3D are joined to the first one, closing the shape. works from 3 vector.<Vector3D> entered.
 	 */
-	private function get_closeShape():Bool {
+	private inline function get_closeShape():Bool {
 		return _closeShape;
 	}
 
@@ -119,7 +122,7 @@ class SkinExtrude extends Mesh {
 	/**
 	 * Defines if the face orientatio needs to be inverted
 	 */
-	private function get_flip():Bool {
+	private inline function get_flip():Bool {
 		return _flip;
 	}
 
@@ -135,7 +138,7 @@ class SkinExtrude extends Mesh {
 	/**
 	 * Defines whether the mesh is _centerMeshed of not after generation
 	 */
-	private function get_centerMesh():Bool {
+	private inline function get_centerMesh():Bool {
 		return _centerMesh;
 	}
 
@@ -152,7 +155,7 @@ class SkinExtrude extends Mesh {
 		return val;
 	}
 
-	private function get_subdivision():Float {
+	private inline function get_subdivision():Float {
 		return _subdivision;
 	}
 

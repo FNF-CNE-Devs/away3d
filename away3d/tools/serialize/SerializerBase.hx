@@ -72,7 +72,7 @@ class SerializerBase {
 	}
 
 	/**
-	 * Serialize Transform, in the form of Vector.&lt;Number&gt;
+	 * Serialize Transform, in the form of Vector.<Number>
 	 * @param name name of value being serialized
 	 * @param value value being serialized
 	 */
