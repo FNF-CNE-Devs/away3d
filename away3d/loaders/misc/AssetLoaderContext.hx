@@ -37,13 +37,12 @@ class AssetLoaderContext {
 	 */
 	public var includeDependencies(get, set):Bool;
 
-	private function get_includeDependencies():Bool {
+	private inline function get_includeDependencies():Bool {
 		return _includeDependencies;
 	}
 
-	private function set_includeDependencies(val:Bool):Bool {
-		_includeDependencies = val;
-		return val;
+	private inline function set_includeDependencies(val:Bool):Bool {
+		return _includeDependencies = val;
 	}
 
 	/**
@@ -52,17 +51,15 @@ class AssetLoaderContext {
 	 * 0 (Default / undefined) - All Parsers will create SinglePassMaterials, but the AWD2.1parser will create Materials as they are defined in the file
 	 * 1 (Force SinglePass) - All Parsers create SinglePassMaterials
 	 * 2 (Force MultiPass) - All Parsers will create MultiPassMaterials
-	 *
 	 */
 	public var materialMode(get, set):UInt;
 
-	private function get_materialMode():UInt {
+	private inline function get_materialMode():UInt {
 		return _materialMode;
 	}
 
-	private function set_materialMode(materialMode:UInt):UInt {
-		_materialMode = materialMode;
-		return _materialMode;
+	private inline function set_materialMode(val:UInt):UInt {
+		return _materialMode = val;
 	}
 
 	/**
@@ -71,13 +68,12 @@ class AssetLoaderContext {
 	 */
 	public var dependencyBaseUrl(get, set):String;
 
-	private function get_dependencyBaseUrl():String {
+	private inline function get_dependencyBaseUrl():String {
 		return _dependencyBaseUrl;
 	}
 
-	private function set_dependencyBaseUrl(val:String):String {
-		_dependencyBaseUrl = val;
-		return val;
+	private inline function set_dependencyBaseUrl(val:String):String {
+		return _dependencyBaseUrl = val;
 	}
 
 	/**
@@ -87,13 +83,12 @@ class AssetLoaderContext {
 	 */
 	public var overrideAbsolutePaths(get, set):Bool;
 
-	private function get_overrideAbsolutePaths():Bool {
+	private inline function get_overrideAbsolutePaths():Bool {
 		return _overrideAbsPath;
 	}
 
-	private function set_overrideAbsolutePaths(val:Bool):Bool {
-		_overrideAbsPath = val;
-		return val;
+	private inline function set_overrideAbsolutePaths(val:Bool):Bool {
+		return _overrideAbsPath = val;
 	}
 
 	/**
@@ -103,13 +98,12 @@ class AssetLoaderContext {
 	 */
 	public var overrideFullURLs(get, set):Bool;
 
-	private function get_overrideFullURLs():Bool {
+	private inline function get_overrideFullURLs():Bool {
 		return _overrideFullUrls;
 	}
 
-	private function set_overrideFullURLs(val:Bool):Bool {
-		_overrideFullUrls = val;
-		return val;
+	private inline function set_overrideFullURLs(val:Bool):Bool {
+		return _overrideFullUrls = val;
 	}
 
 	/**
@@ -122,7 +116,7 @@ class AssetLoaderContext {
 	 *
 	 * @see mapUrlToData()
 	 */
-	public function mapUrl(originalUrl:String, newUrl:String):Void {
+	public inline function mapUrl(originalUrl:String, newUrl:String):Void {
 		_remappedUrls[originalUrl] = newUrl;
 	}
 
@@ -133,7 +127,7 @@ class AssetLoaderContext {
 	 * @param originalUrl The original URL which is referenced in the loaded resource.
 	 * @param data The embedded data. Can be ByteArray or a class which can be used to create a bytearray.
 	 */
-	public function mapUrlToData(originalUrl:String, data:Dynamic):Void {
+	public inline function mapUrlToData(originalUrl:String, data:Dynamic):Void {
 		_embeddedDataByUrl[originalUrl] = data;
 	}
 
@@ -141,7 +135,7 @@ class AssetLoaderContext {
 	 * @private
 	 * Defines whether embedded data has been mapped to a particular URL.
 	 */
-	@:allow(away3d) private function hasDataForUrl(url:String):Bool {
+	@:allow(away3d) private inline function hasDataForUrl(url:String):Bool {
 		return _embeddedDataByUrl.exists(url);
 	}
 
@@ -149,7 +143,7 @@ class AssetLoaderContext {
 	 * @private
 	 * Returns embedded data for a particular URL.
 	 */
-	@:allow(away3d) private function getDataForUrl(url:String):Dynamic {
+	@:allow(away3d) private inline function getDataForUrl(url:String):Dynamic {
 		return _embeddedDataByUrl[url];
 	}
 
@@ -157,7 +151,7 @@ class AssetLoaderContext {
 	 * @private
 	 * Defines whether a replacement URL has been mapped to a particular URL.
 	 */
-	@:allow(away3d) private function hasMappingForUrl(url:String):Bool {
+	@:allow(away3d) private inline function hasMappingForUrl(url:String):Bool {
 		return _remappedUrls.exists(url);
 	}
 
@@ -165,7 +159,7 @@ class AssetLoaderContext {
 	 * @private
 	 * Returns new (replacement) URL for a particular original URL.
 	 */
-	@:allow(away3d) private function getRemappedUrl(originalUrl:String):String {
+	@:allow(away3d) private inline function getRemappedUrl(originalUrl:String):String {
 		return _remappedUrls[originalUrl];
 	}
 }

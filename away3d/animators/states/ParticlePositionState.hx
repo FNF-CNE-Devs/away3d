@@ -25,19 +25,15 @@ class ParticlePositionState extends ParticleStateBase {
 	/**
 	 * Defines the position of the particle when in global mode. Defaults to 0,0,0.
 	 */
-	private function get_position():Vector3D {
+	private inline function get_position():Vector3D {
 		return _position;
 	}
 
-	private function set_position(value:Vector3D):Vector3D {
-		_position = value;
-		return value;
+	private inline function set_position(value:Vector3D):Vector3D {
+		return _position = value;
 	}
 
-	/**
-	 *
-	 */
-	public function getPositions():Vector<Vector3D> {
+	public inline function getPositions():Vector<Vector3D> {
 		return _dynamicProperties;
 	}
 

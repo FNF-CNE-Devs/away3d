@@ -24,19 +24,15 @@ class ParticleVelocityState extends ParticleStateBase {
 	/**
 	 * Defines the default velocity vector of the state, used when in global mode.
 	 */
-	private function get_velocity():Vector3D {
+	private inline function get_velocity():Vector3D {
 		return _velocity;
 	}
 
-	private function set_velocity(value:Vector3D):Vector3D {
-		_velocity = value;
-		return value;
+	private inline function set_velocity(value:Vector3D):Vector3D {
+		return _velocity = value;
 	}
 
-	/**
-	 *
-	 */
-	public function getVelocities():Vector<Vector3D> {
+	public inline function getVelocities():Vector<Vector3D> {
 		return _dynamicProperties;
 	}
 

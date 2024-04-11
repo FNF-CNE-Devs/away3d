@@ -68,8 +68,8 @@ class AWD1Parser extends ParserBase {
 	 */
 	public static function supportsData(data:Dynamic):Bool {
 		var ba:ByteArray;
-		var str1:String;
-		var str2:String;
+		var str1:String = null;
+		var str2:String = null;
 		var readLength:Int = 100;
 
 		ba = ParserUtil.toByteArray(data);
@@ -82,8 +82,11 @@ class AWD1Parser extends ParserBase {
 			str1 = ba.readUTFBytes(2);
 			str2 = ba.readUTFBytes(readLength);
 		} else {
-			str1 = isOfType(data, String) ? cast(data, String).substr(0, 5) : null;
-			str2 = isOfType(data, String) ? cast(data, String).substr(0, readLength) : null;
+			if(isOfType(data, String)) {
+				var data = cast(data, String);
+				str1 = data.substr(0, 5);
+				str2 = data.substr(0, readLength);
+			}
 		}
 		if ((str1 == '//') && (str2.indexOf("#v:") != -1))
 			return true;
@@ -306,12 +309,8 @@ class AWD1Parser extends ParserBase {
 	}
 
 	private function parseFacesToMesh(geo:Dynamic, mesh:Mesh):Void {
-		var j:Int;
 		var av:Array<String>;
 		var au:Array<String>;
-
-		var aRef:Array<String>;
-		var mRef:Array<String>;
 
 		var vertices:Vector<Float> = new Vector<Float>();
 		var indices:Vector<UInt> = new Vector<UInt>();
@@ -320,14 +319,16 @@ class AWD1Parser extends ParserBase {
 		var vindex:Int = 0;
 		var uindex:Int = 0;
 
-		aRef = geo.f.split(",");
-		if (geo.m != null)
-			mRef = geo.m.split(",");
+		var aRef:Array<String> = geo.f.split(",");
+
+		//var mRef:Array<String>;
+		//if (geo.m != null)
+		//	mRef = geo.m.split(",");
 
 		var sub_geom:CompactSubGeometry;
 		var geom:Geometry = mesh.geometry;
 
-		j = 0;
+		var j:Int = 0;
 		while (j < aRef.length) {
 			if (indices.length + 3 > LIMIT) {
 				sub_geom = new CompactSubGeometry();
@@ -387,8 +388,10 @@ class AWD1Parser extends ParserBase {
 
 	private function retrieveMeshFromID(id:String):Mesh {
 		for (i in 0..._meshList.length) {
-			if (cast(_meshList[i], Mesh).name == id)
-				return cast(_meshList[i], Mesh);
+			//if (cast(_meshList[i], Mesh).name == id)
+			//	return cast(_meshList[i], Mesh);
+			if (_meshList[i].name == id)
+				return _meshList[i];
 		}
 
 		return null;

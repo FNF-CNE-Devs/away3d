@@ -148,7 +148,7 @@ class Asset3DLibraryBundle extends EventDispatcher {
 	 * @param ns An optional namespace string under which the file is to be loaded, allowing the differentiation of two resources with identical assets
 	 * @param parser An optional parser object for translating the loaded data into a usable resource. If not provided, AssetLoader will attempt to auto-detect the file type.
 	 */
-	public function load(req:URLRequest, context:AssetLoaderContext = null, ns:String = null, parser:ParserBase = null):AssetLoaderToken {
+	public inline function load(req:URLRequest, context:AssetLoaderContext = null, ns:String = null, parser:ParserBase = null):AssetLoaderToken {
 		return loadResource(req, context, ns, parser);
 	}
 
@@ -160,13 +160,10 @@ class Asset3DLibraryBundle extends EventDispatcher {
 	 * @param ns An optional namespace string under which the file is to be loaded, allowing the differentiation of two resources with identical assets
 	 * @param parser An optional parser object for translating the loaded data into a usable resource. If not provided, AssetLoader will attempt to auto-detect the file type.
 	 */
-	public function loadData(data:Dynamic, context:AssetLoaderContext = null, ns:String = null, parser:ParserBase = null):AssetLoaderToken {
+	public inline function loadData(data:Dynamic, context:AssetLoaderContext = null, ns:String = null, parser:ParserBase = null):AssetLoaderToken {
 		return parseResource(data, context, ns, parser);
 	}
 
-	/**
-	 *
-	 */
 	public function getAsset(name:String, ns:String = null):IAsset {
 		// var asset : IAsset;
 
@@ -353,6 +350,7 @@ class Asset3DLibraryBundle extends EventDispatcher {
 		loader.addEventListener(LoaderEvent.RESOURCE_COMPLETE, onResourceRetrieved);
 		loader.addEventListener(LoaderEvent.DEPENDENCY_COMPLETE, onDependencyRetrieved);
 		loader.addEventListener(Asset3DEvent.TEXTURE_SIZE_ERROR, onTextureSizeError);
+		// Assets
 		loader.addEventListener(Asset3DEvent.ASSET_COMPLETE, onAssetComplete);
 		loader.addEventListener(Asset3DEvent.ANIMATION_SET_COMPLETE, onAssetComplete);
 		loader.addEventListener(Asset3DEvent.ANIMATION_STATE_COMPLETE, onAssetComplete);

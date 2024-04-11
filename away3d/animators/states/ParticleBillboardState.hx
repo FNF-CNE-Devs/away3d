@@ -24,9 +24,6 @@ class ParticleBillboardState extends ParticleStateBase {
 
 	private var _billboardAxis:Vector3D;
 
-	/**
-	 *
-	 */
 	public function new(animator:ParticleAnimator, particleNode:ParticleBillboardNode) {
 		super(animator, particleNode);
 		billboardAxis = particleNode._billboardAxis;

@@ -217,7 +217,7 @@ class Object3D extends NamedAssetBase {
 	/**
 	 * Defines the x coordinate of the 3d object relative to the local coordinates of the parent <code>ObjectContainer3D</code>.
 	 */
-	private function get_x():Float {
+	private inline function get_x():Float {
 		return _x;
 	}
 
@@ -234,7 +234,7 @@ class Object3D extends NamedAssetBase {
 	/**
 	 * Defines the y coordinate of the 3d object relative to the local coordinates of the parent <code>ObjectContainer3D</code>.
 	 */
-	private function get_y():Float {
+	private inline function get_y():Float {
 		return _y;
 	}
 
@@ -251,7 +251,7 @@ class Object3D extends NamedAssetBase {
 	/**
 	 * Defines the z coordinate of the 3d object relative to the local coordinates of the parent <code>ObjectContainer3D</code>.
 	 */
-	private function get_z():Float {
+	private inline function get_z():Float {
 		return _z;
 	}
 
@@ -268,7 +268,7 @@ class Object3D extends NamedAssetBase {
 	/**
 	 * Defines the euler angle of rotation of the 3d object around the x-axis, relative to the local coordinates of the parent <code>ObjectContainer3D</code>.
 	 */
-	private function get_rotationX():Float {
+	private inline function get_rotationX():Float {
 		return _rotationX * MathConsts.RADIANS_TO_DEGREES;
 	}
 
@@ -285,7 +285,7 @@ class Object3D extends NamedAssetBase {
 	/**
 	 * Defines the euler angle of rotation of the 3d object around the y-axis, relative to the local coordinates of the parent <code>ObjectContainer3D</code>.
 	 */
-	private function get_rotationY():Float {
+	private inline function get_rotationY():Float {
 		return _rotationY * MathConsts.RADIANS_TO_DEGREES;
 	}
 
@@ -302,7 +302,7 @@ class Object3D extends NamedAssetBase {
 	/**
 	 * Defines the euler angle of rotation of the 3d object around the z-axis, relative to the local coordinates of the parent <code>ObjectContainer3D</code>.
 	 */
-	private function get_rotationZ():Float {
+	private inline function get_rotationZ():Float {
 		return _rotationZ * MathConsts.RADIANS_TO_DEGREES;
 	}
 
@@ -319,7 +319,7 @@ class Object3D extends NamedAssetBase {
 	/**
 	 * Defines the scale of the 3d object along the x-axis, relative to local coordinates.
 	 */
-	private function get_scaleX():Float {
+	private inline function get_scaleX():Float {
 		return _scaleX;
 	}
 
@@ -336,7 +336,7 @@ class Object3D extends NamedAssetBase {
 	/**
 	 * Defines the scale of the 3d object along the y-axis, relative to local coordinates.
 	 */
-	private function get_scaleY():Float {
+	private inline function get_scaleY():Float {
 		return _scaleY;
 	}
 
@@ -353,7 +353,7 @@ class Object3D extends NamedAssetBase {
 	/**
 	 * Defines the scale of the 3d object along the z-axis, relative to local coordinates.
 	 */
-	private function get_scaleZ():Float {
+	private inline function get_scaleZ():Float {
 		return _scaleZ;
 	}
 
@@ -444,7 +444,7 @@ class Object3D extends NamedAssetBase {
 	/**
 	 * Defines the local point around which the object rotates.
 	 */
-	private function get_pivotPoint():Vector3D {
+	private inline function get_pivotPoint():Vector3D {
 		return _pivotPoint;
 	}
 
@@ -489,51 +489,33 @@ class Object3D extends NamedAssetBase {
 		return v;
 	}
 
-	/**
-	 *
-	 */
-	private function get_forwardVector():Vector3D {
+	private inline function get_forwardVector():Vector3D {
 		return Matrix3DUtils.getForward(transform);
 	}
 
-	/**
-	 *
-	 */
-	private function get_rightVector():Vector3D {
+	private inline function get_rightVector():Vector3D {
 		return Matrix3DUtils.getRight(transform);
 	}
 
-	/**
-	 *
-	 */
-	private function get_upVector():Vector3D {
+	private inline function get_upVector():Vector3D {
 		return Matrix3DUtils.getUp(transform);
 	}
 
-	/**
-	 *
-	 */
-	private function get_backVector():Vector3D {
+	private inline function get_backVector():Vector3D {
 		var director:Vector3D = Matrix3DUtils.getForward(transform);
 		director.negate();
 
 		return director;
 	}
 
-	/**
-	 *
-	 */
-	private function get_leftVector():Vector3D {
+	private inline function get_leftVector():Vector3D {
 		var director:Vector3D = Matrix3DUtils.getRight(transform);
 		director.negate();
 
 		return director;
 	}
 
-	/**
-	 *
-	 */
-	private function get_downVector():Vector3D {
+	private inline function get_downVector():Vector3D {
 		var director:Vector3D = Matrix3DUtils.getUp(transform);
 		director.negate();
 
@@ -574,7 +556,7 @@ class Object3D extends NamedAssetBase {
 	 *
 	 * @param    distance    The length of the movement
 	 */
-	public function moveForward(distance:Float):Void {
+	public inline function moveForward(distance:Float):Void {
 		translateLocal(Vector3D.Z_AXIS, distance);
 	}
 
@@ -583,7 +565,7 @@ class Object3D extends NamedAssetBase {
 	 *
 	 * @param    distance    The length of the movement
 	 */
-	public function moveBackward(distance:Float):Void {
+	public inline function moveBackward(distance:Float):Void {
 		translateLocal(Vector3D.Z_AXIS, -distance);
 	}
 
@@ -592,7 +574,7 @@ class Object3D extends NamedAssetBase {
 	 *
 	 * @param    distance    The length of the movement
 	 */
-	public function moveLeft(distance:Float):Void {
+	public inline function moveLeft(distance:Float):Void {
 		translateLocal(Vector3D.X_AXIS, -distance);
 	}
 
@@ -601,7 +583,7 @@ class Object3D extends NamedAssetBase {
 	 *
 	 * @param    distance    The length of the movement
 	 */
-	public function moveRight(distance:Float):Void {
+	public inline function moveRight(distance:Float):Void {
 		translateLocal(Vector3D.X_AXIS, distance);
 	}
 
@@ -610,7 +592,7 @@ class Object3D extends NamedAssetBase {
 	 *
 	 * @param    distance    The length of the movement
 	 */
-	public function moveUp(distance:Float):Void {
+	public inline function moveUp(distance:Float):Void {
 		translateLocal(Vector3D.Y_AXIS, distance);
 	}
 
@@ -619,7 +601,7 @@ class Object3D extends NamedAssetBase {
 	 *
 	 * @param    distance    The length of the movement
 	 */
-	public function moveDown(distance:Float):Void {
+	public inline function moveDown(distance:Float):Void {
 		translateLocal(Vector3D.Y_AXIS, -distance);
 	}
 
@@ -700,7 +682,7 @@ class Object3D extends NamedAssetBase {
 	 *
 	 * @param    angle        The amount of rotation in degrees
 	 */
-	public function pitch(angle:Float):Void {
+	public inline function pitch(angle:Float):Void {
 		rotate(Vector3D.X_AXIS, angle);
 	}
 
@@ -709,7 +691,7 @@ class Object3D extends NamedAssetBase {
 	 *
 	 * @param    angle        The amount of rotation in degrees
 	 */
-	public function yaw(angle:Float):Void {
+	public inline function yaw(angle:Float):Void {
 		rotate(Vector3D.Y_AXIS, angle);
 	}
 
@@ -718,7 +700,7 @@ class Object3D extends NamedAssetBase {
 	 *
 	 * @param    angle        The amount of rotation in degrees
 	 */
-	public function roll(angle:Float):Void {
+	public inline function roll(angle:Float):Void {
 		rotate(Vector3D.Z_AXIS, angle);
 	}
 
@@ -904,12 +886,11 @@ class Object3D extends NamedAssetBase {
 		_scaleDirty = false;
 	}
 
-	private function get_zOffset():Int {
+	private inline function get_zOffset():Int {
 		return _zOffset;
 	}
 
-	private function set_zOffset(value:Int):Int {
-		_zOffset = value;
-		return value;
+	private inline function set_zOffset(value:Int):Int {
+		return _zOffset = value;
 	}
 }

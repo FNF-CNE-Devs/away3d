@@ -71,9 +71,6 @@ class Camera3D extends Entity {
 		dispatchEvent(event);
 	}
 
-	/**
-	 *
-	 */
 	private function get_frustumPlanes():Vector<Plane3D> {
 		if (_frustumPlanesDirty)
 			updateFrustum();

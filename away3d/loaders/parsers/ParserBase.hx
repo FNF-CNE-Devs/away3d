@@ -129,7 +129,6 @@ import openfl.utils.Timer;
 	 * 0 (Default / undefined) - All Parsers will create SinglePassMaterials, but the AWD2.1parser will create Materials as they are defined in the file
 	 * 1 (Force SinglePass) - All Parsers create SinglePassMaterials
 	 * 2 (Force MultiPass) - All Parsers will create MultiPassMaterials
-	 *
 	 */
 	public var materialMode(get, set):UInt;
 

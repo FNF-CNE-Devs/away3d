@@ -343,7 +343,7 @@ class CylinderGeometry extends PrimitiveBase {
 	/**
 	 * The radius of the top end of the cylinder.
 	 */
-	private function get_topRadius():Float {
+	private inline function get_topRadius():Float {
 		return _topRadius;
 	}
 
@@ -356,7 +356,7 @@ class CylinderGeometry extends PrimitiveBase {
 	/**
 	 * The radius of the bottom end of the cylinder.
 	 */
-	private function get_bottomRadius():Float {
+	private inline function get_bottomRadius():Float {
 		return _bottomRadius;
 	}
 
@@ -369,7 +369,7 @@ class CylinderGeometry extends PrimitiveBase {
 	/**
 	 * The radius of the top end of the cylinder.
 	 */
-	private function get_height():Float {
+	private inline function get_height():Float {
 		return _height;
 	}
 
@@ -382,7 +382,7 @@ class CylinderGeometry extends PrimitiveBase {
 	/**
 	 * Defines the number of horizontal segments that make up the cylinder. Defaults to 16.
 	 */
-	private function get_segmentsW():Int {
+	private inline function get_segmentsW():Int {
 		return _segmentsW;
 	}
 
@@ -396,7 +396,7 @@ class CylinderGeometry extends PrimitiveBase {
 	/**
 	 * Defines the number of vertical segments that make up the cylinder. Defaults to 1.
 	 */
-	private function get_segmentsH():Int {
+	private inline function get_segmentsH():Int {
 		return _segmentsH;
 	}
 
@@ -410,7 +410,7 @@ class CylinderGeometry extends PrimitiveBase {
 	/**
 	 * Defines whether the top end of the cylinder is closed (true) or open.
 	 */
-	private function get_topClosed():Bool {
+	private inline function get_topClosed():Bool {
 		return _topClosed;
 	}
 
@@ -423,7 +423,7 @@ class CylinderGeometry extends PrimitiveBase {
 	/**
 	 * Defines whether the bottom end of the cylinder is closed (true) or open.
 	 */
-	private function get_bottomClosed():Bool {
+	private inline function get_bottomClosed():Bool {
 		return _bottomClosed;
 	}
 
@@ -436,7 +436,7 @@ class CylinderGeometry extends PrimitiveBase {
 	/**
 	 * Defines whether the cylinder poles should lay on the Y-axis (true) or on the Z-axis (false).
 	 */
-	private function get_yUp():Bool {
+	private inline function get_yUp():Bool {
 		return _yUp;
 	}
 

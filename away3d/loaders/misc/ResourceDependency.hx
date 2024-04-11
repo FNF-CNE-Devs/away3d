@@ -8,7 +8,6 @@ import openfl.net.URLRequest;
 /**
  * ResourceDependency represents the data required to load, parse and resolve additional files ("dependencies")
  * required by a parser, used by ResourceLoadSession.
- *
  */
 class ResourceDependency {
 	private var _id:String;
@@ -37,37 +36,37 @@ class ResourceDependency {
 
 	public var id(get, null):String;
 
-	private function get_id():String {
+	private inline function get_id():String {
 		return _id;
 	}
 
 	public var assets(get, null):Vector<IAsset>;
 
-	private function get_assets():Vector<IAsset> {
+	private inline function get_assets():Vector<IAsset> {
 		return _assets;
 	}
 
 	public var dependencies(get, null):Vector<ResourceDependency>;
 
-	private function get_dependencies():Vector<ResourceDependency> {
+	private inline function get_dependencies():Vector<ResourceDependency> {
 		return _dependencies;
 	}
 
 	public var request(get, null):URLRequest;
 
-	private function get_request():URLRequest {
+	private inline function get_request():URLRequest {
 		return _req;
 	}
 
 	public var retrieveAsRawData(get, null):Bool;
 
-	private function get_retrieveAsRawData():Bool {
+	private inline function get_retrieveAsRawData():Bool {
 		return _retrieveAsRawData;
 	}
 
 	public var suppresAsset3DEvents(get, null):Bool;
 
-	private function get_suppresAsset3DEvents():Bool {
+	private inline function get_suppresAsset3DEvents():Bool {
 		return _suppressAsset3DEvents;
 	}
 
@@ -76,7 +75,7 @@ class ResourceDependency {
 	 */
 	public var data(get, null):Dynamic;
 
-	private function get_data():Dynamic {
+	private inline function get_data():Dynamic {
 		return _data;
 	}
 
@@ -84,7 +83,7 @@ class ResourceDependency {
 	 * @private
 	 * Method to set data after having already created the dependency object, e.g. after load.
 	 */
-	@:allow(away3d) private function setData(data:Dynamic):Void {
+	@:allow(away3d) private inline function setData(data:Dynamic):Void {
 		_data = data;
 	}
 
@@ -93,7 +92,7 @@ class ResourceDependency {
 	 */
 	public var parentParser(get, null):ParserBase;
 
-	private function get_parentParser():ParserBase {
+	private inline function get_parentParser():ParserBase {
 		return _parentParser;
 	}
 

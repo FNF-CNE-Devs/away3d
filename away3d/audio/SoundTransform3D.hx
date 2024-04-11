@@ -36,7 +36,6 @@ class SoundTransform3D {
 	 * @param listener the ObjectContainer3D considered to be to position of the listener (usually, the camera)
 	 * @param volume the maximum volume used.
 	 * @param scale the distance that the sound covers.
-	 *
 	 */
 	public function new(emitter:ObjectContainer3D = null, listener:ObjectContainer3D = null, volume:Float = 1, scale:Float = 1000) {
 		_emitter = emitter;
@@ -72,7 +71,6 @@ class SoundTransform3D {
 	 * angle between the emitter and listener.
 	 *
 	 * @param v Vector3D
-	 *
 	 */
 	public function updateFromVector3D(v:Vector3D):Void {
 		_azimuth = Math.atan2(v.x, v.z);

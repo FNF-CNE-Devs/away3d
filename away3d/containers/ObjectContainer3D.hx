@@ -237,9 +237,6 @@ class ObjectContainer3D extends Object3D implements IAsset {
 		_sceneTransformDirty = false;
 	}
 
-	/**
-	 *
-	 */
 	private function get_mouseChildren():Bool {
 		return _mouseChildren;
 	}
@@ -250,9 +247,6 @@ class ObjectContainer3D extends Object3D implements IAsset {
 		return value;
 	}
 
-	/**
-	 *
-	 */
 	private function get_visible():Bool {
 		return _explicitVisibility;
 	}
@@ -488,7 +482,7 @@ class ObjectContainer3D extends Object3D implements IAsset {
 		super();
 	}
 
-	public function contains(child:ObjectContainer3D):Bool {
+	public inline function contains(child:ObjectContainer3D):Bool {
 		return _children.indexOf(child) >= 0;
 	}
 
@@ -574,14 +568,14 @@ class ObjectContainer3D extends Object3D implements IAsset {
 	 * @param index The index of the object to be retrieved.
 	 * @return The child object at the given index.
 	 */
-	public function getChildAt(index:Int):ObjectContainer3D {
+	public inline function getChildAt(index:Int):ObjectContainer3D {
 		return _children[index];
 	}
 
 	/**
 	 * The amount of child objects of the ObjectContainer3D.
 	 */
-	private function get_numChildren():Int {
+	private inline function get_numChildren():Int {
 		return _children.length;
 	}
 

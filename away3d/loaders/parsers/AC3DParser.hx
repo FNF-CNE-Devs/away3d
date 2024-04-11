@@ -88,10 +88,7 @@ class AC3DParser extends ParserBase {
 			str = isOfType(data, String) ? cast(data, String).substr(0, 4) : null;
 		}
 
-		if (str == 'AC3D')
-			return true;
-
-		return false;
+		return str == 'AC3D';
 	}
 
 	/**
@@ -461,42 +458,26 @@ class AC3DParser extends ParserBase {
 	}
 
 	private function retrieveMeshFromID(id:String):Mesh {
-		if (_meshList[Std.parseInt(id)] != null)
-			return _meshList[Std.parseInt(id)];
-
-		return null;
+		var id = Std.parseInt(id);
+		return _meshList[id];
 	}
 
 	/*
-		private function getVersionFromHex(char:String):int
+	private function getVersionFromHex(char:String):int
+	{
+		return switch (char)
 		{
-		switch (char)
-		{
-		case "A":
-		case "a":
-		return 10;
-		case "B":
-		case "b":
-		return 11;
-		case "C":
-		case "c":
-		return 12;
-		case "D":
-		case "d":
-		return 13;
-		case "E":
-		case "e":
-		return 14;
-		case "F":
-		case "f":
-		return 15;
-		default:
-		return new Number(char);
+			case "A" | "a": 10;
+			case "B" | "b": 11;
+			case "C" | "c": 12;
+			case "D" | "d": 13;
+			case "E" | "e": 14;
+			case "F" | "f": 15;
+			default: Std.parseInt(char);
 		}
-		}
-		*
-	 */
-	private function generateMaterial(materialString:String):Void {
+	}*/
+
+	private inline function generateMaterial(materialString:String):Void {
 		_materialList.push(parseMaterialLine(materialString));
 	}
 
@@ -552,21 +533,23 @@ class AC3DParser extends ParserBase {
 		var colorMaterial:MaterialBase;
 
 		if (materialMode < 2) {
-			colorMaterial = new ColorMaterial(0xFFFFFF);
-			cast(colorMaterial, ColorMaterial).name = name;
-			cast(colorMaterial, ColorMaterial).color = color;
-			cast(colorMaterial, ColorMaterial).ambient = ambient;
-			cast(colorMaterial, ColorMaterial).specular = specular;
-			cast(colorMaterial, ColorMaterial).gloss = gloss;
-			cast(colorMaterial, ColorMaterial).alpha = alpha;
+			var material:ColorMaterial = new ColorMaterial(0xFFFFFF);
+			material.name = name;
+			material.color = color;
+			material.ambient = ambient;
+			material.specular = specular;
+			material.gloss = gloss;
+			material.alpha = alpha;
+			colorMaterial = material;
 		} else {
-			colorMaterial = new ColorMultiPassMaterial(0xFFFFFF);
-			cast(colorMaterial, ColorMultiPassMaterial).name = name;
-			cast(colorMaterial, ColorMultiPassMaterial).color = color;
-			cast(colorMaterial, ColorMultiPassMaterial).ambient = ambient;
-			cast(colorMaterial, ColorMultiPassMaterial).specular = specular;
-			cast(colorMaterial, ColorMultiPassMaterial).gloss = gloss;
-			// cast(colorMaterial,ColorMultiPassMaterial).alpha=alpha;
+			var material:ColorMultiPassMaterial = new ColorMultiPassMaterial(0xFFFFFF);
+			material.name = name;
+			material.color = color;
+			material.ambient = ambient;
+			material.specular = specular;
+			material.gloss = gloss;
+			// material.alpha=alpha;
+			colorMaterial = material;
 		}
 		return colorMaterial;
 	}

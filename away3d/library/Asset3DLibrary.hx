@@ -52,16 +52,10 @@ class Asset3DLibrary {
 		return Asset3DLibraryBundle.getInstance(key);
 	}
 
-	/**
-	 *
-	 */
 	public static function enableParser(parserClass:Class<ParserBase>):Void {
 		SingleFileLoader.enableParser(parserClass);
 	}
 
-	/**
-	 *
-	 */
 	public static function enableParsers(parserClasses:Array<Dynamic>):Void {
 		SingleFileLoader.enableParsers(parserClasses);
 	}

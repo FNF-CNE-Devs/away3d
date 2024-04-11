@@ -91,7 +91,6 @@ class Filter3DHueSaturationTask extends Filter3DTaskBase {
 		 *
 		 * ft0 - Pixel Color
 		 * ft1 - Intensity*Saturation
-		 *
 		 */
 		// _____________________________________________________________________
 		//	Texture

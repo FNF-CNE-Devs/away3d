@@ -100,9 +100,6 @@ class Entity extends ObjectContainer3D {
 		return true;
 	}
 
-	/**
-	 *
-	 */
 	private function get_showBounds():Bool {
 		return _showBounds;
 	}

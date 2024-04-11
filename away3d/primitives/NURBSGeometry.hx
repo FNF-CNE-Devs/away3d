@@ -46,7 +46,7 @@ class NURBSGeometry extends PrimitiveBase {
 	/**
 	 * Defines the control point net to describe the NURBS surface
 	 */
-	private function get_controlNet():Vector<NURBSVertex> {
+	private inline function get_controlNet():Vector<NURBSVertex> {
 		return _controlNet;
 	}
 
@@ -63,7 +63,7 @@ class NURBSGeometry extends PrimitiveBase {
 	/**
 	 * Defines the number of control points along the U splines that influence any given point on the curve
 	 */
-	private function get_uOrder():Int {
+	private inline function get_uOrder():Int {
 		return _uOrder;
 	}
 
@@ -80,7 +80,7 @@ class NURBSGeometry extends PrimitiveBase {
 	/**
 	 * Defines the number of control points along the V splines that influence any given point on the curve
 	 */
-	private function get_vOrder():Int {
+	private inline function get_vOrder():Int {
 		return _vOrder;
 	}
 
@@ -97,7 +97,7 @@ class NURBSGeometry extends PrimitiveBase {
 	/**
 	 * Defines the number of control points along the U splines
 	 */
-	private function get_uControlPoints():Int {
+	private inline function get_uControlPoints():Int {
 		return _numUContolPoints;
 	}
 
@@ -114,7 +114,7 @@ class NURBSGeometry extends PrimitiveBase {
 	/**
 	 * Defines the number of control points along the V splines
 	 */
-	private function get_vControlPoints():Int {
+	private inline function get_vControlPoints():Int {
 		return _numVContolPoints;
 	}
 
@@ -132,7 +132,7 @@ class NURBSGeometry extends PrimitiveBase {
 	 * Defines the knot sequence in the U direction that determines where and how the control points
 	 * affect the NURBS curve.
 	 */
-	private function get_uKnot():Vector<Float> {
+	private inline function get_uKnot():Vector<Float> {
 		return _uKnotSequence;
 	}
 
@@ -154,7 +154,7 @@ class NURBSGeometry extends PrimitiveBase {
 	 * Defines the knot sequence in the V direction that determines where and how the control points
 	 * affect the NURBS curve.
 	 */
-	private function get_vKnot():Vector<Float> {
+	private inline function get_vKnot():Vector<Float> {
 		return _vKnotSequence;
 	}
 
@@ -175,7 +175,7 @@ class NURBSGeometry extends PrimitiveBase {
 	/**
 	 * Defines the number segments (triangle pair) the final curve will be divided into in the U direction
 	 */
-	private function get_uSegments():Int {
+	private inline function get_uSegments():Int {
 		return _uSegments;
 	}
 
@@ -192,7 +192,7 @@ class NURBSGeometry extends PrimitiveBase {
 	/**
 	 * Defines the number segments (triangle pair) the final curve will be divided into in the V direction
 	 */
-	private function get_vSegments():Int {
+	private inline function get_vSegments():Int {
 		return _vSegments;
 	}
 
@@ -214,7 +214,6 @@ class NURBSGeometry extends PrimitiveBase {
 	 * @param uCtrlPnts Number of control points in the U direction
 	 * @param vCtrlPnts Number of control points in the V direction
 	 * @param init Init object for the mesh
-	 *
 	 */
 	public function new(cNet:Vector<NURBSVertex>, uCtrlPnts:Int, vCtrlPnts:Int, uOrder:Int = 4, vOrder:Int = 4, uSegments:Int = 10, vSegments:Int = 10,
 			uKnot:Vector<Float> = null, vKnot:Vector<Float> = null) {
@@ -294,7 +293,6 @@ class NURBSGeometry extends PrimitiveBase {
 	 * @param uTol                U tolerance for adjacent surface sample to calculate normal
 	 * @param vTol                V tolerance for adjacent surface sample to calculate normal
 	 * @return                    The offset surface point being returned
-	 *
 	 */
 	public function getSurfacePoint(uS:Float, vS:Float, vecOffset:Float = 0, scale:Float = 1, uTol:Float = 0.01, vTol:Float = 0.01):Vector3D {
 		_tmpPM = nurbPoint(uS, vS);
@@ -391,7 +389,6 @@ class NURBSGeometry extends PrimitiveBase {
 
 	/**
 	 *  Rebuild the mesh as there is significant change to the structural parameters
-	 *
 	 */
 	override private function buildGeometry(target:CompactSubGeometry):Void {
 		var data:Vector<Float>;
@@ -484,7 +481,6 @@ class NURBSGeometry extends PrimitiveBase {
 
 	/**
 	 *  Rebuild the UV coordinates as there is significant change to the structural parameters
-	 *
 	 */
 	override private function buildUVs(target:CompactSubGeometry):Void {
 		// Define presets
@@ -521,7 +517,6 @@ class NURBSGeometry extends PrimitiveBase {
 	/**
 	 *  Refresh the mesh without reconstructing all the supporting data. This should be used only
 	 *  when the control point positions change.
-	 *
 	 */
 	public function refreshNURBS():Void {
 		var nV:Vector3D = new Vector3D();

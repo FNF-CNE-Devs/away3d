@@ -9,16 +9,12 @@ class ParserUtil {
 	 * @param data The object to return as ByteArray
 	 *
 	 * @return The ByteArray or null
-	 *
 	 */
 	public static function toByteArray(data:Dynamic):ByteArray {
 		if (isOfType(data, Class))
 			data = Type.createInstance(data, []);
 
-		if (isOfType(data, ByteArrayData))
-			return data;
-		else
-			return null;
+		return expect(data, ByteArrayData);
 	}
 
 	/**
@@ -28,7 +24,6 @@ class ParserUtil {
 	 * @param length The length of the returned String
 	 *
 	 * @return The String or null
-	 *
 	 */
 	public static function toString(data:Dynamic, length:UInt = 0):String {
 		var ba:ByteArray;
