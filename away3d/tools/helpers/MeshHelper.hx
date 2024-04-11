@@ -459,7 +459,6 @@ class MeshHelper {
 					subGeom.updateUVData(nuvs);
 
 					if (shareVertices) {
-						dShared = null;
 						dShared = new Map<String, UInt>();
 					}
 
@@ -479,8 +478,7 @@ class MeshHelper {
 				uvind = indices[i] * 2;
 
 				if (shareVertices) {
-					uv.u = uvs[uvind];
-					uv.v = uvs[uvind + 1];
+					uv.set(uvs[uvind], uvs[uvind + 1]);
 					ref = vertex.toString() + uv.toString();
 					if (dShared.exists(ref)) {
 						nindices[nindices.length] = dShared[ref];

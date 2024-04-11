@@ -8,7 +8,7 @@ import openfl.display.BitmapData;
  */
 class BitmapDataAsset extends NamedAssetBase implements IAsset {
 	public var bitmapData(get, set):BitmapData;
-	public var assetType(get, never):String;
+	public var assetType(get, never):Asset3DType;
 
 	private var _bitmapData:BitmapData;
 
@@ -33,7 +33,7 @@ class BitmapDataAsset extends NamedAssetBase implements IAsset {
 		return value;
 	}
 
-	private function get_assetType():String {
+	private function get_assetType():Asset3DType {
 		return Asset3DType.TEXTURE;
 	}
 

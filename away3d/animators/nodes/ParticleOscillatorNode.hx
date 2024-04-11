@@ -33,7 +33,7 @@ class ParticleOscillatorNode extends ParticleNodeBase {
 	 * @param               mode            Defines whether the mode of operation acts on local properties of a particle or global properties of the node.
 	 * @param    [optional] oscillator      Defines the default oscillator axis (x, y, z) and cycleDuration (w) of the node, used when in global mode.
 	 */
-	public function new(mode:Int, oscillator:Vector3D = null) {
+	public function new(mode:ParticlePropertiesMode, oscillator:Vector3D = null) {
 		super("ParticleOscillator", mode, 4);
 
 		_stateConstructor = cast ParticleOscillatorState.new;
@@ -99,13 +99,13 @@ class ParticleOscillatorNode extends ParticleNodeBase {
 		// (Vector3D.x,Vector3D.y,Vector3D.z) is oscillator axis, Vector3D.w is oscillator cycle duration
 		var drift:Vector3D = param.nodes[OSCILLATOR_VECTOR3D];
 		if (drift == null)
-			throw(new Error("there is no " + OSCILLATOR_VECTOR3D + " in param!"));
+			throw new Error("there is no " + OSCILLATOR_VECTOR3D + " in param!");
 
 		_oneData[0] = drift.x;
 		_oneData[1] = drift.y;
 		_oneData[2] = drift.z;
 		if (drift.w <= 0)
-			throw(new Error("the cycle duration must greater than zero"));
+			throw new Error("the cycle duration must greater than zero");
 		_oneData[3] = Math.PI * 2 / drift.w;
 	}
 }

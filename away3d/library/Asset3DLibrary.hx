@@ -1,6 +1,7 @@
 package away3d.library;
 
 import away3d.library.assets.IAsset;
+import away3d.library.naming.ConflictPrecedence;
 import away3d.library.naming.ConflictStrategyBase;
 import away3d.library.utils.Asset3DLibraryIterator;
 import away3d.loaders.misc.AssetLoaderContext;
@@ -30,7 +31,7 @@ class Asset3DLibrary {
 	 *
 	 * @see away3d.library.Asset3DLibraryBundle.conflictPrecedence
 	 */
-	public static var conflictPrecedence(get, set):String;
+	public static var conflictPrecedence(get, set):ConflictPrecedence;
 
 	/**
 	 * Creates a new <code>Asset3DLibrary</code> object.
@@ -72,11 +73,11 @@ class Asset3DLibrary {
 		return getBundle().conflictStrategy = val;
 	}
 
-	private static function get_conflictPrecedence():String {
+	private static function get_conflictPrecedence():ConflictPrecedence {
 		return getBundle().conflictPrecedence;
 	}
 
-	private static function set_conflictPrecedence(val:String):String {
+	private static function set_conflictPrecedence(val:ConflictPrecedence):ConflictPrecedence {
 		return getBundle().conflictPrecedence = val;
 	}
 

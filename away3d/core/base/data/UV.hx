@@ -24,31 +24,32 @@ class UV {
 	/**
 	 * Defines the vertical coordinate of the texture value.
 	 */
-	private function get_v():Float {
+	private inline function get_v():Float {
 		return _v;
 	}
-
-	private function set_v(value:Float):Float {
-		_v = value;
-		return value;
+	private inline function set_v(value:Float):Float {
+		return _v = value;
 	}
 
 	/**
 	 * Defines the horizontal coordinate of the texture value.
 	 */
-	private function get_u():Float {
+	private inline function get_u():Float {
 		return _u;
 	}
+	private inline function set_u(value:Float):Float {
+		return _u = value;
+	}
 
-	private function set_u(value:Float):Float {
-		_u = value;
-		return value;
+	public inline function set(u:Float, v:Float):Void {
+		_u = u;
+		_v = v;
 	}
 
 	/**
 	 * returns a new UV value Object
 	 */
-	public function clone():UV {
+	public inline function clone():UV {
 		return new UV(_u, _v);
 	}
 

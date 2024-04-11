@@ -82,7 +82,7 @@ class ParticleColorNode extends ParticleNodeBase {
 	 * @param    [optional] cycleDuration   Defines the duration of the animation in seconds, used as a period independent of particle duration when in global mode. Defaults to 1.
 	 * @param    [optional] cyclePhase      Defines the phase of the cycle in degrees, used as the starting offset of the cycle when in global mode. Defaults to 0.
 	 */
-	public function new(mode:Int, usesMultiplier:Bool = true, usesOffset:Bool = true, usesCycle:Bool = false, usesPhase:Bool = false,
+	public function new(mode:ParticlePropertiesMode, usesMultiplier:Bool = true, usesOffset:Bool = true, usesCycle:Bool = false, usesPhase:Bool = false,
 			startColor:ColorTransform = null, endColor:ColorTransform = null, cycleDuration:Float = 1, cyclePhase:Float = 0) {
 		_stateConstructor = cast ParticleColorState.new;
 
@@ -193,11 +193,11 @@ class ParticleColorNode extends ParticleNodeBase {
 	override private function generatePropertyOfOneParticle(param:ParticleProperties):Void {
 		var startColor:ColorTransform = param.nodes[COLOR_START_COLORTRANSFORM];
 		if (startColor == null)
-			throw(new Error("there is no " + COLOR_START_COLORTRANSFORM + " in param!"));
+			throw new Error("there is no " + COLOR_START_COLORTRANSFORM + " in param!");
 
 		var endColor:ColorTransform = param.nodes[COLOR_END_COLORTRANSFORM];
 		if (endColor == null)
-			throw(new Error("there is no " + COLOR_END_COLORTRANSFORM + " in param!"));
+			throw new Error("there is no " + COLOR_END_COLORTRANSFORM + " in param!");
 
 		var i:Int = 0;
 

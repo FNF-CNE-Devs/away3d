@@ -33,12 +33,11 @@ class Vertex {
 	 * To define/store the index of value object
 	 * @param    ind        The index
 	 */
-	private function set_index(ind:Int):Int {
-		_index = ind;
-		return ind;
+	private inline function set_index(ind:Int):Int {
+		return _index = ind;
 	}
 
-	private function get_index():Int {
+	private inline function get_index():Int {
 		return _index;
 	}
 
@@ -46,45 +45,48 @@ class Vertex {
 	 * To define/store the x value of the value object
 	 * @param    value        The x value
 	 */
-	private function get_x():Float {
+	private inline function get_x():Float {
 		return _x;
 	}
 
-	private function set_x(value:Float):Float {
-		_x = value;
-		return value;
+	private inline function set_x(value:Float):Float {
+		return _x = value;
 	}
 
 	/**
 	 * To define/store the y value of the value object
 	 * @param    value        The y value
 	 */
-	private function get_y():Float {
+	private inline function get_y():Float {
 		return _y;
 	}
 
-	private function set_y(value:Float):Float {
-		_y = value;
-		return value;
+	private inline function set_y(value:Float):Float {
+		return _y = value;
 	}
 
 	/**
 	 * To define/store the z value of the value object
 	 * @param    value        The z value
 	 */
-	private function get_z():Float {
+	private inline function get_z():Float {
 		return _z;
 	}
 
-	private function set_z(value:Float):Float {
-		_z = value;
-		return value;
+	private inline function set_z(value:Float):Float {
+		return _z = value;
+	}
+
+	public inline function set(x:Float, y:Float, z:Float):Void {
+		_x = x;
+		_y = y;
+		_z = z;
 	}
 
 	/**
 	 * returns a new Vertex value Object
 	 */
-	public function clone():Vertex {
+	public inline function clone():Vertex {
 		return new Vertex(_x, _y, _z);
 	}
 

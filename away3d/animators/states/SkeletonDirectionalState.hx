@@ -10,9 +10,6 @@ import away3d.animators.states.ISkeletonAnimationState;
 import openfl.Vector;
 import openfl.geom.Vector3D;
 
-/**
- *
- */
 class SkeletonDirectionalState extends AnimationStateBase implements ISkeletonAnimationState {
 	public var direction(get, set):Float;
 

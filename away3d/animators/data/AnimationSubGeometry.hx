@@ -31,8 +31,7 @@ class AnimationSubGeometry {
 	public var animationParticles:Vector<ParticleAnimationData> = new Vector<ParticleAnimationData>();
 
 	public function new() {
-		for (i in 0...8)
-			_bufferDirty[i] = true;
+		invalidateBuffer();
 	}
 
 	public function createVertexData(numVertices:Int, totalLenOfOneVertex:Int):Void {
@@ -67,20 +66,20 @@ class AnimationSubGeometry {
 		}
 	}
 
-	public function invalidateBuffer():Void {
+	public inline function invalidateBuffer():Void {
 		for (i in 0...8)
 			_bufferDirty[i] = true;
 	}
 
-	private function get_vertexData():Vector<Float> {
+	private inline function get_vertexData():Vector<Float> {
 		return _vertexData;
 	}
 
-	private function get_numVertices():Int {
+	private inline function get_numVertices():Int {
 		return _numVertices;
 	}
 
-	private function get_totalLenOfOneVertex():Int {
+	private inline function get_totalLenOfOneVertex():Int {
 		return _totalLenOfOneVertex;
 	}
 }

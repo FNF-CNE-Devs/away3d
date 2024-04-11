@@ -3,6 +3,7 @@ package away3d.animators;
 import away3d.animators.data.VertexAnimationMode;
 import away3d.core.managers.Stage3DProxy;
 import away3d.materials.passes.MaterialPassBase;
+import away3d.utils.AGALUtil;
 import openfl.Vector;
 import openfl.display3D.Context3D;
 
@@ -13,11 +14,11 @@ import openfl.display3D.Context3D;
  */
 class VertexAnimationSet extends AnimationSetBase implements IAnimationSet {
 	public var numPoses(get, never):Int;
-	public var blendMode(get, never):String;
+	public var blendMode(get, never):VertexAnimationMode;
 	public var useNormals(get, never):Bool;
 
 	private var _numPoses:Int;
-	private var _blendMode:String;
+	private var _blendMode:VertexAnimationMode;
 	private var _streamIndices:Map<MaterialPassBase, Int> = new Map();
 	private var _useNormals:Map<MaterialPassBase, Bool> = new Map();
 	private var _useTangents:Map<MaterialPassBase, Bool> = new Map();
@@ -34,7 +35,7 @@ class VertexAnimationSet extends AnimationSetBase implements IAnimationSet {
 	/**
 	 * Returns the active blend mode of the vertex animator object.
 	 */
-	private function get_blendMode():String {
+	private function get_blendMode():VertexAnimationMode {
 		return _blendMode;
 	}
 
@@ -53,7 +54,7 @@ class VertexAnimationSet extends AnimationSetBase implements IAnimationSet {
 	 *
 	 * @see away3d.animators.data.VertexAnimationMode
 	 */
-	public function new(numPoses:Int = 2, blendMode:String = "absolute") {
+	public function new(numPoses:Int = 2, blendMode:VertexAnimationMode = VertexAnimationMode.ABSOLUTE) {
 		super();
 
 		_numPoses = numPoses;
@@ -117,7 +118,7 @@ class VertexAnimationSet extends AnimationSetBase implements IAnimationSet {
 		var code:String = "";
 		var temp1:String = findTempReg(targetRegisters);
 		var temp2:String = findTempReg(targetRegisters, temp1);
-		var regs:Array<String> = ["x", "y", "z", "w"];
+		var regs:Array<String> = AGALUtil.XYZW;
 		var len:Int = sourceRegisters.length;
 		var constantReg:String = "vc" + pass.numUsedVertexConstants;
 		var useTangents:Bool = (_useTangents[pass] = len > 2);
@@ -156,7 +157,7 @@ class VertexAnimationSet extends AnimationSetBase implements IAnimationSet {
 	private function getAdditiveAGALCode(pass:MaterialPassBase, sourceRegisters:Vector<String>, targetRegisters:Vector<String>):String {
 		var code:String = "";
 		var len:Int = sourceRegisters.length;
-		var regs:Array<String> = ["x", "y", "z", "w"];
+		var regs:Array<String> = AGALUtil.XYZW;
 		var temp1:String = findTempReg(targetRegisters);
 		var k:Int = 0;
 		var useTangents:Bool = (_useTangents[pass] = len > 2);

@@ -11,9 +11,6 @@ import away3d.core.math.Quaternion;
 import openfl.Vector;
 import openfl.geom.Vector3D;
 
-/**
- *
- */
 class SkeletonNaryLERPState extends AnimationStateBase implements ISkeletonAnimationState {
 	private var _skeletonAnimationNode:SkeletonNaryLERPNode;
 	private var _skeletonPose:SkeletonPose = new SkeletonPose();

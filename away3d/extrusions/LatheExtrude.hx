@@ -1,5 +1,6 @@
 package away3d.extrusions;
 
+import away3d.enums.Axis;
 import away3d.bounds.BoundingVolumeBase;
 import away3d.core.base.Geometry;
 import away3d.core.base.SubGeometry;
@@ -24,7 +25,7 @@ import openfl.geom.Vector3D;
 class LatheExtrude extends Mesh {
 	public var profile(get, set):Vector<Vector3D>;
 	public var startRotationOffset(get, set):Float;
-	public var axis(get, set):String;
+	public var axis(get, set):Axis;
 	public var revolutions(get, set):Float;
 	public var subdivision(get, set):Int;
 	public var offsetRadius(get, set):Float;
@@ -47,7 +48,7 @@ class LatheExtrude extends Mesh {
 	private var _profile:Vector<Vector3D>;
 	private var _lastProfile:Vector<Vector3D>;
 	private var _keepLastProfile:Bool;
-	private var _axis:String;
+	private var _axis:Axis;
 	private var _revolutions:Float;
 	private var _subdivision:Int;
 	private var _offsetRadius:Float;
@@ -111,7 +112,7 @@ class LatheExtrude extends Mesh {
 		* @param        tweek                [optional] Object. To build springs like shapes, rotation must be higher than 1. Properties of the tweek object are x,y,z, radius and rotation. Default is null.
 		* @param        smoothSurface    [optional]    An optional Boolean. Defines if the surface of the mesh must be smoothed or not.
 	 */
-	public function new(material:MaterialBase = null, profile:Vector<Vector3D> = null, axis:String = LatheExtrude.Y_AXIS, revolutions:Float = 1,
+	public function new(material:MaterialBase = null, profile:Vector<Vector3D> = null, axis:Axis = Y, revolutions:Float = 1,
 			subdivision:Int = 10, coverall:Bool = true, centerMesh:Bool = false, flip:Bool = false, thickness:Float = 0, preciseThickness:Bool = true,
 			offsetRadius:Float = 0, materials:MultipleMaterials = null, ignoreSides:String = "", tweek:Dynamic = null, smoothSurface:Bool = true) {
 		var geom:Geometry = new Geometry();
@@ -168,11 +169,11 @@ class LatheExtrude extends Mesh {
 	/**
 	 * Defines the axis used for the lathe rotation. Defaults to "y".
 	 */
-	private function get_axis():String {
+	private function get_axis():Axis {
 		return _axis;
 	}
 
-	private function set_axis(val:String):String {
+	private function set_axis(val:Axis):Axis {
 		if (_axis == val)
 			return val;
 
@@ -570,7 +571,7 @@ class LatheExtrude extends Mesh {
 		}
 	}
 
-	private function generate(vectors:Vector<Vector3D>, axis:String, tweek:Dynamic, render:Bool = true, id:Int = 0):Void {
+	private function generate(vectors:Vector<Vector3D>, axis:Axis, tweek:Dynamic, render:Bool = true, id:Int = 0):Void {
 		// TODO: not used
 		if (tweek == null)
 			tweek = {};
@@ -621,6 +622,7 @@ class LatheExtrude extends Mesh {
 		if (_revolutions < 1)
 			step *= _revolutions;
 
+		// TODO: make this not use reflection
 		for (i in 0...lsub + 1) {
 			tmpVecs = new Vector<Vector3D>();
 			tmpVecs = vectors.concat();
@@ -643,7 +645,7 @@ class LatheExtrude extends Mesh {
 				if (tweek.rotation != null && tweek.rotation != 0)
 					tweekrotation += 360 / (tweek.rotation * _subdivision);
 
-				if (_axis == X_AXIS) {
+				if (_axis == X) {
 					if (i == 0)
 						aRads[j] = offsetradius - Math.abs(tmpVecs[j].z);
 
@@ -654,7 +656,7 @@ class LatheExtrude extends Mesh {
 						_varr[j].z += tmpVecs[j].z;
 						_varr[j].y += tmpVecs[j].y;
 					}
-				} else if (_axis == Y_AXIS) {
+				} else if (_axis == Y) {
 					if (i == 0)
 						aRads[j] = offsetradius - Math.abs(tmpVecs[j].x);
 
@@ -665,7 +667,7 @@ class LatheExtrude extends Mesh {
 						_varr[j].x = tmpVecs[j].x;
 						_varr[j].z = tmpVecs[j].z;
 					}
-				} else {
+				} else { // Z
 					if (i == 0)
 						aRads[j] = offsetradius - Math.abs(tmpVecs[j].y);
 
@@ -743,14 +745,10 @@ class LatheExtrude extends Mesh {
 
 						if (_flip) {
 							if (id == 1) {
-								_uva.u = 1 - uva.u;
-								_uva.v = uva.v;
-								_uvb.u = 1 - uvb.u;
-								_uvb.v = uvb.v;
-								_uvc.u = 1 - uvc.u;
-								_uvc.v = uvc.v;
-								_uvd.u = 1 - uvd.u;
-								_uvd.v = uvd.v;
+								_uva.set(1 - uva.u, uva.v);
+								_uvb.set(1 - uvb.u, uvb.v);
+								_uvc.set(1 - uvc.u, uvc.v);
+								_uvd.set(1 - uvd.u, uvd.v);
 
 								addFace(va, vb, vc, _uva, _uvb, _uvc, id);
 								addFace(va, vc, vd, _uva, _uvc, _uvd, id);
@@ -760,14 +758,10 @@ class LatheExtrude extends Mesh {
 							}
 						} else {
 							if (id == 1) {
-								_uva.u = uva.u;
-								_uva.v = 1 - uva.v;
-								_uvb.u = uvb.u;
-								_uvb.v = 1 - uvb.v;
-								_uvc.u = uvc.u;
-								_uvc.v = 1 - uvc.v;
-								_uvd.u = uvd.u;
-								_uvd.v = 1 - uvd.v;
+								_uva.set(uva.u, 1 - uva.v);
+								_uvb.set(uvb.u, 1 - uvb.v);
+								_uvc.set(uvc.u, 1 - uvc.v);
+								_uvd.set(uvd.u, 1 - uvd.v);
 
 								addFace(vb, va, vc, _uvb, _uva, _uvc, id);
 								addFace(vc, va, vd, _uvc, _uva, _uvd, id);
@@ -810,21 +804,22 @@ class LatheExtrude extends Mesh {
 					var prop2:String = "";
 					var prop3:String = "";
 
+					// TODO: Make this cleaner
 					switch (_axis) {
-						case LatheExtrude.X_AXIS:
-							prop1 = X_AXIS;
-							prop2 = Z_AXIS;
-							prop3 = Y_AXIS;
+						case X:
+							prop1 = Axis.X.toString();
+							prop2 = Axis.Z.toString();
+							prop3 = Axis.Y.toString();
 
-						case LatheExtrude.Y_AXIS:
-							prop1 = Y_AXIS;
-							prop2 = X_AXIS;
-							prop3 = Z_AXIS;
+						case Y:
+							prop1 = Axis.Y.toString();
+							prop2 = Axis.X.toString();
+							prop3 = Axis.Z.toString();
 
-						case LatheExtrude.Z_AXIS:
-							prop1 = Z_AXIS;
-							prop2 = Y_AXIS;
-							prop3 = X_AXIS;
+						case Z:
+							prop1 = Axis.Z.toString();
+							prop2 = Axis.Y.toString();
+							prop3 = Axis.X.toString();
 					}
 
 					var lines:Array<Dynamic> = buildThicknessPoints(_profile, thickness, prop1, prop2);
@@ -836,6 +831,7 @@ class LatheExtrude extends Mesh {
 					var profileFront:Vector<Vector3D> = new Vector<Vector3D>();
 					var profileBack:Vector<Vector3D> = new Vector<Vector3D>();
 
+					// TODO: make this not use reflection
 					for (i in 0...lines.length) {
 						points = lines[i];
 						vector = new Vector3D();
@@ -914,17 +910,17 @@ class LatheExtrude extends Mesh {
 					var val:Float;
 					for (i in 0..._profile.length) {
 						switch (_axis) {
-							case X_AXIS:
+							case X:
 								val = ((_profile[i].z < 0)) ? halft : -halft;
 								tmprofile1.push(new Vector3D(_profile[i].x, _profile[i].y, _profile[i].z - val));
 								tmprofile2.push(new Vector3D(_profile[i].x, _profile[i].y, _profile[i].z + val));
 
-							case Y_AXIS:
+							case Y:
 								val = ((_profile[i].x < 0)) ? halft : -halft;
 								tmprofile1.push(new Vector3D(_profile[i].x - val, _profile[i].y, _profile[i].z));
 								tmprofile2.push(new Vector3D(_profile[i].x + val, _profile[i].y, _profile[i].z));
 
-							case Z_AXIS:
+							case Z:
 								val = ((_profile[i].y < 0)) ? halft : -halft;
 								tmprofile1.push(new Vector3D(_profile[i].x, _profile[i].y - val, _profile[i].z));
 								tmprofile2.push(new Vector3D(_profile[i].x, _profile[i].y + val, _profile[i].z));
@@ -1429,20 +1425,7 @@ class LatheExtrude extends Mesh {
 		var sg:SubGeometry;
 		var prop:String;
 		for (i in 0...6) {
-			switch (i) {
-				case 1:
-					prop = "back";
-				case 2:
-					prop = "left";
-				case 3:
-					prop = "right";
-				case 4:
-					prop = "top";
-				case 5:
-					prop = "bottom";
-				default:
-					prop = "front";
-			}
+			prop = ["front", "back", "left", "right", "top", "bottom"][i];
 
 			if (Reflect.field(_materials, prop) != null && _MaterialsSubGeometries[i].subGeometry == null) {
 				sglist = _MaterialsSubGeometries[i];

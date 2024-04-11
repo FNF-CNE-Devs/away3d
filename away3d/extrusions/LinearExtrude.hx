@@ -7,6 +7,7 @@ import away3d.core.base.SubMesh;
 import away3d.core.base.data.UV;
 import away3d.core.base.data.Vertex;
 import away3d.entities.Mesh;
+import away3d.enums.Axis;
 import away3d.extrusions.data.FourPoints;
 import away3d.extrusions.data.Line;
 import away3d.extrusions.data.RenderSide;
@@ -20,7 +21,7 @@ import openfl.geom.Point;
 import openfl.geom.Vector3D;
 
 class LinearExtrude extends Mesh {
-	public var axis(get, set):String;
+	public var axis(get, set):Axis;
 	public var materials(get, set):MultipleMaterials;
 	public var subdivision(get, set):Int;
 	public var coverAll(get, set):Bool;
@@ -29,10 +30,6 @@ class LinearExtrude extends Mesh {
 	public var thickness(get, set):Float;
 	public var thicknessSubdivision(get, set):Int;
 	public var ignoreSides(get, set):String;
-
-	inline public static var X_AXIS:String = "x";
-	inline public static var Y_AXIS:String = "y";
-	inline public static var Z_AXIS:String = "z";
 
 	private static inline var LIMIT:Int = 196605;
 	private static inline var EPS:Float = .0001;
@@ -44,7 +41,7 @@ class LinearExtrude extends Mesh {
 	private var _coverAll:Bool;
 	private var _flip:Bool;
 	private var _closePath:Bool;
-	private var _axis:String;
+	private var _axis:Axis;
 	private var _offset:Float;
 	private var _materials:MultipleMaterials;
 	private var _activeMaterial:MaterialBase;
@@ -91,7 +88,7 @@ class LinearExtrude extends Mesh {
 		* @param        ignoreSides                [optional] String. To prevent the generation of sides if thickness is set higher than 0. To avoid the bottom ignoreSides = "bottom", avoiding both top and bottom: ignoreSides = "bottom, top". Strings options: bottom, top, left, right, front and back. Default is "".
 		* @param        flip                            [optional] Boolean. If the faces must be reversed depending on Vector3D's orientation. Default is false.
 	 */
-	public function new(material:MaterialBase = null, vectors:Vector<Vector3D> = null, axis:String = LinearExtrude.Y_AXIS, offset:Float = 10,
+	public function new(material:MaterialBase = null, vectors:Vector<Vector3D> = null, axis:Axis = Axis.Y, offset:Float = 10,
 			subdivision:Int = 3, coverAll:Bool = false, thickness:Float = 0, thicknessSubdivision:Int = 3, materials:MultipleMaterials = null,
 			centerMesh:Bool = false, closePath:Bool = false, ignoreSides:String = "", flip:Bool = false) {
 		var geom:Geometry = new Geometry();
@@ -163,13 +160,13 @@ class LinearExtrude extends Mesh {
 	}
 
 	/**
-	 * Defines the axis used for the extrusion. Defaults to "y".
+	 * Defines the axis used for the extrusion. Defaults to Axis.Y
 	 */
-	private function get_axis():String {
+	private function get_axis():Axis {
 		return _axis;
 	}
 
-	private function set_axis(val:String):String {
+	private function set_axis(val:Axis):Axis {
 		if (_axis == val)
 			return val;
 
@@ -461,7 +458,7 @@ class LinearExtrude extends Mesh {
 		var offset:Float = 0;
 
 		switch (_axis) {
-			case LinearExtrude.X_AXIS:
+			case Axis.X:
 				_baseMax = Math.abs(baseMaxX) - Math.abs(baseMinX);
 				if (baseMinZ > 0 && baseMaxZ > 0) {
 					_baseMin = baseMaxZ - baseMinZ;
@@ -474,7 +471,7 @@ class LinearExtrude extends Mesh {
 					offset = Math.abs(baseMinZ) + ((baseMaxZ < 0) ? -baseMaxZ : 0);
 				}
 
-			case LinearExtrude.Y_AXIS:
+			case Axis.Y:
 				_baseMax = Math.abs(baseMaxY) - Math.abs(baseMinY);
 				if (baseMinX > 0 && baseMaxX > 0) {
 					_baseMin = baseMaxX - baseMinX;
@@ -487,7 +484,7 @@ class LinearExtrude extends Mesh {
 					offset = Math.abs(baseMinX) + ((baseMaxX < 0) ? -baseMaxX : 0);
 				}
 
-			case LinearExtrude.Z_AXIS:
+			case Axis.Z:
 				_baseMax = Math.abs(baseMaxZ) - Math.abs(baseMinZ);
 				if (baseMinY > 0 && baseMaxY > 0) {
 					_baseMin = baseMaxY - baseMinY;
@@ -515,21 +512,22 @@ class LinearExtrude extends Mesh {
 			for (i in 0...aListsides.length)
 				Reflect.setProperty(renderSide, aListsides[i], (_ignoreSides.indexOf(aListsides[i]) == -1));
 
+			// TODO: Clean this up
 			switch (_axis) {
-				case LinearExtrude.X_AXIS:
-					prop1 = Z_AXIS;
-					prop2 = Y_AXIS;
-					prop3 = X_AXIS;
+				case Axis.X:
+					prop1 = Axis.Z.toString();
+					prop2 = Axis.Y.toString();
+					prop3 = Axis.X.toString();
 
-				case LinearExtrude.Y_AXIS:
-					prop1 = X_AXIS;
-					prop2 = Z_AXIS;
-					prop3 = Y_AXIS;
+				case Axis.Y:
+					prop1 = Axis.X.toString();
+					prop2 = Axis.Z.toString();
+					prop3 = Axis.Y.toString();
 
-				case LinearExtrude.Z_AXIS:
-					prop1 = Y_AXIS;
-					prop2 = X_AXIS;
-					prop3 = Z_AXIS;
+				case Axis.Z:
+					prop1 = Axis.Y.toString();
+					prop2 = Axis.X.toString();
+					prop3 = Axis.Z.toString();
 			}
 
 			aLines = buildThicknessPoints(prop1, prop2);
@@ -543,6 +541,7 @@ class LinearExtrude extends Mesh {
 			for (i in 0...aLines.length) {
 				points = aLines[i];
 
+				// TODO: make this not use reflection
 				if (i == 0) {
 					Reflect.setProperty(vector, prop1, points.pt2.x);
 					Reflect.setProperty(vector, prop2, points.pt2.y);
@@ -614,8 +613,9 @@ class LinearExtrude extends Mesh {
 				vector.z = _aVectors[i].z;
 				_varr.push(new Vertex(vector.x, vector.y, vector.z));
 
+				var axis:String = _axis.toString();
 				for (j in 0..._subdivision) {
-					Reflect.setProperty(vector, _axis, Reflect.getProperty(vector, _axis) + increase);
+					Reflect.setProperty(vector, axis, Reflect.getProperty(vector, axis) + increase);
 					_varr.push(new Vertex(vector.x, vector.y, vector.z));
 				}
 			}
@@ -635,10 +635,8 @@ class LinearExtrude extends Mesh {
 				_uva.u = _uvb.u = step * i;
 				_uvc.u = _uvd.u = _uvb.u + step;
 			} else {
-				_uva.u = 0;
-				_uvb.u = 0;
-				_uvc.u = 1;
-				_uvd.u = 1;
+				_uva.u = _uvb.u = 0;
+				_uvc.u = _uvd.u = 1;
 			}
 
 			for (j in 0..._subdivision) {
@@ -768,14 +766,10 @@ class LinearExtrude extends Mesh {
 				v1 = j / _thicknessSubdivision;
 				v2 = (j + 1) / _thicknessSubdivision;
 
-				_uva.u = u1;
-				_uva.v = v1;
-				_uvb.u = u1;
-				_uvb.v = v2;
-				_uvc.u = u2;
-				_uvc.v = v2;
-				_uvd.u = u2;
-				_uvd.v = v1;
+				_uva.set(u1, v1);
+				_uvb.set(u1, v2);
+				_uvc.set(u2, v2);
+				_uvd.set(u2, v1);
 
 				va = tmp[index + j];
 				vb = tmp[(index + j) + 1];
@@ -795,9 +789,10 @@ class LinearExtrude extends Mesh {
 	}
 
 	private function elevate(v0:Vertex, v1:Vertex, increase:Float):Void {
+		var axis:String = _axis.toString();
 		for (i in 0..._subdivision) {
-			Reflect.setProperty(v0, _axis, Reflect.getProperty(v0, _axis) + increase);
-			Reflect.setProperty(v1, _axis, Reflect.getProperty(v1, _axis) + increase);
+			Reflect.setProperty(v0, axis, Reflect.getProperty(v0, axis) + increase);
+			Reflect.setProperty(v1, axis, Reflect.getProperty(v1, axis) + increase);
 			_varr.push(new Vertex(v0.x, v0.y, v0.z));
 			_varr2.push(new Vertex(v1.x, v1.y, v1.z));
 		}

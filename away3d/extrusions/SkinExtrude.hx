@@ -243,14 +243,10 @@ class SkinExtrude extends Mesh {
 			for (j in 0...Std.int(_subdivision)) {
 				v1 = ((_coverAll)) ? vscale + ((j / _subdivision) / indexv) : j / _subdivision;
 				v2 = ((_coverAll)) ? vscale + (((j + 1) / _subdivision) / indexv) : (j + 1) / _subdivision;
-				_uva.v = u1;
-				_uva.u = v1;
-				_uvb.v = u1;
-				_uvb.u = v2;
-				_uvc.v = u2;
-				_uvc.u = v2;
-				_uvd.v = u2;
-				_uvd.u = v1;
+				_uva.set(u1, v1);
+				_uvb.set(u1, v2);
+				_uvc.set(u2, v2);
+				_uvd.set(u2, v1);
 
 				_va.x = _tmpVectors[vertIndice = (index + j) * 3];
 				_va.y = _tmpVectors[vertIndice + 1];

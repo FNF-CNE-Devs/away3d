@@ -24,7 +24,7 @@ class ParticleAccelerationState extends ParticleStateBase {
 	/**
 	 * Defines the acceleration vector of the state, used when in global mode.
 	 */
-	private function get_acceleration():Vector3D {
+	private inline function get_acceleration():Vector3D {
 		return _acceleration;
 	}
 

@@ -223,83 +223,39 @@ import openfl.utils.Timer;
 	 */
 	@:allow(away3d) private function finalizeAsset(asset:IAsset, name:String = null):Void {
 		var type_event:String;
-		var type_name:String;
 
 		if (name != null)
 			asset.name = name;
 
-		switch (asset.assetType) {
-			case Asset3DType.LIGHT_PICKER:
-				type_name = 'lightPicker';
-				type_event = Asset3DEvent.LIGHTPICKER_COMPLETE;
-			case Asset3DType.LIGHT:
-				type_name = 'light';
-				type_event = Asset3DEvent.LIGHT_COMPLETE;
-			case Asset3DType.ANIMATOR:
-				type_name = 'animator';
-				type_event = Asset3DEvent.ANIMATOR_COMPLETE;
-			case Asset3DType.ANIMATION_SET:
-				type_name = 'animationSet';
-				type_event = Asset3DEvent.ANIMATION_SET_COMPLETE;
-			case Asset3DType.ANIMATION_STATE:
-				type_name = 'animationState';
-				type_event = Asset3DEvent.ANIMATION_STATE_COMPLETE;
-			case Asset3DType.ANIMATION_NODE:
-				type_name = 'animationNode';
-				type_event = Asset3DEvent.ANIMATION_NODE_COMPLETE;
-			case Asset3DType.STATE_TRANSITION:
-				type_name = 'stateTransition';
-				type_event = Asset3DEvent.STATE_TRANSITION_COMPLETE;
-			case Asset3DType.TEXTURE:
-				type_name = 'texture';
-				type_event = Asset3DEvent.TEXTURE_COMPLETE;
-			case Asset3DType.TEXTURE_PROJECTOR:
-				type_name = 'textureProjector';
-				type_event = Asset3DEvent.TEXTURE_PROJECTOR_COMPLETE;
-			case Asset3DType.CONTAINER:
-				type_name = 'container';
-				type_event = Asset3DEvent.CONTAINER_COMPLETE;
-			case Asset3DType.GEOMETRY:
-				type_name = 'geometry';
-				type_event = Asset3DEvent.GEOMETRY_COMPLETE;
-			case Asset3DType.MATERIAL:
-				type_name = 'material';
-				type_event = Asset3DEvent.MATERIAL_COMPLETE;
-			case Asset3DType.MESH:
-				type_name = 'mesh';
-				type_event = Asset3DEvent.MESH_COMPLETE;
-			case Asset3DType.SKELETON:
-				type_name = 'skeleton';
-				type_event = Asset3DEvent.SKELETON_COMPLETE;
-			case Asset3DType.SKELETON_POSE:
-				type_name = 'skelpose';
-				type_event = Asset3DEvent.SKELETON_POSE_COMPLETE;
-			case Asset3DType.ENTITY:
-				type_name = 'entity';
-				type_event = Asset3DEvent.ENTITY_COMPLETE;
-			case Asset3DType.SKYBOX:
-				type_name = 'skybox';
-				type_event = Asset3DEvent.SKYBOX_COMPLETE;
-			case Asset3DType.CAMERA:
-				type_name = 'camera';
-				type_event = Asset3DEvent.CAMERA_COMPLETE;
-			case Asset3DType.SEGMENT_SET:
-				type_name = 'segmentSet';
-				type_event = Asset3DEvent.SEGMENT_SET_COMPLETE;
-			case Asset3DType.EFFECTS_METHOD:
-				type_name = 'effectsMethod';
-				type_event = Asset3DEvent.EFFECTMETHOD_COMPLETE;
-			case Asset3DType.SHADOW_MAP_METHOD:
-				type_name = 'effectsMethod';
-				type_event = Asset3DEvent.SHADOWMAPMETHOD_COMPLETE;
-			default:
-				throw new Error('Unhandled asset type ' + asset.assetType + '. Report as bug!');
+		type_event = switch (asset.assetType) {
+			case Asset3DType.LIGHT_PICKER: Asset3DEvent.LIGHTPICKER_COMPLETE;
+			case Asset3DType.LIGHT: Asset3DEvent.LIGHT_COMPLETE;
+			case Asset3DType.ANIMATOR: Asset3DEvent.ANIMATOR_COMPLETE;
+			case Asset3DType.ANIMATION_SET: Asset3DEvent.ANIMATION_SET_COMPLETE;
+			case Asset3DType.ANIMATION_STATE: Asset3DEvent.ANIMATION_STATE_COMPLETE;
+			case Asset3DType.ANIMATION_NODE: Asset3DEvent.ANIMATION_NODE_COMPLETE;
+			case Asset3DType.STATE_TRANSITION: Asset3DEvent.STATE_TRANSITION_COMPLETE;
+			case Asset3DType.TEXTURE: Asset3DEvent.TEXTURE_COMPLETE;
+			case Asset3DType.TEXTURE_PROJECTOR: Asset3DEvent.TEXTURE_PROJECTOR_COMPLETE;
+			case Asset3DType.CONTAINER: Asset3DEvent.CONTAINER_COMPLETE;
+			case Asset3DType.GEOMETRY: Asset3DEvent.GEOMETRY_COMPLETE;
+			case Asset3DType.MATERIAL: Asset3DEvent.MATERIAL_COMPLETE;
+			case Asset3DType.MESH: Asset3DEvent.MESH_COMPLETE;
+			case Asset3DType.SKELETON: Asset3DEvent.SKELETON_COMPLETE;
+			case Asset3DType.SKELETON_POSE: Asset3DEvent.SKELETON_POSE_COMPLETE;
+			case Asset3DType.ENTITY: Asset3DEvent.ENTITY_COMPLETE;
+			case Asset3DType.SKYBOX: Asset3DEvent.SKYBOX_COMPLETE;
+			case Asset3DType.CAMERA: Asset3DEvent.CAMERA_COMPLETE;
+			case Asset3DType.SEGMENT_SET: Asset3DEvent.SEGMENT_SET_COMPLETE;
+			case Asset3DType.EFFECTS_METHOD: Asset3DEvent.EFFECTMETHOD_COMPLETE;
+			case Asset3DType.SHADOW_MAP_METHOD: Asset3DEvent.SHADOWMAPMETHOD_COMPLETE;
+			default: throw new Error('Unhandled asset type ' + asset.assetType + '. Report as bug!');
 		};
 
 		// If the asset has no name, give it
 		// a per-type default name.
 		if (asset.name == "")
-			asset.name = type_name;
+			asset.name = asset.assetType.toString();
 
 		dispatchEvent(new Asset3DEvent(Asset3DEvent.ASSET_COMPLETE, asset));
 		dispatchEvent(new Asset3DEvent(type_event, asset));

@@ -49,8 +49,7 @@ class ParticleSegmentedScaleNode extends ParticleNodeBase {
 	override public function getAGALVertexCode(pass:MaterialPassBase, animationRegisterCache:AnimationRegisterCache):String {
 		var code:String = "";
 
-		var accScale:ShaderRegisterElement;
-		accScale = animationRegisterCache.getFreeVertexVectorTemp();
+		var accScale:ShaderRegisterElement = animationRegisterCache.getFreeVertexVectorTemp();
 		animationRegisterCache.addVertexTempUsages(accScale, 1);
 
 		var tempScale:ShaderRegisterElement = animationRegisterCache.getFreeVertexVectorTemp();
@@ -63,12 +62,9 @@ class ParticleSegmentedScaleNode extends ParticleNodeBase {
 		animationRegisterCache.removeVertexTempUsage(accScale);
 		animationRegisterCache.removeVertexTempUsage(tempScale);
 
-		var startValue:ShaderRegisterElement;
-		var deltaValues:Vector<ShaderRegisterElement>;
-
-		startValue = animationRegisterCache.getFreeVertexConstant();
+		var startValue:ShaderRegisterElement = animationRegisterCache.getFreeVertexConstant();
 		animationRegisterCache.setRegisterIndex(this, START_INDEX, startValue.index);
-		deltaValues = new Vector<ShaderRegisterElement>();
+		var deltaValues = new Vector<ShaderRegisterElement>();
 		for (i in 0...(_numSegmentPoint + 1)) {
 			deltaValues.push(animationRegisterCache.getFreeVertexConstant());
 		}

@@ -7,7 +7,7 @@ interface IAsset extends IEventDispatcher {
 	var name(get, set):String;
 	var id(get, set):String;
 	var assetNamespace(get, never):String;
-	var assetType(get, never):String;
+	var assetType(get, never):Asset3DType;
 	var assetFullPath(get, never):Array<Dynamic>;
 
 	/**
@@ -32,7 +32,7 @@ interface IAsset extends IEventDispatcher {
 	/**
 	 * The type of the asset.
 	 */
-	private function get_assetType():String;
+	private function get_assetType():Asset3DType;
 
 	/**
 	 * The full path of the asset.

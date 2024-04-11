@@ -72,7 +72,7 @@ class Elevation extends Mesh {
 	/**
 	 * Locks elevation factor beneath this color reading level. Default is 0;
 	 */
-	private function set_minElevation(val:Int):Int {
+	private inline function set_minElevation(val:Int):Int {
 		if (_minElevation == val)
 			return val;
 
@@ -81,7 +81,7 @@ class Elevation extends Mesh {
 		return val;
 	}
 
-	private function get_minElevation():Int {
+	private inline function get_minElevation():Int {
 		return _minElevation;
 	}
 
@@ -89,7 +89,7 @@ class Elevation extends Mesh {
 	 * Locks elevation factor above this color reading level. Default is 255;
 	 * Allows to build "canyon" like landscapes with no additional work on heightmap source.
 	 */
-	private function set_maxElevation(val:Int):Int {
+	private inline function set_maxElevation(val:Int):Int {
 		if (_maxElevation == val)
 			return val;
 
@@ -98,7 +98,7 @@ class Elevation extends Mesh {
 		return val;
 	}
 
-	private function get_maxElevation():Int {
+	private inline function get_maxElevation():Int {
 		return _maxElevation;
 	}
 
@@ -106,11 +106,11 @@ class Elevation extends Mesh {
 	 * The number of segments that make up the plane along the Y or Z-axis, depending on whether yUp is true or
 	 * false, respectively. Defaults to 1.
 	 */
-	private function get_segmentsH():Int {
+	private inline function get_segmentsH():Int {
 		return _segmentsH;
 	}
 
-	private function set_segmentsH(value:Int):Int {
+	private inline function set_segmentsH(value:Int):Int {
 		_segmentsH = value;
 		invalidateGeometry();
 		invalidateUVs();
@@ -120,33 +120,34 @@ class Elevation extends Mesh {
 	/**
 	 * The width of the terrain plane.
 	 */
-	private function get_width():Float {
+	private inline function get_width():Float {
 		return _width;
 	}
 
-	private function set_width(value:Float):Float {
+	private inline function set_width(value:Float):Float {
 		_width = value;
 		invalidateGeometry();
 		return value;
 	}
 
-	private function get_height():Float {
+	private inline function get_height():Float {
 		return _height;
 	}
 
-	private function set_height(value:Float):Float {
+	private inline function set_height(value:Float):Float {
 		_height = value;
+		invalidateGeometry();
 		return value;
 	}
 
 	/**
 	 * The depth of the terrain plane.
 	 */
-	private function get_depth():Float {
+	private inline function get_depth():Float {
 		return _depth;
 	}
 
-	private function set_depth(value:Float):Float {
+	private inline function set_depth(value:Float):Float {
 		_depth = value;
 		invalidateGeometry();
 		return value;
@@ -264,7 +265,7 @@ class Elevation extends Mesh {
 	/*
 	 * Returns the smoothed heightmap
 	 */
-	private function get_smoothedHeightMap():BitmapData {
+	private inline function get_smoothedHeightMap():BitmapData {
 		return _smoothedHeightMap;
 	}
 
@@ -360,7 +361,7 @@ class Elevation extends Mesh {
 	/**
 	 * Invalidates the primitive's geometry, causing it to be updated when requested.
 	 */
-	private function invalidateGeometry():Void {
+	private inline function invalidateGeometry():Void {
 		_geomDirty = true;
 		invalidateBounds();
 	}
@@ -368,7 +369,7 @@ class Elevation extends Mesh {
 	/**
 	 * Invalidates the primitive's uv coordinates, causing them to be updated when requested.
 	 */
-	private function invalidateUVs():Void {
+	private inline function invalidateUVs():Void {
 		_uvDirty = true;
 	}
 

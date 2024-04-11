@@ -6,9 +6,6 @@ import away3d.animators.states.AnimationStateBase;
 import away3d.events.AnimationStateEvent;
 import openfl.Vector;
 
-/**
- *
- */
 class AnimationClipState extends AnimationStateBase {
 	public var blendWeight(get, never):Float;
 	public var currentFrame(get, never):Int;

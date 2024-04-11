@@ -3,6 +3,7 @@ package away3d.animators.nodes;
 import away3d.animators.ParticleAnimationSet;
 import away3d.animators.data.AnimationRegisterCache;
 import away3d.animators.data.ParticleProperties;
+import away3d.animators.data.ParticlePropertiesMode;
 import away3d.materials.passes.MaterialPassBase;
 import openfl.Vector;
 
@@ -10,12 +11,12 @@ import openfl.Vector;
  * Provides an abstract base class for particle animation nodes.
  */
 class ParticleNodeBase extends AnimationNodeBase {
-	public var mode(get, never):Int;
+	public var mode(get, never):ParticlePropertiesMode;
 	public var priority(get, never):Int;
 	public var dataLength(get, never):Int;
 	public var oneData(get, never):Vector<Float>;
 
-	private var _mode:Int;
+	private var _mode:ParticlePropertiesMode;
 	private var _priority:Int;
 
 	private var _dataLength:Int = 3;
@@ -28,7 +29,7 @@ class ParticleNodeBase extends AnimationNodeBase {
 	 *
 	 * @see away3d.animators.data.ParticlePropertiesMode
 	 */
-	private function get_mode():Int {
+	private function get_mode():ParticlePropertiesMode {
 		return _mode;
 	}
 
@@ -62,27 +63,19 @@ class ParticleNodeBase extends AnimationNodeBase {
 		return _oneData;
 	}
 
-	// modes alias
-	private static var GLOBAL:String = 'Global';
-	private static var LOCAL_STATIC:String = 'LocalStatic';
-	private static var LOCAL_DYNAMIC:String = 'LocalDynamic';
-
-	// modes list
-	private static var MODES:Array<String> = [GLOBAL, LOCAL_STATIC, LOCAL_DYNAMIC];
-
 	/**
 	 *
 	 * @param    particleNodeClass - class of ParticleNodeBase child e.g ParticleBillboardNode, ParticleFollowNode...
 	 * @param    particleNodeMode  - mode of particle node ParticlePropertiesMode.GLOBAL, ParticlePropertiesMode.LOCAL_DYNAMIC or ParticlePropertiesMode.LOCAL_STATIC
 	 * @return    particle node name
 	 */
-	public static function getParticleNodeName(particleNodeClass:Dynamic, particleNodeMode:Int):String {
+	public static function getParticleNodeName(particleNodeClass:Dynamic, particleNodeMode:ParticlePropertiesMode):String {
 		var nodeName:String = particleNodeClass.node.get('ANIMATION_NODE_NAME');
 
 		if (nodeName == null)
 			nodeName = getNodeNameFromClass(particleNodeClass);
 
-		return nodeName + MODES[particleNodeMode];
+		return nodeName + particleNodeMode.toString();
 	}
 
 	private static function getNodeNameFromClass(particleNodeClass:Dynamic):String {
@@ -97,10 +90,10 @@ class ParticleNodeBase extends AnimationNodeBase {
 	 * @param               dataLength      Defines the length of the data used by the node when in <code>LOCAL_STATIC</code> mode.
 	 * @param    [optional] priority        the priority of the particle animation node, used to order the agal generated in a particle animation set. Defaults to 1.
 	 */
-	public function new(name:String, mode:Int, dataLength:Int, priority:Int = 1) {
+	public function new(name:String, mode:ParticlePropertiesMode, dataLength:Int, priority:Int = 1) {
 		super();
 
-		name = name + MODES[mode];
+		name = name + mode.toString();
 
 		this.name = name;
 		_mode = mode;

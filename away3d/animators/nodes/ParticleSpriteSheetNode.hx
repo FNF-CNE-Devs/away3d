@@ -86,7 +86,7 @@ class ParticleSpriteSheetNode extends ParticleNodeBase {
 	 * @param    [optional] totalFrames     Defines the total number of frames used by the spritesheet, when in global mode. Defaults to the number defined by numColumns and numRows.
 	 * @param    [optional] looping         Defines whether the spritesheet animation is set to loop indefinitely. Defaults to true.
 	 */
-	public function new(mode:Int, usesCycle:Bool, usesPhase:Bool, numColumns:Int = 1, numRows:Int = 1, cycleDuration:Float = 1, cyclePhase:Float = 0,
+	public function new(mode:ParticlePropertiesMode, usesCycle:Bool, usesPhase:Bool, numColumns:Int = 1, numRows:Int = 1, cycleDuration:Float = 1, cyclePhase:Float = 0,
 			totalFrames:Int = -1) {
 		// todo totalFrames = Math.POSITIVE_INFINITY;
 
@@ -196,9 +196,9 @@ class ParticleSpriteSheetNode extends ParticleNodeBase {
 		if (_usesCycle) {
 			var uvCycle:Vector3D = param.nodes[UV_VECTOR3D];
 			if (uvCycle == null)
-				throw(new Error("there is no " + UV_VECTOR3D + " in param!"));
+				throw new Error("there is no " + UV_VECTOR3D + " in param!");
 			if (uvCycle.x <= 0)
-				throw(new Error("the cycle duration must be greater than zero"));
+				throw new Error("the cycle duration must be greater than zero");
 			var uTotal:Float = _totalFrames / _numColumns;
 			_oneData[0] = uTotal / uvCycle.x;
 			_oneData[1] = uvCycle.x;

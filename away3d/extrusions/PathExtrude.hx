@@ -655,14 +655,10 @@ class PathExtrude extends Mesh {
 			v1 = ((covSub)) ? vscale : (((cosegSub)) ? indexp - floored : 0);
 			v2 = ((covSub)) ? vscale + (1 / indexv) : (((cosegSub)) ? v1 + _segv : 1);
 
-			_uva.u = u1;
-			_uva.v = v1;
-			_uvb.u = u1;
-			_uvb.v = v2;
-			_uvc.u = u2;
-			_uvc.v = v2;
-			_uvd.u = u2;
-			_uvd.v = v1;
+			_uva.set(u1, v1);
+			_uvb.set(u1, v2);
+			_uvc.set(u2, v2);
+			_uvd.set(u2, v1);
 
 			va = _varr[index];
 			vb = _varr[index + 1];

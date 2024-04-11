@@ -13,7 +13,7 @@ import openfl.Vector;
  */
 class Skeleton extends NamedAssetBase implements IAsset {
 	public var numJoints(get, never):Int;
-	public var assetType(get, never):String;
+	public var assetType(get, never):Asset3DType;
 
 	/**
 	 * A flat list of joint objects that comprise the skeleton. Every joint except for the root has a parentIndex
@@ -25,7 +25,7 @@ class Skeleton extends NamedAssetBase implements IAsset {
 	/**
 	 * The total number of joints in the skeleton.
 	 */
-	private function get_numJoints():Int {
+	private inline function get_numJoints():Int {
 		return joints.length;
 	}
 
@@ -89,7 +89,7 @@ class Skeleton extends NamedAssetBase implements IAsset {
 	/**
 	 * @inheritDoc
 	 */
-	private function get_assetType():String {
+	private function get_assetType():Asset3DType {
 		return Asset3DType.SKELETON;
 	}
 }

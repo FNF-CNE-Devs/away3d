@@ -19,7 +19,7 @@ class SkeletonAnimationSet extends AnimationSetBase implements IAnimationSet {
 	 * Returns the amount of skeleton joints that can be linked to a single vertex via skinned weight values. For GPU-base animation, the
 	 * maximum allowed value is 4.
 	 */
-	private function get_jointsPerVertex():Int {
+	private inline function get_jointsPerVertex():Int {
 		return _jointsPerVertex;
 	}
 

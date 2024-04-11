@@ -131,7 +131,7 @@ class ParticleOrbitState extends ParticleStateBase {
 			_orbitData = new Vector3D(_radius, 0, _radius * Math.PI * 2, _cyclePhase * Math.PI / 180);
 			if (_usesCycle) {
 				if (_cycleDuration <= 0)
-					throw(new Error("the cycle duration must be greater than zero"));
+					throw new Error("the cycle duration must be greater than zero");
 				_orbitData.y = Math.PI * 2 / _cycleDuration;
 			} else
 				_orbitData.y = Math.PI * 2;

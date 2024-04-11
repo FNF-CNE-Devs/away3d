@@ -48,7 +48,7 @@ class BitmapChar {
 
 	/** Retrieve kerning information relative to the given character ID. */
 	public function getKerning(charID:Int):Float {
-		if (mKernings == null || mKernings.get(charID) == null)
+		if (mKernings == null || !mKernings.exists(charID))
 			return 0.0;
 		else
 			return mKernings[charID];

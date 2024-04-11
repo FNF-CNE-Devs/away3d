@@ -4,6 +4,7 @@ import away3d.animators.IAnimator;
 import away3d.animators.data.AnimationRegisterCache;
 import away3d.animators.data.ParticleProperties;
 import away3d.animators.data.ParticlePropertiesMode;
+import away3d.animators.data.ParticlePropertiesMode;
 import away3d.animators.nodes.ParticleNodeBase;
 import away3d.animators.states.ParticleAccelerationState;
 import away3d.materials.compilation.ShaderRegisterElement;
@@ -33,7 +34,7 @@ class ParticleAccelerationNode extends ParticleNodeBase {
 	 * @param               mode            Defines whether the mode of operation acts on local properties of a particle or global properties of the node.
 	 * @param    [optional] acceleration    Defines the default acceleration vector of the node, used when in global mode.
 	 */
-	public function new(mode:Int, acceleration:Vector3D = null) {
+	public function new(mode:ParticlePropertiesMode, acceleration:Vector3D = null) {
 		super("ParticleAcceleration", mode, 3);
 
 		_stateConstructor = cast ParticleAccelerationState.new;

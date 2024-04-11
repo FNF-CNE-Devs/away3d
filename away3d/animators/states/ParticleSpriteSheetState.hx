@@ -103,7 +103,7 @@ class ParticleSpriteSheetState extends ParticleStateBase {
 
 		if (_usesCycle) {
 			if (_cycleDuration <= 0)
-				throw(new Error("the cycle duration must be greater than zero"));
+				throw new Error("the cycle duration must be greater than zero");
 			_spriteSheetData[4] = uTotal / _cycleDuration;
 			_spriteSheetData[5] = _cycleDuration;
 			if (_usesPhase)

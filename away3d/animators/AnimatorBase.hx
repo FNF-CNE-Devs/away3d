@@ -22,7 +22,7 @@ class AnimatorBase extends NamedAssetBase implements IAsset {
 	public var autoUpdate(get, set):Bool;
 	public var time(get, set):Int;
 	public var playbackSpeed(get, set):Float;
-	public var assetType(get, never):String;
+	public var assetType(get, never):Asset3DType;
 
 	private var _broadcaster:Sprite = new Sprite();
 	private var _isPlaying:Bool;
@@ -309,7 +309,7 @@ class AnimatorBase extends NamedAssetBase implements IAsset {
 	/**
 	 * @inheritDoc
 	 */
-	private function get_assetType():String {
+	private function get_assetType():Asset3DType {
 		return Asset3DType.ANIMATOR;
 	}
 }

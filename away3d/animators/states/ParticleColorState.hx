@@ -156,7 +156,7 @@ class ParticleColorState extends ParticleStateBase {
 	private function updateColorData():Void {
 		if (_usesCycle) {
 			if (_cycleDuration <= 0)
-				throw(new Error("the cycle duration must be greater than zero"));
+				throw new Error("the cycle duration must be greater than zero");
 			_cycleData = new Vector3D(Math.PI * 2 / _cycleDuration, _cyclePhase * Math.PI / 180, 0, 0);
 		}
 		if (_particleColorNode.mode == ParticlePropertiesMode.GLOBAL) {

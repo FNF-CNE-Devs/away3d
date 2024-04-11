@@ -12,23 +12,35 @@ package away3d.textfield;
 import openfl.errors.Error;
 
 /** A class that provides constant values for vertical alignment of objects. */
-class VAlign {
-	/** @private */
-	@:allow(away3d) private function new() {
-		throw new Error();
-	}
-
+#if (haxe_ver >= 4.0) enum #else @:enum #end abstract VAlign(Null<Int>) {
 	/** Top alignment. */
-	public static var TOP:String = "top";
+	public var TOP = 0;
 
 	/** Centered alignment. */
-	public static var CENTER:String = "center";
+	public var CENTER = 1;
 
 	/** Bottom alignment. */
-	public static var BOTTOM:String = "bottom";
+	public var BOTTOM = 2;
 
-	/** Indicates whether the given alignment string is valid. */
-	public static function isValid(vAlign:String):Bool {
-		return vAlign == VAlign.TOP || vAlign == VAlign.CENTER || vAlign == VAlign.BOTTOM;
+	@:from public static function fromString(value:String):VAlign
+	{
+		return switch (value)
+		{
+			case "top": TOP;
+			case "center": CENTER;
+			case "bottom": BOTTOM;
+			default: null;
+		}
+	}
+
+	@:to public function toString():String
+	{
+		return switch (cast this : VAlign)
+		{
+			case TOP: "top";
+			case CENTER: "center";
+			case BOTTOM: "bottom";
+			default: null;
+		}
 	}
 }

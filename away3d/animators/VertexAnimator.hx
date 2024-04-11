@@ -27,7 +27,7 @@ class VertexAnimator extends AnimatorBase implements IAnimator {
 	private var _poses:Vector<Geometry> = new Vector<Geometry>();
 	private var _weights:Vector<Float> = Vector.ofArray([1, 0, 0, 0.0]);
 	private var _numPoses:Int;
-	private var _blendMode:String;
+	private var _blendMode:VertexAnimationMode;
 	private var _activeVertexState:IVertexAnimationState;
 
 	/**

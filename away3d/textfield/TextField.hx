@@ -19,8 +19,8 @@ class TextField extends Mesh {
 	private var mBitmapFont:BitmapFont;
 	private var mFontSize:Float;
 	private var mColor:UInt;
-	private var mHAlign:String;
-	private var mVAlign:String;
+	private var mHAlign:HAlign;
+	private var mVAlign:VAlign;
 	private var mBold:Bool;
 	private var mItalic:Bool;
 	private var mUnderline:Bool;
@@ -45,7 +45,7 @@ class TextField extends Mesh {
 	private var textureMaterial:TextureMaterial;
 
 	public function new(width:Float, height:Float, text:String, bitmapFont:BitmapFont, fontSize:Float = 12, color:UInt = 0x0, bold:Bool = false,
-			_hAlign:String = "left") {
+			_hAlign:HAlign = LEFT) {
 		super(new Geometry(), bitmapFont.fontMaterial);
 
 		mText = text;

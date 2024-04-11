@@ -48,13 +48,10 @@ class ConflictStrategyBase {
 	 */
 	private function updateNames(ns:String, nonConflictingName:String, oldAsset:IAsset, newAsset:IAsset, assetsDictionary:Map<String, IAsset>,
 			precedence:String):Void {
-		var loser_prev_name:String;
-		var winner:IAsset, loser:IAsset;
+		var winner:IAsset = (precedence == ConflictPrecedence.FAVOR_NEW) ? newAsset : oldAsset;
+		var loser:IAsset = (precedence == ConflictPrecedence.FAVOR_NEW) ? oldAsset : newAsset;
 
-		winner = (precedence == ConflictPrecedence.FAVOR_NEW) ? newAsset : oldAsset;
-		loser = (precedence == ConflictPrecedence.FAVOR_NEW) ? oldAsset : newAsset;
-
-		loser_prev_name = loser.name;
+		var loser_prev_name:String = loser.name;
 
 		assetsDictionary[winner.name] = winner;
 		assetsDictionary[nonConflictingName] = loser;

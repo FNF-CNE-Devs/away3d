@@ -45,7 +45,7 @@ class HoverController extends LookAtController {
 	 * @see    #tiltAngle
 	 * @see    #panAngle
 	 */
-	private function get_steps():Int {
+	private inline function get_steps():Int {
 		return _steps;
 	}
 
@@ -64,7 +64,7 @@ class HoverController extends LookAtController {
 	/**
 	 * Rotation of the camera in degrees around the y axis. Defaults to 0.
 	 */
-	private function get_panAngle():Float {
+	private inline function get_panAngle():Float {
 		return _panAngle;
 	}
 
@@ -86,7 +86,7 @@ class HoverController extends LookAtController {
 	/**
 	 * Elevation angle of the camera in degrees. Defaults to 90.
 	 */
-	private function get_tiltAngle():Float {
+	private inline function get_tiltAngle():Float {
 		return _tiltAngle;
 	}
 
@@ -108,7 +108,7 @@ class HoverController extends LookAtController {
 	/**
 	 * Distance between the camera and the specified target. Defaults to 1000.
 	 */
-	private function get_distance():Float {
+	private inline function get_distance():Float {
 		return _distance;
 	}
 
@@ -127,7 +127,7 @@ class HoverController extends LookAtController {
 	 *
 	 * @see    #panAngle
 	 */
-	private function get_minPanAngle():Float {
+	private inline function get_minPanAngle():Float {
 		return _minPanAngle;
 	}
 
@@ -146,7 +146,7 @@ class HoverController extends LookAtController {
 	 *
 	 * @see    #panAngle
 	 */
-	private function get_maxPanAngle():Float {
+	private inline function get_maxPanAngle():Float {
 		return _maxPanAngle;
 	}
 
@@ -165,7 +165,7 @@ class HoverController extends LookAtController {
 	 *
 	 * @see    #tiltAngle
 	 */
-	private function get_minTiltAngle():Float {
+	private inline function get_minTiltAngle():Float {
 		return _minTiltAngle;
 	}
 
@@ -184,7 +184,7 @@ class HoverController extends LookAtController {
 	 *
 	 * @see    #tiltAngle
 	 */
-	private function get_maxTiltAngle():Float {
+	private inline function get_maxTiltAngle():Float {
 		return _maxTiltAngle;
 	}
 
@@ -203,7 +203,7 @@ class HoverController extends LookAtController {
 	 *
 	 * @see    #distance
 	 */
-	private function get_yFactor():Float {
+	private inline function get_yFactor():Float {
 		return _yFactor;
 	}
 
@@ -220,7 +220,7 @@ class HoverController extends LookAtController {
 	/**
 	 * Defines whether the value of the pan angle wraps when over 360 degrees or under 0 degrees. Defaults to false.
 	 */
-	private function get_wrapPanAngle():Bool {
+	private inline function get_wrapPanAngle():Bool {
 		return _wrapPanAngle;
 	}
 

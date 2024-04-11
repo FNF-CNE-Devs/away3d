@@ -39,7 +39,7 @@ class FirstPersonController extends ControllerBase {
 	 * @see    #tiltAngle
 	 * @see    #panAngle
 	 */
-	private function get_steps():Int {
+	private inline function get_steps():Int {
 		return _steps;
 	}
 
@@ -58,7 +58,7 @@ class FirstPersonController extends ControllerBase {
 	/**
 	 * Rotation of the camera in degrees around the y axis. Defaults to 0.
 	 */
-	private function get_panAngle():Float {
+	private inline function get_panAngle():Float {
 		return _panAngle;
 	}
 
@@ -75,7 +75,7 @@ class FirstPersonController extends ControllerBase {
 	/**
 	 * Elevation angle of the camera in degrees. Defaults to 90.
 	 */
-	private function get_tiltAngle():Float {
+	private inline function get_tiltAngle():Float {
 		return _tiltAngle;
 	}
 
@@ -96,7 +96,7 @@ class FirstPersonController extends ControllerBase {
 	 *
 	 * @see    #tiltAngle
 	 */
-	private function get_minTiltAngle():Float {
+	private inline function get_minTiltAngle():Float {
 		return _minTiltAngle;
 	}
 
@@ -115,7 +115,7 @@ class FirstPersonController extends ControllerBase {
 	 *
 	 * @see    #tiltAngle
 	 */
-	private function get_maxTiltAngle():Float {
+	private inline function get_maxTiltAngle():Float {
 		return _maxTiltAngle;
 	}
 
@@ -132,7 +132,7 @@ class FirstPersonController extends ControllerBase {
 	/**
 	 * Defines whether the value of the pan angle wraps when over 360 degrees or under 0 degrees. Defaults to false.
 	 */
-	private function get_wrapPanAngle():Bool {
+	private inline function get_wrapPanAngle():Bool {
 		return _wrapPanAngle;
 	}
 

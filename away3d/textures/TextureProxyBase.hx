@@ -13,7 +13,7 @@ import openfl.display3D.textures.TextureBase;
 class TextureProxyBase extends NamedAssetBase implements IAsset {
 	public var hasMipMaps(get, never):Bool;
 	public var format(get, never):Context3DTextureFormat;
-	public var assetType(get, never):String;
+	public var assetType(get, never):Asset3DType;
 	public var width(get, set):Int;
 	public var height(get, set):Int;
 
@@ -40,7 +40,7 @@ class TextureProxyBase extends NamedAssetBase implements IAsset {
 		return _format;
 	}
 
-	private function get_assetType():String {
+	private function get_assetType():Asset3DType {
 		return Asset3DType.TEXTURE;
 	}
 

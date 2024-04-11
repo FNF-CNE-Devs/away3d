@@ -19,12 +19,12 @@ import openfl.geom.Matrix3D;
  * @see away3d.scenegraph.Mesh
  */
 class Geometry extends NamedAssetBase implements IAsset {
-	public var assetType(get, never):String;
+	public var assetType(get, never):Asset3DType;
 	public var subGeometries(get, never):Vector<ISubGeometry>;
 
 	private var _subGeometries:Vector<ISubGeometry>;
 
-	private function get_assetType():String {
+	private function get_assetType():Asset3DType {
 		return Asset3DType.GEOMETRY;
 	}
 

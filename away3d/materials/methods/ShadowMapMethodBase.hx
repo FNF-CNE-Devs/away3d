@@ -14,7 +14,7 @@ import away3d.materials.methods.ShadingMethodBase;
  * ShadowMapMethodBase provides an abstract base method for shadow map methods.
  */
 class ShadowMapMethodBase extends ShadingMethodBase implements IAsset {
-	public var assetType(get, never):String;
+	public var assetType(get, never):Asset3DType;
 	public var alpha(get, set):Float;
 	public var castingLight(get, never):LightBase;
 	public var epsilon(get, set):Float;
@@ -39,7 +39,7 @@ class ShadowMapMethodBase extends ShadingMethodBase implements IAsset {
 	/**
 	 * @inheritDoc
 	 */
-	private function get_assetType():String {
+	private function get_assetType():Asset3DType {
 		return Asset3DType.SHADOW_MAP_METHOD;
 	}
 

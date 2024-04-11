@@ -20,7 +20,7 @@ import openfl.geom.Vector3D;
  * @see StaticLightPicker
  */
 class LightPickerBase extends NamedAssetBase implements IAsset {
-	public var assetType(get, never):String;
+	public var assetType(get, never):Asset3DType;
 	public var numDirectionalLights(get, never):Int;
 	public var numPointLights(get, never):Int;
 	public var numCastingDirectionalLights(get, never):Int;
@@ -62,7 +62,7 @@ class LightPickerBase extends NamedAssetBase implements IAsset {
 	/**
 	 * @inheritDoc
 	 */
-	private function get_assetType():String {
+	private function get_assetType():Asset3DType {
 		return Asset3DType.LIGHT_PICKER;
 	}
 

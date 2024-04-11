@@ -50,12 +50,12 @@ class Asset3DLibraryBundle extends EventDispatcher {
 	 * @see a3d.library.naming.ConflictPrecedence
 	 * @see a3d.library.naming.ConflictStrategy
 	 */
-	public var conflictPrecedence(get, set):String;
+	public var conflictPrecedence(get, set):ConflictPrecedence;
 
 	private var _loadingSessions:Vector<AssetLoader>;
 
 	private var _strategy:ConflictStrategyBase;
-	private var _strategyPreference:String;
+	private var _strategyPreference:ConflictPrecedence;
 
 	private var _assets:Vector<IAsset>;
 	private var _assetDictionary:Map<String, Map<String, IAsset>>;
@@ -119,11 +119,11 @@ class Asset3DLibraryBundle extends EventDispatcher {
 		return _strategy = val.create();
 	}
 
-	private function get_conflictPrecedence():String {
+	private function get_conflictPrecedence():ConflictPrecedence {
 		return _strategyPreference;
 	}
 
-	private function set_conflictPrecedence(val:String):String {
+	private function set_conflictPrecedence(val:ConflictPrecedence):ConflictPrecedence {
 		return _strategyPreference = val;
 	}
 

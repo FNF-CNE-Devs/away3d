@@ -34,7 +34,7 @@ import openfl.geom.Matrix3D;
  * shaders, or entire new material frameworks.
  */
 class MaterialBase extends NamedAssetBase implements IAsset {
-	public var assetType(get, never):String;
+	public var assetType(get, never):Asset3DType;
 	public var lightPicker(get, set):LightPickerBase;
 	public var mipmap(get, set):Bool;
 	public var smooth(get, set):Bool;
@@ -141,7 +141,7 @@ class MaterialBase extends NamedAssetBase implements IAsset {
 	/**
 	 * @inheritDoc
 	 */
-	private function get_assetType():String {
+	private function get_assetType():Asset3DType {
 		return Asset3DType.MATERIAL;
 	}
 

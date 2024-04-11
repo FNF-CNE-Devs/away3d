@@ -5,9 +5,6 @@ import away3d.animators.states.SkeletonBinaryLERPState;
 import away3d.animators.transitions.CrossfadeTransitionNode;
 import away3d.events.AnimationStateEvent;
 
-/**
- *
- */
 class CrossfadeTransitionState extends SkeletonBinaryLERPState {
 	private var _crossfadeAnimationNode:CrossfadeTransitionNode;
 	private var _animationStateTransitionComplete:AnimationStateEvent;

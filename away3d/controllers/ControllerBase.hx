@@ -18,7 +18,7 @@ class ControllerBase {
 	/**
 	 * Target object on which the controller acts. Defaults to null.
 	 */
-	private function get_targetObject():Entity {
+	private inline function get_targetObject():Entity {
 		return _targetObject;
 	}
 
@@ -37,7 +37,7 @@ class ControllerBase {
 	/**
 	 * Determines whether the controller applies updates automatically. Defaults to true
 	 */
-	private function get_autoUpdate():Bool {
+	private inline function get_autoUpdate():Bool {
 		return _autoUpdate;
 	}
 

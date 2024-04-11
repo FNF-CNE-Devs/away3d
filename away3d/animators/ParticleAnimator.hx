@@ -77,7 +77,7 @@ class ParticleAnimator extends AnimatorBase implements IAnimator {
 		var state:ParticleStateBase;
 
 		if (subMesh == null)
-			throw(new Error("Must be subMesh"));
+			throw new Error("Must be subMesh");
 
 		// process animation sub geometries
 		if (subMesh.animationSubGeometry == null)

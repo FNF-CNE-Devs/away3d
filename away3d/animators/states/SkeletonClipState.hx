@@ -12,9 +12,6 @@ import openfl.Vector;
 import openfl.errors.Error;
 import openfl.geom.Vector3D;
 
-/**
- *
- */
 class SkeletonClipState extends AnimationClipState implements ISkeletonAnimationState {
 	public var currentPose(get, never):SkeletonPose;
 	public var nextPose(get, never):SkeletonPose;

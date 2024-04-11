@@ -1,5 +1,6 @@
 package away3d.materials.compilation;
 
+import away3d.utils.AGALUtil;
 import openfl.Vector;
 
 /**
@@ -12,8 +13,6 @@ class ShaderRegisterElement {
 	private var _regName:String;
 	private var _index:Int;
 	private var _toStr:String;
-
-	private static var COMPONENTS:Array<String> = ["x", "y", "z", "w"];
 
 	@:allow(away3d) private var _component:Int;
 
@@ -34,7 +33,7 @@ class ShaderRegisterElement {
 			_toStr += _index;
 
 		if (component > -1)
-			_toStr += "." + COMPONENTS[component];
+			_toStr += "." + AGALUtil.XYZW[component];
 	}
 
 	/**

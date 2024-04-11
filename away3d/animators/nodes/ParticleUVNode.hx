@@ -3,6 +3,7 @@ package away3d.animators.nodes;
 import away3d.animators.IAnimator;
 import away3d.animators.ParticleAnimationSet;
 import away3d.animators.data.AnimationRegisterCache;
+import away3d.animators.data.ParticlePropertiesMode;
 import away3d.animators.nodes.ParticleNodeBase;
 import away3d.animators.states.ParticleUVState;
 import away3d.materials.compilation.ShaderRegisterElement;
@@ -28,14 +29,8 @@ class ParticleUVNode extends ParticleNodeBase {
 	 */
 	public static inline var GLOBAL:Int = 1;
 
-	/**
-	 *
-	 */
 	public static inline var U_AXIS:String = "x";
 
-	/**
-	 *
-	 */
 	public static inline var V_AXIS:String = "y";
 
 	private var _cycle:Float;
@@ -50,7 +45,7 @@ class ParticleUVNode extends ParticleNodeBase {
 	 * @param    [optional] scale           Defines whether the time track is in loop mode. Defaults to false.
 	 * @param    [optional] axis            Defines whether the time track is in loop mode. Defaults to false.
 	 */
-	public function new(mode:Int, cycle:Float = 1, scale:Float = 1, axis:String = "x") {
+	public function new(mode:ParticlePropertiesMode, cycle:Float = 1, scale:Float = 1, axis:String = "x") {
 		super("ParticleUV", mode, 4, ParticleAnimationSet.POST_PRIORITY + 1);
 
 		_stateConstructor = cast ParticleUVState.new;

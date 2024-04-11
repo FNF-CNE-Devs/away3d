@@ -54,9 +54,7 @@ class NamedAssetBase extends EventDispatcher {
 	}
 
 	private function set_name(val:String):String {
-		var prev:String;
-
-		prev = _name;
+		var prev:String = _name;
 		_name = val;
 		if (_name == null)
 			_name = "null";
@@ -64,7 +62,7 @@ class NamedAssetBase extends EventDispatcher {
 		updateFullPath();
 
 		if (hasEventListener(Asset3DEvent.ASSET_RENAME))
-			dispatchEvent(new Asset3DEvent(Asset3DEvent.ASSET_RENAME, cast((this), IAsset), prev));
+			dispatchEvent(new Asset3DEvent(Asset3DEvent.ASSET_RENAME, cast(this, IAsset), prev));
 		return val;
 	}
 

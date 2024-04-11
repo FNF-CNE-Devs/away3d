@@ -61,7 +61,7 @@ class ParticleOscillatorState extends ParticleStateBase {
 	private function updateOscillatorData():Void {
 		if (_particleOscillatorNode.mode == ParticlePropertiesMode.GLOBAL) {
 			if (_oscillator.w <= 0)
-				throw(new Error("the cycle duration must greater than zero"));
+				throw new Error("the cycle duration must greater than zero");
 			if (_oscillatorData == null)
 				_oscillatorData = new Vector3D();
 			_oscillatorData.x = _oscillator.x;

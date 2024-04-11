@@ -13,7 +13,7 @@ class ColorSegmentPoint {
 	public function new(life:Float, color:ColorTransform) {
 		// 0<life<1
 		if (life <= 0 || life >= 1)
-			throw(new Error("life exceeds range (0,1)"));
+			throw new Error("life exceeds range (0,1)");
 		_life = life;
 		_color = color;
 	}

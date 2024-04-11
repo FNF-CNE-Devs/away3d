@@ -40,21 +40,21 @@ class Trident extends Mesh {
 		profileX[1] = new Vector3D(base, 0, offset);
 		profileX[2] = new Vector3D(base, 0, -rad);
 		vectors[0] = Vector.ofArray([new Vector3D(0, 0, 0), new Vector3D(base, 0, 0)]);
-		var arrowX:LatheExtrude = new LatheExtrude(matX, profileX, LatheExtrude.X_AXIS, 1, 10);
+		var arrowX:LatheExtrude = new LatheExtrude(matX, profileX, X, 1, 10);
 
 		var profileY:Vector<Vector3D> = new Vector();
 		profileY[0] = new Vector3D(0, length, 0);
 		profileY[1] = new Vector3D(offset, base, 0);
 		profileY[2] = new Vector3D(-rad, base, 0);
 		vectors[1] = Vector.ofArray([new Vector3D(0, 0, 0), new Vector3D(0, base, 0)]);
-		var arrowY:LatheExtrude = new LatheExtrude(matY, profileY, LatheExtrude.Y_AXIS, 1, 10);
+		var arrowY:LatheExtrude = new LatheExtrude(matY, profileY, Y, 1, 10);
 
 		var profileZ:Vector<Vector3D> = new Vector();
 		vectors[2] = Vector.ofArray([new Vector3D(0, 0, 0), new Vector3D(0, 0, base)]);
 		profileZ[0] = new Vector3D(0, rad, base);
 		profileZ[1] = new Vector3D(0, offset, base);
 		profileZ[2] = new Vector3D(0, 0, length);
-		var arrowZ:LatheExtrude = new LatheExtrude(matZ, profileZ, LatheExtrude.Z_AXIS, 1, 10);
+		var arrowZ:LatheExtrude = new LatheExtrude(matZ, profileZ, Z, 1, 10);
 
 		var profileO:Vector<Vector3D> = new Vector();
 		profileO[0] = new Vector3D(0, rad, 0);
@@ -62,7 +62,7 @@ class Trident extends Mesh {
 		profileO[2] = new Vector3D(-rad, 0, 0);
 		profileO[3] = new Vector3D(-(rad * .7), -(rad * .7), 0);
 		profileO[4] = new Vector3D(0, -rad, 0);
-		var origin:LatheExtrude = new LatheExtrude(matOrigin, profileO, LatheExtrude.Y_AXIS, 1, 10);
+		var origin:LatheExtrude = new LatheExtrude(matOrigin, profileO, Y, 1, 10);
 
 		merge.applyToMeshes(this, Vector.ofArray(cast [arrowX, arrowY, arrowZ, origin]));
 

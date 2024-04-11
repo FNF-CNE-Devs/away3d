@@ -64,11 +64,9 @@ class Sprite3D extends Entity implements IRenderable {
 
 	private function set__geometry(g:SubGeometry):SubGeometry {
 		if (shareGeometry) {
-			__geometry = g;
-			return __geometry;
+			return __geometry = g;
 		}
-		___geometry = g;
-		return ___geometry;
+		return ___geometry = g;
 	}
 
 	// private static var _pickingSubMesh:SubGeometry;

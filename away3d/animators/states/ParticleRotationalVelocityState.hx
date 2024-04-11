@@ -22,25 +22,21 @@ class ParticleRotationalVelocityState extends ParticleStateBase {
 	private var _particleRotationalVelocityNode:ParticleRotationalVelocityNode;
 	private var _rotationalVelocityData:Vector3D;
 	private var _rotationalVelocity:Vector3D;
+	private var _dirty:Bool = true;
 
 	/**
 	 * Defines the default rotationalVelocity of the state, used when in global mode.
 	 */
-	private function get_rotationalVelocity():Vector3D {
+	private inline function get_rotationalVelocity():Vector3D {
 		return _rotationalVelocity;
 	}
 
-	private function set_rotationalVelocity(value:Vector3D):Vector3D {
-		_rotationalVelocity = value;
-
-		updateRotationalVelocityData();
-		return value;
+	private inline function set_rotationalVelocity(value:Vector3D):Vector3D {
+		_dirty = true;
+		return _rotationalVelocity = value;
 	}
 
-	/**
-	 *
-	 */
-	public function getRotationalVelocities():Vector<Vector3D> {
+	public inline function getRotationalVelocities():Vector<Vector3D> {
 		return _dynamicProperties;
 	}
 
@@ -55,8 +51,6 @@ class ParticleRotationalVelocityState extends ParticleStateBase {
 
 		_particleRotationalVelocityNode = particleRotationNode;
 		_rotationalVelocity = _particleRotationalVelocityNode._rotationalVelocity;
-
-		updateRotationalVelocityData();
 	}
 
 	/**
@@ -72,9 +66,14 @@ class ParticleRotationalVelocityState extends ParticleStateBase {
 
 		var index:Int = animationRegisterCache.getRegisterIndex(_animationNode, ParticleRotationalVelocityNode.ROTATIONALVELOCITY_INDEX);
 
-		if (_particleRotationalVelocityNode.mode == ParticlePropertiesMode.GLOBAL)
+		if (_particleRotationalVelocityNode.mode == ParticlePropertiesMode.GLOBAL) {
+			if(_dirty) {
+				updateRotationalVelocityData();
+				_dirty = false;
+			}
 			animationRegisterCache.setVertexConst(index, _rotationalVelocityData.x, _rotationalVelocityData.y, _rotationalVelocityData.z,
 				_rotationalVelocityData.w);
+		}
 		else
 			animationSubGeometry.activateVertexBuffer(index, _particleRotationalVelocityNode.dataOffset, stage3DProxy, Context3DVertexBufferFormat.FLOAT_4);
 	}
@@ -82,7 +81,7 @@ class ParticleRotationalVelocityState extends ParticleStateBase {
 	private function updateRotationalVelocityData():Void {
 		if (_particleRotationalVelocityNode.mode == ParticlePropertiesMode.GLOBAL) {
 			if (_rotationalVelocity.w <= 0)
-				throw(new Error("the cycle duration must greater than zero"));
+				throw new Error("the cycle duration must greater than zero");
 			var rotation:Vector3D = _rotationalVelocity.clone();
 
 			if (rotation.length <= 0)

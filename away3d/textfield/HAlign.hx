@@ -12,23 +12,35 @@ package away3d.textfield;
 import openfl.errors.Error;
 
 /** A class that provides constant values for horizontal alignment of objects. */
-class HAlign {
-	/** @private */
-	@:allow(away3d) private function new() {
-		throw new Error();
-	}
-
+#if (haxe_ver >= 4.0) enum #else @:enum #end abstract HAlign(Null<Int>) {
 	/** Left alignment. */
-	public static var LEFT:String = "left";
+	public var LEFT = 0;
 
 	/** Centered alignement. */
-	public static var CENTER:String = "center";
+	public var CENTER = 1;
 
 	/** Right alignment. */
-	public static var RIGHT:String = "right";
+	public var RIGHT = 2;
 
-	/** Indicates whether the given alignment string is valid. */
-	public static function isValid(hAlign:String):Bool {
-		return hAlign == HAlign.LEFT || hAlign == HAlign.CENTER || hAlign == HAlign.RIGHT;
+	@:from public static function fromString(value:String):HAlign
+	{
+		return switch (value)
+		{
+			case "left": LEFT;
+			case "center": CENTER;
+			case "right": RIGHT;
+			default: null;
+		}
+	}
+
+	@:to public function toString():String
+	{
+		return switch (cast this : HAlign)
+		{
+			case LEFT: "left";
+			case CENTER: "center";
+			case RIGHT: "right";
+			default: null;
+		}
 	}
 }

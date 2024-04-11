@@ -128,7 +128,7 @@ class SkyBox extends Entity implements IRenderable {
 		return value;
 	}
 
-	override private function get_assetType():String {
+	override private function get_assetType():Asset3DType {
 		return Asset3DType.SKYBOX;
 	}
 

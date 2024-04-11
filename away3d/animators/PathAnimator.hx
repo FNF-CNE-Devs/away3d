@@ -75,11 +75,11 @@ class PathAnimator extends EventDispatcher {
 			_alignToPath = false;
 	}
 
-	private function get_upAxis():Vector3D {
+	private inline function get_upAxis():Vector3D {
 		return _upAxis;
 	}
 
-	private function set_upAxis(value:Vector3D):Vector3D {
+	private inline function set_upAxis(value:Vector3D):Vector3D {
 		return _upAxis = value;
 	}
 
@@ -221,18 +221,18 @@ class PathAnimator extends EventDispatcher {
 	/**
 	 * defines if the object animated along the path must be aligned to the path.
 	 */
-	private function set_alignToPath(b:Bool):Bool {
+	private inline function set_alignToPath(b:Bool):Bool {
 		return _alignToPath = b;
 	}
 
-	private function get_alignToPath():Bool {
+	private inline function get_alignToPath():Bool {
 		return _alignToPath;
 	}
 
 	/**
 	 * returns the current interpolated position on the path with no optional offset applied
 	 */
-	private function get_position():Vector3D {
+	private inline function get_position():Vector3D {
 		return _position;
 	}
 
@@ -240,18 +240,18 @@ class PathAnimator extends EventDispatcher {
 	 * defines the path to follow
 	 * @see Path
 	 */
-	private function set_path(value:IPath):IPath {
+	private inline function set_path(value:IPath):IPath {
 		return _path = value;
 	}
 
-	private function get_path():IPath {
+	private inline function get_path():IPath {
 		return _path;
 	}
 
 	/**
 	 * Represents the progress of the animation playhead from the start (0) to the end (1) of the animation.
 	 */
-	private function get_progress():Float {
+	private inline function get_progress():Float {
 		return _time;
 	}
 
@@ -275,18 +275,18 @@ class PathAnimator extends EventDispatcher {
 	/**
 	 * returns the actual interpolated rotation along the path.
 	 */
-	private function get_orientation():Vector3D {
+	private inline function get_orientation():Vector3D {
 		return _rot;
 	}
 
 	/**
 	 * sets the object to be animated along the path.
 	 */
-	private function set_target(object3d:Object3D):Object3D {
+	private inline function set_target(object3d:Object3D):Object3D {
 		return _target = object3d;
 	}
 
-	private function get_target():Object3D {
+	private inline function get_target():Object3D {
 		return _target;
 	}
 
@@ -300,7 +300,7 @@ class PathAnimator extends EventDispatcher {
 		return object3d;
 	}
 
-	private function get_lookAtObject():Object3D {
+	private inline function get_lookAtObject():Object3D {
 		return _lookAtTarget;
 	}
 
@@ -325,7 +325,7 @@ class PathAnimator extends EventDispatcher {
 		return val;
 	}
 
-	private function get_index():Int {
+	private inline function get_index():Int {
 		return _index;
 	}
 

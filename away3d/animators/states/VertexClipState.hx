@@ -8,9 +8,6 @@ import away3d.animators.states.IVertexAnimationState;
 import away3d.core.base.Geometry;
 import openfl.Vector;
 
-/**
- *
- */
 class VertexClipState extends AnimationClipState implements IVertexAnimationState {
 	public var currentGeometry(get, never):Geometry;
 	public var nextGeometry(get, never):Geometry;

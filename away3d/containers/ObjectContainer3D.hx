@@ -27,7 +27,7 @@ class ObjectContainer3D extends Object3D implements IAsset {
 	public var mouseEnabled(get, set):Bool;
 	public var mouseChildren(get, set):Bool;
 	public var visible(get, set):Bool;
-	public var assetType(get, never):String;
+	public var assetType(get, never):Asset3DType;
 	public var scenePosition(get, never):Vector3D;
 	public var minX(get, never):Float;
 	public var minY(get, never):Float;
@@ -268,7 +268,7 @@ class ObjectContainer3D extends Object3D implements IAsset {
 		return value;
 	}
 
-	private function get_assetType():String {
+	private function get_assetType():Asset3DType {
 		return Asset3DType.CONTAINER;
 	}
 

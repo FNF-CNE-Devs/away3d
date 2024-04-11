@@ -60,7 +60,7 @@ class ParticleOrbitNode extends ParticleNodeBase {
 	 * @param    [optional] cyclePhase      Defines the phase of the orbit in degrees, used as the starting offset of the cycle when in global mode. Defaults to 0.
 	 * @param    [optional] eulers          Defines the euler rotation in degrees, applied to the orientation of the orbit when in global mode.
 	 */
-	public function new(mode:Int, usesEulers:Bool = true, usesCycle:Bool = false, usesPhase:Bool = false, radius:Float = 100, cycleDuration:Float = 1,
+	public function new(mode:ParticlePropertiesMode, usesEulers:Bool = true, usesCycle:Bool = false, usesPhase:Bool = false, radius:Float = 100, cycleDuration:Float = 1,
 			cyclePhase:Float = 0, eulers:Vector3D = null) {
 		var len:Int = 3;
 		if (usesPhase)
@@ -169,7 +169,7 @@ class ParticleOrbitNode extends ParticleNodeBase {
 
 		_oneData[0] = orbit.x;
 		if (_usesCycle && orbit.y <= 0)
-			throw(new Error("the cycle duration must be greater than zero"));
+			throw new Error("the cycle duration must be greater than zero");
 		_oneData[1] = Math.PI * 2 / (!_usesCycle ? 1 : orbit.y);
 		_oneData[2] = orbit.x * Math.PI * 2;
 		if (_usesPhase)

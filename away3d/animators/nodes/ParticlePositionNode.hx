@@ -33,7 +33,7 @@ class ParticlePositionNode extends ParticleNodeBase {
 	 * @param               mode            Defines whether the mode of operation acts on local properties of a particle or global properties of the node.
 	 * @param    [optional] position        Defines the default position of the particle when in global mode. Defaults to 0,0,0.
 	 */
-	public function new(mode:Int, position:Vector3D = null) {
+	public function new(mode:ParticlePropertiesMode, position:Vector3D = null) {
 		super("ParticlePosition", mode, 3);
 
 		_stateConstructor = cast ParticlePositionState.new;
@@ -72,7 +72,7 @@ class ParticlePositionNode extends ParticleNodeBase {
 	override public function generatePropertyOfOneParticle(param:ParticleProperties):Void {
 		var offset:Vector3D = param.nodes[POSITION_VECTOR3D];
 		if (offset == null)
-			throw(new Error("there is no " + POSITION_VECTOR3D + " in param!"));
+			throw new Error("there is no " + POSITION_VECTOR3D + " in param!");
 
 		_oneData[0] = offset.x;
 		_oneData[1] = offset.y;

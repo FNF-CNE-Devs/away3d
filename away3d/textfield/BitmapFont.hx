@@ -48,9 +48,6 @@ class BitmapFont {
 	 *  render the bitmap font in exactly the size it was created. */
 	public static var NATIVE_SIZE:Int = -1;
 
-	/** The font name of the embedded minimal bitmap font. Use this e.g. for debug output. */
-	public static var MINI:String = "mini";
-
 	private static var CHAR_SPACE:Int = 32;
 	private static var CHAR_TAB:Int = 9;
 	private static var CHAR_NEWLINE:Int = 10;
@@ -196,7 +193,7 @@ class BitmapFont {
 
 	/** Draws text into a Geometry. */
 	public function fillBatched(data:Vector<Float>, indices:Vector<UInt>, width:Float, height:Float, text:String, fontSize:Float = -1,
-			hAlign:String = "center", vAlign:String = "center", autoScale:Bool = true, kerning:Bool = true, letterSpacing:Float = 0):Void {
+			hAlign:HAlign = CENTER, vAlign:VAlign = CENTER, autoScale:Bool = true, kerning:Bool = true, letterSpacing:Float = 0):Void {
 		var charLocations:Vector<CharLocation> = arrangeChars(width, height, text, fontSize, hAlign, vAlign, autoScale, kerning, letterSpacing);
 		data.length = 0;
 		indices.length = 0;
@@ -314,12 +311,12 @@ class BitmapFont {
 
 	/** Arranges the characters of a text inside a rectangle, adhering to the given settings.
 	 *  Returns a Vector of CharLocations. */
-	private function arrangeChars(width:Float, height:Float, text:String, fontSize:Float = -1, hAlign:String = "center", vAlign:String = "center",
+	private function arrangeChars(width:Float, height:Float, text:String, fontSize:Float = -1, hAlign:HAlign = CENTER, vAlign:VAlign = CENTER,
 			autoScale:Bool = true, kerning:Bool = true, letterSpacing:Float = 0):Vector<CharLocation> {
 		if (hAlign == null)
-			hAlign = HAlign.CENTER;
+			hAlign = CENTER;
 		if (vAlign == null)
-			vAlign = VAlign.CENTER;
+			vAlign = CENTER;
 
 		if (text == null || text.length == 0)
 			return CharLocation.vectorFromPool();

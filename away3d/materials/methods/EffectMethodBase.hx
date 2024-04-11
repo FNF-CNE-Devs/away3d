@@ -13,7 +13,7 @@ import away3d.materials.methods.ShadingMethodBase;
  * and are in essence post-process effects on the materials.
  */
 class EffectMethodBase extends ShadingMethodBase implements IAsset {
-	public var assetType(get, never):String;
+	public var assetType(get, never):Asset3DType;
 
 	public function new() {
 		super();
@@ -22,7 +22,7 @@ class EffectMethodBase extends ShadingMethodBase implements IAsset {
 	/**
 	 * @inheritDoc
 	 */
-	private function get_assetType():String {
+	private function get_assetType():Asset3DType {
 		return Asset3DType.EFFECTS_METHOD;
 	}
 

@@ -67,7 +67,7 @@ class TextureProjector extends ObjectContainer3D {
 		return value;
 	}
 
-	override private function get_assetType():String {
+	override private function get_assetType():Asset3DType {
 		return Asset3DType.TEXTURE_PROJECTOR;
 	}
 
@@ -84,10 +84,9 @@ class TextureProjector extends ObjectContainer3D {
 	}
 
 	private function set_texture(value:Texture2DBase):Texture2DBase {
-		if (value == _texture)
-			return value;
-		_texture = value;
-		return value;
+		//if (value == _texture)
+		//	return value;
+		return _texture = value;
 	}
 
 	/**

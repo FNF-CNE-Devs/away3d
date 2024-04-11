@@ -47,7 +47,7 @@ class ParticleSegmentedColorNode extends ParticleNodeBase {
 		super("ParticleSegmentedColor", ParticlePropertiesMode.GLOBAL, 0, ParticleAnimationSet.COLOR_PRIORITY);
 
 		if (numSegmentPoint > 4)
-			throw(new Error("the numSegmentPoint must be less or equal 4"));
+			throw new Error("the numSegmentPoint must be less or equal 4");
 		_usesMultiplier = usesMultiplier;
 		_usesOffset = usesOffset;
 		_numSegmentPoint = numSegmentPoint;

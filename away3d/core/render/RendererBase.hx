@@ -184,8 +184,8 @@ class RendererBase {
 			if (_stage3DProxy != null) {
 				_stage3DProxy.removeEventListener(Stage3DEvent.CONTEXT3D_CREATED, onContextUpdate);
 				_stage3DProxy.removeEventListener(Stage3DEvent.CONTEXT3D_RECREATED, onContextUpdate);
+				_stage3DProxy = null;
 			}
-			_stage3DProxy = null;
 			_context = null;
 			return null;
 		}

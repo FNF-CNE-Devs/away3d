@@ -11,7 +11,7 @@ import away3d.library.assets.NamedAssetBase;
  */
 class AnimationNodeBase extends NamedAssetBase implements IAsset {
 	public var stateConstructor(get, never):IAnimator->AnimationNodeBase->IAnimationState;
-	public var assetType(get, never):String;
+	public var assetType(get, never):Asset3DType;
 
 	private var _stateConstructor:IAnimator->AnimationNodeBase->IAnimationState;
 
@@ -34,7 +34,7 @@ class AnimationNodeBase extends NamedAssetBase implements IAsset {
 	/**
 	 * @inheritDoc
 	 */
-	private function get_assetType():String {
+	private function get_assetType():Asset3DType {
 		return Asset3DType.ANIMATION_NODE;
 	}
 }

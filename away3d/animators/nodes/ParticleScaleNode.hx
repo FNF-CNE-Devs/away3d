@@ -53,7 +53,7 @@ class ParticleScaleNode extends ParticleNodeBase {
 	 * @param    [optional] cycleDuration   Defines the default duration of the animation in seconds, used as a period independent of particle duration when in global mode. Defaults to 1.
 	 * @param    [optional] cyclePhase      Defines the default phase of the cycle in degrees, used as the starting offset of the cycle when in global mode. Defaults to 0.
 	 */
-	public function new(mode:Int, usesCycle:Bool, usesPhase:Bool, minScale:Float = 1, maxScale:Float = 1, cycleDuration:Float = 1, cyclePhase:Float = 0) {
+	public function new(mode:ParticlePropertiesMode, usesCycle:Bool, usesPhase:Bool, minScale:Float = 1, maxScale:Float = 1, cycleDuration:Float = 1, cyclePhase:Float = 0) {
 		var len:Int = 2;
 		if (usesCycle)
 			len++;
@@ -117,13 +117,13 @@ class ParticleScaleNode extends ParticleNodeBase {
 	override public function generatePropertyOfOneParticle(param:ParticleProperties):Void {
 		var scale:Vector3D = param.nodes[SCALE_VECTOR3D];
 		if (scale == null)
-			throw(new Error("there is no " + SCALE_VECTOR3D + " in param!"));
+			throw new Error("there is no " + SCALE_VECTOR3D + " in param!");
 
 		if (_usesCycle) {
 			_oneData[0] = (scale.x + scale.y) / 2;
 			_oneData[1] = Math.abs(scale.x - scale.y) / 2;
 			if (scale.z <= 0)
-				throw(new Error("the cycle duration must be greater than zero"));
+				throw new Error("the cycle duration must be greater than zero");
 			_oneData[2] = Math.PI * 2 / scale.z;
 			if (_usesPhase)
 				_oneData[3] = scale.w * Math.PI / 180;

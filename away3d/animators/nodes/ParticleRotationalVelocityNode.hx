@@ -32,7 +32,7 @@ class ParticleRotationalVelocityNode extends ParticleNodeBase {
 	 *
 	 * @param               mode            Defines whether the mode of operation acts on local properties of a particle or global properties of the node.
 	 */
-	public function new(mode:Int, rotationalVelocity:Vector3D = null) {
+	public function new(mode:ParticlePropertiesMode, rotationalVelocity:Vector3D = null) {
 		_stateConstructor = cast ParticleRotationalVelocityState.new;
 
 		super("ParticleRotationalVelocity", mode, 4);
@@ -137,7 +137,7 @@ class ParticleRotationalVelocityNode extends ParticleNodeBase {
 		// (Vector3d.x,Vector3d.y,Vector3d.z) is rotation axis,Vector3d.w is cycle duration
 		var rotate:Vector3D = param.nodes[ROTATIONALVELOCITY_VECTOR3D];
 		if (rotate == null)
-			throw(new Error("there is no " + ROTATIONALVELOCITY_VECTOR3D + " in param!"));
+			throw new Error("there is no " + ROTATIONALVELOCITY_VECTOR3D + " in param!");
 
 		if (rotate.length <= 0)
 			rotate.z = 1; // set the default direction
@@ -148,7 +148,7 @@ class ParticleRotationalVelocityNode extends ParticleNodeBase {
 		_oneData[1] = rotate.y;
 		_oneData[2] = rotate.z;
 		if (rotate.w <= 0)
-			throw(new Error("the cycle duration must greater than zero"));
+			throw new Error("the cycle duration must greater than zero");
 		// it's used as angle/2 in agal
 		_oneData[3] = Math.PI / rotate.w;
 	}

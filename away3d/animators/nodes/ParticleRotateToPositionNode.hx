@@ -33,7 +33,7 @@ class ParticleRotateToPositionNode extends ParticleNodeBase {
 	/**
 	 * Creates a new <code>ParticleRotateToPositionNode</code>
 	 */
-	public function new(mode:Int, position:Vector3D = null) {
+	public function new(mode:ParticlePropertiesMode, position:Vector3D = null) {
 		super("ParticleRotateToPosition", mode, 3, 3);
 
 		_stateConstructor = cast ParticleRotateToPositionState.new;
@@ -218,7 +218,7 @@ class ParticleRotateToPositionNode extends ParticleNodeBase {
 	override private function generatePropertyOfOneParticle(param:ParticleProperties):Void {
 		var offset:Vector3D = param.nodes[POSITION_VECTOR3D];
 		if (offset == null)
-			throw(new Error("there is no " + POSITION_VECTOR3D + " in param!"));
+			throw new Error("there is no " + POSITION_VECTOR3D + " in param!");
 
 		_oneData[0] = offset.x;
 		_oneData[1] = offset.y;

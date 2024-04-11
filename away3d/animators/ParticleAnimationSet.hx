@@ -252,12 +252,12 @@ class ParticleAnimationSet extends AnimationSetBase implements IAnimationSet {
 	/** @private */
 	@:allow(away3d) private function generateAnimationSubGeometries(mesh:Mesh):Void {
 		if (initParticleFunc == null)
-			throw(new Error("no initParticleFunc set"));
+			throw new Error("no initParticleFunc set");
 
 		var geometry:ParticleGeometry = expect(mesh.geometry, ParticleGeometry);
 
 		if (geometry == null)
-			throw(new Error("Particle animation can only be performed on a ParticleGeometry object"));
+			throw new Error("Particle animation can only be performed on a ParticleGeometry object");
 
 		var i:Int, j:Int;
 		var animationSubGeometry:AnimationSubGeometry = null;
