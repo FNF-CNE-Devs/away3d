@@ -1,7 +1,11 @@
 package away3d.bounds;
 
-import away3d.core.math.*;
-import away3d.primitives.*;
+import away3d.bounds.BoundingVolumeBase;
+import away3d.core.math.Matrix3DUtils;
+import away3d.core.math.Plane3D;
+import away3d.core.math.PlaneClassification;
+import away3d.primitives.WireframeCube;
+import away3d.primitives.WireframePrimitiveBase;
 import openfl.Vector;
 import openfl.geom.Matrix3D;
 import openfl.geom.Vector3D;

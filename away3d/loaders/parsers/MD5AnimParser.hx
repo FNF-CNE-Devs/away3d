@@ -1,8 +1,11 @@
 package away3d.loaders.parsers;
 
-import away3d.animators.data.*;
-import away3d.animators.nodes.*;
-import away3d.core.math.*;
+import away3d.animators.data.JointPose;
+import away3d.animators.data.SkeletonPose;
+import away3d.animators.nodes.SkeletonClipNode;
+import away3d.core.math.Quaternion;
+import away3d.loaders.parsers.ParserBase;
+import away3d.loaders.parsers.ParserDataFormat;
 import openfl.Vector;
 import openfl.errors.Error;
 import openfl.geom.Vector3D;

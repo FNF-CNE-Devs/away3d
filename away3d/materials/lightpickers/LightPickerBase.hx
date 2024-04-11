@@ -1,10 +1,14 @@
 package away3d.materials.lightpickers;
 
-import away3d.*;
-import away3d.core.base.*;
-import away3d.core.traverse.*;
-import away3d.library.assets.*;
-import away3d.lights.*;
+import away3d.core.base.IRenderable;
+import away3d.core.traverse.EntityCollector;
+import away3d.library.assets.Asset3DType;
+import away3d.library.assets.IAsset;
+import away3d.library.assets.NamedAssetBase;
+import away3d.lights.DirectionalLight;
+import away3d.lights.LightBase;
+import away3d.lights.LightProbe;
+import away3d.lights.PointLight;
 import openfl.Vector;
 import openfl.geom.Vector3D;
 

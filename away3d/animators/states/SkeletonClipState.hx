@@ -1,8 +1,13 @@
 package away3d.animators.states;
 
-import away3d.animators.*;
-import away3d.animators.data.*;
-import away3d.animators.nodes.*;
+import away3d.animators.IAnimator;
+import away3d.animators.SkeletonAnimator;
+import away3d.animators.data.JointPose;
+import away3d.animators.data.Skeleton;
+import away3d.animators.data.SkeletonPose;
+import away3d.animators.nodes.SkeletonClipNode;
+import away3d.animators.states.AnimationClipState;
+import away3d.animators.states.ISkeletonAnimationState;
 import openfl.Vector;
 import openfl.errors.Error;
 import openfl.geom.Vector3D;

@@ -1,12 +1,14 @@
 package away3d.materials.methods;
 
-import away3d.*;
-import away3d.core.managers.*;
-import away3d.materials.compilation.*;
-import away3d.textures.*;
+import away3d.core.managers.Stage3DProxy;
+import away3d.materials.compilation.ShaderRegisterCache;
+import away3d.materials.compilation.ShaderRegisterElement;
+import away3d.materials.methods.LightingMethodBase;
+import away3d.materials.methods.MethodVO;
+import away3d.materials.methods.ShadingMethodBase;
+import away3d.textures.Texture2DBase;
 import openfl.Vector;
 import openfl.display3D.Context3DMipFilter;
-import openfl.display3D.Context3DTextureFilter;
 import openfl.display3D.Context3DWrapMode;
 
 /**

@@ -1,9 +1,10 @@
 package away3d.bounds;
 
-import away3d.core.base.*;
+import away3d.core.base.Geometry;
+import away3d.core.base.ISubGeometry;
 import away3d.core.math.Plane3D;
-import away3d.errors.*;
-import away3d.primitives.*;
+import away3d.errors.AbstractMethodError;
+import away3d.primitives.WireframePrimitiveBase;
 import openfl.Vector;
 import openfl.geom.Matrix3D;
 import openfl.geom.Vector3D;

@@ -1,8 +1,10 @@
 package away3d.animators.states;
 
-import away3d.animators.*;
-import away3d.animators.data.*;
-import away3d.animators.nodes.*;
+import away3d.animators.IAnimator;
+import away3d.animators.data.UVAnimationFrame;
+import away3d.animators.nodes.UVClipNode;
+import away3d.animators.states.AnimationClipState;
+import away3d.animators.states.IUVAnimationState;
 import openfl.Vector;
 
 class UVClipState extends AnimationClipState implements IUVAnimationState {

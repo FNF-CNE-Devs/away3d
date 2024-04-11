@@ -1,6 +1,5 @@
 package away3d.containers;
 
-import away3d.Away3D;
 import away3d.cameras.Camera3D;
 import away3d.core.managers.Mouse3DManager;
 import away3d.core.managers.RTTBufferManager;
@@ -14,13 +13,11 @@ import away3d.core.render.Filter3DRenderer;
 import away3d.core.render.RendererBase;
 import away3d.core.traverse.EntityCollector;
 import away3d.events.CameraEvent;
-import away3d.events.Object3DEvent;
 import away3d.events.Scene3DEvent;
 import away3d.events.Stage3DEvent;
 import away3d.filters.Filter3DBase;
 import away3d.textures.Texture2DBase;
 import openfl.Lib;
-import openfl.Vector;
 import openfl.display.Sprite;
 import openfl.display3D.Context3D;
 import openfl.display3D.Context3DTextureFormat;
@@ -30,9 +27,7 @@ import openfl.events.Event;
 import openfl.filters.BitmapFilter;
 import openfl.geom.Point;
 import openfl.geom.Rectangle;
-import openfl.geom.Transform;
 import openfl.geom.Vector3D;
-import openfl.net.URLRequest;
 
 class View3D extends Sprite {
 	private var _width:Float = 0;

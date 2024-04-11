@@ -1,13 +1,17 @@
 package away3d.loaders;
 
-import away3d.*;
-import away3d.events.*;
-import away3d.loaders.misc.*;
-import away3d.loaders.parsers.*;
+import away3d.events.Asset3DEvent;
+import away3d.events.LoaderEvent;
+import away3d.events.ParserEvent;
+import away3d.loaders.misc.AssetLoaderContext;
+import away3d.loaders.misc.AssetLoaderToken;
+import away3d.loaders.misc.ResourceDependency;
+import away3d.loaders.misc.SingleFileLoader;
+import away3d.loaders.parsers.ParserBase;
 import openfl.Vector;
 import openfl.errors.Error;
-import openfl.events.*;
-import openfl.net.*;
+import openfl.events.EventDispatcher;
+import openfl.net.URLRequest;
 
 /**
  * AssetLoader can load any file format that Away3D supports (or for which a third-party parser

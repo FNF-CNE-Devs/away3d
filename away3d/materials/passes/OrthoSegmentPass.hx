@@ -1,14 +1,16 @@
 package away3d.materials.passes;
 
-import away3d.*;
-import away3d.cameras.*;
-import away3d.cameras.lenses.*;
-import away3d.core.base.*;
-import away3d.core.managers.*;
-import away3d.entities.*;
+import away3d.cameras.Camera3D;
+import away3d.cameras.lenses.OrthographicLens;
+import away3d.core.base.IRenderable;
+import away3d.core.managers.RTTBufferManager;
+import away3d.core.managers.Stage3DProxy;
+import away3d.entities.SegmentSet;
+import away3d.materials.passes.MaterialPassBase;
 import openfl.Vector;
-import openfl.display3D.*;
-import openfl.geom.*;
+import openfl.display3D.Context3D;
+import openfl.display3D.Context3DProgramType;
+import openfl.geom.Matrix3D;
 
 /**
  * OrthoSegmentPass is a material pass that draws wireframe segments.

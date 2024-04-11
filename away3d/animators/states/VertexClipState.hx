@@ -1,7 +1,10 @@
 package away3d.animators.states;
 
-import away3d.animators.*;
-import away3d.animators.nodes.*;
+import away3d.animators.IAnimator;
+import away3d.animators.VertexAnimator;
+import away3d.animators.nodes.VertexClipNode;
+import away3d.animators.states.AnimationClipState;
+import away3d.animators.states.IVertexAnimationState;
 import away3d.core.base.Geometry;
 import openfl.Vector;
 

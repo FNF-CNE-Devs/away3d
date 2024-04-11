@@ -1,12 +1,13 @@
 package away3d.animators.nodes;
 
-import away3d.*;
-import away3d.animators.*;
-import away3d.animators.data.*;
-import away3d.animators.states.*;
-import away3d.materials.compilation.*;
-import away3d.materials.passes.*;
-import openfl.geom.*;
+import away3d.animators.IAnimator;
+import away3d.animators.ParticleAnimationSet;
+import away3d.animators.data.AnimationRegisterCache;
+import away3d.animators.nodes.ParticleNodeBase;
+import away3d.animators.states.ParticleUVState;
+import away3d.materials.compilation.ShaderRegisterElement;
+import away3d.materials.passes.MaterialPassBase;
+import openfl.geom.Vector3D;
 
 /**
  * A particle animation node used to control the UV offset and scale of a particle over time.

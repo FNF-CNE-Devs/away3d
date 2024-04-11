@@ -1,13 +1,15 @@
 package away3d.animators.nodes;
 
-import away3d.*;
-import away3d.animators.*;
-import away3d.animators.data.*;
-import away3d.animators.states.*;
-import away3d.materials.compilation.*;
-import away3d.materials.passes.*;
+import away3d.animators.IAnimator;
+import away3d.animators.data.AnimationRegisterCache;
+import away3d.animators.data.ParticleProperties;
+import away3d.animators.data.ParticlePropertiesMode;
+import away3d.animators.nodes.ParticleNodeBase;
+import away3d.animators.states.ParticleRotateToPositionState;
+import away3d.materials.compilation.ShaderRegisterElement;
+import away3d.materials.passes.MaterialPassBase;
 import openfl.errors.Error;
-import openfl.geom.*;
+import openfl.geom.Vector3D;
 
 /**
  * A particle animation node used to control the rotation of a particle to face to a position

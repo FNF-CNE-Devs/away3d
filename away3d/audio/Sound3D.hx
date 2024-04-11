@@ -1,6 +1,7 @@
 package away3d.audio;
 
-import away3d.audio.drivers.*;
+import away3d.audio.drivers.ISound3DDriver;
+import away3d.audio.drivers.SimplePanVolumeDriver;
 import away3d.containers.ObjectContainer3D;
 import away3d.events.Object3DEvent;
 import openfl.events.Event;

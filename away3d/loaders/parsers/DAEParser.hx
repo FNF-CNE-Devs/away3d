@@ -36,7 +36,6 @@ import openfl.geom.Matrix3D;
 import openfl.geom.Vector3D;
 import openfl.net.URLRequest;
 import openfl.utils.ByteArray;
-
 #if (haxe_ver >= 4)
 import haxe.xml.Access;
 #else

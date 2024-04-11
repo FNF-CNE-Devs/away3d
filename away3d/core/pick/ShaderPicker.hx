@@ -1,19 +1,33 @@
 package away3d.core.pick;
 
-import away3d.cameras.*;
-import away3d.containers.*;
-import away3d.core.base.*;
-import away3d.core.data.*;
-import away3d.core.managers.*;
-import away3d.core.math.*;
-import away3d.core.traverse.*;
-import away3d.entities.*;
+import away3d.cameras.Camera3D;
+import away3d.containers.Scene3D;
+import away3d.containers.View3D;
+import away3d.core.base.IRenderable;
+import away3d.core.base.ISubGeometry;
+import away3d.core.base.SubMesh;
+import away3d.core.data.RenderableListItem;
+import away3d.core.managers.Stage3DProxy;
+import away3d.core.math.Matrix3DUtils;
+import away3d.core.pick.IPicker;
+import away3d.core.pick.PickingCollisionVO;
+import away3d.core.traverse.EntityCollector;
+import away3d.entities.Entity;
 import away3d.tools.utils.GeomUtil;
 import openfl.Vector;
-import openfl.display.*;
-import openfl.display3D.*;
-import openfl.display3D.textures.*;
-import openfl.geom.*;
+import openfl.display.BitmapData;
+import openfl.display3D.Context3D;
+import openfl.display3D.Context3DBlendFactor;
+import openfl.display3D.Context3DClearMask;
+import openfl.display3D.Context3DCompareMode;
+import openfl.display3D.Context3DProgramType;
+import openfl.display3D.Context3DTriangleFace;
+import openfl.display3D.Program3D;
+import openfl.display3D.textures.TextureBase;
+import openfl.geom.Matrix3D;
+import openfl.geom.Point;
+import openfl.geom.Rectangle;
+import openfl.geom.Vector3D;
 import openfl.utils.AGALMiniAssembler;
 
 /**

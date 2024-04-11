@@ -1,10 +1,10 @@
 package away3d.core.base;
 
-import away3d.*;
-import away3d.controllers.*;
-import away3d.core.math.*;
-import away3d.events.*;
-import away3d.library.assets.*;
+import away3d.controllers.ControllerBase;
+import away3d.core.math.MathConsts;
+import away3d.core.math.Matrix3DUtils;
+import away3d.events.Object3DEvent;
+import away3d.library.assets.NamedAssetBase;
 import openfl.Vector;
 import openfl.geom.Matrix3D;
 import openfl.geom.Vector3D;

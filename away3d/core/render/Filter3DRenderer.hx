@@ -1,14 +1,19 @@
 package away3d.core.render;
 
-import away3d.cameras.*;
-import away3d.core.managers.*;
+import away3d.cameras.Camera3D;
+import away3d.core.managers.RTTBufferManager;
+import away3d.core.managers.Stage3DProxy;
 import away3d.events.Stage3DEvent;
-import away3d.filters.*;
-import away3d.filters.tasks.*;
+import away3d.filters.Filter3DBase;
+import away3d.filters.tasks.Filter3DTaskBase;
 import openfl.Vector;
-import openfl.display3D.*;
-import openfl.display3D.textures.*;
-import openfl.events.*;
+import openfl.display3D.Context3D;
+import openfl.display3D.Context3DBlendFactor;
+import openfl.display3D.Context3DVertexBufferFormat;
+import openfl.display3D.IndexBuffer3D;
+import openfl.display3D.VertexBuffer3D;
+import openfl.display3D.textures.Texture;
+import openfl.events.Event;
 
 /**
  */

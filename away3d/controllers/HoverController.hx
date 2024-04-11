@@ -1,9 +1,10 @@
 package away3d.controllers;
 
-import away3d.containers.*;
-import away3d.core.math.*;
-import away3d.entities.*;
-import openfl.geom.Vector3D;
+import away3d.containers.ObjectContainer3D;
+import away3d.controllers.LookAtController;
+import away3d.core.math.MathConsts;
+import away3d.core.math.Matrix3DUtils;
+import away3d.entities.Entity;
 
 /**
  * Extended camera used to hover round a specified target object.

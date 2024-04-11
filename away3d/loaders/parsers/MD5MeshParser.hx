@@ -11,7 +11,6 @@ import openfl.Vector;
 import openfl.errors.Error;
 import openfl.geom.Matrix3D;
 import openfl.geom.Vector3D;
-import openfl.geom.Vector3D;
 
 // todo: create animation system, parse skeleton
 

@@ -1,7 +1,9 @@
 package away3d.animators.transitions;
 
-import away3d.animators.*;
-import away3d.animators.nodes.*;
+import away3d.animators.IAnimator;
+import away3d.animators.nodes.AnimationNodeBase;
+import away3d.animators.transitions.CrossfadeTransitionNode;
+import away3d.animators.transitions.IAnimationTransition;
 
 class CrossfadeTransition implements IAnimationTransition {
 	public var blendSpeed:Float = 0.5;

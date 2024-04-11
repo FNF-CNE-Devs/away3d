@@ -1,12 +1,15 @@
 package away3d.lights;
 
-import away3d.*;
-import away3d.bounds.*;
-import away3d.cameras.*;
-import away3d.core.base.*;
-import away3d.core.math.*;
-import away3d.core.partition.*;
-import away3d.lights.shadowmaps.*;
+import away3d.bounds.BoundingSphere;
+import away3d.bounds.BoundingVolumeBase;
+import away3d.cameras.Camera3D;
+import away3d.core.base.IRenderable;
+import away3d.core.math.Matrix3DUtils;
+import away3d.core.partition.EntityNode;
+import away3d.core.partition.PointLightNode;
+import away3d.lights.LightBase;
+import away3d.lights.shadowmaps.CubeMapShadowMapper;
+import away3d.lights.shadowmaps.ShadowMapperBase;
 import openfl.Vector;
 import openfl.geom.Matrix3D;
 import openfl.geom.Vector3D;

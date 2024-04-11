@@ -1,7 +1,9 @@
 package away3d.core.math;
 
 import openfl.Vector;
-import openfl.geom.*;
+import openfl.geom.Matrix3D;
+import openfl.geom.Orientation3D;
+import openfl.geom.Vector3D;
 
 /**
  * Matrix3DUtils provides additional Matrix3D math functions.

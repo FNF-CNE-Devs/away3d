@@ -1,7 +1,8 @@
 package away3d.animators.nodes;
 
-import away3d.animators.*;
-import away3d.animators.states.*;
+import away3d.animators.IAnimator;
+import away3d.animators.nodes.AnimationNodeBase;
+import away3d.animators.states.SkeletonBinaryLERPState;
 
 /**
  * A skeleton animation node that uses two animation node inputs to blend a lineraly interpolated output of a skeleton pose.

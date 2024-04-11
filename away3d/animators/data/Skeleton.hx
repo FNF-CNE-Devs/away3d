@@ -1,6 +1,9 @@
 package away3d.animators.data;
 
-import away3d.library.assets.*;
+import away3d.animators.data.SkeletonJoint;
+import away3d.library.assets.Asset3DType;
+import away3d.library.assets.IAsset;
+import away3d.library.assets.NamedAssetBase;
 import openfl.Vector;
 
 /**

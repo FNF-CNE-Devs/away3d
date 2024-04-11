@@ -1,6 +1,6 @@
 package away3d.animators.nodes;
 
-import away3d.animators.nodes.*;
+import away3d.animators.nodes.AnimationNodeBase;
 import openfl.Vector;
 import openfl.geom.Vector3D;
 

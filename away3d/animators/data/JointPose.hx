@@ -1,7 +1,8 @@
 package away3d.animators.data;
 
-import away3d.core.math.*;
-import openfl.geom.*;
+import away3d.core.math.Quaternion;
+import openfl.geom.Matrix3D;
+import openfl.geom.Vector3D;
 
 /**
  * Contains transformation data for a skeleton joint, used for skeleton animation.

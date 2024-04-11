@@ -1,11 +1,13 @@
 package away3d.lights;
 
-import away3d.*;
-import away3d.bounds.*;
-import away3d.cameras.*;
-import away3d.core.base.*;
-import away3d.core.partition.*;
-import away3d.textures.*;
+import away3d.bounds.BoundingVolumeBase;
+import away3d.bounds.NullBounds;
+import away3d.cameras.Camera3D;
+import away3d.core.base.IRenderable;
+import away3d.core.partition.EntityNode;
+import away3d.core.partition.LightProbeNode;
+import away3d.lights.LightBase;
+import away3d.textures.CubeTextureBase;
 import openfl.errors.Error;
 import openfl.geom.Matrix3D;
 

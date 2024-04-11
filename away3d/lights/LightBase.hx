@@ -1,14 +1,14 @@
 package away3d.lights;
 
-import away3d.*;
-import away3d.cameras.*;
-import away3d.core.base.*;
-import away3d.core.partition.*;
-import away3d.entities.*;
-import away3d.errors.*;
-import away3d.events.*;
-import away3d.library.assets.*;
-import away3d.lights.shadowmaps.*;
+import away3d.cameras.Camera3D;
+import away3d.core.base.IRenderable;
+import away3d.core.partition.EntityNode;
+import away3d.core.partition.LightNode;
+import away3d.entities.Entity;
+import away3d.errors.AbstractMethodError;
+import away3d.events.LightEvent;
+import away3d.library.assets.Asset3DType;
+import away3d.lights.shadowmaps.ShadowMapperBase;
 import openfl.geom.Matrix3D;
 
 /**

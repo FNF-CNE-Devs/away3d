@@ -1,17 +1,25 @@
 package away3d.animators;
 
-import away3d.*;
-import away3d.animators.data.*;
-import away3d.animators.nodes.*;
-import away3d.core.base.*;
-import away3d.core.base.data.*;
-import away3d.core.managers.*;
-import away3d.entities.*;
-import away3d.materials.passes.*;
+import away3d.animators.AnimationSetBase;
+import away3d.animators.IAnimationSet;
+import away3d.animators.data.AnimationRegisterCache;
+import away3d.animators.data.AnimationSubGeometry;
+import away3d.animators.data.ParticleAnimationData;
+import away3d.animators.data.ParticleProperties;
+import away3d.animators.data.ParticlePropertiesMode;
+import away3d.animators.nodes.AnimationNodeBase;
+import away3d.animators.nodes.ParticleNodeBase;
+import away3d.animators.nodes.ParticleTimeNode;
+import away3d.core.base.ISubGeometry;
+import away3d.core.base.ParticleGeometry;
+import away3d.core.base.SubMesh;
+import away3d.core.base.data.ParticleData;
+import away3d.core.managers.Stage3DProxy;
+import away3d.entities.Mesh;
+import away3d.materials.passes.MaterialPassBase;
 import openfl.Vector;
-import openfl.display3D.*;
+import openfl.display3D.Context3D;
 import openfl.errors.Error;
-import openfl.utils.*;
 
 /**
  * The animation data set used by particle-based animators, containing particle animation data.

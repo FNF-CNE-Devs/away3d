@@ -1,7 +1,11 @@
 package away3d.core.pick;
 
-import away3d.core.base.*;
-import openfl.geom.*;
+import away3d.core.base.SubMesh;
+import away3d.core.pick.HaxePickingCollider;
+import away3d.core.pick.IPickingCollider;
+import away3d.core.pick.PBPickingCollider;
+import away3d.core.pick.PickingCollisionVO;
+import openfl.geom.Vector3D;
 
 /**
  * Auto-selecting picking collider for entity objects. Used with the <code>RaycastPicker</code> picking object.

@@ -1,14 +1,17 @@
 package away3d.animators.states;
 
-import away3d.*;
-import away3d.animators.*;
-import away3d.animators.data.*;
-import away3d.animators.nodes.*;
-import away3d.cameras.*;
-import away3d.core.base.*;
-import away3d.core.managers.*;
-import openfl.display3D.*;
-import openfl.geom.*;
+import away3d.animators.ParticleAnimator;
+import away3d.animators.data.AnimationRegisterCache;
+import away3d.animators.data.AnimationSubGeometry;
+import away3d.animators.data.ParticlePropertiesMode;
+import away3d.animators.nodes.ParticleRotateToPositionNode;
+import away3d.animators.states.ParticleStateBase;
+import away3d.cameras.Camera3D;
+import away3d.core.base.IRenderable;
+import away3d.core.managers.Stage3DProxy;
+import openfl.display3D.Context3DVertexBufferFormat;
+import openfl.geom.Matrix3D;
+import openfl.geom.Vector3D;
 
 /**
  * ...

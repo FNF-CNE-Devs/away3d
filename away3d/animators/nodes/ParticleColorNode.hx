@@ -1,13 +1,16 @@
 package away3d.animators.nodes;
 
-import away3d.*;
-import away3d.animators.*;
-import away3d.animators.data.*;
-import away3d.animators.states.*;
-import away3d.materials.compilation.*;
-import away3d.materials.passes.*;
+import away3d.animators.IAnimator;
+import away3d.animators.ParticleAnimationSet;
+import away3d.animators.data.AnimationRegisterCache;
+import away3d.animators.data.ParticleProperties;
+import away3d.animators.data.ParticlePropertiesMode;
+import away3d.animators.nodes.ParticleNodeBase;
+import away3d.animators.states.ParticleColorState;
+import away3d.materials.compilation.ShaderRegisterElement;
+import away3d.materials.passes.MaterialPassBase;
 import openfl.errors.Error;
-import openfl.geom.*;
+import openfl.geom.ColorTransform;
 
 /**
  * A particle animation node used to control the color variation of a particle over time.

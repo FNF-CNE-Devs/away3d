@@ -1,9 +1,13 @@
 package away3d.tools.utils;
 
-import away3d.containers.*;
-import away3d.core.base.*;
-import away3d.core.base.data.*;
-import away3d.entities.*;
+import away3d.containers.ObjectContainer3D;
+import away3d.core.base.CompactSubGeometry;
+import away3d.core.base.Geometry;
+import away3d.core.base.ISubGeometry;
+import away3d.core.base.SubGeometry;
+import away3d.core.base.data.UV;
+import away3d.entities.Mesh;
+import away3d.tools.utils.Bounds;
 import openfl.Vector;
 import openfl.geom.Vector3D;
 

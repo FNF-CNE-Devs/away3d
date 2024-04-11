@@ -1,14 +1,18 @@
 package away3d.animators;
 
-import away3d.animators.data.*;
-import away3d.animators.states.*;
-import away3d.animators.transitions.*;
+import away3d.animators.AnimatorBase;
+import away3d.animators.IAnimator;
+import away3d.animators.UVAnimationSet;
+import away3d.animators.data.UVAnimationFrame;
+import away3d.animators.states.IUVAnimationState;
+import away3d.animators.transitions.IAnimationTransition;
 import away3d.cameras.Camera3D;
-import away3d.core.base.*;
-import away3d.core.managers.*;
+import away3d.core.base.IRenderable;
+import away3d.core.base.SubMesh;
+import away3d.core.managers.Stage3DProxy;
 import away3d.core.math.MathConsts;
-import away3d.materials.*;
-import away3d.materials.passes.*;
+import away3d.materials.TextureMaterial;
+import away3d.materials.passes.MaterialPassBase;
 import openfl.Vector;
 import openfl.display3D.Context3DProgramType;
 import openfl.errors.Error;

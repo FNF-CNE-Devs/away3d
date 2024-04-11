@@ -1,8 +1,10 @@
 package away3d.animators;
 
-import away3d.animators.nodes.*;
-import away3d.errors.*;
-import away3d.library.assets.*;
+import away3d.animators.nodes.AnimationNodeBase;
+import away3d.errors.AnimationSetError;
+import away3d.library.assets.Asset3DType;
+import away3d.library.assets.IAsset;
+import away3d.library.assets.NamedAssetBase;
 import openfl.Vector;
 
 /**

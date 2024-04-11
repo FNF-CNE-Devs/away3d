@@ -1,19 +1,26 @@
 package away3d.loaders;
 
-import away3d.*;
-import away3d.cameras.*;
-import away3d.containers.*;
-import away3d.entities.*;
-import away3d.events.*;
-import away3d.library.*;
-import away3d.library.assets.*;
-import away3d.lights.*;
-import away3d.loaders.misc.*;
-import away3d.loaders.parsers.*;
-import away3d.primitives.*;
+import away3d.cameras.Camera3D;
+import away3d.containers.ObjectContainer3D;
+import away3d.entities.Mesh;
+import away3d.entities.SegmentSet;
+import away3d.entities.TextureProjector;
+import away3d.events.Asset3DEvent;
+import away3d.events.LoaderEvent;
+import away3d.events.ParserEvent;
+import away3d.library.Asset3DLibraryBundle;
+import away3d.library.assets.Asset3DType;
+import away3d.lights.LightBase;
+import away3d.loaders.AssetLoader;
+import away3d.loaders.misc.AssetLoaderContext;
+import away3d.loaders.misc.AssetLoaderToken;
+import away3d.loaders.misc.SingleFileLoader;
+import away3d.loaders.parsers.ParserBase;
+import away3d.primitives.SkyBox;
 import openfl.Vector;
-import openfl.events.*;
-import openfl.net.*;
+import openfl.events.Event;
+import openfl.events.EventDispatcher;
+import openfl.net.URLRequest;
 
 /**
  * Loader3D can load any file format that Away3D supports (or for which a third-party parser

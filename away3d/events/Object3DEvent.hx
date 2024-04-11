@@ -1,6 +1,6 @@
 package away3d.events;
 
-import away3d.core.base.*;
+import away3d.core.base.Object3D;
 import openfl.events.Event;
 
 /**

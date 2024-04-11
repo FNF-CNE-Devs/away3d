@@ -1,7 +1,8 @@
 package away3d.controllers;
 
-import away3d.core.math.*;
-import away3d.entities.*;
+import away3d.controllers.ControllerBase;
+import away3d.core.math.MathConsts;
+import away3d.entities.Entity;
 
 /**
  * Extended camera used to hover round a specified target object.

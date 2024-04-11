@@ -1,19 +1,27 @@
 package away3d.animators;
 
-import away3d.animators.data.*;
-import away3d.animators.states.*;
-import away3d.animators.transitions.*;
+import away3d.animators.AnimatorBase;
+import away3d.animators.IAnimator;
+import away3d.animators.SkeletonAnimationSet;
+import away3d.animators.data.JointPose;
+import away3d.animators.data.Skeleton;
+import away3d.animators.data.SkeletonJoint;
+import away3d.animators.data.SkeletonPose;
+import away3d.animators.states.ISkeletonAnimationState;
+import away3d.animators.transitions.IAnimationTransition;
 import away3d.cameras.Camera3D;
-import away3d.core.base.*;
-import away3d.core.managers.*;
-import away3d.core.math.*;
-import away3d.events.*;
-import away3d.materials.passes.*;
+import away3d.core.base.CompactSubGeometry;
+import away3d.core.base.IRenderable;
+import away3d.core.base.SkinnedSubGeometry;
+import away3d.core.base.SubMesh;
+import away3d.core.managers.Stage3DProxy;
+import away3d.core.math.Quaternion;
+import away3d.events.AnimationStateEvent;
+import away3d.materials.passes.MaterialPassBase;
 import openfl.Vector;
-import openfl.display3D.*;
+import openfl.display3D.Context3DProgramType;
 import openfl.errors.Error;
-import openfl.geom.*;
-import openfl.utils.*;
+import openfl.geom.Vector3D;
 
 /**
  * Provides an interface for assigning skeleton-based animation data sets to mesh-based entity objects

@@ -1,6 +1,7 @@
 package away3d.animators.transitions;
 
-import away3d.animators.nodes.*;
+import away3d.animators.nodes.SkeletonBinaryLERPNode;
+import away3d.animators.transitions.CrossfadeTransitionState;
 
 /**
  * A skeleton animation node that uses two animation node inputs to blend a lineraly interpolated output of a skeleton pose.
