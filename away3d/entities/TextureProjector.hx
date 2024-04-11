@@ -84,7 +84,7 @@ class TextureProjector extends ObjectContainer3D {
 	}
 
 	private function set_texture(value:Texture2DBase):Texture2DBase {
-		//if (value == _texture)
+		// if (value == _texture)
 		//	return value;
 		return _texture = value;
 	}

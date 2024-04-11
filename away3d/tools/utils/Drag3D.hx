@@ -5,6 +5,7 @@ import away3d.containers.ObjectContainer3D;
 import away3d.containers.View3D;
 import away3d.core.math.Matrix3DUtils;
 import away3d.entities.Mesh;
+import away3d.enums.Plane;
 import away3d.materials.ColorMaterial;
 import away3d.primitives.PlaneGeometry;
 import openfl.errors.Error;
@@ -23,13 +24,9 @@ class Drag3D {
 	public var offsetCenter(get, set):Bool;
 	public var offsetMouseCenter(get, never):Vector3D;
 	public var debug(get, set):Bool;
-	public var plane(never, set):String;
+	public var plane(get, set):Plane;
 	public var planeObject3d(never, set):ObjectContainer3D;
 	public var planePosition(never, set):Vector3D;
-
-	public static inline var PLANE_XZ:String = "xz";
-	public static inline var PLANE_XY:String = "xy";
-	public static inline var PLANE_ZY:String = "zy";
 
 	private static inline var EPS:Float = 0.000001;
 
@@ -56,7 +53,7 @@ class Drag3D {
 	private var _c:Float = 0;
 	private var _d:Float = 1;
 
-	private var _planeid:String;
+	private var _plane:Plane;
 	private var _useRotations:Bool;
 
 	// TODO: not used
@@ -68,10 +65,10 @@ class Drag3D {
 	 * @param    object3d    [optional] ObjectContainer3D. The object3D to drag.
 	 * @param    plane            [optional] String. The plane to drag on.
 	 */
-	public function new(view:View3D, object3d:ObjectContainer3D = null, plane:String = PLANE_XZ) {
+	public function new(view:View3D, object3d:ObjectContainer3D = null, plane:Plane = XZ) {
 		_view = view;
 		_object3d = object3d;
-		_planeid = plane;
+		_plane = plane;
 		updateNormalPlanes();
 		init();
 	}
@@ -129,13 +126,13 @@ class Drag3D {
 		return b;
 	}
 
-	private function get_offsetCenter():Bool {
+	private inline function get_offsetCenter():Bool {
 		return _bSetOffset;
 	}
 
 	/**
-		* getIntersect method returns the 3d point in space (Vector3D) where mouse hits the given plane.
-		*@return Vector3D the difference mouse mouse hit to object center
+	 * getIntersect method returns the 3d point in space (Vector3D) where mouse hits the given plane.
+	 * @return Vector3D the difference mouse mouse hit to object center
 	 */
 	private function get_offsetMouseCenter():Vector3D {
 		return _offsetCenter;
@@ -186,27 +183,29 @@ class Drag3D {
 		return b;
 	}
 
-	private function get_debug():Bool {
+	private inline function get_debug():Bool {
 		return _debug;
 	}
 
 	/**
 	 * Changes the plane the object will be considered on.
 	 * If class debug is set to true. It display the selected plane for debug/visual aid purposes with a brighter color.
-	 * @param    planeid                String. Plane to drag the object3d on.
-	 * Possible strings are Drag3D.PLANE_XZ ("xz"), Drag3D.PLANE_XY ("xy") or Drag3D.PLANE_ZY ("zy"). Default is Drag3D.PLANE_XZ;
+	 * @param    planeid                Plane to drag the object3d on.
+	 * Possible strings are Plane.XZ, Plane.XY or Plane.ZY. Default is Plane.XZ;
 	 */
-	private function set_plane(planeid:String):String {
-		_planeid = planeid.toLowerCase();
-
-		if (_planeid != PLANE_XZ && _planeid != PLANE_XY && _planeid != PLANE_ZY)
-			throw new Error("Unvalid plane description, use: Drag3D.PLANE_XZ, Drag3D.PLANE_XY, or Drag3D.PLANE_ZY");
-
+	private function set_plane(plane:Plane):Plane {
+		_plane = plane;
+		// if (_planeid != XZ && _planeid != XY && _planeid != ZY)
+		//	throw new Error("Unvalid plane description, use: Plane.XZ, Plane.XY, or Plane.ZY");
 		planeObject3d = null;
 		updateNormalPlanes();
 
 		toggleDebug();
-		return planeid;
+		return _plane;
+	}
+
+	private function get_plane():Plane {
+		return _plane;
 	}
 
 	/**
@@ -282,22 +281,13 @@ class Drag3D {
 	 * @param    pos        Vector3D. The Vector3D that will be used to define the planes position
 	 */
 	private function set_planePosition(pos:Vector3D):Vector3D {
-		switch (_planeid) {
-			// XZ
-			case PLANE_XZ:
-				_np.x = 0;
-				_np.y = 1;
-				_np.z = 0;
-			// XY
-			case PLANE_XY:
-				_np.x = 0;
-				_np.y = 0;
-				_np.z = 1;
-			// ZY
-			case PLANE_ZY:
-				_np.x = 1;
-				_np.y = 0;
-				_np.z = 0;
+		switch (_plane) {
+			case XZ:
+				_np.setTo(0, 1, 0);
+			case XY:
+				_np.setTo(0, 0, 1);
+			case ZY:
+				_np.setTo(1, 0, 0);
 			default:
 		}
 
@@ -338,29 +328,23 @@ class Drag3D {
 		if (_planeXZ != null) {
 			var lowA:Float = .05;
 			var highA:Float = .4;
-			switch (_planeid) {
-				case "zx":
-					_planeid = PLANE_XZ;
-				case "yx":
-					_planeid = PLANE_XY;
-				case "yz":
-					_planeid = PLANE_ZY;
-				default:
-			}
-			switch (_planeid) {
-				case PLANE_XZ:
+			// _plane = switch (_plane) {
+			//	case ZX: XZ;
+			//	case YX: XY;
+			//	case YZ: ZY;
+			// }
+			switch (_plane) {
+				case XZ:
 					_red.alpha = highA;
 					_green.alpha = _blue.alpha = lowA;
 
-				case PLANE_XY:
-					_red.alpha = _blue.alpha = lowA;
+				case XY:
 					_green.alpha = highA;
+					_red.alpha = _blue.alpha = lowA;
 
-				case PLANE_ZY:
-					_red.alpha = _green.alpha = lowA;
+				case ZY:
 					_blue.alpha = highA;
-				default:
-					throw new Error("Unvalid plane description, use: Drag3D.PLANE_XZ, Drag3D.PLANE_XY, or Drag3D.PLANE_ZY");
+					_red.alpha = _green.alpha = lowA;
 			}
 		}
 	}
@@ -390,18 +374,18 @@ class Drag3D {
 		var world:Bool = (obj == null) ? true : false;
 
 		if (_useRotations && !world) {
-			switch (_planeid) {
-				case PLANE_XZ:
+			switch (_plane) {
+				case XZ:
 					_np.x = obj.transform.rawData[4];
 					_np.y = obj.transform.rawData[5];
 					_np.z = obj.transform.rawData[6];
 
-				case PLANE_XY:
+				case XY:
 					_np.x = obj.transform.rawData[8];
 					_np.y = obj.transform.rawData[9];
 					_np.z = obj.transform.rawData[10];
 
-				case PLANE_ZY:
+				case ZY:
 					_np.x = obj.transform.rawData[0];
 					_np.y = obj.transform.rawData[1];
 					_np.z = obj.transform.rawData[2];
@@ -426,21 +410,13 @@ class Drag3D {
 				_rotations.x = _rotations.y = _rotations.z = 0;
 			}
 
-			switch (_planeid) {
-				case PLANE_XZ:
-					_np.x = 0;
-					_np.y = 1;
-					_np.z = 0;
-
-				case PLANE_XY:
-					_np.x = 0;
-					_np.y = 0;
-					_np.z = 1;
-
-				case PLANE_ZY:
-					_np.x = 1;
-					_np.y = 0;
-					_np.z = 0;
+			switch (_plane) {
+				case XZ:
+					_np.setTo(0, 1, 0);
+				case XY:
+					_np.setTo(0, 0, 1);
+				case ZY:
+					_np.setTo(1, 0, 0);
 			}
 		}
 

@@ -8,6 +8,7 @@ package away3d.library.naming;
  * @see away3d.library.naming.ConflictStrategy
  */
 #if (haxe_ver >= 4.0) enum #else @:enum #end abstract ConflictPrecedence(Bool) {
+
 	/**
 	 * Signals that in a conflict, the previous owner of the conflicting name
 	 * should be favored (and keep it's name) and that the newly renamed asset
@@ -22,20 +23,16 @@ package away3d.library.naming;
 	 */
 	public var FAVOR_NEW = true;
 
-	public static function fromString(value:String):ConflictPrecedence
-	{
-		return switch (value)
-		{
+	public static function fromString(value:String):ConflictPrecedence {
+		return switch (value) {
 			case "favorOld": FAVOR_OLD;
 			case "favorNew": FAVOR_NEW;
 			default: FAVOR_OLD;
 		}
 	}
 
-	@:to public function toString():String
-	{
-		return switch (cast this : ConflictPrecedence)
-		{
+	@:to public function toString():String {
+		return switch (cast this : ConflictPrecedence) {
 			case FAVOR_OLD: "favorOld";
 			case FAVOR_NEW: "favorNew";
 		}

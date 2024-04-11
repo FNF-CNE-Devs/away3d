@@ -42,22 +42,15 @@ class Filter3DCompositeTask extends Filter3DTaskBase {
 	}
 
 	override private function getFragmentCode():String {
-		var code:String;
-		var op:String;
-		code = "tex ft0, v0, fs0 <2d,linear,clamp>	\n" + "tex ft1, v0, fs1 <2d,linear,clamp>	\n" + "mul ft0, ft0, fc0.x				\n";
-		switch (_blendMode) {
-			case "multiply":
-				op = "mul";
-			case "add":
-				op = "add";
-			case "subtract":
-				op = "sub";
-			case "normal":
-				// for debugging purposes
-				op = "mov";
-			default:
-				throw new Error("Unknown blend mode");
+		var code:String = "tex ft0, v0, fs0 <2d,linear,clamp>	\n" + "tex ft1, v0, fs1 <2d,linear,clamp>	\n" + "mul ft0, ft0, fc0.x				\n";
+		var op = switch (_blendMode) {
+			case "multiply": "mul";
+			case "add": "add";
+			case "subtract": "sub";
+			case "normal": "mov"; // for debugging purposes
+			default: throw new Error("Unknown blend mode");
 		}
+		// (neo) Are these tabs necessary?
 		if (op != "mov")
 			code += op + " oc, ft0, ft1					\n";
 		else

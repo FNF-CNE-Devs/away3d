@@ -88,9 +88,9 @@ class LinearExtrude extends Mesh {
 		* @param        ignoreSides                [optional] String. To prevent the generation of sides if thickness is set higher than 0. To avoid the bottom ignoreSides = "bottom", avoiding both top and bottom: ignoreSides = "bottom, top". Strings options: bottom, top, left, right, front and back. Default is "".
 		* @param        flip                            [optional] Boolean. If the faces must be reversed depending on Vector3D's orientation. Default is false.
 	 */
-	public function new(material:MaterialBase = null, vectors:Vector<Vector3D> = null, axis:Axis = Axis.Y, offset:Float = 10,
-			subdivision:Int = 3, coverAll:Bool = false, thickness:Float = 0, thicknessSubdivision:Int = 3, materials:MultipleMaterials = null,
-			centerMesh:Bool = false, closePath:Bool = false, ignoreSides:String = "", flip:Bool = false) {
+	public function new(material:MaterialBase = null, vectors:Vector<Vector3D> = null, axis:Axis = Axis.Y, offset:Float = 10, subdivision:Int = 3,
+			coverAll:Bool = false, thickness:Float = 0, thicknessSubdivision:Int = 3, materials:MultipleMaterials = null, centerMesh:Bool = false,
+			closePath:Bool = false, ignoreSides:String = "", flip:Bool = false) {
 		var geom:Geometry = new Geometry();
 		_subGeometry = new SubGeometry();
 

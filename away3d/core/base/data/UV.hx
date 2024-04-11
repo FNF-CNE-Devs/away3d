@@ -27,6 +27,7 @@ class UV {
 	private inline function get_v():Float {
 		return _v;
 	}
+
 	private inline function set_v(value:Float):Float {
 		return _v = value;
 	}
@@ -37,6 +38,7 @@ class UV {
 	private inline function get_u():Float {
 		return _u;
 	}
+
 	private inline function set_u(value:Float):Float {
 		return _u = value;
 	}

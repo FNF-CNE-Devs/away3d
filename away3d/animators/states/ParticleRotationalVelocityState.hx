@@ -67,14 +67,13 @@ class ParticleRotationalVelocityState extends ParticleStateBase {
 		var index:Int = animationRegisterCache.getRegisterIndex(_animationNode, ParticleRotationalVelocityNode.ROTATIONALVELOCITY_INDEX);
 
 		if (_particleRotationalVelocityNode.mode == ParticlePropertiesMode.GLOBAL) {
-			if(_dirty) {
+			if (_dirty) {
 				updateRotationalVelocityData();
 				_dirty = false;
 			}
 			animationRegisterCache.setVertexConst(index, _rotationalVelocityData.x, _rotationalVelocityData.y, _rotationalVelocityData.z,
 				_rotationalVelocityData.w);
-		}
-		else
+		} else
 			animationSubGeometry.activateVertexBuffer(index, _particleRotationalVelocityNode.dataOffset, stage3DProxy, Context3DVertexBufferFormat.FLOAT_4);
 	}
 

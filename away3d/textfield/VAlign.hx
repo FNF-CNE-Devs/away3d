@@ -13,6 +13,7 @@ import openfl.errors.Error;
 
 /** A class that provides constant values for vertical alignment of objects. */
 #if (haxe_ver >= 4.0) enum #else @:enum #end abstract VAlign(Null<Int>) {
+
 	/** Top alignment. */
 	public var TOP = 0;
 
@@ -22,10 +23,8 @@ import openfl.errors.Error;
 	/** Bottom alignment. */
 	public var BOTTOM = 2;
 
-	@:from public static function fromString(value:String):VAlign
-	{
-		return switch (value)
-		{
+	@:from public static function fromString(value:String):VAlign {
+		return switch (value) {
 			case "top": TOP;
 			case "center": CENTER;
 			case "bottom": BOTTOM;
@@ -33,10 +32,8 @@ import openfl.errors.Error;
 		}
 	}
 
-	@:to public function toString():String
-	{
-		return switch (cast this : VAlign)
-		{
+	@:to public function toString():String {
+		return switch (cast this : VAlign) {
 			case TOP: "top";
 			case CENTER: "center";
 			case BOTTOM: "bottom";

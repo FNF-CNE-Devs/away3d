@@ -1,6 +1,7 @@
 package away3d.library.assets;
 
 #if (haxe_ver >= 4.0) enum #else @:enum #end abstract Asset3DType(Null<Int>) {
+
 	public var ENTITY = 0;
 	public var SKYBOX = 1;
 	public var CAMERA = 2;
@@ -23,10 +24,8 @@ package away3d.library.assets;
 	public var SHADOW_MAP_METHOD = 19;
 	public var EFFECTS_METHOD = 20;
 
-	@:from public static function fromString(value:String):Asset3DType
-	{
-		return switch (value)
-		{
+	@:from public static function fromString(value:String):Asset3DType {
+		return switch (value) {
 			case "entity": ENTITY;
 			case "skybox": SKYBOX;
 			case "camera": CAMERA;
@@ -52,10 +51,8 @@ package away3d.library.assets;
 		}
 	}
 
-	@:to public function toString():String
-	{
-		return switch (cast this : Asset3DType)
-		{
+	@:to public function toString():String {
+		return switch (cast this : Asset3DType) {
 			case ENTITY: "entity";
 			case SKYBOX: "skybox";
 			case CAMERA: "camera";

@@ -99,11 +99,9 @@ class SingleFileLoader extends EventDispatcher {
 				_parser = getParserFromSuffix();
 
 			if (_parser != null) {
-				switch (_parser.dataFormat) {
-					case ParserDataFormat.BINARY:
-						dataFormat = URLLoaderDataFormat.BINARY;
-					case ParserDataFormat.PLAIN_TEXT:
-						dataFormat = URLLoaderDataFormat.TEXT;
+				dataFormat = switch (_parser.dataFormat) {
+					case ParserDataFormat.BINARY: URLLoaderDataFormat.BINARY;
+					case ParserDataFormat.PLAIN_TEXT: URLLoaderDataFormat.TEXT;
 				}
 			} else {
 				// Always use BINARY for unknown file formats. The thorough

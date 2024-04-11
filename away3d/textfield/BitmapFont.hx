@@ -192,8 +192,8 @@ class BitmapFont {
 	}
 
 	/** Draws text into a Geometry. */
-	public function fillBatched(data:Vector<Float>, indices:Vector<UInt>, width:Float, height:Float, text:String, fontSize:Float = -1,
-			hAlign:HAlign = CENTER, vAlign:VAlign = CENTER, autoScale:Bool = true, kerning:Bool = true, letterSpacing:Float = 0):Void {
+	public function fillBatched(data:Vector<Float>, indices:Vector<UInt>, width:Float, height:Float, text:String, fontSize:Float = -1, hAlign:HAlign = CENTER,
+			vAlign:VAlign = CENTER, autoScale:Bool = true, kerning:Bool = true, letterSpacing:Float = 0):Void {
 		var charLocations:Vector<CharLocation> = arrangeChars(width, height, text, fontSize, hAlign, vAlign, autoScale, kerning, letterSpacing);
 		data.length = 0;
 		indices.length = 0;

@@ -29,7 +29,7 @@ class BackgroundImageRenderer {
 		this.stage3DProxy = stage3DProxy;
 	}
 
-	private function get_stage3DProxy():Stage3DProxy {
+	private inline function get_stage3DProxy():Stage3DProxy {
 		return _stage3DProxy;
 	}
 
@@ -62,14 +62,10 @@ class BackgroundImageRenderer {
 	}
 
 	private function getFragmentCode():String {
-		var format:String;
-		switch (_texture.format) {
-			case Context3DTextureFormat.COMPRESSED:
-				format = "dxt1,";
-			case Context3DTextureFormat.COMPRESSED_ALPHA:
-				format = "dxt5,";
-			default:
-				format = "";
+		var format:String = switch (_texture.format) {
+			case Context3DTextureFormat.COMPRESSED: "dxt1,";
+			case Context3DTextureFormat.COMPRESSED_ALPHA: "dxt5,";
+			default: "";
 		}
 		return "tex ft0, v0, fs0 <2d, " + format + "linear>	\n" + "mov oc, ft0";
 	}
@@ -133,12 +129,11 @@ class BackgroundImageRenderer {
 		]), 0, 4);
 	}
 
-	private function get_texture():Texture2DBase {
+	private inline function get_texture():Texture2DBase {
 		return _texture;
 	}
 
-	private function set_texture(value:Texture2DBase):Texture2DBase {
-		_texture = value;
-		return value;
+	private inline function set_texture(value:Texture2DBase):Texture2DBase {
+		return _texture = value;
 	}
 }

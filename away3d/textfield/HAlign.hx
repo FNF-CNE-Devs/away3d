@@ -13,6 +13,7 @@ import openfl.errors.Error;
 
 /** A class that provides constant values for horizontal alignment of objects. */
 #if (haxe_ver >= 4.0) enum #else @:enum #end abstract HAlign(Null<Int>) {
+
 	/** Left alignment. */
 	public var LEFT = 0;
 
@@ -22,10 +23,8 @@ import openfl.errors.Error;
 	/** Right alignment. */
 	public var RIGHT = 2;
 
-	@:from public static function fromString(value:String):HAlign
-	{
-		return switch (value)
-		{
+	@:from public static function fromString(value:String):HAlign {
+		return switch (value) {
 			case "left": LEFT;
 			case "center": CENTER;
 			case "right": RIGHT;
@@ -33,10 +32,8 @@ import openfl.errors.Error;
 		}
 	}
 
-	@:to public function toString():String
-	{
-		return switch (cast this : HAlign)
-		{
+	@:to public function toString():String {
+		return switch (cast this : HAlign) {
 			case LEFT: "left";
 			case CENTER: "center";
 			case RIGHT: "right";

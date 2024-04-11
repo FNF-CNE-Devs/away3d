@@ -4,6 +4,7 @@ package away3d.animators.data;
  * Options for setting the properties mode of a particle animation node.
  */
 #if (haxe_ver >= 4.0) enum #else @:enum #end abstract ParticlePropertiesMode(Int) {
+
 	/**
 	 * Mode that defines the particle node as acting on global properties (ie. the properties set in the node constructor or the corresponding animation state).
 	 */
@@ -19,10 +20,8 @@ package away3d.animators.data;
 	 */
 	public var LOCAL_DYNAMIC = 2;
 
-	@:from public static function fromString(value:String):ParticlePropertiesMode
-	{
-		return switch (value)
-		{
+	@:from public static function fromString(value:String):ParticlePropertiesMode {
+		return switch (value) {
 			case "Global": GLOBAL;
 			case "LocalStatic": LOCAL_STATIC;
 			case "LocalDynamic": LOCAL_DYNAMIC;
@@ -30,10 +29,8 @@ package away3d.animators.data;
 		}
 	}
 
-	@:to public function toString():String
-	{
-		return switch (cast this : ParticlePropertiesMode)
-		{
+	@:to public function toString():String {
+		return switch (cast this : ParticlePropertiesMode) {
 			case GLOBAL: "Global";
 			case LOCAL_STATIC: "LocalStatic";
 			case LOCAL_DYNAMIC: "LocalDynamic";

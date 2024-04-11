@@ -1,5 +1,6 @@
 package away3d.primitives;
 
+import away3d.enums.Plane;
 import away3d.primitives.WireframePrimitiveBase;
 import openfl.errors.Error;
 import openfl.geom.Vector3D;
@@ -8,17 +9,13 @@ import openfl.geom.Vector3D;
  * A WireframeTetrahedron primitive mesh
  */
 class WireframeTetrahedron extends WireframePrimitiveBase {
-	public var orientation(get, set):String;
+	public var orientation(get, set):Plane;
 	public var width(get, set):Float;
 	public var height(get, set):Float;
 
-	public static inline var ORIENTATION_YZ:String = "yz";
-	public static inline var ORIENTATION_XY:String = "xy";
-	public static inline var ORIENTATION_XZ:String = "xz";
-
 	private var _width:Float;
 	private var _height:Float;
-	private var _orientation:String;
+	private var _orientation:Plane;
 
 	/**
 	 * Creates a new WireframeTetrahedron object.
@@ -27,7 +24,7 @@ class WireframeTetrahedron extends WireframePrimitiveBase {
 	 * @param color The color of the wireframe lines.
 	 * @param thickness The thickness of the wireframe lines.
 	 */
-	public function new(width:Float, height:Float, color:Int = 0xffffff, thickness:Float = 1, orientation:String = "yz") {
+	public function new(width:Float, height:Float, color:Int = 0xffffff, thickness:Float = 1, orientation:Plane = ZY) {
 		super(color, thickness);
 
 		_width = width;
@@ -39,11 +36,11 @@ class WireframeTetrahedron extends WireframePrimitiveBase {
 	/**
 	 * The orientation in which the plane lies
 	 */
-	private function get_orientation():String {
+	private inline function get_orientation():Plane {
 		return _orientation;
 	}
 
-	private function set_orientation(value:String):String {
+	private function set_orientation(value:Plane):Plane {
 		_orientation = value;
 		invalidateGeometry();
 		return value;
@@ -52,7 +49,7 @@ class WireframeTetrahedron extends WireframePrimitiveBase {
 	/**
 	 * The size of the tetrahedron bottom.
 	 */
-	private function get_width():Float {
+	private inline function get_width():Float {
 		return _width;
 	}
 
@@ -67,7 +64,7 @@ class WireframeTetrahedron extends WireframePrimitiveBase {
 	/**
 	 * The size of the tetrahedron height.
 	 */
-	private function get_height():Float {
+	private inline function get_height():Float {
 		return _height;
 	}
 
@@ -91,19 +88,19 @@ class WireframeTetrahedron extends WireframePrimitiveBase {
 		var hw:Float = _width * 0.5;
 
 		switch (_orientation) {
-			case WireframeTetrahedron.ORIENTATION_XY:
+			case XY:
 				bv0 = new Vector3D(-hw, hw, 0);
 				bv1 = new Vector3D(hw, hw, 0);
 				bv2 = new Vector3D(hw, -hw, 0);
 				bv3 = new Vector3D(-hw, -hw, 0);
 				top = new Vector3D(0, 0, _height);
-			case WireframeTetrahedron.ORIENTATION_XZ:
+			case XZ:
 				bv0 = new Vector3D(-hw, 0, hw);
 				bv1 = new Vector3D(hw, 0, hw);
 				bv2 = new Vector3D(hw, 0, -hw);
 				bv3 = new Vector3D(-hw, 0, -hw);
 				top = new Vector3D(0, _height, 0);
-			case WireframeTetrahedron.ORIENTATION_YZ:
+			case ZY:
 				bv0 = new Vector3D(0, -hw, hw);
 				bv1 = new Vector3D(0, hw, hw);
 				bv2 = new Vector3D(0, hw, -hw);

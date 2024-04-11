@@ -40,7 +40,7 @@ import openfl.utils.Timer;
  */
 @:keepSub class ParserBase extends EventDispatcher {
 	@:allow(away3d) private var _fileName:String;
-	private var _dataFormat:String;
+	private var _dataFormat:ParserDataFormat;
 	private var _data:Dynamic;
 	private var _frameLimit:Float;
 	private var _lastFrameTime:UInt;
@@ -79,7 +79,7 @@ import openfl.utils.Timer;
 	 *
 	 * @see away3d.loading.parsers.ParserDataFormat
 	 */
-	public function new(format:String) {
+	public function new(format:ParserDataFormat) {
 		super();
 		_materialMode = 0;
 		_dataFormat = format;
@@ -92,7 +92,7 @@ import openfl.utils.Timer;
 	public function isBitmapDataValid(bitmapData:BitmapData):Bool {
 		var isValid:Bool = TextureUtils.isBitmapDataValid(bitmapData);
 		if (!isValid)
-			trace(">> Bitmap loaded is not having power of 2 dimensions or is higher than 2048");
+			trace('>> Bitmap loaded is higher than ${TextureUtils.MAX_SIZE} pixels in size'); //  is not having power of 2 dimensions or
 
 		return isValid;
 	}
@@ -100,8 +100,7 @@ import openfl.utils.Timer;
 	public var parsingFailure(get, set):Bool;
 
 	private function set_parsingFailure(b:Bool):Bool {
-		_parsingFailure = b;
-		return b;
+		return _parsingFailure = b;
 	}
 
 	private function get_parsingFailure():Bool {
@@ -135,8 +134,7 @@ import openfl.utils.Timer;
 	public var materialMode(get, set):UInt;
 
 	private function set_materialMode(newMaterialMode:UInt):UInt {
-		_materialMode = newMaterialMode;
-		return _materialMode;
+		return _materialMode = newMaterialMode;
 	}
 
 	private function get_materialMode():UInt {
@@ -146,9 +144,9 @@ import openfl.utils.Timer;
 	/**
 	 * The data format of the file data to be parsed. Can be either <code>ParserDataFormat.BINARY</code> or <code>ParserDataFormat.PLAIN_TEXT</code>.
 	 */
-	public var dataFormat(get, null):String;
+	public var dataFormat(get, null):ParserDataFormat;
 
-	private function get_dataFormat():String {
+	private function get_dataFormat():ParserDataFormat {
 		return _dataFormat;
 	}
 

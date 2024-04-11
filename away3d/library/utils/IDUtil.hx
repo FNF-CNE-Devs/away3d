@@ -76,21 +76,14 @@ class IDUtil {
 	 * @private
 	 */
 	@:allow(away3d) private static function getDigit(hex:String):UInt {
-		switch (hex) {
-			case "A", "a":
-				return 10;
-			case "B", "b":
-				return 11;
-			case "C", "c":
-				return 12;
-			case "D", "d":
-				return 13;
-			case "E", "e":
-				return 14;
-			case "F", "f":
-				return 15;
-			default:
-				return Std.parseInt(hex);
+		return switch (hex) {
+			case "A", "a": 10;
+			case "B", "b": 11;
+			case "C", "c": 12;
+			case "D", "d": 13;
+			case "E", "e": 14;
+			case "F", "f": 15;
+			default: Std.parseInt(hex);
 		}
 	}
 }

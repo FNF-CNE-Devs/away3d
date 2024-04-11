@@ -3,7 +3,7 @@ package away3d.tools.utils;
 import openfl.display.BitmapData;
 
 class TextureUtils {
-	private static inline var MAX_SIZE:Int = 8192;
+	public static inline var MAX_SIZE:Int = 8192;
 
 	public static function isBitmapDataValid(bitmapData:BitmapData):Bool {
 		if (bitmapData == null)

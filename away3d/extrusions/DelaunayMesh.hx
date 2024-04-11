@@ -9,6 +9,7 @@ import away3d.core.base.SubGeometry;
 import away3d.core.base.SubMesh;
 import away3d.core.base.data.UV;
 import away3d.entities.Mesh;
+import away3d.enums.Plane;
 import away3d.materials.MaterialBase;
 import away3d.tools.helpers.MeshHelper;
 import openfl.Vector;
@@ -18,13 +19,9 @@ import openfl.geom.Vector3D;
 class DelaunayMesh extends Mesh {
 	public var vectors(get, set):Vector<Vector3D>;
 	public var smoothSurface(get, set):Bool;
-	public var plane(get, set):String;
+	public var plane(get, set):Plane;
 	public var flip(get, set):Bool;
 	public var centerMesh(get, set):Bool;
-
-	inline public static var PLANE_XZ:String = "xz";
-	inline public static var PLANE_XY:String = "xy";
-	inline public static var PLANE_ZY:String = "zy";
 
 	private static inline var LIMIT:Int = 196605;
 	private static inline var EPS:Float = .0001;
@@ -43,7 +40,7 @@ class DelaunayMesh extends Mesh {
 	private var _geomDirty:Bool = true;
 
 	private var _centerMesh:Bool;
-	private var _plane:String;
+	private var _plane:Plane;
 	private var _flip:Bool;
 	private var _smoothSurface:Bool;
 
@@ -61,12 +58,12 @@ class DelaunayMesh extends Mesh {
 		* Class DelaunayMesh generates (and becomes) a mesh from a vector of vector3D's . <code>DelaunayMesh</code>
 		*@param	material				MaterialBase. The material for the resulting mesh.
 		*@param	vectors				Vector.<Vector3D> A series of vector3d's defining the surface of the shape.
-		*@param	plane					[optional] String. The destination plane: can be DelaunayMesh.PLANE_XY, DelaunayMesh.PLANE_XZ or DelaunayMesh.PLANE_ZY. Default is xz plane.
+		*@param	plane					[optional] String. The destination plane: can be Plane.XY, Plane.XZ or Plane.ZY. Default is xz plane.
 		*@param	centerMesh		[optional] Boolean. If the final mesh must be centered. Default is false.
 		*@param	flip					[optional] Boolean. If the faces need to be inverted. Default is false.
 		*@param	smoothSurface	[optional] Boolean. If the surface finished needs to smooth or flat. Default is true, a smooth finish.
 	 */
-	public function new(material:MaterialBase, vectors:Vector<Vector3D>, plane:String = PLANE_XZ, centerMesh:Bool = false, flip:Bool = false,
+	public function new(material:MaterialBase, vectors:Vector<Vector3D>, plane:Plane = XZ, centerMesh:Bool = false, flip:Bool = false,
 			smoothSurface:Bool = true) {
 		var geom:Geometry = new Geometry();
 		_subGeometry = new SubGeometry();
@@ -83,7 +80,7 @@ class DelaunayMesh extends Mesh {
 	/**
 	 * The "cloud" of vector3d's to compose the mesh
 	 */
-	private function get_vectors():Vector<Vector3D> {
+	private inline function get_vectors():Vector<Vector3D> {
 		return _vectors;
 	}
 
@@ -99,7 +96,7 @@ class DelaunayMesh extends Mesh {
 	/**
 	 * Defines if the surface of the mesh must be smoothed or not. Default value is true.
 	 */
-	private function get_smoothSurface():Bool {
+	private inline function get_smoothSurface():Bool {
 		return _smoothSurface;
 	}
 
@@ -115,15 +112,15 @@ class DelaunayMesh extends Mesh {
 	/**
 	 * Defines the projection plane for the class. Default is xz.
 	 */
-	private function get_plane():String {
+	private inline function get_plane():Plane {
 		return _plane;
 	}
 
-	private function set_plane(val:String):String {
+	private function set_plane(val:Plane):Plane {
 		if (_plane == val)
 			return val;
-		if (val != PLANE_XZ && val != PLANE_XY && val != PLANE_ZY)
-			return val;
+		// if (val != XZ && val != XY && val != ZY)
+		//	return val;
 
 		_plane = val;
 		invalidateGeometry();
@@ -133,7 +130,7 @@ class DelaunayMesh extends Mesh {
 	/**
 	 * Defines if the face orientation needs to be inverted
 	 */
-	private function get_flip():Bool {
+	private inline function get_flip():Bool {
 		return _flip;
 	}
 
@@ -149,7 +146,7 @@ class DelaunayMesh extends Mesh {
 	/**
 	 * Defines whether the mesh is recentered of not after generation
 	 */
-	private function get_centerMesh():Bool {
+	private inline function get_centerMesh():Bool {
 		return _centerMesh;
 	}
 
@@ -715,9 +712,9 @@ class DelaunayMesh extends Mesh {
 		var i:Int;
 		var v:Vector3D;
 		switch (_plane) {
-			case PLANE_XZ:
-				_sortProp = "z";
+			case XZ:
 				_loopProp = "x";
+				_sortProp = "z";
 				for (i in 0..._vectors.length) {
 					v = _vectors[i];
 					if (v.x < _axis0Min)
@@ -730,9 +727,9 @@ class DelaunayMesh extends Mesh {
 						_axis1Max = v.z;
 				}
 
-			case PLANE_XY:
-				_sortProp = "y";
+			case XY:
 				_loopProp = "x";
+				_sortProp = "y";
 				for (i in 0..._vectors.length) {
 					v = _vectors[i];
 					if (v.x < _axis0Min)
@@ -745,9 +742,9 @@ class DelaunayMesh extends Mesh {
 						_axis1Max = v.y;
 				}
 
-			case PLANE_ZY:
-				_sortProp = "y";
+			case ZY:
 				_loopProp = "z";
+				_sortProp = "y";
 				for (i in 0..._vectors.length) {
 					v = _vectors[i];
 					if (v.z < _axis0Min)
