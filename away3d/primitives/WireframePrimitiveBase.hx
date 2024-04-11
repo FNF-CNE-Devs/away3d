@@ -54,7 +54,7 @@ class WireframePrimitiveBase extends SegmentSet {
 	override private function get_bounds():BoundingVolumeBase {
 		if (_geomDirty)
 			updateGeometry();
-		return super.bounds;
+		return super.get_bounds();
 	}
 
 	private function buildGeometry():Void {

@@ -432,7 +432,7 @@ class View3D extends Sprite {
 	/**
 	 * The amount of milliseconds the last render call took
 	 */
-	public var deltaTime(get, null):UInt;
+	public var deltaTime(get, never):UInt;
 
 	private function get_deltaTime():UInt {
 		return _deltaTime;
@@ -639,7 +639,7 @@ class View3D extends Sprite {
 	/**
 	 * The amount of faces that were pushed through the render pipeline on the last frame render.
 	 */
-	public var renderedFacesCount(get, null):UInt;
+	public var renderedFacesCount(get, never):UInt;
 
 	private function get_renderedFacesCount():UInt {
 		return _entityCollector.numTriangles;
@@ -991,7 +991,7 @@ class View3D extends Sprite {
 	 * @see away3d.core.traverse.EntityCollector
 	 * @private
 	 */
-	@:allow(away3d) private var entityCollector(get, null):EntityCollector;
+	@:allow(away3d) private var entityCollector(get, never):EntityCollector;
 
 	private function get_entityCollector():EntityCollector {
 		return _entityCollector;

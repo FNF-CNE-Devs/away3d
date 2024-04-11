@@ -285,7 +285,7 @@ class MeshHelper {
 	 * @param mesh                Mesh. The mesh to clone
 	 * @param newname        [optional] String. new name for the duplicated mesh. Default = "";
 	 *
-	 * @ returns Mesh
+	 * @returns Mesh
 	 */
 	public static function clone(mesh:Mesh, newName:String = ""):Mesh {
 		var geometry:Geometry = mesh.geometry.clone();
@@ -389,7 +389,7 @@ class MeshHelper {
 	 * @param shareVertices        [optional] Boolean. Defines if the vertices are shared or not. When true surface gets a smoother appearance when exposed to light. Default = true;
 	 * @param useDefaultMap    [optional] Boolean. Defines if the mesh receives the default engine map if no material is passes. Default = true;
 	 *
-	 * @ returns Mesh
+	 * @returns Mesh
 	 */
 	public static function build(vertices:Vector<Float>, indices:Vector<UInt>, uvs:Vector<Float> = null, name:String = "", material:MaterialBase = null,
 			shareVertices:Bool = true, useDefaultMap:Bool = true, useCompactSubGeometry:Bool = true):Mesh {
@@ -518,7 +518,7 @@ class MeshHelper {
 	 * @param mesh                    Mesh. The mesh to split in a series of independant meshes from its subgeometries.
 	 * @param disposeSource        Boolean. If the mesh source must be destroyed after the split. Default is false;
 	 *
-	 * @ returns Vector..<Mesh>
+	 * @returns Vector.<Mesh>
 	 */
 	public static function splitMesh(mesh:Mesh, disposeSource:Bool = false):Vector<Mesh> {
 		var meshes:Vector<Mesh> = new Vector<Mesh>();

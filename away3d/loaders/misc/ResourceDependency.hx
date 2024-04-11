@@ -34,46 +34,58 @@ class ResourceDependency {
 		_dependencies = new Vector<ResourceDependency>();
 	}
 
-	public var id(get, null):String;
+	public var id(get, set):String;
 
 	private inline function get_id():String {
 		return _id;
 	}
 
-	public var assets(get, null):Vector<IAsset>;
+	private inline function set_id(val:String):String {
+		return _id = val;
+	}
+
+	public var assets(get, never):Vector<IAsset>;
 
 	private inline function get_assets():Vector<IAsset> {
 		return _assets;
 	}
 
-	public var dependencies(get, null):Vector<ResourceDependency>;
+	public var dependencies(get, never):Vector<ResourceDependency>;
 
 	private inline function get_dependencies():Vector<ResourceDependency> {
 		return _dependencies;
 	}
 
-	public var request(get, null):URLRequest;
+	public var request(get, never):URLRequest;
 
 	private inline function get_request():URLRequest {
 		return _req;
 	}
 
-	public var retrieveAsRawData(get, null):Bool;
+	public var retrieveAsRawData(get, set):Bool;
 
 	private inline function get_retrieveAsRawData():Bool {
 		return _retrieveAsRawData;
 	}
 
-	public var suppresAsset3DEvents(get, null):Bool;
+	private inline function set_retrieveAsRawData(val:Bool):Bool {
+		return _retrieveAsRawData = val;
+	}
 
-	private inline function get_suppresAsset3DEvents():Bool {
+	public var suppressAsset3DEvents(get, set):Bool;
+
+	private inline function get_suppressAsset3DEvents():Bool {
 		return _suppressAsset3DEvents;
+	}
+
+	private inline function set_suppressAsset3DEvents(val:Bool):Bool {
+		return _suppressAsset3DEvents = val;
 	}
 
 	/**
 	 * The data containing the dependency to be parsed, if the resource was already loaded.
 	 */
-	public var data(get, null):Dynamic;
+	public var data(get, never):Dynamic;
 
 	private inline function get_data():Dynamic {
 		return _data;
@@ -90,7 +102,7 @@ class ResourceDependency {
 	/**
 	 * The parser which is dependent on this ResourceDependency object.
 	 */
-	public var parentParser(get, null):ParserBase;
+	public var parentParser(get, never):ParserBase;
 
 	private inline function get_parentParser():ParserBase {
 		return _parentParser;

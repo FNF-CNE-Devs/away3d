@@ -39,7 +39,7 @@ class AWDParser extends ParserBase {
 	 * @inheritDoc
 	 */
 	public override function get_dependencies():Vector<ResourceDependency> {
-		return _parser != null ? _parser.dependencies : super.dependencies;
+		return _parser != null ? _parser.dependencies : super.get_dependencies();
 	}
 
 	/**

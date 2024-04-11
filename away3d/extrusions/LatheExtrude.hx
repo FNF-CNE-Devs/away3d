@@ -406,7 +406,7 @@ class LatheExtrude extends Mesh {
 		if (_geomDirty)
 			buildExtrude();
 
-		return super.bounds;
+		return super.get_bounds();
 	}
 
 	/**
@@ -416,7 +416,7 @@ class LatheExtrude extends Mesh {
 		if (_geomDirty)
 			buildExtrude();
 
-		return super.geometry;
+		return super.get_geometry();
 	}
 
 	/**
@@ -426,7 +426,7 @@ class LatheExtrude extends Mesh {
 		if (_geomDirty)
 			buildExtrude();
 
-		return super.subMeshes;
+		return super.get_subMeshes();
 	}
 
 	private function closeTopBottom(ptLength:Int, renderSide:RenderSide):Void {
@@ -576,6 +576,7 @@ class LatheExtrude extends Mesh {
 		if (tweek == null)
 			tweek = {};
 
+		// TODO: rewrite this
 		if (Math.isNaN(Reflect.field(tweek, X_AXIS)) || !Reflect.field(tweek, X_AXIS))
 			Reflect.setField(tweek, X_AXIS, 0);
 		if (Math.isNaN(Reflect.field(tweek, Y_AXIS)) || !Reflect.field(tweek, Y_AXIS))

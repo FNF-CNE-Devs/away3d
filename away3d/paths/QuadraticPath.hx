@@ -11,12 +11,12 @@ class QuadraticPath extends SegmentedPathBase implements IPath {
 	/**
 	 * returns true if the smoothPath handler is being used.
 	 */
-	public var smoothed(get, null):Bool;
+	public var smoothed(get, never):Bool;
 
 	/**
 	 * returns true if the averagePath handler is being used.
 	 */
-	public var averaged(get, null):Bool;
+	public var averaged(get, never):Bool;
 
 	private var _averaged:Bool;
 	private var _smoothed:Bool;

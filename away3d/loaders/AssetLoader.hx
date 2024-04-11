@@ -41,7 +41,7 @@ class AssetLoader extends EventDispatcher {
 	/**
 	 * Returns the base dependency of the loader
 	 */
-	public var baseDependency(get, null):ResourceDependency;
+	public var baseDependency(get, never):ResourceDependency;
 
 	private function get_baseDependency():ResourceDependency {
 		return _baseDependency;
@@ -376,7 +376,7 @@ class AssetLoader extends EventDispatcher {
 			event.asset.resetAssetPath(event.asset.name, _namespace);
 		}
 
-		if (!_loadingDependency.suppresAsset3DEvents)
+		if (!_loadingDependency.suppressAsset3DEvents)
 			dispatchEvent(event.clone());
 	}
 

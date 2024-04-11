@@ -766,7 +766,7 @@ class DelaunayMesh extends Mesh {
 		if (_geomDirty)
 			buildExtrude();
 
-		return super.bounds;
+		return super.get_bounds();
 	}
 
 	/**
@@ -776,7 +776,7 @@ class DelaunayMesh extends Mesh {
 		if (_geomDirty)
 			buildExtrude();
 
-		return super.geometry;
+		return super.get_geometry();
 	}
 
 	/**
@@ -786,7 +786,7 @@ class DelaunayMesh extends Mesh {
 		if (_geomDirty)
 			buildExtrude();
 
-		return super.subMeshes;
+		return super.get_subMeshes();
 	}
 
 	private function invalidateGeometry():Void {

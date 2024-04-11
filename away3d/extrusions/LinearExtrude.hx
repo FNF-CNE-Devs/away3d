@@ -162,7 +162,7 @@ class LinearExtrude extends Mesh {
 	/**
 	 * Defines the axis used for the extrusion. Defaults to Axis.Y
 	 */
-	private function get_axis():Axis {
+	private inline function get_axis():Axis {
 		return _axis;
 	}
 
@@ -178,7 +178,7 @@ class LinearExtrude extends Mesh {
 	/**
 	 * An optional MultipleMaterials object that defines left, right, front, back, top and bottom materials to be set on the resulting lathe extrusion.
 	 */
-	private function get_materials():MultipleMaterials {
+	private inline function get_materials():MultipleMaterials {
 		return _materials;
 	}
 
@@ -195,7 +195,7 @@ class LinearExtrude extends Mesh {
 	/**
 	 * Defines the subdivisions created in the mesh for the total number of revolutions. Defaults to 2, minimum 2.
 	 */
-	private function get_subdivision():Int {
+	private inline function get_subdivision():Int {
 		return _subdivision;
 	}
 
@@ -211,7 +211,7 @@ class LinearExtrude extends Mesh {
 	/**
 	 * Defines if the texture(s) should be stretched to cover the entire mesh or per step between segments. Defaults to true.
 	 */
-	private function get_coverAll():Bool {
+	private inline function get_coverAll():Bool {
 		return _coverAll;
 	}
 
@@ -227,7 +227,7 @@ class LinearExtrude extends Mesh {
 	/**
 	 * Defines if the generated faces should be inversed. Default false.
 	 */
-	private function get_flip():Bool {
+	private inline function get_flip():Bool {
 		return _flip;
 	}
 
@@ -243,7 +243,7 @@ class LinearExtrude extends Mesh {
 	/**
 	 * Defines whether the mesh is recentered of not after generation
 	 */
-	private function get_centerMesh():Bool {
+	private inline function get_centerMesh():Bool {
 		return _centerMesh;
 	}
 
@@ -263,7 +263,7 @@ class LinearExtrude extends Mesh {
 	/**
 	 * Defines the _thickness of the resulting lathed geometry. Defaults to 0 (single face).
 	 */
-	private function get_thickness():Float {
+	private inline function get_thickness():Float {
 		return _thickness;
 	}
 
@@ -280,7 +280,7 @@ class LinearExtrude extends Mesh {
 	/**
 	 * Defines the subdivision for the top, bottom, right and left if thickness is set higher to 0. Defaults to 1.
 	 */
-	private function get_thicknessSubdivision():Int {
+	private inline function get_thicknessSubdivision():Int {
 		return _thicknessSubdivision;
 	}
 
@@ -297,7 +297,7 @@ class LinearExtrude extends Mesh {
 	/**
 	 * Defines if the top, bottom, left, right, front or back of the the extrusion is left open.
 	 */
-	private function get_ignoreSides():String {
+	private inline function get_ignoreSides():String {
 		return _ignoreSides;
 	}
 
@@ -320,7 +320,7 @@ class LinearExtrude extends Mesh {
 		if (_geomDirty)
 			buildExtrude();
 
-		return super.bounds;
+		return super.get_bounds();
 	}
 
 	/**
@@ -330,7 +330,7 @@ class LinearExtrude extends Mesh {
 		if (_geomDirty)
 			buildExtrude();
 
-		return super.geometry;
+		return super.get_geometry();
 	}
 
 	/**
@@ -340,7 +340,7 @@ class LinearExtrude extends Mesh {
 		if (_geomDirty)
 			buildExtrude();
 
-		return super.subMeshes;
+		return super.get_subMeshes();
 	}
 
 	private function addFace(v0:Vertex, v1:Vertex, v2:Vertex, uv0:UV, uv1:UV, uv2:UV, mat:MaterialBase, invertU:Bool = false):Void {
@@ -458,7 +458,7 @@ class LinearExtrude extends Mesh {
 		var offset:Float = 0;
 
 		switch (_axis) {
-			case Axis.X:
+			case X:
 				_baseMax = Math.abs(baseMaxX) - Math.abs(baseMinX);
 				if (baseMinZ > 0 && baseMaxZ > 0) {
 					_baseMin = baseMaxZ - baseMinZ;
@@ -471,7 +471,7 @@ class LinearExtrude extends Mesh {
 					offset = Math.abs(baseMinZ) + ((baseMaxZ < 0) ? -baseMaxZ : 0);
 				}
 
-			case Axis.Y:
+			case Y:
 				_baseMax = Math.abs(baseMaxY) - Math.abs(baseMinY);
 				if (baseMinX > 0 && baseMaxX > 0) {
 					_baseMin = baseMaxX - baseMinX;
@@ -484,7 +484,7 @@ class LinearExtrude extends Mesh {
 					offset = Math.abs(baseMinX) + ((baseMaxX < 0) ? -baseMaxX : 0);
 				}
 
-			case Axis.Z:
+			case Z:
 				_baseMax = Math.abs(baseMaxZ) - Math.abs(baseMinZ);
 				if (baseMinY > 0 && baseMaxY > 0) {
 					_baseMin = baseMaxY - baseMinY;
@@ -498,10 +498,6 @@ class LinearExtrude extends Mesh {
 				}
 		}
 
-		var aLines:Array<FourPoints>;
-		var prop1:String = "";
-		var prop2:String = "";
-		var prop3:String = "";
 		var vector:Vertex = new Vertex();
 		var renderSide:RenderSide = null;
 
@@ -511,6 +507,10 @@ class LinearExtrude extends Mesh {
 
 			for (i in 0...aListsides.length)
 				Reflect.setProperty(renderSide, aListsides[i], (_ignoreSides.indexOf(aListsides[i]) == -1));
+
+			var prop1:String = "";
+			var prop2:String = "";
+			var prop3:String = "";
 
 			// TODO: Clean this up
 			switch (_axis) {
@@ -530,7 +530,7 @@ class LinearExtrude extends Mesh {
 					prop3 = Axis.Z.toString();
 			}
 
-			aLines = buildThicknessPoints(prop1, prop2);
+			var aLines:Array<FourPoints> = buildThicknessPoints(prop1, prop2);
 
 			var points:FourPoints;
 
@@ -624,7 +624,7 @@ class LinearExtrude extends Mesh {
 		var index:Int = 0;
 		var mat:MaterialBase;
 
-		if (_thickness > 0) {}
+		// if (_thickness > 0) {}
 
 		var step:Float = 1 / (_aVectors.length - 1);
 

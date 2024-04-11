@@ -1,5 +1,6 @@
 package away3d.tools.commands;
 
+import away3d.enums.Axis;
 import away3d.entities.Mesh;
 import away3d.tools.utils.Bounds;
 import openfl.Vector;
@@ -9,16 +10,8 @@ import openfl.errors.Error;
  * Class Aligns an arrays of Object3Ds, Vector3D's or Vertexes compaired to each other.<code>Align</code>
  */
 class Align {
-	public static inline var X_AXIS:String = "x";
-	public static inline var Y_AXIS:String = "y";
-	public static inline var Z_AXIS:String = "z";
-
-	public static inline var POSITIVE:String = "+";
-	public static inline var NEGATIVE:String = "-";
-	public static inline var AVERAGE:String = "av";
-
-	private static var _axis:String;
-	private static var _condition:String;
+	private static var _axis:Axis;
+	private static var _condition:AlignCondition;
 
 	/**
 	 * Aligns a series of meshes to their bounds along a given axis.
@@ -27,9 +20,7 @@ class Align {
 	 * @param     axis        Represent the axis to align on.
 	 * @param     condition    Can be POSITIVE ('+') or NEGATIVE ('-'), Default is POSITIVE ('+')
 	 */
-	public static function alignMeshes(meshes:Vector<Mesh>, axis:String, condition:String = POSITIVE):Void {
-		checkAxis(axis);
-		checkCondition(condition);
+	public static function alignMeshes(meshes:Vector<Mesh>, axis:Axis, condition:AlignCondition = POSITIVE):Void {
 		var base:Float;
 		var bounds:Vector<MeshBound> = getMeshesBounds(meshes);
 		var i:Int = 0;
@@ -62,6 +53,7 @@ class Align {
 					Reflect.setField(m, _axis, -val);
 					bounds[i] = null;
 				}
+			default:
 		}
 
 		bounds = null;
@@ -93,23 +85,12 @@ class Align {
 	 * @param     axis            String. Represent the axis to align on.
 	 * @param     condition    [optional]. String. Can be '+", "-", "av" or "", Default is "", aligns to given axis at 0.
 	 */
-	public static function align(aObjs:Array<Dynamic>, axis:String, condition:String = ""):Void {
-		checkAxis(axis);
-		checkCondition(condition);
-		var base:Float = 0;
-
-		switch (_condition) {
-			case POSITIVE:
-				base = getMax(aObjs, _axis);
-
-			case NEGATIVE:
-				base = getMin(aObjs, _axis);
-
-			case AVERAGE:
-				base = getAverage(aObjs, _axis);
-
-			case "":
-				base = 0;
+	public static function align(aObjs:Array<Dynamic>, axis:Axis, condition:AlignCondition = NONE):Void {
+		var base:Float = switch (_condition) {
+			case POSITIVE: getMax(aObjs, _axis);
+			case NEGATIVE: getMin(aObjs, _axis);
+			case AVERAGE: getAverage(aObjs, _axis);
+			default: 0;
 		}
 
 		for (i in 0...aObjs.length)
@@ -122,9 +103,7 @@ class Align {
 	 * @param     aObjs        Array. An array with elements with x,y and z public properties such as Mesh, Object3D, ObjectContainer3D,Vector3D or Vertex
 	 * @param     axis            String. Represent the axis to align on.
 	 */
-	public static function distribute(aObjs:Array<Dynamic>, axis:String):Void {
-		checkAxis(axis);
-
+	public static function distribute(aObjs:Array<Dynamic>, axis:Axis):Void {
 		var max:Float = getMax(aObjs, _axis);
 		var min:Float = getMin(aObjs, _axis);
 		var unit:Float = (max - min) / aObjs.length;
@@ -135,29 +114,6 @@ class Align {
 			Reflect.setField(aObjs[i], _axis, min + step);
 			step += unit;
 		}
-	}
-
-	private static function checkAxis(axis:String):Void {
-		axis = axis.substring(0, 1).toLowerCase();
-		if (axis == X_AXIS || axis == Y_AXIS || axis == Z_AXIS) {
-			_axis = axis;
-			return;
-		}
-
-		throw new Error("Invalid axis: string value must be 'x', 'y' or 'z'");
-	}
-
-	private static function checkCondition(condition:String):Void {
-		condition = condition.toLowerCase();
-		var aConds:Array<String> = [POSITIVE, NEGATIVE, "", AVERAGE];
-		for (i in 0...aConds.length) {
-			if (aConds[i] == condition) {
-				_condition = condition;
-				return;
-			}
-		}
-
-		throw new Error("Invalid condition: possible string value are '+', '-', 'av' or '' ");
 	}
 
 	private static function getMin(a:Array<Dynamic>, prop:String):Float {
@@ -204,20 +160,11 @@ class Align {
 	}
 
 	private static function getProp():String {
-		var prop:String = "";
-
-		switch (_axis) {
-			case X_AXIS:
-				prop = (_condition == POSITIVE) ? "maxX" : "minX";
-
-			case Y_AXIS:
-				prop = (_condition == POSITIVE) ? "maxY" : "minY";
-
-			case Z_AXIS:
-				prop = (_condition == POSITIVE) ? "maxZ" : "minZ";
+		return switch (_axis) {
+			case X: (_condition == POSITIVE) ? "maxX" : "minX";
+			case Y: (_condition == POSITIVE) ? "maxY" : "minY";
+			case Z: (_condition == POSITIVE) ? "maxZ" : "minZ";
 		}
-
-		return prop;
 	}
 
 	private static function getMinBounds(bounds:Vector<MeshBound>):Float {
@@ -226,15 +173,10 @@ class Align {
 
 		for (i in 0...bounds.length) {
 			mb = bounds[i];
-			switch (_axis) {
-				case X_AXIS:
-					min = Math.min(mb.maxX + mb.mesh.x, min);
-
-				case Y_AXIS:
-					min = Math.min(mb.maxY + mb.mesh.y, min);
-
-				case Z_AXIS:
-					min = Math.min(mb.maxZ + mb.mesh.z, min);
+			min = switch (_axis) {
+				case X: Math.min(mb.maxX + mb.mesh.x, min);
+				case Y: Math.min(mb.maxY + mb.mesh.y, min);
+				case Z: Math.min(mb.maxZ + mb.mesh.z, min);
 			}
 		}
 
@@ -247,15 +189,10 @@ class Align {
 
 		for (i in 0...bounds.length) {
 			mb = bounds[i];
-			switch (_axis) {
-				case X_AXIS:
-					max = Math.max(mb.maxX + mb.mesh.x, max);
-
-				case Y_AXIS:
-					max = Math.max(mb.maxY + mb.mesh.y, max);
-
-				case Z_AXIS:
-					max = Math.max(mb.maxZ + mb.mesh.z, max);
+			max = switch (_axis) {
+				case X: Math.max(mb.maxX + mb.mesh.x, max);
+				case Y: Math.max(mb.maxY + mb.mesh.y, max);
+				case Z: Math.max(mb.maxZ + mb.mesh.z, max);
 			}
 		}
 
@@ -273,4 +210,30 @@ class MeshBound {
 	public var maxZ:Float;
 
 	public function new() {}
+}
+
+#if (haxe_ver >= 4.0) enum #else @:enum #end abstract AlignCondition(Null<Int>) {
+
+	public var NONE = -1;
+	public var POSITIVE = 0;
+	public var NEGATIVE = 1;
+	public var AVERAGE = 2;
+
+	@:from public static function fromString(value:String):AlignCondition {
+		return switch (value) {
+			case "+": POSITIVE;
+			case "-": NEGATIVE;
+			case "av": AVERAGE;
+			default: NONE;
+		}
+	}
+
+	@:to public function toString():String {
+		return switch (cast this : AlignCondition) {
+			case POSITIVE: "+";
+			case NEGATIVE: "-";
+			case AVERAGE: "av";
+			case NONE: "";
+		}
+	}
 }

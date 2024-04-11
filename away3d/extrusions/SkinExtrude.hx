@@ -387,7 +387,7 @@ class SkinExtrude extends Mesh {
 		if (_geomDirty)
 			buildExtrude();
 
-		return super.bounds;
+		return super.get_bounds();
 	}
 
 	/**
@@ -397,7 +397,7 @@ class SkinExtrude extends Mesh {
 		if (_geomDirty)
 			buildExtrude();
 
-		return super.geometry;
+		return super.get_geometry();
 	}
 
 	/**
@@ -407,7 +407,7 @@ class SkinExtrude extends Mesh {
 		if (_geomDirty)
 			buildExtrude();
 
-		return super.subMeshes;
+		return super.get_subMeshes();
 	}
 
 	/**

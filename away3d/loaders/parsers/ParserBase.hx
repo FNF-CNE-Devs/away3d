@@ -111,13 +111,13 @@ import openfl.utils.Timer;
 	 * parsingPaused will be true, if the parser is paused
 	 * (e.g. it is waiting for dependencys to be loadet and parsed before it will continue)
 	 */
-	public var parsingPaused(get, null):Bool;
+	public var parsingPaused(get, never):Bool;
 
 	private function get_parsingPaused():Bool {
 		return _parsingPaused;
 	}
 
-	public var parsingComplete(get, null):Bool;
+	public var parsingComplete(get, never):Bool;
 
 	private function get_parsingComplete():Bool {
 		return _parsingComplete;
@@ -143,7 +143,7 @@ import openfl.utils.Timer;
 	/**
 	 * The data format of the file data to be parsed. Can be either <code>ParserDataFormat.BINARY</code> or <code>ParserDataFormat.PLAIN_TEXT</code>.
 	 */
-	public var dataFormat(get, null):ParserDataFormat;
+	public var dataFormat(get, never):ParserDataFormat;
 
 	private function get_dataFormat():ParserDataFormat {
 		return _dataFormat;

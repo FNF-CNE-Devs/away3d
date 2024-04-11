@@ -36,7 +36,7 @@ class PrimitiveBase extends Geometry {
 		if (_uvDirty)
 			updateUVs();
 
-		return super.subGeometries;
+		return super.get_subGeometries();
 	}
 
 	/**

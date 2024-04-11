@@ -158,7 +158,7 @@ class PathExtrude extends Mesh {
 		if (_geomDirty)
 			buildExtrude();
 
-		return super.bounds;
+		return super.get_bounds();
 	}
 
 	/**
@@ -168,7 +168,7 @@ class PathExtrude extends Mesh {
 		if (_geomDirty)
 			buildExtrude();
 
-		return super.geometry;
+		return super.get_geometry();
 	}
 
 	/**
@@ -178,7 +178,7 @@ class PathExtrude extends Mesh {
 		if (_geomDirty)
 			buildExtrude();
 
-		return super.subMeshes;
+		return super.get_subMeshes();
 	}
 
 	/**
