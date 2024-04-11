@@ -5,8 +5,8 @@ import away3d.animators.data.ParticlePropertiesMode;
 import away3d.animators.states.ParticleSegmentedScaleState;
 import away3d.materials.compilation.ShaderRegisterElement;
 import away3d.materials.passes.MaterialPassBase;
-import openfl.geom.Vector3D;
 import openfl.Vector;
+import openfl.geom.Vector3D;
 
 class ParticleSegmentedScaleNode extends ParticleNodeBase {
 	/** @private */

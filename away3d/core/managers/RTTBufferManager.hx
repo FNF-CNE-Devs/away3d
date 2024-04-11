@@ -2,6 +2,7 @@ package away3d.core.managers;
 
 import away3d.events.Stage3DEvent;
 import away3d.tools.utils.TextureUtils;
+import openfl.Vector;
 import openfl.display3D.Context3D;
 import openfl.display3D.IndexBuffer3D;
 import openfl.display3D.VertexBuffer3D;
@@ -9,7 +10,6 @@ import openfl.errors.Error;
 import openfl.events.Event;
 import openfl.events.EventDispatcher;
 import openfl.geom.Rectangle;
-import openfl.Vector;
 
 class RTTBufferManager extends EventDispatcher {
 	public var textureRatioX(get, never):Float;

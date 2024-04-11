@@ -16,13 +16,13 @@ import away3d.materials.methods.BasicSpecularMethod;
 import away3d.materials.methods.MethodVOSet;
 import away3d.materials.methods.ShaderMethodSetup;
 import away3d.materials.methods.ShadowMapMethodBase;
-import away3d.textures.Texture2DBase;
 import away3d.textures.Anisotropy;
+import away3d.textures.Texture2DBase;
+import openfl.Vector;
 import openfl.display3D.Context3D;
 import openfl.display3D.Context3DProgramType;
-import openfl.geom.Matrix;
 import openfl.geom.Matrix3D;
-import openfl.Vector;
+import openfl.geom.Matrix;
 
 /**
  * CompiledPass forms an abstract base class for the default compiled pass materials provided by Away3D,

@@ -8,9 +8,9 @@ import away3d.events.*;
 import away3d.lights.*;
 import away3d.lights.shadowmaps.*;
 import away3d.materials.compilation.*;
+import openfl.Vector;
 import openfl.errors.Error;
 import openfl.events.Event;
-import openfl.Vector;
 
 /**
  * CascadeShadowMapMethod is a shadow map method to apply cascade shadow mapping on materials.

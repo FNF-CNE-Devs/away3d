@@ -5,8 +5,8 @@ import away3d.tools.utils.TextureUtils;
 import openfl.display.BitmapData;
 import openfl.display3D.Context3D;
 import openfl.display3D.Context3DTextureFormat;
-import openfl.display3D.textures.TextureBase;
 import openfl.display3D.textures.Texture;
+import openfl.display3D.textures.TextureBase;
 import openfl.errors.Error;
 
 class RenderTexture extends Texture2DBase {

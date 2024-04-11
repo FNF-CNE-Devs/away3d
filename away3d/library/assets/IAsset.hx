@@ -1,7 +1,7 @@
 package away3d.library.assets;
 
-import openfl.events.IEventDispatcher;
 import openfl.Vector;
+import openfl.events.IEventDispatcher;
 
 interface IAsset extends IEventDispatcher {
 	var name(get, set):String;

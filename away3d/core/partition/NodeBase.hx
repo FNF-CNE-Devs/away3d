@@ -4,8 +4,8 @@ import away3d.core.math.Plane3D;
 import away3d.core.traverse.PartitionTraverser;
 import away3d.entities.Entity;
 import away3d.primitives.WireframePrimitiveBase;
-import openfl.geom.Vector3D;
 import openfl.Vector;
+import openfl.geom.Vector3D;
 
 /**
  * The NodeBase class is an abstract base class for any type of space partition tree node. The concrete

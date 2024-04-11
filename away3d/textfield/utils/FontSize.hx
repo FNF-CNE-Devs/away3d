@@ -1,8 +1,8 @@
 package away3d.textfield.utils;
 
+import haxe.io.Bytes;
 import openfl.display.Bitmap;
 import openfl.display.BitmapData;
-import haxe.io.Bytes;
 import openfl.errors.Error;
 
 /**

@@ -6,6 +6,7 @@ import away3d.cameras.lenses.LensBase;
 import away3d.containers.Scene3D;
 import away3d.core.math.Matrix3DUtils;
 import away3d.core.render.DepthRenderer;
+import openfl.Vector;
 import openfl.display3D.textures.TextureBase;
 import openfl.errors.Error;
 import openfl.events.Event;
@@ -13,7 +14,6 @@ import openfl.events.EventDispatcher;
 import openfl.events.IEventDispatcher;
 import openfl.geom.Matrix3D;
 import openfl.geom.Rectangle;
-import openfl.Vector;
 
 class CascadeShadowMapper extends DirectionalShadowMapper implements IEventDispatcher {
 	public var numCascades(get, set):Int;

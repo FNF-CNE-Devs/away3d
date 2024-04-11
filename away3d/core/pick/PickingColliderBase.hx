@@ -1,11 +1,11 @@
 package away3d.core.pick;
 
-import away3d.tools.utils.GeomUtil;
 import away3d.core.base.SubGeometry;
 import away3d.core.base.SubMesh;
+import away3d.tools.utils.GeomUtil;
+import openfl.Vector;
 import openfl.geom.Point;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 /**
  * An abstract base class for all picking collider classes. It should not be instantiated directly.

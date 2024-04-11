@@ -1,7 +1,3 @@
-/**
- *
- */
-
 package away3d.events;
 
 import away3d.cameras.lenses.LensBase;

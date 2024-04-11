@@ -4,10 +4,10 @@ import away3d.core.managers.Stage3DProxy;
 import away3d.materials.compilation.ShaderRegisterCache;
 import away3d.materials.compilation.ShaderRegisterElement;
 import away3d.textures.Texture2DBase;
-import openfl.display3D.Context3DWrapMode;
-import openfl.display3D.Context3DTextureFilter;
-import openfl.display3D.Context3DMipFilter;
 import openfl.Vector;
+import openfl.display3D.Context3DMipFilter;
+import openfl.display3D.Context3DTextureFilter;
+import openfl.display3D.Context3DWrapMode;
 
 /**
  * BasicDiffuseMethod provides the default shading method for Lambert (dot3) diffuse lighting.

@@ -2,10 +2,10 @@ package away3d.textures;
 
 import away3d.materials.utils.MipmapGenerator;
 import away3d.tools.utils.TextureUtils;
+import openfl.Vector;
 import openfl.display.BitmapData;
 import openfl.display3D.textures.TextureBase;
 import openfl.errors.Error;
-import openfl.Vector;
 
 class BitmapCubeTexture extends CubeTextureBase {
 	public var positiveX(get, set):BitmapData;

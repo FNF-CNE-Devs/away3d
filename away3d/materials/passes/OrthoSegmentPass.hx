@@ -6,9 +6,9 @@ import away3d.cameras.lenses.*;
 import away3d.core.base.*;
 import away3d.core.managers.*;
 import away3d.entities.*;
+import openfl.Vector;
 import openfl.display3D.*;
 import openfl.geom.*;
-import openfl.Vector;
 
 /**
  * OrthoSegmentPass is a material pass that draws wireframe segments.

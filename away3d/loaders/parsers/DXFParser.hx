@@ -10,8 +10,8 @@ import away3d.materials.ColorMaterial;
 import away3d.materials.ColorMultiPassMaterial;
 import away3d.materials.MaterialBase;
 import away3d.primitives.LineSegment;
-import openfl.geom.Vector3D;
 import openfl.Vector;
+import openfl.geom.Vector3D;
 
 /**
  * DXFParser provides a parser for the dxf 3D renderable data.

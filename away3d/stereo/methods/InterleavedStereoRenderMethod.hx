@@ -2,8 +2,8 @@ package away3d.stereo.methods;
 
 import away3d.core.managers.RTTBufferManager;
 import away3d.core.managers.Stage3DProxy;
-import openfl.display3D.Context3DProgramType;
 import openfl.Vector;
+import openfl.display3D.Context3DProgramType;
 
 class InterleavedStereoRenderMethod extends StereoRenderMethodBase {
 	private var _shaderData:Vector<Float>;

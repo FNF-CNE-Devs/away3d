@@ -21,19 +21,19 @@ import away3d.materials.utils.*;
 import away3d.primitives.*;
 import away3d.textures.*;
 import away3d.tools.utils.*;
+import openfl.Lib;
+import openfl.Vector;
 import openfl.display.BitmapData;
 import openfl.display.BlendMode;
 import openfl.display.Sprite;
 import openfl.geom.ColorTransform;
-import openfl.geom.Matrix;
 import openfl.geom.Matrix3D;
+import openfl.geom.Matrix;
 import openfl.geom.Vector3D;
 import openfl.net.URLRequest;
 import openfl.utils.ByteArray;
 import openfl.utils.CompressionAlgorithm;
 import openfl.utils.Endian;
-import openfl.Lib;
-import openfl.Vector;
 
 using Reflect;
 

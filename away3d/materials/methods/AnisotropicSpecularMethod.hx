@@ -1,7 +1,3 @@
-/**
- *
- */
-
 package away3d.materials.methods;
 
 import away3d.materials.compilation.ShaderRegisterCache;

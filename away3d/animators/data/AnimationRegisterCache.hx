@@ -4,8 +4,8 @@ import away3d.animators.nodes.AnimationNodeBase;
 import away3d.core.math.Matrix3DUtils;
 import away3d.materials.compilation.ShaderRegisterCache;
 import away3d.materials.compilation.ShaderRegisterElement;
-import openfl.geom.Matrix3D;
 import openfl.Vector;
+import openfl.geom.Matrix3D;
 
 /**
  * ...

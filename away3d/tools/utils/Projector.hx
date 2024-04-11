@@ -4,8 +4,8 @@ import away3d.containers.*;
 import away3d.core.base.*;
 import away3d.core.base.data.*;
 import away3d.entities.*;
-import openfl.geom.Vector3D;
 import openfl.Vector;
+import openfl.geom.Vector3D;
 
 class Projector {
 	public static inline var FRONT:String = "front";

@@ -1,7 +1,7 @@
 package away3d.materials.compilation;
 
-import openfl.errors.Error;
 import openfl.Vector;
+import openfl.errors.Error;
 
 /**
  * RegisterPool is used by the shader compilation process to keep track of which registers of a certain type are

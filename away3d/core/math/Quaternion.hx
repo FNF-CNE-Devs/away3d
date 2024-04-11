@@ -1,9 +1,9 @@
 package away3d.core.math;
 
-import openfl.geom.Orientation3D;
-import openfl.geom.Matrix3D;
-import openfl.geom.Vector3D;
 import openfl.Vector;
+import openfl.geom.Matrix3D;
+import openfl.geom.Orientation3D;
+import openfl.geom.Vector3D;
 
 /**
  * A Quaternion object which can be used to represent rotations.

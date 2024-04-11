@@ -5,9 +5,9 @@ import away3d.materials.compilation.ShaderRegisterCache;
 import away3d.materials.compilation.ShaderRegisterElement;
 import away3d.textures.Texture2DBase;
 import away3d.textures.TextureProxyBase;
+import openfl.Vector;
 import openfl.display3D.Context3D;
 import openfl.errors.Error;
-import openfl.Vector;
 
 /**
  * TerrainDiffuseMethod provides a diffuse method that uses different tiled textures with alpha masks to create a

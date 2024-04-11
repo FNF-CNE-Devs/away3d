@@ -5,9 +5,9 @@ import away3d.controllers.*;
 import away3d.core.math.*;
 import away3d.events.*;
 import away3d.library.assets.*;
+import openfl.Vector;
 import openfl.geom.Matrix3D;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 /**
  * Object3D provides a base class for any 3D object that has a (local) transformation.<br/><br/>

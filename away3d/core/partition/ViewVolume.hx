@@ -9,9 +9,9 @@ import away3d.core.traverse.SceneIterator;
 import away3d.entities.Entity;
 import away3d.primitives.WireframeCube;
 import away3d.primitives.WireframePrimitiveBase;
+import openfl.Vector;
 import openfl.errors.Error;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 // todo: provide markVisibleVolume to pass in another view volume to find all statics in the scene that intersect with target ViewVolume, for constructing view volumes more easily
 class ViewVolume extends NodeBase {

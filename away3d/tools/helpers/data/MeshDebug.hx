@@ -6,8 +6,8 @@ import away3d.core.base.SubGeometryBase;
 import away3d.entities.Mesh;
 import away3d.entities.SegmentSet;
 import away3d.primitives.LineSegment;
-import openfl.geom.Vector3D;
 import openfl.Vector;
+import openfl.geom.Vector3D;
 
 /**
  * MeshDebug, holds the data for the MeshDebugger class

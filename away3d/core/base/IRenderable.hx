@@ -3,10 +3,10 @@ package away3d.core.base;
 import away3d.cameras.Camera3D;
 import away3d.core.managers.Stage3DProxy;
 import away3d.entities.Entity;
-import openfl.display3D.IndexBuffer3D;
-import openfl.geom.Matrix;
-import openfl.geom.Matrix3D;
 import openfl.Vector;
+import openfl.display3D.IndexBuffer3D;
+import openfl.geom.Matrix3D;
+import openfl.geom.Matrix;
 
 /**
  * IRenderable provides an interface for objects that can be rendered in the rendering pipeline.

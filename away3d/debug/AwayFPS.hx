@@ -1,13 +1,13 @@
 package away3d.debug;
 
+import away3d.containers.View3D;
+import haxe.Timer;
+import openfl.Lib;
 import openfl.display.FPS;
 import openfl.display.Sprite;
 import openfl.events.Event;
 import openfl.text.TextField;
 import openfl.text.TextFormat;
-import openfl.Lib;
-import haxe.Timer;
-import away3d.containers.View3D;
 
 class AwayFPS extends Sprite {
 	var _fps:FPS;

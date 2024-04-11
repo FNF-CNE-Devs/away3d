@@ -9,12 +9,12 @@ import away3d.core.math.*;
 import away3d.core.traverse.*;
 import away3d.entities.*;
 import away3d.tools.utils.GeomUtil;
+import openfl.Vector;
 import openfl.display.*;
 import openfl.display3D.*;
 import openfl.display3D.textures.*;
 import openfl.geom.*;
 import openfl.utils.AGALMiniAssembler;
-import openfl.Vector;
 
 /**
  * Picks a 3d object from a view or scene by performing a separate render pass on the scene around the area being picked using key color values,

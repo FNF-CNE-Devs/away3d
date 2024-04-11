@@ -5,10 +5,10 @@ import away3d.core.base.IRenderable;
 import away3d.core.managers.RTTBufferManager;
 import away3d.core.managers.Stage3DProxy;
 import away3d.entities.SegmentSet;
+import openfl.Vector;
 import openfl.display3D.Context3D;
 import openfl.display3D.Context3DProgramType;
 import openfl.geom.Matrix3D;
-import openfl.Vector;
 
 /**
  * SegmentPass is a material pass that draws wireframe segments.

@@ -5,8 +5,8 @@ import away3d.materials.compilation.ShaderRegisterCache;
 import away3d.materials.compilation.ShaderRegisterElement;
 import away3d.textures.CubeTextureBase;
 import away3d.textures.Texture2DBase;
-import openfl.display3D.Context3D;
 import openfl.Vector;
+import openfl.display3D.Context3D;
 
 /**
  * FresnelEnvMapMethod provides a method to add fresnel-based reflectivity to an object using cube maps, which gets

@@ -1,8 +1,8 @@
 package away3d.animators.nodes;
 
-import away3d.animators.data.ParticleProperties;
 import away3d.animators.ParticleAnimationSet;
 import away3d.animators.data.AnimationRegisterCache;
+import away3d.animators.data.ParticleProperties;
 import away3d.materials.passes.MaterialPassBase;
 import openfl.Vector;
 

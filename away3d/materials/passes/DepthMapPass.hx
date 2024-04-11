@@ -5,11 +5,11 @@ import away3d.core.base.IRenderable;
 import away3d.core.managers.Stage3DProxy;
 import away3d.core.math.Matrix3DUtils;
 import away3d.textures.Texture2DBase;
+import openfl.Vector;
 import openfl.display3D.Context3D;
 import openfl.display3D.Context3DProgramType;
 import openfl.display3D.Context3DTextureFormat;
 import openfl.geom.Matrix3D;
-import openfl.Vector;
 
 /**
  * DepthMapPass is a pass that writes depth values to a depth map as a 32-bit value exploded over the 4 texture channels.

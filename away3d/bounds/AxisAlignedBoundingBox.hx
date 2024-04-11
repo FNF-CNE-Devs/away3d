@@ -2,9 +2,9 @@ package away3d.bounds;
 
 import away3d.core.math.*;
 import away3d.primitives.*;
+import openfl.Vector;
 import openfl.geom.Matrix3D;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 /**
  * AxisAlignedBoundingBox represents a bounding box volume that has its planes aligned to the local coordinate axes of the bounded object.

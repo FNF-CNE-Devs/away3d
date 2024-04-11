@@ -1,10 +1,10 @@
 package away3d.core.base;
 
 import away3d.core.managers.Stage3DProxy;
-import openfl.display3D.Context3DVertexBufferFormat;
-import openfl.display3D.Context3D;
-import openfl.display3D.VertexBuffer3D;
 import openfl.Vector;
+import openfl.display3D.Context3D;
+import openfl.display3D.Context3DVertexBufferFormat;
+import openfl.display3D.VertexBuffer3D;
 
 /**
  * SkinnedSubGeometry provides a SubGeometry extension that contains data needed to skin vertices. In particular,

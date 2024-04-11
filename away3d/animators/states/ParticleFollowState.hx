@@ -1,18 +1,18 @@
 package away3d.animators.states;
 
-import away3d.animators.data.ParticleAnimationData;
-import away3d.cameras.Camera3D;
+import away3d.animators.ParticleAnimator;
 import away3d.animators.data.AnimationRegisterCache;
 import away3d.animators.data.AnimationSubGeometry;
-import away3d.core.base.IRenderable;
-import away3d.core.managers.Stage3DProxy;
+import away3d.animators.data.ParticleAnimationData;
 import away3d.animators.nodes.ParticleFollowNode;
-import away3d.animators.ParticleAnimator;
+import away3d.cameras.Camera3D;
+import away3d.core.base.IRenderable;
 import away3d.core.base.Object3D;
+import away3d.core.managers.Stage3DProxy;
 import away3d.core.math.MathConsts;
+import openfl.Vector;
 import openfl.display3D.Context3DVertexBufferFormat;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 /**
  * ...

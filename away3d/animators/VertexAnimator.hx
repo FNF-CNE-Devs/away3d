@@ -1,15 +1,15 @@
 package away3d.animators;
 
+import away3d.animators.data.*;
 import away3d.animators.states.*;
 import away3d.animators.transitions.*;
-import away3d.animators.data.*;
 import away3d.cameras.Camera3D;
 import away3d.core.base.*;
 import away3d.core.managers.*;
 import away3d.materials.passes.*;
+import openfl.Vector;
 import openfl.display3D.*;
 import openfl.errors.Error;
-import openfl.Vector;
 
 /**
  * Provides an interface for assigning vertex-based animation data sets to mesh-based entity objects

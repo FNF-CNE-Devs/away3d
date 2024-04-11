@@ -9,12 +9,12 @@ import away3d.core.base.SubMesh;
 import away3d.core.managers.Stage3DProxy;
 import away3d.core.math.Matrix3DUtils;
 import away3d.entities.Mesh;
+import openfl.Vector;
 import openfl.display3D.Context3D;
 import openfl.display3D.Context3DCompareMode;
 import openfl.display3D.Context3DProgramType;
 import openfl.display3D.Context3DTriangleFace;
 import openfl.geom.Matrix3D;
-import openfl.Vector;
 
 /**
  * OutlinePass is a pass that offsets a mesh and draws it in a single colour. This is a pass provided by OutlineMethod.

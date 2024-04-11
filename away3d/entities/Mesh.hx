@@ -1,6 +1,5 @@
 package away3d.entities;
 
-import away3d.materials.utils.DefaultMaterialManager;
 import away3d.animators.IAnimator;
 import away3d.containers.*;
 import away3d.core.base.*;
@@ -8,6 +7,7 @@ import away3d.core.partition.*;
 import away3d.events.*;
 import away3d.library.assets.*;
 import away3d.materials.*;
+import away3d.materials.utils.DefaultMaterialManager;
 import openfl.Vector;
 
 /**

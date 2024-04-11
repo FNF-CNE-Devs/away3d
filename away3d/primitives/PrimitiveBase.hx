@@ -4,8 +4,8 @@ import away3d.core.base.CompactSubGeometry;
 import away3d.core.base.Geometry;
 import away3d.core.base.ISubGeometry;
 import away3d.errors.AbstractMethodError;
-import openfl.geom.Matrix3D;
 import openfl.Vector;
+import openfl.geom.Matrix3D;
 
 /**
  * PrimitiveBase is an abstract base class for mesh primitives, which are prebuilt simple meshes.

@@ -19,9 +19,9 @@ import away3d.materials.methods.BasicSpecularMethod;
 import away3d.materials.utils.DefaultMaterialManager;
 import away3d.textures.Texture2DBase;
 import away3d.tools.utils.GeomUtil;
+import openfl.Vector;
 import openfl.errors.Error;
 import openfl.net.URLRequest;
-import openfl.Vector;
 
 /**
  * OBJParser provides a parser for the OBJ data type.

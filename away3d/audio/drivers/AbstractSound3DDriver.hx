@@ -1,8 +1,8 @@
 package away3d.audio.drivers;
 
+import openfl.events.EventDispatcher;
 import openfl.geom.Vector3D;
 import openfl.media.Sound;
-import openfl.events.EventDispatcher;
 
 class AbstractSound3DDriver extends EventDispatcher {
 	public var sourceSound(get, set):Sound;

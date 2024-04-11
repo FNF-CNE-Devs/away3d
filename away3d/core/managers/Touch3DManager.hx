@@ -6,9 +6,9 @@ import away3d.core.pick.IPicker;
 import away3d.core.pick.PickingCollisionVO;
 import away3d.core.pick.PickingType;
 import away3d.events.TouchEvent3D;
+import openfl.Vector;
 import openfl.events.TouchEvent;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 class Touch3DManager {
 	public var forceTouchMove(get, set):Bool;

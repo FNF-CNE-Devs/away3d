@@ -4,8 +4,8 @@ import away3d.events.GeometryEvent;
 import away3d.library.assets.Asset3DType;
 import away3d.library.assets.IAsset;
 import away3d.library.assets.NamedAssetBase;
-import openfl.geom.Matrix3D;
 import openfl.Vector;
+import openfl.geom.Matrix3D;
 
 /**
  * Geometry is a collection of SubGeometries, each of which contain the actual geometrical data such as vertices,

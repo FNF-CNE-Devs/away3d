@@ -3,12 +3,12 @@ package away3d.core.managers;
 import away3d.debug.Debug;
 import away3d.events.Stage3DEvent;
 import away3d.materials.passes.MaterialPassBase;
+import openfl.Vector;
 import openfl.display3D.Context3DProgramType;
 import openfl.display3D.Program3D;
 import openfl.errors.Error;
 import openfl.utils.AGALMiniAssembler;
 import openfl.utils.ByteArray;
-import openfl.Vector;
 
 class AGALProgram3DCache {
 	private static var _instances:Vector<AGALProgram3DCache>;

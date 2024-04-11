@@ -1,9 +1,9 @@
 package away3d.paths;
 
 import away3d.errors.AbstractMethodError;
+import openfl.Vector;
 import openfl.errors.Error;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 class SegmentedPathBase implements IPath {
 	public var pointData(never, set):Vector<Vector3D>;

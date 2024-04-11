@@ -7,10 +7,10 @@ import away3d.core.math.Matrix3DUtils;
 import away3d.core.math.Plane3D;
 import away3d.core.render.DepthRenderer;
 import away3d.lights.DirectionalLight;
+import openfl.Vector;
 import openfl.display3D.textures.TextureBase;
 import openfl.geom.Matrix3D;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 class DirectionalShadowMapper extends ShadowMapperBase {
 	public var snap(get, set):Float;

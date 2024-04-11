@@ -1,13 +1,12 @@
 package away3d.containers;
 
-import away3d.core.managers.Touch3DManager;
-import away3d.events.Scene3DEvent;
 import away3d.Away3D;
 import away3d.cameras.Camera3D;
 import away3d.core.managers.Mouse3DManager;
 import away3d.core.managers.RTTBufferManager;
 import away3d.core.managers.Stage3DManager;
 import away3d.core.managers.Stage3DProxy;
+import away3d.core.managers.Touch3DManager;
 import away3d.core.pick.IPicker;
 import away3d.core.render.DefaultRenderer;
 import away3d.core.render.DepthRenderer;
@@ -16,9 +15,12 @@ import away3d.core.render.RendererBase;
 import away3d.core.traverse.EntityCollector;
 import away3d.events.CameraEvent;
 import away3d.events.Object3DEvent;
+import away3d.events.Scene3DEvent;
 import away3d.events.Stage3DEvent;
 import away3d.filters.Filter3DBase;
 import away3d.textures.Texture2DBase;
+import openfl.Lib;
+import openfl.Vector;
 import openfl.display.Sprite;
 import openfl.display3D.Context3D;
 import openfl.display3D.Context3DTextureFormat;
@@ -31,8 +33,6 @@ import openfl.geom.Rectangle;
 import openfl.geom.Transform;
 import openfl.geom.Vector3D;
 import openfl.net.URLRequest;
-import openfl.Lib;
-import openfl.Vector;
 
 class View3D extends Sprite {
 	private var _width:Float = 0;

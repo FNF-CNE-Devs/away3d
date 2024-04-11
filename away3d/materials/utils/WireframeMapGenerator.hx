@@ -2,11 +2,11 @@ package away3d.materials.utils;
 
 import away3d.core.base.ISubGeometry;
 import away3d.entities.Mesh;
+import openfl.Vector;
 import openfl.display.BitmapData;
 import openfl.display.Graphics;
 import openfl.display.Sprite;
 import openfl.display.TriangleCulling;
-import openfl.Vector;
 
 /**
  * WireframeMapGenerator is a utility class to generate a wireframe texture for uniquely mapped meshes.

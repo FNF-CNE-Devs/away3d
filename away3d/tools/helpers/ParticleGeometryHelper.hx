@@ -1,16 +1,16 @@
 package away3d.tools.helpers;
 
-import away3d.core.base.ParticleGeometry;
 import away3d.core.base.CompactSubGeometry;
-import away3d.core.base.data.ParticleData;
 import away3d.core.base.Geometry;
 import away3d.core.base.ISubGeometry;
+import away3d.core.base.ParticleGeometry;
+import away3d.core.base.data.ParticleData;
 import away3d.tools.helpers.data.ParticleGeometryTransform;
-import openfl.geom.Matrix;
+import openfl.Vector;
 import openfl.geom.Matrix3D;
+import openfl.geom.Matrix;
 import openfl.geom.Point;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 /**
  * ...

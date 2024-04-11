@@ -15,10 +15,10 @@ import away3d.materials.TextureMaterial;
 import away3d.materials.TextureMultiPassMaterial;
 import away3d.materials.utils.DefaultMaterialManager;
 import away3d.textures.Texture2DBase;
+import openfl.Vector;
 import openfl.geom.Vector3D;
 import openfl.net.URLRequest;
 import openfl.utils.ByteArray;
-import openfl.Vector;
 
 using StringTools;
 

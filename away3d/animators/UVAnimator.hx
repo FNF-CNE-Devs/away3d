@@ -9,10 +9,10 @@ import away3d.core.managers.*;
 import away3d.core.math.MathConsts;
 import away3d.materials.*;
 import away3d.materials.passes.*;
+import openfl.Vector;
 import openfl.display3D.Context3DProgramType;
 import openfl.errors.Error;
 import openfl.geom.Matrix;
-import openfl.Vector;
 
 /**
  * Provides an interface for assigning uv-based animation data sets to mesh-based entity objects

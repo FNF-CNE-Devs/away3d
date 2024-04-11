@@ -7,8 +7,8 @@ import away3d.core.managers.*;
 import away3d.events.*;
 import away3d.lights.shadowmaps.*;
 import away3d.materials.compilation.*;
-import openfl.errors.Error;
 import openfl.Vector;
+import openfl.errors.Error;
 
 // TODO: shadow mappers references in materials should be an interface so that this class should NOT extend ShadowMapMethodBase just for some delegation work
 

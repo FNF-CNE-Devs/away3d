@@ -2,9 +2,9 @@ package away3d.bounds;
 
 import away3d.core.math.*;
 import away3d.primitives.*;
+import openfl.Vector;
 import openfl.geom.Matrix3D;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 /**
  * BoundingSphere represents a spherical bounding volume defined by a center point and a radius.

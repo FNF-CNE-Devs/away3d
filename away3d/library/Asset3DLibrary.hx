@@ -7,8 +7,8 @@ import away3d.loaders.misc.AssetLoaderContext;
 import away3d.loaders.misc.AssetLoaderToken;
 import away3d.loaders.misc.SingleFileLoader;
 import away3d.loaders.parsers.ParserBase;
-import openfl.net.URLRequest;
 import openfl.Vector;
+import openfl.net.URLRequest;
 
 /**
  * Asset3DLibrary enforces a singleton pattern and is not intended to be instanced.

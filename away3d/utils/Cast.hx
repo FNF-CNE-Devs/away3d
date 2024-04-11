@@ -3,13 +3,13 @@ package away3d.utils;
 import away3d.errors.CastError;
 import away3d.textures.BitmapTexture;
 import haxe.io.Bytes;
-import openfl.display.DisplayObject;
+import openfl.Assets;
 import openfl.display.Bitmap;
 import openfl.display.BitmapData;
+import openfl.display.DisplayObject;
 import openfl.errors.Error;
 import openfl.geom.Matrix;
 import openfl.utils.ByteArray;
-import openfl.Assets;
 
 /** Helper class for casting assets to usable objects */
 class Cast {

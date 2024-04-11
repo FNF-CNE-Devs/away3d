@@ -4,8 +4,8 @@ import away3d.core.math.Plane3D;
 import away3d.core.traverse.PartitionTraverser;
 import away3d.primitives.WireframeCube;
 import away3d.primitives.WireframePrimitiveBase;
-import openfl.geom.Vector3D;
 import openfl.Vector;
+import openfl.geom.Vector3D;
 
 /**
  * InvertedOctreeNode is an octree data structure not used hierarchically for culling, but for fast dynamic insertion.

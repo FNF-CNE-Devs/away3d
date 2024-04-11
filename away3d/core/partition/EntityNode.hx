@@ -3,8 +3,8 @@ package away3d.core.partition;
 import away3d.core.math.Plane3D;
 import away3d.core.traverse.PartitionTraverser;
 import away3d.entities.Entity;
-import openfl.geom.Vector3D;
 import openfl.Vector;
+import openfl.geom.Vector3D;
 
 /**
  * The EntityNode class provides an abstract base class for leaf nodes in a partition tree, containing

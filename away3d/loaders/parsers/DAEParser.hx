@@ -27,12 +27,8 @@ import away3d.materials.methods.BasicSpecularMethod;
 import away3d.materials.utils.DefaultMaterialManager;
 import away3d.textures.BitmapTexture;
 import away3d.textures.Texture2DBase;
-#if (haxe_ver >= 4)
-import haxe.xml.Access;
-#else
-import haxe.xml.Fast as Access;
-#end
 import haxe.EnumTools;
+import openfl.Vector;
 import openfl.display.BitmapData;
 import openfl.errors.Error;
 import openfl.geom.ColorTransform;
@@ -40,7 +36,12 @@ import openfl.geom.Matrix3D;
 import openfl.geom.Vector3D;
 import openfl.net.URLRequest;
 import openfl.utils.ByteArray;
-import openfl.Vector;
+
+#if (haxe_ver >= 4)
+import haxe.xml.Access;
+#else
+import haxe.xml.Fast as Access;
+#end
 
 using Reflect;
 using StringTools;
@@ -55,7 +56,7 @@ class DAEParser extends ParserBase {
 	public static inline var PARSE_IMAGES:Int = 2;
 	public static inline var PARSE_MATERIALS:Int = 4;
 	public static inline var PARSE_VISUAL_SCENES:Int = 8;
-	public static var PARSE_DEFAULT:Int = PARSE_GEOMETRIES | PARSE_IMAGES | PARSE_MATERIALS | PARSE_VISUAL_SCENES;
+	public static inline var PARSE_DEFAULT:Int = PARSE_GEOMETRIES | PARSE_IMAGES | PARSE_MATERIALS | PARSE_VISUAL_SCENES;
 
 	private var _doc:Xml;
 	private var _fastDoc:Access;

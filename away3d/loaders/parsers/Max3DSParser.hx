@@ -12,12 +12,12 @@ import away3d.materials.*;
 import away3d.materials.utils.*;
 import away3d.textures.*;
 import away3d.tools.utils.*;
+import openfl.Vector;
 import openfl.geom.Matrix3D;
 import openfl.geom.Vector3D;
 import openfl.net.URLRequest;
 import openfl.utils.ByteArray;
 import openfl.utils.Endian;
-import openfl.Vector;
 
 /**
  * Max3DSParser provides a parser for the 3ds data type.

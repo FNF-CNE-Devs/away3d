@@ -1,8 +1,8 @@
 package away3d.tools.serialize;
 
 import away3d.core.math.Quaternion;
-import openfl.geom.Vector3D;
 import openfl.Vector;
+import openfl.geom.Vector3D;
 
 /**
  * TraceSerializer is a concrete Serializer that will output its results to trace().  It has user settable tabSize and separator vars.

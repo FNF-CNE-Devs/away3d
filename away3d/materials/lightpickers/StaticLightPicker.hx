@@ -5,8 +5,8 @@ import away3d.lights.DirectionalLight;
 import away3d.lights.LightBase;
 import away3d.lights.LightProbe;
 import away3d.lights.PointLight;
-import openfl.events.Event;
 import openfl.Vector;
+import openfl.events.Event;
 
 /**
  * StaticLightPicker is a light picker that provides a static set of lights. The lights can be reassigned, but

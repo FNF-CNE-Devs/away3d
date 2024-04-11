@@ -1,7 +1,7 @@
 package away3d.primitives;
 
-import openfl.geom.Vector3D;
 import openfl.Vector;
+import openfl.geom.Vector3D;
 
 /**
  * A WireframeSphere primitive mesh

@@ -12,10 +12,10 @@ import away3d.materials.compilation.SuperShaderCompiler;
 import away3d.materials.methods.ColorTransformMethod;
 import away3d.materials.methods.EffectMethodBase;
 import away3d.materials.methods.MethodVOSet;
+import openfl.Vector;
 import openfl.display3D.Context3D;
 import openfl.geom.ColorTransform;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 /**
  * SuperShaderPass is a shader pass that uses shader methods to compile a complete program. It includes all methods

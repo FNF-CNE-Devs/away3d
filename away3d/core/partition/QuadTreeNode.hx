@@ -3,8 +3,8 @@ package away3d.core.partition;
 import away3d.bounds.BoundingVolumeBase;
 import away3d.core.math.Plane3D;
 import away3d.entities.Entity;
-import openfl.geom.Vector3D;
 import openfl.Vector;
+import openfl.geom.Vector3D;
 
 class QuadTreeNode extends NodeBase {
 	private var _centerX:Float;

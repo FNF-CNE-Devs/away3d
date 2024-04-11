@@ -5,8 +5,8 @@ import away3d.core.partition.Partition3D;
 import away3d.core.traverse.PartitionTraverser;
 import away3d.entities.Entity;
 import away3d.events.Scene3DEvent;
-import openfl.events.EventDispatcher;
 import openfl.Vector;
+import openfl.events.EventDispatcher;
 
 /**
  * The Scene3D class represents an independent 3D scene in which 3D objects can be created and manipulated.

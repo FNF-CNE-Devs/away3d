@@ -2,9 +2,9 @@ package away3d.core.partition;
 
 import away3d.bounds.BoundingVolumeBase;
 import away3d.entities.Entity;
+import openfl.Vector;
 import openfl.errors.Error;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 /**
  * DynamicGrid is used by certain partitioning systems that require vislists for regions of dynamic data.

@@ -5,8 +5,8 @@ import away3d.core.base.*;
 import away3d.core.traverse.*;
 import away3d.library.assets.*;
 import away3d.lights.*;
-import openfl.geom.Vector3D;
 import openfl.Vector;
+import openfl.geom.Vector3D;
 
 /**
  * LightPickerBase provides an abstract base clase for light picker classes. These classes are responsible for

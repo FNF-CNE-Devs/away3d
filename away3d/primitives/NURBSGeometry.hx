@@ -2,8 +2,8 @@ package away3d.primitives;
 
 import away3d.core.base.CompactSubGeometry;
 import away3d.primitives.data.NURBSVertex;
-import openfl.geom.Vector3D;
 import openfl.Vector;
+import openfl.geom.Vector3D;
 
 /**
  * A NURBS primitive geometry.

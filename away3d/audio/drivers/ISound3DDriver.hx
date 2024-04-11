@@ -1,8 +1,8 @@
 package away3d.audio.drivers;
 
+import openfl.events.IEventDispatcher;
 import openfl.geom.Vector3D;
 import openfl.media.Sound;
-import openfl.events.IEventDispatcher;
 
 interface ISound3DDriver extends IEventDispatcher {
 	/**

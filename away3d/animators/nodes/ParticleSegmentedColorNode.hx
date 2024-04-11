@@ -1,15 +1,15 @@
 package away3d.animators.nodes;
 
+import away3d.animators.ParticleAnimationSet;
 import away3d.animators.data.AnimationRegisterCache;
 import away3d.animators.data.ColorSegmentPoint;
 import away3d.animators.data.ParticlePropertiesMode;
-import away3d.animators.ParticleAnimationSet;
 import away3d.animators.states.ParticleSegmentedColorState;
 import away3d.materials.compilation.ShaderRegisterElement;
 import away3d.materials.passes.MaterialPassBase;
+import openfl.Vector;
 import openfl.errors.Error;
 import openfl.geom.ColorTransform;
-import openfl.Vector;
 
 class ParticleSegmentedColorNode extends ParticleNodeBase {
 	/** @private */

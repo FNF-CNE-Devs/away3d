@@ -6,10 +6,10 @@ import away3d.core.managers.Stage3DProxy;
 import away3d.entities.TextureProjector;
 import away3d.materials.compilation.ShaderRegisterCache;
 import away3d.materials.compilation.ShaderRegisterElement;
+import openfl.Vector;
 import openfl.display.BlendMode;
 import openfl.errors.Error;
 import openfl.geom.Matrix3D;
-import openfl.Vector;
 
 /**
  * ProjectiveTextureMethod is a material method used to project a texture unto the surface of an object.

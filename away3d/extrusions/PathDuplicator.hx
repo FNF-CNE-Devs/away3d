@@ -4,10 +4,10 @@ import away3d.containers.ObjectContainer3D;
 import away3d.containers.Scene3D;
 import away3d.entities.Mesh;
 import away3d.paths.IPath;
+import openfl.Vector;
 import openfl.errors.Error;
 import openfl.geom.Matrix3D;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 @:deprecated
 class PathDuplicator {

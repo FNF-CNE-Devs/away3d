@@ -4,8 +4,8 @@ import away3d.core.base.*;
 import away3d.core.math.Plane3D;
 import away3d.core.math.PlaneClassification;
 import away3d.primitives.*;
-import openfl.geom.*;
 import openfl.Vector;
+import openfl.geom.*;
 
 /**
  * NullBounds represents a debug bounding "volume" that is either considered always in, or always out of the frustum.

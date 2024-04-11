@@ -8,9 +8,9 @@ import away3d.animators.nodes.ParticlePositionNode;
 import away3d.cameras.Camera3D;
 import away3d.core.base.IRenderable;
 import away3d.core.managers.Stage3DProxy;
+import openfl.Vector;
 import openfl.display3D.Context3DVertexBufferFormat;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 /**
  * ...

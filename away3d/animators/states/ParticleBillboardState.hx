@@ -9,10 +9,10 @@ import away3d.core.base.IRenderable;
 import away3d.core.managers.Stage3DProxy;
 import away3d.core.math.MathConsts;
 import away3d.core.math.Matrix3DUtils;
-import openfl.geom.Matrix3D;
-import openfl.geom.Vector3D;
-import openfl.geom.Orientation3D;
 import openfl.Vector;
+import openfl.geom.Matrix3D;
+import openfl.geom.Orientation3D;
+import openfl.geom.Vector3D;
 
 /**
  * ...

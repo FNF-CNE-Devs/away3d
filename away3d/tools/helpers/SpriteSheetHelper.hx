@@ -5,13 +5,13 @@ import away3d.animators.nodes.SpriteSheetClipNode;
 import away3d.textures.BitmapTexture;
 import away3d.textures.Texture2DBase;
 import away3d.tools.utils.TextureUtils;
-import openfl.display.BlendMode;
+import openfl.Vector;
 import openfl.display.BitmapData;
+import openfl.display.BlendMode;
 import openfl.display.MovieClip;
 import openfl.errors.Error;
 import openfl.geom.Matrix;
 import openfl.geom.Point;
-import openfl.Vector;
 
 /**
  * SpriteSheetHelper, a class to ease sprite sheet animation data generation

@@ -1,7 +1,3 @@
-/**
- *
- */
-
 package away3d.textures;
 
 import away3d.textures.BitmapTexture;

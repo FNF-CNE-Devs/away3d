@@ -7,9 +7,9 @@ import away3d.core.base.*;
 import away3d.core.math.*;
 import away3d.core.partition.*;
 import away3d.lights.shadowmaps.*;
+import openfl.Vector;
 import openfl.geom.Matrix3D;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 /**
  * PointLight represents an omni-directional light. The light is emitted from a given position in the scene.

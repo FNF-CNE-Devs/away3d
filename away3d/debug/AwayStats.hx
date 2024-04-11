@@ -1,7 +1,9 @@
 package away3d.debug;
 
-import away3d.core.managers.Stage3DProxy;
 import away3d.containers.View3D;
+import away3d.core.managers.Stage3DProxy;
+import openfl.Lib;
+import openfl.Vector;
 import openfl.display.BitmapData;
 import openfl.display.CapsStyle;
 import openfl.display.Graphics;
@@ -15,8 +17,6 @@ import openfl.text.TextField;
 import openfl.text.TextFieldAutoSize;
 import openfl.text.TextFormat;
 import openfl.utils.Timer;
-import openfl.Lib;
-import openfl.Vector;
 
 /**
  * <p>Stats monitor for Away3D or general use in any project. The widget was designed to

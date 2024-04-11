@@ -15,13 +15,13 @@ import away3d.materials.passes.LightingPass;
 import away3d.materials.passes.ShadowCasterPass;
 import away3d.materials.passes.SuperShaderPass;
 import away3d.textures.Texture2DBase;
+import openfl.Vector;
 import openfl.display.BlendMode;
 import openfl.display3D.Context3D;
 import openfl.display3D.Context3DBlendFactor;
 import openfl.display3D.Context3DCompareMode;
 import openfl.errors.Error;
 import openfl.events.Event;
-import openfl.Vector;
 
 /**
  * MultiPassMaterialBase forms an abstract base class for the default multi-pass materials provided by Away3D,

@@ -4,6 +4,7 @@ import away3d.cameras.Camera3D;
 import away3d.core.base.IRenderable;
 import away3d.core.managers.Stage3DProxy;
 import away3d.textures.CubeTextureBase;
+import openfl.Vector;
 import openfl.display3D.Context3D;
 import openfl.display3D.Context3DCompareMode;
 import openfl.display3D.Context3DMipFilter;
@@ -13,7 +14,6 @@ import openfl.display3D.Context3DTextureFormat;
 import openfl.display3D.Context3DWrapMode;
 import openfl.geom.Matrix3D;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 /**
  * SkyBoxPass provides a material pass exclusively used to render sky boxes from a cube texture.

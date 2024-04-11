@@ -2,8 +2,8 @@ package away3d.tools.commands;
 
 import away3d.entities.Mesh;
 import away3d.tools.utils.Bounds;
-import openfl.errors.Error;
 import openfl.Vector;
+import openfl.errors.Error;
 
 /**
  * Class Aligns an arrays of Object3Ds, Vector3D's or Vertexes compaired to each other.<code>Align</code>

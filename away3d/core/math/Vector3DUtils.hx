@@ -1,8 +1,8 @@
 package away3d.core.math;
 
+import openfl.Vector;
 import openfl.geom.Matrix3D;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 /**
  * Vector3DUtils provides additional Vector3D math functions.

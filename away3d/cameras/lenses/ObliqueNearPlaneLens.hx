@@ -3,9 +3,9 @@ package away3d.cameras.lenses;
 import away3d.core.math.Matrix3DUtils;
 import away3d.core.math.Plane3D;
 import away3d.events.LensEvent;
+import openfl.Vector;
 import openfl.geom.Matrix3D;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 class ObliqueNearPlaneLens extends LensBase {
 	public var plane(get, set):Plane3D;

@@ -3,9 +3,9 @@ package away3d.loaders.parsers;
 import away3d.animators.data.*;
 import away3d.animators.nodes.*;
 import away3d.core.math.*;
+import openfl.Vector;
 import openfl.errors.Error;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 // todo: create animation system, parse skeleton
 

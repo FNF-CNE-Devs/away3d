@@ -1,9 +1,9 @@
 package away3d.textures;
 
-import openfl.errors.Error;
 import openfl.display3D.Context3D;
 import openfl.display3D.textures.CubeTexture;
 import openfl.display3D.textures.TextureBase;
+import openfl.errors.Error;
 import openfl.utils.ByteArray;
 
 class ATFCubeTexture extends CubeTextureBase {

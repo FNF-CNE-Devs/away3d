@@ -3,8 +3,8 @@ package away3d.materials.methods;
 import away3d.core.managers.Stage3DProxy;
 import away3d.materials.compilation.ShaderRegisterCache;
 import away3d.materials.compilation.ShaderRegisterElement;
-import openfl.geom.ColorTransform;
 import openfl.Vector;
+import openfl.geom.ColorTransform;
 
 /**
  * ColorTransformMethod provides a shading method that changes the colour of a material analogous to a

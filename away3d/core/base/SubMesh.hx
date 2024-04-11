@@ -8,10 +8,10 @@ import away3d.core.managers.Stage3DProxy;
 import away3d.entities.Entity;
 import away3d.entities.Mesh;
 import away3d.materials.MaterialBase;
-import openfl.display3D.IndexBuffer3D;
-import openfl.geom.Matrix;
-import openfl.geom.Matrix3D;
 import openfl.Vector;
+import openfl.display3D.IndexBuffer3D;
+import openfl.geom.Matrix3D;
+import openfl.geom.Matrix;
 
 /**
  * SubMesh wraps a SubGeometry as a scene graph instantiation. A SubMesh is owned by a Mesh object.

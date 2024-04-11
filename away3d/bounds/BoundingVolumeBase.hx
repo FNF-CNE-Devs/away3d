@@ -4,9 +4,9 @@ import away3d.core.base.*;
 import away3d.core.math.Plane3D;
 import away3d.errors.*;
 import away3d.primitives.*;
+import openfl.Vector;
 import openfl.geom.Matrix3D;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 /**
  * An abstract base class for all bounding volume classes. It should not be instantiated directly.

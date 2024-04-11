@@ -10,8 +10,8 @@
 package away3d.textfield;
 
 import away3d.materials.TextureMaterial;
-import openfl.geom.Rectangle;
 import openfl.Vector;
+import openfl.geom.Rectangle;
 
 /** The BitmapFont class parses bitmap font files and arranges the glyphs
  *  in the form of a text.

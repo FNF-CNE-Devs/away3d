@@ -2,20 +2,20 @@ package away3d.core.managers;
 
 import away3d.debug.Debug;
 import away3d.events.Stage3DEvent;
-import openfl.display3D.textures.TextureBase;
+import openfl.Vector;
+import openfl.display.Shape;
+import openfl.display.Stage3D;
 import openfl.display3D.Context3D;
 import openfl.display3D.Context3DClearMask;
 import openfl.display3D.Context3DRenderMode;
 import openfl.display3D.IndexBuffer3D;
 import openfl.display3D.Program3D;
 import openfl.display3D.VertexBuffer3D;
-import openfl.display.Shape;
-import openfl.display.Stage3D;
+import openfl.display3D.textures.TextureBase;
 import openfl.errors.Error;
 import openfl.events.Event;
 import openfl.events.EventDispatcher;
 import openfl.geom.Rectangle;
-import openfl.Vector;
 
 /**
  * Stage3DProxy provides a proxy class to manage a single Stage3D instance as well as handling the creation and

@@ -1,7 +1,7 @@
 package away3d.textures;
 
-import openfl.errors.Error;
 import openfl.display3D.Context3DTextureFormat;
+import openfl.errors.Error;
 import openfl.utils.ByteArray;
 
 class ATFData {

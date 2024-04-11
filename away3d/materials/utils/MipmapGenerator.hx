@@ -1,11 +1,11 @@
 package away3d.materials.utils;
 
 import openfl.display.BitmapData;
-import openfl.geom.Matrix;
-import openfl.geom.Rectangle;
 import openfl.display3D.textures.CubeTexture;
 import openfl.display3D.textures.Texture;
 import openfl.display3D.textures.TextureBase;
+import openfl.geom.Matrix;
+import openfl.geom.Rectangle;
 
 /**
  * MipmapGenerator is a helper class that uploads BitmapData to a Texture including mipmap levels.

@@ -1,7 +1,7 @@
 package away3d.materials;
 
-import away3d.textures.Texture2DBase;
 import away3d.textures.Anisotropy;
+import away3d.textures.Texture2DBase;
 
 /**
  * TextureMultiPassMaterial is a multi-pass material that uses a texture to define the surface's diffuse reflection colour (albedo).

@@ -1,8 +1,8 @@
 package away3d.controllers;
 
 import away3d.containers.*;
-import away3d.entities.*;
 import away3d.core.math.*;
+import away3d.entities.*;
 import openfl.geom.Vector3D;
 
 /**

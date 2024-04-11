@@ -8,9 +8,9 @@ import away3d.errors.*;
 import away3d.lights.*;
 import away3d.lights.shadowmaps.*;
 import away3d.materials.compilation.*;
+import openfl.Vector;
 import openfl.errors.Error;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 /**
  * SimpleShadowMapMethodBase provides an abstract method for simple (non-wrapping) shadow map methods.

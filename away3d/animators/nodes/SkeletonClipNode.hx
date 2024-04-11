@@ -3,8 +3,8 @@ package away3d.animators.nodes;
 import away3d.animators.*;
 import away3d.animators.data.*;
 import away3d.animators.states.*;
-import openfl.geom.*;
 import openfl.Vector;
+import openfl.geom.*;
 
 /**
  * A skeleton animation node containing time-based animation data as individual skeleton poses.

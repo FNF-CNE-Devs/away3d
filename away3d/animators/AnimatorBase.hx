@@ -7,11 +7,11 @@ import away3d.events.AnimatorEvent;
 import away3d.library.assets.Asset3DType;
 import away3d.library.assets.IAsset;
 import away3d.library.assets.NamedAssetBase;
+import openfl.Lib;
+import openfl.Vector;
 import openfl.display.Sprite;
 import openfl.events.Event;
 import openfl.geom.Vector3D;
-import openfl.Lib;
-import openfl.Vector;
 
 class AnimatorBase extends NamedAssetBase implements IAsset {
 	public var absoluteTime(get, never):Int;

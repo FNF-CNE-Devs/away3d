@@ -10,12 +10,12 @@ import away3d.core.render.DefaultRenderer;
 import away3d.core.render.RendererBase;
 import away3d.core.traverse.EntityCollector;
 import away3d.tools.utils.TextureUtils;
+import openfl.Vector;
 import openfl.display.BitmapData;
 import openfl.display3D.textures.TextureBase;
 import openfl.geom.Matrix3D;
 import openfl.geom.Rectangle;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 /**
  * PlanarReflectionTexture is a Texture that can be used for material-based planar reflections, as provided by PlanarReflectionMethod, FresnelPlanarReflectionMethod.

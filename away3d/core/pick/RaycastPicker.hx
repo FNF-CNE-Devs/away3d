@@ -6,8 +6,8 @@ import away3d.core.data.EntityListItem;
 import away3d.core.traverse.EntityCollector;
 import away3d.core.traverse.RaycastCollector;
 import away3d.entities.Entity;
-import openfl.geom.Vector3D;
 import openfl.Vector;
+import openfl.geom.Vector3D;
 
 /**
  * Picks a 3d object from a view or scene by 3D raycast calculations.

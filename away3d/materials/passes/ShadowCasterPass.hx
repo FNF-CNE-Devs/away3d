@@ -8,10 +8,10 @@ import away3d.lights.PointLight;
 import away3d.materials.MaterialBase;
 import away3d.materials.compilation.LightingShaderCompiler;
 import away3d.materials.compilation.ShaderCompiler;
+import openfl.Vector;
 import openfl.errors.Error;
 import openfl.geom.Matrix3D;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 /**
  * ShadowCasterPass is a shader pass that uses shader methods to compile a complete program. It only draws the lighting

@@ -4,10 +4,10 @@ import away3d.*;
 import away3d.events.*;
 import away3d.loaders.misc.*;
 import away3d.loaders.parsers.*;
+import openfl.Vector;
 import openfl.errors.Error;
 import openfl.events.*;
 import openfl.net.*;
-import openfl.Vector;
 
 /**
  * AssetLoader can load any file format that Away3D supports (or for which a third-party parser

@@ -1,8 +1,8 @@
 package away3d.loaders.parsers;
 
-import away3d.library.assets.IAsset;
 import away3d.events.Asset3DEvent;
 import away3d.events.ParserEvent;
+import away3d.library.assets.IAsset;
 import away3d.loaders.misc.ResourceDependency;
 import openfl.Vector;
 

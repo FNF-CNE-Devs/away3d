@@ -15,8 +15,8 @@ import away3d.lights.LightBase;
 import away3d.lights.LightProbe;
 import away3d.lights.PointLight;
 import away3d.materials.MaterialBase;
-import openfl.geom.Vector3D;
 import openfl.Vector;
+import openfl.geom.Vector3D;
 
 /**
  * The EntityCollector class is a traverser for scene partitions that collects all scene graph entities that are

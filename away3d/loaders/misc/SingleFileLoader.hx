@@ -6,6 +6,7 @@ import away3d.events.ParserEvent;
 import away3d.loaders.parsers.ImageParser;
 import away3d.loaders.parsers.ParserBase;
 import away3d.loaders.parsers.ParserDataFormat;
+import openfl.Vector;
 import openfl.errors.Error;
 import openfl.events.Event;
 import openfl.events.EventDispatcher;
@@ -13,7 +14,6 @@ import openfl.events.IOErrorEvent;
 import openfl.net.URLLoader;
 import openfl.net.URLLoaderDataFormat;
 import openfl.net.URLRequest;
-import openfl.Vector;
 
 /**
  * The SingleFileLoader is used to load a single file, as part of a resource.

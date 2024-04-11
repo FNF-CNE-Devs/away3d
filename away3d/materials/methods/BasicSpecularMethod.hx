@@ -4,10 +4,10 @@ import away3d.*;
 import away3d.core.managers.*;
 import away3d.materials.compilation.*;
 import away3d.textures.*;
-import openfl.display3D.Context3DWrapMode;
-import openfl.display3D.Context3DTextureFilter;
-import openfl.display3D.Context3DMipFilter;
 import openfl.Vector;
+import openfl.display3D.Context3DMipFilter;
+import openfl.display3D.Context3DTextureFilter;
+import openfl.display3D.Context3DWrapMode;
 
 /**
  * BasicSpecularMethod provides the default shading method for Blinn-Phong specular highlights (an optimized but approximated

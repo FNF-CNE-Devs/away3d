@@ -1,8 +1,8 @@
 package away3d.materials;
 
 import away3d.textures.Texture2DBase;
-import openfl.errors.Error;
 import openfl.Vector;
+import openfl.errors.Error;
 
 /**
  * SpriteSheetMaterial is a material required for a SpriteSheetAnimator if you have an animation spreaded over more maps

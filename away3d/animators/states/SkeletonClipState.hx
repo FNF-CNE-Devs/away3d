@@ -3,9 +3,9 @@ package away3d.animators.states;
 import away3d.animators.*;
 import away3d.animators.data.*;
 import away3d.animators.nodes.*;
+import openfl.Vector;
 import openfl.errors.Error;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 /**
  *

@@ -13,10 +13,10 @@ import away3d.materials.MaterialBase;
 import away3d.paths.IPath;
 import away3d.paths.IPathSegment;
 import away3d.tools.helpers.MeshHelper;
+import openfl.Vector;
 import openfl.errors.Error;
 import openfl.geom.Matrix3D;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 class PathExtrude extends Mesh {
 	public var upAxis(get, set):Vector3D;

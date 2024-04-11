@@ -11,9 +11,9 @@ import away3d.core.base.data.UV;
 import away3d.entities.Mesh;
 import away3d.materials.MaterialBase;
 import away3d.tools.helpers.MeshHelper;
+import openfl.Vector;
 import openfl.errors.Error;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 class DelaunayMesh extends Mesh {
 	public var vectors(get, set):Vector<Vector3D>;

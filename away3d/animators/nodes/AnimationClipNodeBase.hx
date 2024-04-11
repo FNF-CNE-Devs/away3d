@@ -1,8 +1,8 @@
 package away3d.animators.nodes;
 
 import away3d.animators.nodes.*;
-import openfl.geom.Vector3D;
 import openfl.Vector;
+import openfl.geom.Vector3D;
 
 /**
  * Provides an abstract base class for nodes with time-based animation data in an animation blend tree.

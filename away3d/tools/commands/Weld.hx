@@ -6,8 +6,8 @@ import away3d.core.base.Geometry;
 import away3d.core.base.ISubGeometry;
 import away3d.core.math.MathConsts;
 import away3d.entities.Mesh;
-import openfl.geom.Vector3D;
 import openfl.Vector;
+import openfl.geom.Vector3D;
 
 /**
  * Class Weld removes the vertices that can be shared from one or more meshes (smoothes the mesh surface when lighted).

@@ -6,11 +6,11 @@ import away3d.events.Object3DEvent;
 import away3d.events.Scene3DEvent;
 import away3d.library.assets.Asset3DType;
 import away3d.library.assets.IAsset;
+import openfl.Vector;
 import openfl.errors.Error;
 import openfl.events.Event;
 import openfl.geom.Matrix3D;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 /**
  * ObjectContainer3D is the most basic scene graph node. It can contain other ObjectContainer3Ds.

@@ -7,9 +7,9 @@ import away3d.core.base.*;
 import away3d.core.math.*;
 import away3d.core.partition.*;
 import away3d.lights.shadowmaps.*;
+import openfl.Vector;
 import openfl.geom.Matrix3D;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 /**
  * DirectionalLight represents an idealized light "at infinity", to be used for distant light sources such as the sun.

@@ -4,16 +4,16 @@ import away3d.animators.data.*;
 import away3d.animators.states.ISpriteSheetAnimationState;
 import away3d.animators.states.SpriteSheetAnimationState;
 import away3d.animators.transitions.IAnimationTransition;
+import away3d.cameras.Camera3D;
 import away3d.core.base.*;
 import away3d.core.managers.*;
 import away3d.materials.*;
 import away3d.materials.passes.*;
-import away3d.cameras.Camera3D;
 import haxe.Timer;
-import openfl.display3D.Context3DProgramType;
-import openfl.errors.Error;
 import openfl.Lib;
 import openfl.Vector;
+import openfl.display3D.Context3DProgramType;
+import openfl.errors.Error;
 
 /**
  * Provides an interface for assigning uv-based sprite sheet animation data sets to mesh-based entity objects

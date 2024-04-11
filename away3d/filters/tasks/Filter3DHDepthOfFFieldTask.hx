@@ -2,10 +2,10 @@ package away3d.filters.tasks;
 
 import away3d.cameras.Camera3D;
 import away3d.core.managers.Stage3DProxy;
+import openfl.Vector;
 import openfl.display3D.Context3D;
 import openfl.display3D.Context3DProgramType;
 import openfl.display3D.textures.Texture;
-import openfl.Vector;
 
 class Filter3DHDepthOfFFieldTask extends Filter3DTaskBase {
 	public var stepSize(get, set):Int;

@@ -7,11 +7,11 @@ import away3d.core.base.Geometry;
 import away3d.core.base.SkinnedSubGeometry;
 import away3d.core.math.Quaternion;
 import away3d.entities.Mesh;
+import openfl.Vector;
 import openfl.errors.Error;
 import openfl.geom.Matrix3D;
 import openfl.geom.Vector3D;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 // todo: create animation system, parse skeleton
 

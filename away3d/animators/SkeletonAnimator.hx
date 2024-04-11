@@ -9,11 +9,11 @@ import away3d.core.managers.*;
 import away3d.core.math.*;
 import away3d.events.*;
 import away3d.materials.passes.*;
+import openfl.Vector;
 import openfl.display3D.*;
 import openfl.errors.Error;
 import openfl.geom.*;
 import openfl.utils.*;
-import openfl.Vector;
 
 /**
  * Provides an interface for assigning skeleton-based animation data sets to mesh-based entity objects

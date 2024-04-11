@@ -14,13 +14,13 @@ import away3d.materials.passes.DepthMapPass;
 import away3d.materials.passes.DistanceMapPass;
 import away3d.materials.passes.MaterialPassBase;
 import away3d.textures.Anisotropy;
+import openfl.Vector;
 import openfl.display.BlendMode;
 import openfl.display3D.Context3D;
 import openfl.display3D.Context3DCompareMode;
 import openfl.errors.Error;
 import openfl.events.Event;
 import openfl.geom.Matrix3D;
-import openfl.Vector;
 
 /**
  * MaterialBase forms an abstract base class for any material.

@@ -1,6 +1,6 @@
 package away3d.animators.states;
 
-import openfl.geom.*;
+import openfl.geom.Vector3D;
 
 interface IAnimationState {
 	var positionDelta(get, never):Vector3D;

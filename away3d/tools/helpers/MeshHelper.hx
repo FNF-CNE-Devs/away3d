@@ -13,10 +13,10 @@ import away3d.materials.MaterialBase;
 import away3d.materials.utils.DefaultMaterialManager;
 import away3d.tools.utils.Bounds;
 import away3d.tools.utils.GeomUtil;
+import openfl.Vector;
 import openfl.errors.Error;
 import openfl.geom.Matrix3D;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 /**
  * Helper Class for the Mesh object <code>MeshHelper</code>

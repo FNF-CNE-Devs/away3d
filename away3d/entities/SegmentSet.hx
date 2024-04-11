@@ -8,19 +8,19 @@ import away3d.core.base.IRenderable;
 import away3d.core.managers.Stage3DProxy;
 import away3d.core.partition.EntityNode;
 import away3d.core.partition.RenderableNode;
+import away3d.library.assets.Asset3DType;
 import away3d.materials.MaterialBase;
 import away3d.materials.SegmentMaterial;
 import away3d.primitives.LineSegment;
 import away3d.primitives.data.Segment;
-import away3d.library.assets.Asset3DType;
+import openfl.Vector;
 import openfl.display3D.Context3D;
 import openfl.display3D.Context3DVertexBufferFormat;
 import openfl.display3D.IndexBuffer3D;
 import openfl.display3D.VertexBuffer3D;
-import openfl.geom.Matrix;
 import openfl.geom.Matrix3D;
+import openfl.geom.Matrix;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 class SegmentSet extends Entity implements IRenderable {
 	private static var LIMIT:Int = 3 * 0xFFFF;

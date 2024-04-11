@@ -6,13 +6,13 @@ import away3d.core.pick.IPicker;
 import away3d.core.pick.PickingCollisionVO;
 import away3d.core.pick.PickingType;
 import away3d.events.MouseEvent3D;
+import openfl.Vector;
 import openfl.display.DisplayObject;
 import openfl.display.DisplayObjectContainer;
 import openfl.display.Stage;
 import openfl.events.MouseEvent;
 import openfl.geom.Point;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 /**
  * Mouse3DManager enforces a singleton pattern and is not intended to be instanced.

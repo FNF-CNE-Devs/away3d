@@ -1,17 +1,14 @@
-/**
- */
-
 package away3d.filters.tasks;
 
 import away3d.cameras.Camera3D;
 import away3d.core.managers.Stage3DProxy;
 import away3d.debug.Debug;
 import away3d.errors.AbstractMethodError;
-import openfl.display3D.textures.Texture;
+import openfl.display3D.Context3D;
 import openfl.display3D.Context3DProgramType;
 import openfl.display3D.Context3DTextureFormat;
-import openfl.display3D.Context3D;
 import openfl.display3D.Program3D;
+import openfl.display3D.textures.Texture;
 import openfl.utils.AGALMiniAssembler;
 
 class Filter3DTaskBase {

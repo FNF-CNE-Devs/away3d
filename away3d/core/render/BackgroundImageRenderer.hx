@@ -3,6 +3,7 @@ package away3d.core.render;
 import away3d.core.managers.Stage3DProxy;
 import away3d.debug.Debug;
 import away3d.textures.Texture2DBase;
+import openfl.Vector;
 import openfl.display3D.Context3D;
 import openfl.display3D.Context3DBlendFactor;
 import openfl.display3D.Context3DProgramType;
@@ -12,7 +13,6 @@ import openfl.display3D.IndexBuffer3D;
 import openfl.display3D.Program3D;
 import openfl.display3D.VertexBuffer3D;
 import openfl.utils.AGALMiniAssembler;
-import openfl.Vector;
 
 class BackgroundImageRenderer {
 	public var stage3DProxy(get, set):Stage3DProxy;

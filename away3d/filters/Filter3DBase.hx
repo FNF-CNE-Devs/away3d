@@ -3,8 +3,8 @@ package away3d.filters;
 import away3d.cameras.Camera3D;
 import away3d.core.managers.Stage3DProxy;
 import away3d.filters.tasks.Filter3DTaskBase;
-import openfl.display3D.textures.Texture;
 import openfl.Vector;
+import openfl.display3D.textures.Texture;
 
 class Filter3DBase {
 	public var requireDepthRender(get, never):Bool;

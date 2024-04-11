@@ -4,8 +4,8 @@
 
 package away3d.events;
 
-import openfl.events.Event;
 import away3d.cameras.Camera3D;
+import openfl.events.Event;
 
 class CameraEvent extends Event {
 	public var camera(get, never):Camera3D;

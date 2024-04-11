@@ -1,7 +1,7 @@
 package away3d.tools.helpers.data;
 
-import openfl.geom.Matrix;
 import openfl.geom.Matrix3D;
+import openfl.geom.Matrix;
 
 /**
  * ...

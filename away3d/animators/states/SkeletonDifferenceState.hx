@@ -4,8 +4,8 @@ import away3d.animators.IAnimator;
 import away3d.animators.data.*;
 import away3d.animators.nodes.*;
 import away3d.core.math.*;
-import openfl.geom.Vector3D;
 import openfl.Vector;
+import openfl.geom.Vector3D;
 
 /**
  *

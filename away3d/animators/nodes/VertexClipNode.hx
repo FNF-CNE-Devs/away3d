@@ -2,8 +2,8 @@ package away3d.animators.nodes;
 
 import away3d.animators.states.*;
 import away3d.core.base.*;
-import openfl.geom.*;
 import openfl.Vector;
+import openfl.geom.*;
 
 /**
  * A vertex animation node containing time-based animation data as individual geometry obejcts.

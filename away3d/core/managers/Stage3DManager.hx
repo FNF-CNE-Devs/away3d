@@ -1,8 +1,8 @@
 package away3d.core.managers;
 
-import openfl.errors.Error;
-import openfl.display.Stage;
 import openfl.Vector;
+import openfl.display.Stage;
+import openfl.errors.Error;
 
 /**
  * The Stage3DManager class provides a multiton object that handles management for Stage3D objects. Stage3D objects

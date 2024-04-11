@@ -11,13 +11,13 @@ import away3d.lights.LightBase;
 import away3d.lights.PointLight;
 import away3d.lights.shadowmaps.ShadowMapperBase;
 import away3d.materials.MaterialBase;
+import openfl.Vector;
 import openfl.display3D.Context3DBlendFactor;
 import openfl.display3D.Context3DCompareMode;
 import openfl.display3D.textures.TextureBase;
 import openfl.geom.Matrix3D;
 import openfl.geom.Rectangle;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 /**
  * The DefaultRenderer class provides the default rendering method. It renders the scene graph objects using the

@@ -1,7 +1,7 @@
 package away3d.materials;
 
-import away3d.textures.Texture2DBase;
 import away3d.textures.Anisotropy;
+import away3d.textures.Texture2DBase;
 import openfl.display.BlendMode;
 import openfl.geom.ColorTransform;
 

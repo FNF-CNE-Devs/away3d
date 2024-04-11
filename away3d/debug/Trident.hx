@@ -6,8 +6,8 @@ import away3d.entities.Mesh;
 import away3d.extrusions.LatheExtrude;
 import away3d.materials.ColorMaterial;
 import away3d.tools.commands.Merge;
-import openfl.geom.Vector3D;
 import openfl.Vector;
+import openfl.geom.Vector3D;
 
 /**
  * Creates a new <code>Trident</code> object.

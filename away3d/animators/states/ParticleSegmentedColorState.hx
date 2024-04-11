@@ -8,8 +8,8 @@ import away3d.animators.nodes.ParticleSegmentedColorNode;
 import away3d.cameras.Camera3D;
 import away3d.core.base.IRenderable;
 import away3d.core.managers.Stage3DProxy;
-import openfl.geom.ColorTransform;
 import openfl.Vector;
+import openfl.geom.ColorTransform;
 
 class ParticleSegmentedColorState extends ParticleStateBase {
 	public var startColor(get, set):ColorTransform;

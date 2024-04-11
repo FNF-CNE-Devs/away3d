@@ -1,9 +1,9 @@
 package away3d.core.base;
 
 import away3d.core.managers.Stage3DProxy;
+import openfl.Vector;
 import openfl.display3D.IndexBuffer3D;
 import openfl.geom.Matrix3D;
-import openfl.Vector;
 
 interface ISubGeometry {
 	/**

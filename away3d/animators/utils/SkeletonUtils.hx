@@ -2,9 +2,9 @@ package away3d.animators.utils;
 
 import away3d.animators.data.*;
 import away3d.animators.nodes.*;
+import openfl.Vector;
 import openfl.errors.Error;
 import openfl.geom.*;
-import openfl.Vector;
 
 class SkeletonUtils {
 	public static function generateDifferenceClip(source:SkeletonClipNode, referencePose:SkeletonPose):SkeletonClipNode {

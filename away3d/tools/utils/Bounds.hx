@@ -1,12 +1,12 @@
 package away3d.tools.utils;
 
-import away3d.lights.LightBase;
-import away3d.entities.Entity;
 import away3d.containers.ObjectContainer3D;
+import away3d.entities.Entity;
 import away3d.entities.Mesh;
+import away3d.lights.LightBase;
+import openfl.Vector;
 import openfl.geom.Matrix3D;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 /**
  * Helper Class to retrieve objects bounds <code>Bounds</code>

@@ -4,12 +4,12 @@ import away3d.cameras.Camera3D;
 import away3d.core.base.IRenderable;
 import away3d.core.managers.Stage3DProxy;
 import away3d.lights.LightBase;
+import openfl.Vector;
 import openfl.display3D.Context3D;
 import openfl.display3D.Context3DProgramType;
 import openfl.display3D.Context3DTextureFormat;
 import openfl.display3D.textures.Texture;
 import openfl.geom.Matrix3D;
-import openfl.Vector;
 
 /**
  * The SingleObjectDepthPass provides a material pass that renders a single object to a depth map from the point

@@ -1,9 +1,9 @@
 package away3d.materials.methods;
 
-import openfl.errors.Error;
 import away3d.materials.compilation.ShaderRegisterCache;
 import away3d.materials.compilation.ShaderRegisterElement;
 import openfl.Vector;
+import openfl.errors.Error;
 
 /**
  * DepthDiffuseMethod provides a debug method to visualise depth maps

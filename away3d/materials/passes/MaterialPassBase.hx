@@ -1,7 +1,7 @@
 package away3d.materials.passes;
 
-import away3d.animators.data.AnimationRegisterCache;
 import away3d.animators.IAnimationSet;
+import away3d.animators.data.AnimationRegisterCache;
 import away3d.cameras.Camera3D;
 import away3d.core.base.IRenderable;
 import away3d.core.managers.AGALProgram3DCache;
@@ -11,6 +11,7 @@ import away3d.errors.AbstractMethodError;
 import away3d.materials.MaterialBase;
 import away3d.materials.lightpickers.LightPickerBase;
 import away3d.textures.Anisotropy;
+import openfl.Vector;
 import openfl.display.BlendMode;
 import openfl.display3D.Context3D;
 import openfl.display3D.Context3DBlendFactor;
@@ -24,7 +25,6 @@ import openfl.events.Event;
 import openfl.events.EventDispatcher;
 import openfl.geom.Matrix3D;
 import openfl.geom.Rectangle;
-import openfl.Vector;
 
 /**
  * MaterialPassBase provides an abstract base class for material shader passes. A material pass constitutes at least

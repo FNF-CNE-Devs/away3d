@@ -1,8 +1,8 @@
 package away3d.stereo.methods;
 
 import away3d.core.managers.Stage3DProxy;
-import openfl.display3D.Context3DProgramType;
 import openfl.Vector;
+import openfl.display3D.Context3DProgramType;
 
 class AnaglyphStereoRenderMethod extends StereoRenderMethodBase {
 	private var _filterData:Vector<Float>;

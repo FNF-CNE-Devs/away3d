@@ -10,10 +10,10 @@ import away3d.materials.LightSources;
 import away3d.materials.MaterialBase;
 import away3d.materials.compilation.LightingShaderCompiler;
 import away3d.materials.compilation.ShaderCompiler;
+import openfl.Vector;
 import openfl.display3D.Context3D;
 import openfl.geom.Matrix3D;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 /**
  * LightingPass is a shader pass that uses shader methods to compile a complete program. It only includes the lighting

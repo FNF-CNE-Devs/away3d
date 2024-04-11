@@ -1,8 +1,8 @@
 package away3d.cameras.lenses;
 
 import away3d.core.math.*;
-import openfl.geom.*;
 import openfl.Vector;
+import openfl.geom.*;
 
 /**
  * The PerspectiveLens object provides a projection matrix that projects 3D geometry with perspective distortion.

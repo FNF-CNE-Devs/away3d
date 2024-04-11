@@ -11,9 +11,9 @@ import away3d.lights.*;
 import away3d.loaders.misc.*;
 import away3d.loaders.parsers.*;
 import away3d.primitives.*;
+import openfl.Vector;
 import openfl.events.*;
 import openfl.net.*;
-import openfl.Vector;
 
 /**
  * Loader3D can load any file format that Away3D supports (or for which a third-party parser

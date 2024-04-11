@@ -5,10 +5,10 @@ import away3d.core.managers.*;
 import away3d.events.Stage3DEvent;
 import away3d.filters.*;
 import away3d.filters.tasks.*;
+import openfl.Vector;
 import openfl.display3D.*;
 import openfl.display3D.textures.*;
 import openfl.events.*;
-import openfl.Vector;
 
 /**
  */

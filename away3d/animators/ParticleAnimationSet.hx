@@ -8,10 +8,10 @@ import away3d.core.base.data.*;
 import away3d.core.managers.*;
 import away3d.entities.*;
 import away3d.materials.passes.*;
-import openfl.display3D.*;
-import openfl.utils.*;
-import openfl.errors.Error;
 import openfl.Vector;
+import openfl.display3D.*;
+import openfl.errors.Error;
+import openfl.utils.*;
 
 /**
  * The animation data set used by particle-based animators, containing particle animation data.

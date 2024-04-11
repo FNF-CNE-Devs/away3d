@@ -13,11 +13,11 @@ import away3d.core.partition.EntityNode;
 import away3d.core.partition.RenderableNode;
 import away3d.core.pick.IPickingCollider;
 import away3d.materials.MaterialBase;
-import openfl.display3D.IndexBuffer3D;
-import openfl.geom.Matrix;
-import openfl.geom.Matrix3D;
-import openfl.geom.Vector3D;
 import openfl.Vector;
+import openfl.display3D.IndexBuffer3D;
+import openfl.geom.Matrix3D;
+import openfl.geom.Matrix;
+import openfl.geom.Vector3D;
 
 /**
  * Sprite3D is a 3D billboard, a renderable rectangular area that is always aligned with the projection plane.

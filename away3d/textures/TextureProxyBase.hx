@@ -5,10 +5,10 @@ import away3d.errors.AbstractMethodError;
 import away3d.library.assets.Asset3DType;
 import away3d.library.assets.IAsset;
 import away3d.library.assets.NamedAssetBase;
+import openfl.Vector;
 import openfl.display3D.Context3D;
 import openfl.display3D.Context3DTextureFormat;
 import openfl.display3D.textures.TextureBase;
-import openfl.Vector;
 
 class TextureProxyBase extends NamedAssetBase implements IAsset {
 	public var hasMipMaps(get, never):Bool;

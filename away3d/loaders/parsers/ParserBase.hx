@@ -8,6 +8,8 @@ import away3d.library.assets.IAsset;
 import away3d.loaders.misc.ResourceDependency;
 import away3d.loaders.parsers.utils.ParserUtil;
 import away3d.tools.utils.TextureUtils;
+import openfl.Lib;
+import openfl.Vector;
 import openfl.display.BitmapData;
 import openfl.errors.Error;
 import openfl.events.EventDispatcher;
@@ -15,8 +17,6 @@ import openfl.events.TimerEvent;
 import openfl.net.URLRequest;
 import openfl.utils.ByteArray;
 import openfl.utils.Timer;
-import openfl.Lib;
-import openfl.Vector;
 
 /**
  * <code>ParserBase</code> provides an abstract base class for objects that convert blocks of data to data structures

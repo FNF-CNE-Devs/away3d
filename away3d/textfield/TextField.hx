@@ -3,14 +3,14 @@ package away3d.textfield;
 import away3d.core.base.CompactSubGeometry;
 import away3d.core.base.Geometry;
 import away3d.entities.Mesh;
-import away3d.materials.methods.ColorTransformMethod;
 import away3d.materials.SinglePassMaterialBase;
 import away3d.materials.TextureMaterial;
+import away3d.materials.methods.ColorTransformMethod;
+import openfl.Vector;
 import openfl.display.DisplayObjectContainer;
 import openfl.geom.ColorTransform;
 import openfl.geom.Rectangle;
 import openfl.text.TextFieldAutoSize;
-import openfl.Vector;
 
 class TextField extends Mesh {
 	private var vertexData:Vector<Float> = new Vector<Float>();

@@ -1,9 +1,9 @@
 package away3d.tools.utils;
 
+import openfl.Vector;
 import openfl.display.BitmapData;
 import openfl.events.Event;
 import openfl.events.EventDispatcher;
-import openfl.Vector;
 
 class ColorHitMap extends EventDispatcher {
 	public var offsetX(get, set):Float;

@@ -9,9 +9,9 @@ import away3d.library.assets.*;
 import away3d.materials.compilation.*;
 import away3d.materials.passes.*;
 import away3d.textures.*;
-import openfl.display3D.Context3DTextureFormat;
-import openfl.display3D.Context3DTextureFilter;
 import openfl.Vector;
+import openfl.display3D.Context3DTextureFilter;
+import openfl.display3D.Context3DTextureFormat;
 
 /**
  * ShadingMethodBase provides an abstract base method for shading methods, used by compiled passes to compile

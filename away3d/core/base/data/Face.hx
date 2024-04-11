@@ -1,8 +1,8 @@
 package away3d.core.base.data;
 
+import openfl.Vector;
 import openfl.geom.Point;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 /**
  * Face value object.

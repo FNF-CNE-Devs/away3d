@@ -12,10 +12,10 @@ import away3d.entities.Entity;
 import away3d.events.CameraEvent;
 import away3d.events.LensEvent;
 import away3d.library.assets.Asset3DType;
+import openfl.Vector;
 import openfl.errors.Error;
 import openfl.geom.Matrix3D;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 /**
  * A Camera3D object represents a virtual camera through which we view the scene.

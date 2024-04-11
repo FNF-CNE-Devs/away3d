@@ -5,8 +5,8 @@ import away3d.containers.ObjectContainer3D;
 import away3d.core.base.Geometry;
 import away3d.core.base.ISubGeometry;
 import away3d.entities.Mesh;
-import openfl.geom.Vector3D;
 import openfl.Vector;
+import openfl.geom.Vector3D;
 
 /**
  * Class SphereMaker transforms a Mesh into a Sphere unic<code>SphereMaker</code>

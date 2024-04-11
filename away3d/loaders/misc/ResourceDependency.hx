@@ -2,8 +2,8 @@ package away3d.loaders.misc;
 
 import away3d.library.assets.IAsset;
 import away3d.loaders.parsers.ParserBase;
-import openfl.net.URLRequest;
 import openfl.Vector;
+import openfl.net.URLRequest;
 
 /**
  * ResourceDependency represents the data required to load, parse and resolve additional files ("dependencies")

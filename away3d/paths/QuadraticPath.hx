@@ -1,7 +1,7 @@
 package away3d.paths;
 
-import openfl.geom.Vector3D;
 import openfl.Vector;
+import openfl.geom.Vector3D;
 
 /**
  * Holds information about a single Path definition.

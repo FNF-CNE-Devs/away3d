@@ -5,9 +5,9 @@ import away3d.lights.DirectionalLight;
 import away3d.materials.compilation.ShaderRegisterCache;
 import away3d.materials.compilation.ShaderRegisterElement;
 import away3d.textures.BitmapTexture;
+import openfl.Vector;
 import openfl.display.BitmapData;
 import openfl.utils.ByteArray;
-import openfl.Vector;
 
 /**
  * DitheredShadowMapMethod provides a soft shadowing technique by randomly distributing sample points differently for each fragment.

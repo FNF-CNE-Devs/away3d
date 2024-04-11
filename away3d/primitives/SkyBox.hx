@@ -15,10 +15,10 @@ import away3d.library.assets.Asset3DType;
 import away3d.materials.MaterialBase;
 import away3d.materials.SkyBoxMaterial;
 import away3d.textures.CubeTextureBase;
-import openfl.display3D.IndexBuffer3D;
-import openfl.geom.Matrix;
-import openfl.geom.Matrix3D;
 import openfl.Vector;
+import openfl.display3D.IndexBuffer3D;
+import openfl.geom.Matrix3D;
+import openfl.geom.Matrix;
 
 /**
  * A SkyBox class is used to render a sky in the scene. It's always considered static and 'at infinity', and as

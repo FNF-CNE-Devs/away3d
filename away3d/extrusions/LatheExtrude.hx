@@ -13,10 +13,10 @@ import away3d.extrusions.data.SubGeometryList;
 import away3d.materials.MaterialBase;
 import away3d.materials.utils.MultipleMaterials;
 import away3d.tools.helpers.MeshHelper;
+import openfl.Vector;
 import openfl.errors.Error;
 import openfl.geom.Point;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 /**
  * Class for generating meshes with axial symmetry such as donuts, pipes, vases etc.

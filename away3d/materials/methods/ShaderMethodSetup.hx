@@ -1,8 +1,8 @@
 package away3d.materials.methods;
 
 import away3d.events.ShadingMethodEvent;
-import openfl.events.EventDispatcher;
 import openfl.Vector;
+import openfl.events.EventDispatcher;
 
 /**
  * ShaderMethodSetup contains the method configuration for an entire material.

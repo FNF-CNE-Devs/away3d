@@ -1,8 +1,8 @@
 package away3d.primitives;
 
+import openfl.Vector;
 import openfl.errors.Error;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 /**
  * Generates a wireframd cylinder primitive.

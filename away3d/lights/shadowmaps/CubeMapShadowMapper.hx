@@ -7,9 +7,9 @@ import away3d.core.render.DepthRenderer;
 import away3d.lights.PointLight;
 import away3d.textures.RenderCubeTexture;
 import away3d.textures.TextureProxyBase;
+import openfl.Vector;
 import openfl.display3D.textures.TextureBase;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 class CubeMapShadowMapper extends ShadowMapperBase {
 	private var _depthCameras:Vector<Camera3D>;

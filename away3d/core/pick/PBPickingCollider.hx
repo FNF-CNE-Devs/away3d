@@ -1,10 +1,10 @@
 package away3d.core.pick;
 
 import away3d.core.base.*;
+import openfl.Vector;
 import openfl.display.*;
 import openfl.geom.*;
 import openfl.utils.*;
-import openfl.Vector;
 
 /**
  * PixelBender-based picking collider for entity objects. Used with the <code>RaycastPicker</code> picking object.

@@ -10,10 +10,10 @@ import away3d.loaders.parsers.utils.*;
 import away3d.materials.*;
 import away3d.materials.utils.*;
 import away3d.textures.*;
+import openfl.Vector;
 import openfl.net.URLRequest;
 import openfl.utils.ByteArray;
 import openfl.utils.Endian;
-import openfl.Vector;
 
 /**
  * MD2Parser provides a parser for the MD2 data type.

@@ -4,8 +4,8 @@ import away3d.lights.DirectionalLight;
 import away3d.lights.PointLight;
 import away3d.materials.compilation.ShaderRegisterCache;
 import away3d.materials.compilation.ShaderRegisterElement;
-import openfl.errors.Error;
 import openfl.Vector;
+import openfl.errors.Error;
 
 @:deprecated("Please consider any of the superior shadow map methods: SoftShadowMapMethod or DitheredShadowMapMethod")
 class TripleFilteredShadowMapMethod extends SimpleShadowMapMethodBase {

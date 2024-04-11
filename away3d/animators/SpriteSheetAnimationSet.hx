@@ -2,8 +2,8 @@ package away3d.animators;
 
 import away3d.core.managers.Stage3DProxy;
 import away3d.materials.passes.MaterialPassBase;
-import openfl.display3D.Context3D;
 import openfl.Vector;
+import openfl.display3D.Context3D;
 
 /**
  * The animation data set containing the Spritesheet animation state data.

@@ -4,11 +4,11 @@ import away3d.cameras.Camera3D;
 import away3d.core.math.Matrix3DUtils;
 import away3d.errors.AbstractMethodError;
 import away3d.events.LensEvent;
+import openfl.Vector;
 import openfl.events.EventDispatcher;
 import openfl.geom.Matrix3D;
 import openfl.geom.Rectangle;
 import openfl.geom.Vector3D;
-import openfl.Vector;
 
 /**
  * An abstract base class for all lens classes. Lens objects provides a projection matrix that transforms 3D geometry to normalized homogeneous coordinates.

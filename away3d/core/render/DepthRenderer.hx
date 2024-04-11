@@ -7,11 +7,11 @@ import away3d.core.math.Plane3D;
 import away3d.core.traverse.EntityCollector;
 import away3d.entities.Entity;
 import away3d.materials.MaterialBase;
+import openfl.Vector;
 import openfl.display3D.Context3DBlendFactor;
 import openfl.display3D.Context3DCompareMode;
 import openfl.display3D.textures.TextureBase;
 import openfl.geom.Rectangle;
-import openfl.Vector;
 
 /**
  * The DepthRenderer class renders 32-bit depth information encoded as RGBA
