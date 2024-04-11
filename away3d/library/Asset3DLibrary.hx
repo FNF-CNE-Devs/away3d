@@ -1,5 +1,6 @@
 package away3d.library;
 
+import away3d.library.assets.Asset3DType;
 import away3d.library.assets.IAsset;
 import away3d.library.naming.ConflictPrecedence;
 import away3d.library.naming.ConflictStrategyBase;
@@ -86,8 +87,9 @@ class Asset3DLibrary {
 	 *
 	 * @see away3d.library.Asset3DLibraryBundle.createIterator()
 	 */
-	public static function createIterator(Asset3DTypeFilter:String = null, namespaceFilter:String = null, filterFunc:Dynamic = null):Asset3DLibraryIterator {
-		return getBundle().createIterator(Asset3DTypeFilter, namespaceFilter, filterFunc);
+	public static function createIterator(asset3DTypeFilter:Asset3DType = null, namespaceFilter:String = null,
+			filterFunc:Dynamic = null):Asset3DLibraryIterator {
+		return getBundle().createIterator(asset3DTypeFilter, namespaceFilter, filterFunc);
 	}
 
 	/**

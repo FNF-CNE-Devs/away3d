@@ -43,12 +43,6 @@ class ParticleOrbitNode extends ParticleNodeBase {
 	@:allow(away3d) private var _eulers:Vector3D;
 
 	/**
-	 * Reference for orbit node properties on a single particle (when in local property mode).
-	 * Expects a <code>Vector3D</code> object representing the radius (x), cycle speed (y) and cycle phase (z) of the motion on the particle.
-	 */
-	public static inline var ORBIT_VECTOR3D:String = "OrbitVector3D";
-
-	/**
 	 * Creates a new <code>ParticleOrbitNode</code> object.
 	 *
 	 * @param               mode            Defines whether the mode of operation acts on local properties of a particle or global properties of the node.
@@ -163,9 +157,9 @@ class ParticleOrbitNode extends ParticleNodeBase {
 	 */
 	override private function generatePropertyOfOneParticle(param:ParticleProperties):Void {
 		// Vector3D.x is radius, Vector3D.y is cycle duration, Vector3D.z is phase
-		var orbit:Vector3D = param.nodes[ORBIT_VECTOR3D];
+		var orbit:Vector3D = param.nodes[ParticleNodeEnum.ORBIT_VECTOR3D];
 		if (orbit == null)
-			throw new Error("there is no " + ORBIT_VECTOR3D + " in param!");
+			throw new Error("there is no " + ParticleNodeEnum.ORBIT_VECTOR3D + " in param!");
 
 		_oneData[0] = orbit.x;
 		if (_usesCycle && orbit.y <= 0)

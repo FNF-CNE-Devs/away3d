@@ -7,7 +7,7 @@ class IgnoreConflictStrategy extends ConflictStrategyBase {
 		super();
 	}
 
-	override public function resolveConflict(changedAsset:IAsset, oldAsset:IAsset, assetsDictionary:Dynamic, precedence:String):Void {
+	override public function resolveConflict(changedAsset:IAsset, oldAsset:IAsset, assetsDictionary:Dynamic, precedence:ConflictPrecedence):Void {
 		// Do nothing, ignore the fact that there is a conflict.
 		return;
 	}

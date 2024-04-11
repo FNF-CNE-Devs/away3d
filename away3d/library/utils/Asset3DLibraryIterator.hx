@@ -1,5 +1,6 @@
 package away3d.library.utils;
 
+import away3d.library.assets.Asset3DType;
 import away3d.library.assets.IAsset;
 import openfl.Vector;
 
@@ -11,7 +12,7 @@ class Asset3DLibraryIterator {
 	private var _filtered:Vector<IAsset>;
 	private var _idx:Int;
 
-	public function new(assets:Vector<IAsset>, assetTypeFilter:String, namespaceFilter:String, filterFunc:Dynamic->Dynamic) {
+	public function new(assets:Vector<IAsset>, assetTypeFilter:Asset3DType, namespaceFilter:String, filterFunc:Dynamic->Dynamic) {
 		_assets = assets;
 		filter(assetTypeFilter, namespaceFilter, filterFunc);
 	}
@@ -44,7 +45,7 @@ class Asset3DLibraryIterator {
 		_idx = index;
 	}
 
-	private function filter(assetTypeFilter:String, namespaceFilter:String, filterFunc:Dynamic->Dynamic):Void {
+	private function filter(assetTypeFilter:Asset3DType, namespaceFilter:String, filterFunc:Dynamic->Dynamic):Void {
 		if (assetTypeFilter != null || namespaceFilter != null || filterFunc != null) {
 			var idx:Int;
 			var asset:IAsset;

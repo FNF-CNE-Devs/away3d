@@ -793,7 +793,7 @@ class MaterialVO {
 
 class ObjectVO {
 	public var name:String;
-	public var type:String;
+	public var type:Asset3DType;
 	public var pivotX:Float;
 	public var pivotY:Float;
 	public var pivotZ:Float;

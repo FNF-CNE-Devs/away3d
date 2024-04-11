@@ -22,12 +22,6 @@ class ParticlePositionNode extends ParticleNodeBase {
 	@:allow(away3d) private var _position:Vector3D;
 
 	/**
-	 * Reference for position node properties on a single particle (when in local property mode).
-	 * Expects a <code>Vector3D</code> object representing position of the particle.
-	 */
-	public static inline var POSITION_VECTOR3D:String = "PositionVector3D";
-
-	/**
 	 * Creates a new <code>ParticlePositionNode</code>
 	 *
 	 * @param               mode            Defines whether the mode of operation acts on local properties of a particle or global properties of the node.
@@ -70,9 +64,9 @@ class ParticlePositionNode extends ParticleNodeBase {
 	 * @inheritDoc
 	 */
 	override public function generatePropertyOfOneParticle(param:ParticleProperties):Void {
-		var offset:Vector3D = param.nodes[POSITION_VECTOR3D];
+		var offset:Vector3D = param.nodes[ParticleNodeEnum.POSITION_VECTOR3D];
 		if (offset == null)
-			throw new Error("there is no " + POSITION_VECTOR3D + " in param!");
+			throw new Error("there is no " + ParticleNodeEnum.POSITION_VECTOR3D + " in param!");
 
 		_oneData[0] = offset.x;
 		_oneData[1] = offset.y;

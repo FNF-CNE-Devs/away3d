@@ -29,12 +29,6 @@ class ParticleInitialColorNode extends ParticleNodeBase {
 	/** @private */
 	@:allow(away3d) private var _initialColor:ColorTransform;
 
-	/**
-	 * Reference for color node properties on a single particle (when in local property mode).
-	 * Expects a <code>ColorTransform</code> object representing the color transform applied to the particle.
-	 */
-	public static inline var COLOR_INITIAL_COLORTRANSFORM:String = "ColorInitialColorTransform";
-
 	public function new(mode:ParticlePropertiesMode, usesMultiplier:Bool = true, usesOffset:Bool = false, initialColor:ColorTransform = null) {
 		_stateConstructor = cast ParticleInitialColorState.new;
 
@@ -91,9 +85,9 @@ class ParticleInitialColorNode extends ParticleNodeBase {
 	 * @inheritDoc
 	 */
 	override private function generatePropertyOfOneParticle(param:ParticleProperties):Void {
-		var initialColor:ColorTransform = param.nodes[COLOR_INITIAL_COLORTRANSFORM];
+		var initialColor:ColorTransform = param.nodes[ParticleNodeEnum.COLOR_INITIAL_COLORTRANSFORM];
 		if (initialColor == null)
-			throw new Error("there is no " + COLOR_INITIAL_COLORTRANSFORM + " in param!");
+			throw new Error("there is no " + ParticleNodeEnum.COLOR_INITIAL_COLORTRANSFORM + " in param!");
 
 		var i:Int = 0;
 

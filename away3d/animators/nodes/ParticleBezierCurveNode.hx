@@ -28,18 +28,6 @@ class ParticleBezierCurveNode extends ParticleNodeBase {
 	@:allow(away3d) private var _endPoint:Vector3D;
 
 	/**
-	 * Reference for bezier curve node properties on a single particle (when in local property mode).
-	 * Expects a <code>Vector3D</code> object representing the control point position (0, 1, 2) of the curve.
-	 */
-	public static inline var BEZIER_CONTROL_VECTOR3D:String = "BezierControlVector3D";
-
-	/**
-	 * Reference for bezier curve node properties on a single particle (when in local property mode).
-	 * Expects a <code>Vector3D</code> object representing the end point position (0, 1, 2) of the curve.
-	 */
-	public static inline var BEZIER_END_VECTOR3D:String = "BezierEndVector3D";
-
-	/**
 	 * Creates a new <code>ParticleBezierCurveNode</code>
 	 *
 	 * @param               mode            Defines whether the mode of operation acts on local properties of a particle or global properties of the node.
@@ -138,14 +126,14 @@ class ParticleBezierCurveNode extends ParticleNodeBase {
 	 * @inheritDoc
 	 */
 	override public function generatePropertyOfOneParticle(param:ParticleProperties):Void {
-		var bezierControl:Vector3D = param.nodes[BEZIER_CONTROL_VECTOR3D];
+		var bezierControl:Vector3D = param.nodes[ParticleNodeEnum.BEZIER_CONTROL_VECTOR3D];
 
 		if (bezierControl == null)
-			throw new Error("there is no " + BEZIER_CONTROL_VECTOR3D + " in param!");
+			throw new Error("there is no " + ParticleNodeEnum.BEZIER_CONTROL_VECTOR3D + " in param!");
 
-		var bezierEnd:Vector3D = param.nodes[BEZIER_END_VECTOR3D];
+		var bezierEnd:Vector3D = param.nodes[ParticleNodeEnum.BEZIER_END_VECTOR3D];
 		if (bezierEnd == null)
-			throw new Error("there is no " + BEZIER_END_VECTOR3D + " in param!");
+			throw new Error("there is no " + ParticleNodeEnum.BEZIER_END_VECTOR3D + " in param!");
 
 		_oneData[0] = bezierControl.x;
 		_oneData[1] = bezierControl.y;

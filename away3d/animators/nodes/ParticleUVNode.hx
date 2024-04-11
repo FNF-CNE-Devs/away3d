@@ -57,10 +57,7 @@ class ParticleUVNode extends ParticleNodeBase {
 		updateUVData();
 	}
 
-	/**
-	 *
-	 */
-	private function get_cycle():Float {
+	private inline function get_cycle():Float {
 		return _cycle;
 	}
 
@@ -71,10 +68,7 @@ class ParticleUVNode extends ParticleNodeBase {
 		return value;
 	}
 
-	/**
-	 *
-	 */
-	private function get_scale():Float {
+	private inline function get_scale():Float {
 		return _scale;
 	}
 
@@ -85,16 +79,12 @@ class ParticleUVNode extends ParticleNodeBase {
 		return value;
 	}
 
-	/**
-	 *
-	 */
-	private function get_axis():String {
+	private inline function get_axis():String {
 		return _axis;
 	}
 
-	private function set_axis(value:String):String {
-		_axis = value;
-		return value;
+	private inline function set_axis(value:String):String {
+		return _axis = value;
 	}
 
 	/**

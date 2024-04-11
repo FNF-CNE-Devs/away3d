@@ -37,12 +37,6 @@ class ParticleScaleNode extends ParticleNodeBase {
 	@:allow(away3d) private var _cyclePhase:Float;
 
 	/**
-	 * Reference for scale node properties on a single particle (when in local property mode).
-	 * Expects a <code>Vector3D</code> representing the min scale (x), max scale(y), optional cycle speed (z) and phase offset (w) applied to the particle.
-	 */
-	public static inline var SCALE_VECTOR3D:String = "ScaleVector3D";
-
-	/**
 	 * Creates a new <code>ParticleScaleNode</code>
 	 *
 	 * @param               mode            Defines whether the mode of operation acts on local properties of a particle or global properties of the node.
@@ -116,9 +110,9 @@ class ParticleScaleNode extends ParticleNodeBase {
 	 * @inheritDoc
 	 */
 	override public function generatePropertyOfOneParticle(param:ParticleProperties):Void {
-		var scale:Vector3D = param.nodes[SCALE_VECTOR3D];
+		var scale:Vector3D = param.nodes[ParticleNodeEnum.SCALE_VECTOR3D];
 		if (scale == null)
-			throw new Error("there is no " + SCALE_VECTOR3D + " in param!");
+			throw new Error("there is no " + ParticleNodeEnum.SCALE_VECTOR3D + " in param!");
 
 		if (_usesCycle) {
 			_oneData[0] = (scale.x + scale.y) / 2;

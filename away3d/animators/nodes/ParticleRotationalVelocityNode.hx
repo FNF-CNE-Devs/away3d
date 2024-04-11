@@ -22,12 +22,6 @@ class ParticleRotationalVelocityNode extends ParticleNodeBase {
 	@:allow(away3d) private var _rotationalVelocity:Vector3D;
 
 	/**
-	 * Reference for rotational velocity node properties on a single particle (when in local property mode).
-	 * Expects a <code>Vector3D</code> object representing the rotational velocity around an axis of the particle.
-	 */
-	public static inline var ROTATIONALVELOCITY_VECTOR3D:String = "RotationalVelocityVector3D";
-
-	/**
 	 * Creates a new <code>ParticleRotationalVelocityNode</code>
 	 *
 	 * @param               mode            Defines whether the mode of operation acts on local properties of a particle or global properties of the node.
@@ -135,9 +129,9 @@ class ParticleRotationalVelocityNode extends ParticleNodeBase {
 	 */
 	override private function generatePropertyOfOneParticle(param:ParticleProperties):Void {
 		// (Vector3d.x,Vector3d.y,Vector3d.z) is rotation axis,Vector3d.w is cycle duration
-		var rotate:Vector3D = param.nodes[ROTATIONALVELOCITY_VECTOR3D];
+		var rotate:Vector3D = param.nodes[ParticleNodeEnum.ROTATIONALVELOCITY_VECTOR3D];
 		if (rotate == null)
-			throw new Error("there is no " + ROTATIONALVELOCITY_VECTOR3D + " in param!");
+			throw new Error("there is no " + ParticleNodeEnum.ROTATIONALVELOCITY_VECTOR3D + " in param!");
 
 		if (rotate.length <= 0)
 			rotate.z = 1; // set the default direction

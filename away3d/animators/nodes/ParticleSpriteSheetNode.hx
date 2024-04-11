@@ -49,29 +49,23 @@ class ParticleSpriteSheetNode extends ParticleNodeBase {
 	@:allow(away3d) private var _cyclePhase:Float;
 
 	/**
-	 * Reference for spritesheet node properties on a single particle (when in local property mode).
-	 * Expects a <code>Vector3D</code> representing the cycleDuration (x), optional phaseTime (y).
-	 */
-	public static inline var UV_VECTOR3D:String = "UVVector3D";
-
-	/**
 	 * Defines the number of columns in the spritesheet, when in global mode. Defaults to 1. Read only.
 	 */
-	private function get_numColumns():Float {
+	private inline function get_numColumns():Float {
 		return _numColumns;
 	}
 
 	/**
 	 * Defines the number of rows in the spritesheet, when in global mode. Defaults to 1. Read only.
 	 */
-	private function get_numRows():Float {
+	private inline function get_numRows():Float {
 		return _numRows;
 	}
 
 	/**
 	 * Defines the total number of frames used by the spritesheet, when in global mode. Defaults to the number defined by numColumns and numRows. Read only.
 	 */
-	private function get_totalFrames():Float {
+	private inline function get_totalFrames():Float {
 		return _totalFrames;
 	}
 
@@ -194,9 +188,9 @@ class ParticleSpriteSheetNode extends ParticleNodeBase {
 	 */
 	override private function generatePropertyOfOneParticle(param:ParticleProperties):Void {
 		if (_usesCycle) {
-			var uvCycle:Vector3D = param.nodes[UV_VECTOR3D];
+			var uvCycle:Vector3D = param.nodes[ParticleNodeEnum.UV_VECTOR3D];
 			if (uvCycle == null)
-				throw new Error("there is no " + UV_VECTOR3D + " in param!");
+				throw new Error("there is no " + ParticleNodeEnum.UV_VECTOR3D + " in param!");
 			if (uvCycle.x <= 0)
 				throw new Error("the cycle duration must be greater than zero");
 			var uTotal:Float = _totalFrames / _numColumns;

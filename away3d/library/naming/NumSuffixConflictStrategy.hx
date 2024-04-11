@@ -13,7 +13,7 @@ class NumSuffixConflictStrategy extends ConflictStrategyBase {
 		_next_suffix = new Map<String, Int>();
 	}
 
-	override public function resolveConflict(changedAsset:IAsset, oldAsset:IAsset, assetsDictionary:Dynamic, precedence:String):Void {
+	override public function resolveConflict(changedAsset:IAsset, oldAsset:IAsset, assetsDictionary:Dynamic, precedence:ConflictPrecedence):Void {
 		var assetsDictionary2:Map<String, IAsset> = cast assetsDictionary;
 		var orig:String;
 		var new_name:String;

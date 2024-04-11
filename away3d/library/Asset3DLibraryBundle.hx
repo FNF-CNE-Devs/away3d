@@ -3,6 +3,7 @@ package away3d.library;
 import away3d.events.Asset3DEvent;
 import away3d.events.LoaderEvent;
 import away3d.events.ParserEvent;
+import away3d.library.assets.Asset3DType;
 import away3d.library.assets.IAsset;
 import away3d.library.assets.NamedAssetBase;
 import away3d.library.naming.ConflictPrecedence;
@@ -94,36 +95,30 @@ class Asset3DLibraryBundle extends EventDispatcher {
 		return Asset3DLibrary._instances[key];
 	}
 
-	/**
-	 *
-	 */
 	public function enableParser(parserClass:Class<ParserBase>):Void {
 		SingleFileLoader.enableParser(parserClass);
 	}
 
-	/**
-	 *
-	 */
 	public function enableParsers(parserClasses:Array<Dynamic>):Void {
 		SingleFileLoader.enableParsers(parserClasses);
 	}
 
-	private function get_conflictStrategy():ConflictStrategyBase {
+	private inline function get_conflictStrategy():ConflictStrategyBase {
 		return _strategy;
 	}
 
-	private function set_conflictStrategy(val:ConflictStrategyBase):ConflictStrategyBase {
+	private inline function set_conflictStrategy(val:ConflictStrategyBase):ConflictStrategyBase {
 		if (val == null)
 			throw new Error('namingStrategy must not be null. To ignore naming, use Asset3DLibrary.IGNORE');
 
 		return _strategy = val.create();
 	}
 
-	private function get_conflictPrecedence():ConflictPrecedence {
+	private inline function get_conflictPrecedence():ConflictPrecedence {
 		return _strategyPreference;
 	}
 
-	private function set_conflictPrecedence(val:ConflictPrecedence):ConflictPrecedence {
+	private inline function set_conflictPrecedence(val:ConflictPrecedence):ConflictPrecedence {
 		return _strategyPreference = val;
 	}
 
@@ -141,8 +136,8 @@ class Asset3DLibraryBundle extends EventDispatcher {
 	 *
 	 * @see away3d.library.assets.Asset3DType
 	 */
-	public function createIterator(Asset3DTypeFilter:String = null, namespaceFilter:String = null, filterFunc:Dynamic = null):Asset3DLibraryIterator {
-		return new Asset3DLibraryIterator(_assets, Asset3DTypeFilter, namespaceFilter, filterFunc);
+	public function createIterator(asset3DTypeFilter:Asset3DType = null, namespaceFilter:String = null, filterFunc:Dynamic = null):Asset3DLibraryIterator {
+		return new Asset3DLibraryIterator(_assets, asset3DTypeFilter, namespaceFilter, filterFunc);
 	}
 
 	/**
@@ -404,6 +399,7 @@ class Asset3DLibraryBundle extends EventDispatcher {
 		loader.addEventListener(LoaderEvent.RESOURCE_COMPLETE, onResourceRetrieved);
 		loader.addEventListener(LoaderEvent.DEPENDENCY_COMPLETE, onDependencyRetrieved);
 		loader.addEventListener(Asset3DEvent.TEXTURE_SIZE_ERROR, onTextureSizeError);
+		// Assets
 		loader.addEventListener(Asset3DEvent.ASSET_COMPLETE, onAssetComplete);
 		loader.addEventListener(Asset3DEvent.ANIMATION_SET_COMPLETE, onAssetComplete);
 		loader.addEventListener(Asset3DEvent.ANIMATION_STATE_COMPLETE, onAssetComplete);
@@ -509,6 +505,7 @@ class Asset3DLibraryBundle extends EventDispatcher {
 		loader.removeEventListener(LoaderEvent.RESOURCE_COMPLETE, onResourceRetrieved);
 		loader.removeEventListener(LoaderEvent.DEPENDENCY_COMPLETE, onDependencyRetrieved);
 		loader.removeEventListener(Asset3DEvent.TEXTURE_SIZE_ERROR, onTextureSizeError);
+		// Assets
 		loader.removeEventListener(Asset3DEvent.ASSET_COMPLETE, onAssetComplete);
 		loader.removeEventListener(Asset3DEvent.ANIMATION_SET_COMPLETE, onAssetComplete);
 		loader.removeEventListener(Asset3DEvent.ANIMATION_STATE_COMPLETE, onAssetComplete);

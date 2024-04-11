@@ -23,12 +23,6 @@ class ParticleAccelerationNode extends ParticleNodeBase {
 	@:allow(away3d) private var _acceleration:Vector3D;
 
 	/**
-	 * Reference for acceleration node properties on a single particle (when in local property mode).
-	 * Expects a <code>Vector3D</code> object representing the direction of acceleration on the particle.
-	 */
-	public static inline var ACCELERATION_VECTOR3D:String = "AccelerationVector3D";
-
-	/**
 	 * Creates a new <code>ParticleAccelerationNode</code>
 	 *
 	 * @param               mode            Defines whether the mode of operation acts on local properties of a particle or global properties of the node.
@@ -85,9 +79,9 @@ class ParticleAccelerationNode extends ParticleNodeBase {
 	 * @inheritDoc
 	 */
 	override public function generatePropertyOfOneParticle(param:ParticleProperties):Void {
-		var tempAcceleration:Vector3D = param.nodes[ACCELERATION_VECTOR3D];
+		var tempAcceleration:Vector3D = param.nodes[ParticleNodeEnum.ACCELERATION_VECTOR3D];
 		if (tempAcceleration == null)
-			throw new Error("there is no " + ACCELERATION_VECTOR3D + " in param!");
+			throw new Error("there is no " + ParticleNodeEnum.ACCELERATION_VECTOR3D + " in param!");
 
 		_oneData[0] = tempAcceleration.x / 2;
 		_oneData[1] = tempAcceleration.y / 2;

@@ -8,7 +8,7 @@ class ErrorConflictStrategy extends ConflictStrategyBase {
 		super();
 	}
 
-	override public function resolveConflict(changedAsset:IAsset, oldAsset:IAsset, assetsDictionary:Dynamic, precedence:String):Void {
+	override public function resolveConflict(changedAsset:IAsset, oldAsset:IAsset, assetsDictionary:Dynamic, precedence:ConflictPrecedence):Void {
 		throw new Error("Asset name collision while Asset3DLibrary.namingStrategy set to Asset3DLibrary.THROW_ERROR. Asset path: "
 			+ changedAsset.assetFullPath);
 	}

@@ -2397,7 +2397,7 @@ class AWD2Parser extends ParserBase {
 		return _defaultCubeTexture;
 	}
 
-	private function getDefaultAsset(assetType:String, extraTypeInfo:String):IAsset {
+	private function getDefaultAsset(assetType:Asset3DType, extraTypeInfo:String):IAsset {
 		var isTexture:Bool = (assetType == Asset3DType.TEXTURE);
 		var isMaterial:Bool = (assetType == Asset3DType.MATERIAL);
 
@@ -2411,7 +2411,7 @@ class AWD2Parser extends ParserBase {
 		return null;
 	}
 
-	private function getAssetByID(assetID:UInt, assetTypesToGet:Array<String>, extraTypeInfo:String = "SingleTexture"):AssetVO {
+	private function getAssetByID(assetID:UInt, assetTypesToGet:Array<Asset3DType>, extraTypeInfo:String = "SingleTexture"):AssetVO {
 		var assetVO:AssetVO = {enable: false, data: null};
 		var typeCnt:Int = 0;
 		if (assetID > 0) {

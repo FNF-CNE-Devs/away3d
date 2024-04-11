@@ -22,12 +22,6 @@ class ParticleOscillatorNode extends ParticleNodeBase {
 	@:allow(away3d) private var _oscillator:Vector3D;
 
 	/**
-	 * Reference for ocsillator node properties on a single particle (when in local property mode).
-	 * Expects a <code>Vector3D</code> object representing the axis (x,y,z) and cycle speed (w) of the motion on the particle.
-	 */
-	public static inline var OSCILLATOR_VECTOR3D:String = "OscillatorVector3D";
-
-	/**
 	 * Creates a new <code>ParticleOscillatorNode</code>
 	 *
 	 * @param               mode            Defines whether the mode of operation acts on local properties of a particle or global properties of the node.
@@ -97,9 +91,9 @@ class ParticleOscillatorNode extends ParticleNodeBase {
 	 */
 	override public function generatePropertyOfOneParticle(param:ParticleProperties):Void {
 		// (Vector3D.x,Vector3D.y,Vector3D.z) is oscillator axis, Vector3D.w is oscillator cycle duration
-		var drift:Vector3D = param.nodes[OSCILLATOR_VECTOR3D];
+		var drift:Vector3D = param.nodes[ParticleNodeEnum.OSCILLATOR_VECTOR3D];
 		if (drift == null)
-			throw new Error("there is no " + OSCILLATOR_VECTOR3D + " in param!");
+			throw new Error("there is no " + ParticleNodeEnum.OSCILLATOR_VECTOR3D + " in param!");
 
 		_oneData[0] = drift.x;
 		_oneData[1] = drift.y;

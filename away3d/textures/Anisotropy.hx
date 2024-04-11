@@ -21,11 +21,11 @@ package away3d.textures;
 
 	@:to private function toString():String {
 		return switch (cast this : Anisotropy) {
-			case Anisotropy.NONE: "bool";
-			case Anisotropy.ANISOTROPIC2X: "anisotropic2x";
-			case Anisotropy.ANISOTROPIC4X: "anisotropic4x";
-			case Anisotropy.ANISOTROPIC8X: "anisotropic8x";
-			case Anisotropy.ANISOTROPIC16X: "anisotropic16x";
+			case NONE: "bool";
+			case ANISOTROPIC2X: "anisotropic2x";
+			case ANISOTROPIC4X: "anisotropic4x";
+			case ANISOTROPIC8X: "anisotropic8x";
+			case ANISOTROPIC16X: "anisotropic16x";
 			default: null;
 		}
 	}

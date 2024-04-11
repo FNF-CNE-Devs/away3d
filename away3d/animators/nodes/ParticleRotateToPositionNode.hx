@@ -25,12 +25,6 @@ class ParticleRotateToPositionNode extends ParticleNodeBase {
 	@:allow(away3d) private var _position:Vector3D;
 
 	/**
-	 * Reference for the position the particle will rotate to face for a single particle (when in local property mode).
-	 * Expects a <code>Vector3D</code> object representing the position that the particle must face.
-	 */
-	public static inline var POSITION_VECTOR3D:String = "RotateToPositionVector3D";
-
-	/**
 	 * Creates a new <code>ParticleRotateToPositionNode</code>
 	 */
 	public function new(mode:ParticlePropertiesMode, position:Vector3D = null) {
@@ -216,9 +210,9 @@ class ParticleRotateToPositionNode extends ParticleNodeBase {
 	 * @inheritDoc
 	 */
 	override private function generatePropertyOfOneParticle(param:ParticleProperties):Void {
-		var offset:Vector3D = param.nodes[POSITION_VECTOR3D];
+		var offset:Vector3D = param.nodes[ParticleNodeEnum.ROTATE_TO_POSITION_VECTOR3D];
 		if (offset == null)
-			throw new Error("there is no " + POSITION_VECTOR3D + " in param!");
+			throw new Error("there is no " + ParticleNodeEnum.ROTATE_TO_POSITION_VECTOR3D + " in param!");
 
 		_oneData[0] = offset.x;
 		_oneData[1] = offset.y;

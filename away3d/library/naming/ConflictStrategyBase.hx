@@ -28,7 +28,7 @@ class ConflictStrategyBase {
 	 * Resolve a naming conflict between two assets. Must be implemented by concrete strategy
 	 * classes.
 	 */
-	public function resolveConflict(changedAsset:IAsset, oldAsset:IAsset, assetsDictionary:Dynamic, precedence:String):Void {
+	public function resolveConflict(changedAsset:IAsset, oldAsset:IAsset, assetsDictionary:Dynamic, precedence:ConflictPrecedence):Void {
 		throw new AbstractMethodError();
 	}
 
@@ -47,7 +47,7 @@ class ConflictStrategyBase {
 	 * the conflict resolution by applying the new names and dispatching the correct events.
 	 */
 	private function updateNames(ns:String, nonConflictingName:String, oldAsset:IAsset, newAsset:IAsset, assetsDictionary:Map<String, IAsset>,
-			precedence:String):Void {
+			precedence:ConflictPrecedence):Void {
 		var winner:IAsset = (precedence == ConflictPrecedence.FAVOR_NEW) ? newAsset : oldAsset;
 		var loser:IAsset = (precedence == ConflictPrecedence.FAVOR_NEW) ? oldAsset : newAsset;
 

@@ -1,5 +1,7 @@
 package away3d.animators.data;
 
+import away3d.animators.nodes.ParticleNodeEnum;
+
 /**
  * Dynamic class for holding the local properties of a particle, used for processing the static properties
  * of particles in the particle animation set before beginning upload to the GPU.
@@ -34,7 +36,7 @@ class ParticleProperties {
 	 */
 	public var delay:Float;
 
-	public var nodes:Map<String, Dynamic> = new Map();
+	public var nodes:Map<ParticleNodeEnum, Dynamic> = new Map();
 
 	public function new() {}
 }

@@ -58,18 +58,6 @@ class ParticleColorNode extends ParticleNodeBase {
 	@:allow(away3d) private var _cyclePhase:Float;
 
 	/**
-	 * Reference for color node properties on a single particle (when in local property mode).
-	 * Expects a <code>ColorTransform</code> object representing the start color transform applied to the particle.
-	 */
-	public static inline var COLOR_START_COLORTRANSFORM:String = "ColorStartColorTransform";
-
-	/**
-	 * Reference for color node properties on a single particle (when in local property mode).
-	 * Expects a <code>ColorTransform</code> object representing the end color transform applied to the particle.
-	 */
-	public static inline var COLOR_END_COLORTRANSFORM:String = "ColorEndColorTransform";
-
-	/**
 	 * Creates a new <code>ParticleColorNode</code>
 	 *
 	 * @param               mode            Defines whether the mode of operation acts on local properties of a particle or global properties of the node.
@@ -191,13 +179,13 @@ class ParticleColorNode extends ParticleNodeBase {
 	 * @inheritDoc
 	 */
 	override private function generatePropertyOfOneParticle(param:ParticleProperties):Void {
-		var startColor:ColorTransform = param.nodes[COLOR_START_COLORTRANSFORM];
+		var startColor:ColorTransform = param.nodes[ParticleNodeEnum.COLOR_START_COLORTRANSFORM];
 		if (startColor == null)
-			throw new Error("there is no " + COLOR_START_COLORTRANSFORM + " in param!");
+			throw new Error("there is no " + ParticleNodeEnum.COLOR_START_COLORTRANSFORM + " in param!");
 
-		var endColor:ColorTransform = param.nodes[COLOR_END_COLORTRANSFORM];
+		var endColor:ColorTransform = param.nodes[ParticleNodeEnum.COLOR_END_COLORTRANSFORM];
 		if (endColor == null)
-			throw new Error("there is no " + COLOR_END_COLORTRANSFORM + " in param!");
+			throw new Error("there is no " + ParticleNodeEnum.COLOR_END_COLORTRANSFORM + " in param!");
 
 		var i:Int = 0;
 

@@ -70,10 +70,7 @@ class ParticleNodeBase extends AnimationNodeBase {
 	 * @return    particle node name
 	 */
 	public static function getParticleNodeName(particleNodeClass:Dynamic, particleNodeMode:ParticlePropertiesMode):String {
-		var nodeName:String = particleNodeClass.node.get('ANIMATION_NODE_NAME');
-
-		if (nodeName == null)
-			nodeName = getNodeNameFromClass(particleNodeClass);
+		var nodeName:String = getNodeNameFromClass(particleNodeClass);
 
 		return nodeName + particleNodeMode.toString();
 	}
