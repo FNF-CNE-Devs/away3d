@@ -38,7 +38,7 @@ class SegmentPass extends MaterialPassBase {
 	/**
 	 * @inheritDoc
 	 */
-	@:allow(away3d) override private function getVertexCode():String {
+	override private function getVertexCode():String {
 		return "m44 vt0, va0, vc8			\n"
 			+ // transform Q0 to eye space
 			"m44 vt1, va1, vc8			\n"
@@ -132,7 +132,7 @@ class SegmentPass extends MaterialPassBase {
 	/**
 	 * @inheritDoc
 	 */
-	@:allow(away3d) override private function getFragmentCode(animationCode:String):String {
+	override private function getFragmentCode(animationCode:String):String {
 		return "mov oc, v0\n";
 	}
 
@@ -140,7 +140,7 @@ class SegmentPass extends MaterialPassBase {
 	 * @inheritDoc
 	 * todo: keep maps in dictionary per renderable
 	 */
-	@:allow(away3d) override private function render(renderable:IRenderable, stage3DProxy:Stage3DProxy, camera:Camera3D, viewProjection:Matrix3D):Void {
+	override private function render(renderable:IRenderable, stage3DProxy:Stage3DProxy, camera:Camera3D, viewProjection:Matrix3D):Void {
 		var context:Context3D = stage3DProxy._context3D;
 		_calcMatrix.copyFrom(renderable.sourceEntity.sceneTransform);
 		_calcMatrix.append(camera.inverseSceneTransform);
@@ -159,7 +159,7 @@ class SegmentPass extends MaterialPassBase {
 	/**
 	 * @inheritDoc
 	 */
-	@:allow(away3d) override private function activate(stage3DProxy:Stage3DProxy, camera:Camera3D):Void {
+	override private function activate(stage3DProxy:Stage3DProxy, camera:Camera3D):Void {
 		var context:Context3D = stage3DProxy._context3D;
 		super.activate(stage3DProxy, camera);
 
@@ -190,7 +190,7 @@ class SegmentPass extends MaterialPassBase {
 	/**
 	 * @inheritDoc
 	 */
-	@:allow(away3d) override private function deactivate(stage3DProxy:Stage3DProxy):Void {
+	override private function deactivate(stage3DProxy:Stage3DProxy):Void {
 		var context:Context3D = stage3DProxy._context3D;
 		context.setVertexBufferAt(0, null);
 		context.setVertexBufferAt(1, null);

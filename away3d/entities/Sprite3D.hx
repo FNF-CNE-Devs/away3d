@@ -256,7 +256,7 @@ class Sprite3D extends Entity implements IRenderable {
 		return _geometry.vertexTangentOffset;
 	}
 
-	@:allow(away3d) override private function collidesBefore(shortestCollisionDistance:Float, findClosest:Bool):Bool {
+	override private function collidesBefore(shortestCollisionDistance:Float, findClosest:Bool):Bool {
 		var viewTransform:Matrix3D = _camera.inverseSceneTransform.clone();
 		viewTransform.transpose();
 		var rawViewTransform:Vector<Float> = Matrix3DUtils.RAW_DATA_CONTAINER;

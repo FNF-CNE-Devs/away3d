@@ -15,7 +15,7 @@ import openfl.display.BitmapData;
 import openfl.geom.Rectangle;
 import openfl.utils.ByteArray;
 
-/** @private
+/**
  *  This class contains constants for the 'MINI' bitmap font. It's done that way to avoid
  *  a dependency on the 'mx.core' library (which is required for the 'Embed' statement).
  *

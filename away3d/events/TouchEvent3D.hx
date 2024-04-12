@@ -13,8 +13,8 @@ class TouchEvent3D extends Event {
 	public var sceneNormal(get, never):Vector3D;
 
 	// Private.
-	@:allow(away3d) private var _allowedToPropagate:Bool = true;
-	@:allow(away3d) private var _parentEvent:TouchEvent3D;
+	private var _allowedToPropagate:Bool = true;
+	private var _parentEvent:TouchEvent3D;
 
 	public static inline var TOUCH_END:String = "touchEnd3d";
 	public static inline var TOUCH_BEGIN:String = "touchBegin3d";

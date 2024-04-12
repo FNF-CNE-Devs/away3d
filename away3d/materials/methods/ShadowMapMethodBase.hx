@@ -13,6 +13,7 @@ import away3d.materials.methods.ShadingMethodBase;
 /**
  * ShadowMapMethodBase provides an abstract base method for shadow map methods.
  */
+@:allow(away3d)
 class ShadowMapMethodBase extends ShadingMethodBase implements IAsset {
 	public var assetType(get, never):Asset3DType;
 	public var alpha(get, set):Float;
@@ -78,7 +79,7 @@ class ShadowMapMethodBase extends ShadingMethodBase implements IAsset {
 	/**
 	 * @inheritDoc
 	 */
-	@:allow(away3d) private function getFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
+	private function getFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		throw new AbstractMethodError();
 		return null;
 	}

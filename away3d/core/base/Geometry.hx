@@ -18,6 +18,7 @@ import openfl.geom.Matrix3D;
  * @see away3d.core.base.SubGeometry
  * @see away3d.scenegraph.Mesh
  */
+@:allow(away3d)
 class Geometry extends NamedAssetBase implements IAsset {
 	public var assetType(get, never):Asset3DType;
 	public var subGeometries(get, never):Vector<ISubGeometry>;
@@ -146,11 +147,11 @@ class Geometry extends NamedAssetBase implements IAsset {
 		}
 	}
 
-	@:allow(away3d) private function validate():Void {
+	private function validate():Void {
 		// To be overridden when necessary
 	}
 
-	@:allow(away3d) private function invalidateBounds(subGeom:ISubGeometry):Void {
+	private function invalidateBounds(subGeom:ISubGeometry):Void {
 		if (hasEventListener(GeometryEvent.BOUNDS_INVALID))
 			dispatchEvent(new GeometryEvent(GeometryEvent.BOUNDS_INVALID, subGeom));
 	}

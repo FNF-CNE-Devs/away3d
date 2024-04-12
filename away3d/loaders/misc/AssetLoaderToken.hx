@@ -166,8 +166,9 @@ import openfl.events.EventDispatcher;
  * while not providing an interface to obstruct the load and is as such a
  * safer return value for loader wrappers than the loader itself.
  */
+@:allow(away3d)
 class AssetLoaderToken extends EventDispatcher {
-	@:allow(away3d) private var _loader:AssetLoader;
+	private var _loader:AssetLoader;
 
 	public function new(loader:AssetLoader) {
 		super();

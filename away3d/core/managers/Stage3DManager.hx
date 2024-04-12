@@ -10,6 +10,7 @@ import openfl.errors.Error;
  *
  * @see away3d.core.managers.Stage3DProxy
  */
+@:allow(away3d)
 class Stage3DManager {
 	public var hasFreeStage3DProxy(get, never):Bool;
 	public var numProxySlotsFree(get, never):Int;
@@ -25,9 +26,8 @@ class Stage3DManager {
 	/**
 	 * Creates a new Stage3DManager class.
 	 * @param stage The Stage object that contains the Stage3D objects to be managed.
-	 * @private
 	 */
-	@:allow(away3d) private function new(stage:Stage) {
+	private function new(stage:Stage) {
 		_stage = stage;
 
 		if (_stageProxies == null)
@@ -68,9 +68,8 @@ class Stage3DManager {
 	/**
 	 * Removes a Stage3DProxy from the manager.
 	 * @param stage3DProxy
-	 * @private
 	 */
-	@:allow(away3d) private function removeStage3DProxy(stage3DProxy:Stage3DProxy):Void {
+	private function removeStage3DProxy(stage3DProxy:Stage3DProxy):Void {
 		_numStageProxies--;
 		_stageProxies[stage3DProxy.stage3DIndex] = null;
 	}

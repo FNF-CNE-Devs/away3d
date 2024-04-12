@@ -158,10 +158,8 @@ class SkeletonDirectionalState extends AnimationStateBase implements ISkeletonAn
 
 	/**
 	 * Updates the blend value for the animation output based on the direction value between forward, backwards, left and right input nodes.
-	 *
-	 * @private
 	 */
-	@:allow(away3d) private function updateBlend():Void {
+	private function updateBlend():Void {
 		_blendDirty = false;
 
 		if (_direction < 0 || _direction > 360) {

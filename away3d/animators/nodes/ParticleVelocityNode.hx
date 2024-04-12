@@ -14,12 +14,11 @@ import openfl.geom.Vector3D;
 /**
  * A particle animation node used to set the starting velocity of a particle.
  */
+@:allow(away3d)
 class ParticleVelocityNode extends ParticleNodeBase {
-	/** @private */
-	@:allow(away3d) private static inline var VELOCITY_INDEX:Int = 0;
+	private static inline var VELOCITY_INDEX:Int = 0;
 
-	/** @private */
-	@:allow(away3d) private var _velocity:Vector3D;
+	private var _velocity:Vector3D;
 
 	/**
 	 * Creates a new <code>ParticleVelocityNode</code>

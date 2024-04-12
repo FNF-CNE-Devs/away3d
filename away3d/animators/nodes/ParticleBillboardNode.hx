@@ -13,12 +13,11 @@ import openfl.geom.Vector3D;
 /**
  * A particle animation node that controls the rotation of a particle to always face the camera.
  */
+@:allow(away3d)
 class ParticleBillboardNode extends ParticleNodeBase {
-	/** @private */
-	@:allow(away3d) private static inline var MATRIX_INDEX:Int = 0;
+	private static inline var MATRIX_INDEX:Int = 0;
 
-	/** @private */
-	@:allow(away3d) private var _billboardAxis:Vector3D;
+	private var _billboardAxis:Vector3D;
 
 	/**
 	 * Creates a new <code>ParticleBillboardNode</code>

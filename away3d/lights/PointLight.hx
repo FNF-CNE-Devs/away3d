@@ -62,7 +62,7 @@ class PointLight extends LightBase {
 		return value;
 	}
 
-	@:allow(away3d) private function fallOffFactor():Float {
+	private function fallOffFactor():Float {
 		return _fallOffFactor;
 	}
 

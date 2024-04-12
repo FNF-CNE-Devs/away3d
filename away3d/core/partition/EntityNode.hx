@@ -14,6 +14,7 @@ import openfl.geom.Vector3D;
  * @see away3d.scenegraph.Entity
  * @see away3d.core.traverse.EntityCollector
  */
+@:allow(away3d)
 class EntityNode extends NodeBase {
 	public var entity(get, never):Entity;
 
@@ -21,9 +22,8 @@ class EntityNode extends NodeBase {
 
 	/**
 	 * The link to the next object in the list to be updated
-	 * @private
 	 */
-	@:allow(away3d) private var _updateQueueNext:EntityNode;
+	private var _updateQueueNext:EntityNode;
 
 	/**
 	 * Creates a new EntityNode object.

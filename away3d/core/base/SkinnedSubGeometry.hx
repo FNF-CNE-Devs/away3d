@@ -11,13 +11,14 @@ import openfl.display3D.VertexBuffer3D;
  * it provides joint indices and weights.
  * Important! Joint indices need to be pre-multiplied by 3, since they index the matrix array (and each matrix has 3 float4 elements)
  */
+@:allow(away3d)
 class SkinnedSubGeometry extends CompactSubGeometry {
 	public var condensedIndexLookUp(get, never):Vector<UInt>;
 	public var numCondensedJoints(get, never):Int;
 	public var animatedData(get, never):Vector<Float>;
 
-	@:allow(away3d) private var jointWeightsData(get, never):Vector<Float>;
-	@:allow(away3d) private var jointIndexData(get, never):Vector<Float>;
+	private var jointWeightsData(get, never):Vector<Float>;
+	private var jointIndexData(get, never):Vector<Float>;
 
 	private var _bufferFormat:Context3DVertexBufferFormat;
 	private var _jointWeightsData:Vector<Float>;
@@ -162,7 +163,7 @@ class SkinnedSubGeometry extends CompactSubGeometry {
 
 	/**
 	 */
-	@:allow(away3d) private function condenseIndexData():Void {
+	private function condenseIndexData():Void {
 		var len:Int = _jointIndexData.length;
 		var oldIndex:Int;
 		var newIndex:Int = 0;
@@ -195,7 +196,7 @@ class SkinnedSubGeometry extends CompactSubGeometry {
 		return _jointWeightsData;
 	}
 
-	@:allow(away3d) private function updateJointWeightsData(value:Vector<Float>):Void {
+	private function updateJointWeightsData(value:Vector<Float>):Void {
 		// invalidate condensed stuff
 		_numCondensedJoints = 0;
 		_condensedIndexLookUp = null;
@@ -212,7 +213,7 @@ class SkinnedSubGeometry extends CompactSubGeometry {
 		return _jointIndexData;
 	}
 
-	@:allow(away3d) private function updateJointIndexData(value:Vector<Float>):Void {
+	private function updateJointIndexData(value:Vector<Float>):Void {
 		_jointIndexData = value;
 		invalidateBuffers(_jointIndicesInvalid);
 	}

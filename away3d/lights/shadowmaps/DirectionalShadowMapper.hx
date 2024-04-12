@@ -12,12 +12,13 @@ import openfl.display3D.textures.TextureBase;
 import openfl.geom.Matrix3D;
 import openfl.geom.Vector3D;
 
+@:allow(away3d)
 class DirectionalShadowMapper extends ShadowMapperBase {
 	public var snap(get, set):Float;
 	public var lightOffset(get, set):Float;
 
-	@:allow(away3d) private var depthProjection(get, never):Matrix3D;
-	@:allow(away3d) private var depth(get, never):Float;
+	private var depthProjection(get, never):Matrix3D;
+	private var depth(get, never):Float;
 
 	private var _overallDepthCamera:Camera3D;
 	private var _localFrustum:Vector<Float>;

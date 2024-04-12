@@ -13,6 +13,7 @@ import away3d.textures.TextureProxyBase;
 import openfl.display3D.textures.TextureBase;
 import openfl.errors.Error;
 
+@:allow(away3d)
 class ShadowMapperBase {
 	public var autoUpdateShadows(get, set):Bool;
 	public var light(get, set):LightBase;
@@ -25,7 +26,7 @@ class ShadowMapperBase {
 	private var _light:LightBase;
 	private var _explicitDepthMap:Bool;
 	private var _autoUpdateShadows:Bool = true;
-	@:allow(away3d) private var _shadowsInvalid:Bool;
+	private var _shadowsInvalid:Bool;
 
 	public function new() {
 		_casterCollector = createCasterCollector();
@@ -52,7 +53,7 @@ class ShadowMapperBase {
 	 * This is used by renderers that can support depth maps to be shared across instances
 	 * @param depthMap
 	 */
-	@:allow(away3d) private function setDepthMap(depthMap:TextureProxyBase):Void {
+	private function setDepthMap(depthMap:TextureProxyBase):Void {
 		if (_depthMap == depthMap)
 			return;
 		if (_depthMap != null && !_explicitDepthMap)
@@ -117,7 +118,7 @@ class ShadowMapperBase {
 	 * @param entityCollector The EntityCollector that contains the original scene data.
 	 * @param renderer The DepthRenderer to render the depth map.
 	 */
-	@:allow(away3d) private function renderDepthMap(stage3DProxy:Stage3DProxy, entityCollector:EntityCollector, renderer:DepthRenderer):Void {
+	private function renderDepthMap(stage3DProxy:Stage3DProxy, entityCollector:EntityCollector, renderer:DepthRenderer):Void {
 		_shadowsInvalid = false;
 		updateDepthProjection(entityCollector.camera);
 		if (_depthMap == null)

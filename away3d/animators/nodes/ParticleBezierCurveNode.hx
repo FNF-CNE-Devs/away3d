@@ -14,18 +14,13 @@ import openfl.geom.Vector3D;
 /**
  * A particle animation node used to control the position of a particle over time along a bezier curve.
  */
+@:allow(away3d)
 class ParticleBezierCurveNode extends ParticleNodeBase {
-	/** @private */
-	@:allow(away3d) private static inline var BEZIER_CONTROL_INDEX:Int = 0;
+	private static inline var BEZIER_CONTROL_INDEX:Int = 0;
+	private static inline var BEZIER_END_INDEX:Int = 1;
 
-	/** @private */
-	@:allow(away3d) private static inline var BEZIER_END_INDEX:Int = 1;
-
-	/** @private */
-	@:allow(away3d) private var _controlPoint:Vector3D;
-
-	/** @private */
-	@:allow(away3d) private var _endPoint:Vector3D;
+	private var _controlPoint:Vector3D;
+	private var _endPoint:Vector3D;
 
 	/**
 	 * Creates a new <code>ParticleBezierCurveNode</code>

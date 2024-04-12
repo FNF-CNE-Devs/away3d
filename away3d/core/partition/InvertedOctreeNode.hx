@@ -13,6 +13,7 @@ import openfl.geom.Vector3D;
  * If this is visible, so is the parent.
  * Traversal happens invertedly too.
  */
+@:allow(away3d)
 class InvertedOctreeNode extends NodeBase {
 	private var _minX:Float;
 	private var _minY:Float;
@@ -43,7 +44,7 @@ class InvertedOctreeNode extends NodeBase {
 		super();
 	}
 
-	@:allow(away3d) private function setParent(value:InvertedOctreeNode):Void {
+	private function setParent(value:InvertedOctreeNode):Void {
 		_parent = value;
 	}
 

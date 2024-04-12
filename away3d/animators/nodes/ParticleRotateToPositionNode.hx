@@ -14,15 +14,12 @@ import openfl.geom.Vector3D;
 /**
  * A particle animation node used to control the rotation of a particle to face to a position
  */
+@:allow(away3d)
 class ParticleRotateToPositionNode extends ParticleNodeBase {
-	/** @private */
-	@:allow(away3d) private static inline var MATRIX_INDEX:Int = 0;
+	private static inline var MATRIX_INDEX:Int = 0;
+	private static inline var POSITION_INDEX:Int = 1;
 
-	/** @private */
-	@:allow(away3d) private static inline var POSITION_INDEX:Int = 1;
-
-	/** @private */
-	@:allow(away3d) private var _position:Vector3D;
+	private var _position:Vector3D;
 
 	/**
 	 * Creates a new <code>ParticleRotateToPositionNode</code>

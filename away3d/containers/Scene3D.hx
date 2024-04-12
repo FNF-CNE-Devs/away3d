@@ -16,6 +16,7 @@ import openfl.events.EventDispatcher;
  * Internally, the Scene3D object also manages any space partition objects that have been assigned to objects in
  * the scene graph, of which there is at least 1.
  */
+@:allow(away3d)
 class Scene3D extends EventDispatcher {
 	public var partition(get, set):Partition3D;
 	public var numChildren(get, never):Int;
@@ -114,9 +115,8 @@ class Scene3D extends EventDispatcher {
 
 	/**
 	 * When an entity is added to the scene, or to one of its children, add it to the partition tree.
-	 * @private
 	 */
-	@:allow(away3d) private function registerEntity(entity:Entity):Void {
+	private function registerEntity(entity:Entity):Void {
 		var partition:Partition3D = entity.implicitPartition;
 		addPartitionUnique(partition);
 
@@ -125,9 +125,8 @@ class Scene3D extends EventDispatcher {
 
 	/**
 	 * When an entity is removed from the scene, or from one of its children, remove it from its former partition tree.
-	 * @private
 	 */
-	@:allow(away3d) private function unregisterEntity(entity:Entity):Void {
+	private function unregisterEntity(entity:Entity):Void {
 		entity.implicitPartition.removeEntity(entity);
 	}
 

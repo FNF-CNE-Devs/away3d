@@ -13,6 +13,7 @@ import openfl.geom.Vector3D;
 /**
  * An abstract base class for all lens classes. Lens objects provides a projection matrix that transforms 3D geometry to normalized homogeneous coordinates.
  */
+@:allow(away3d)
 class LensBase extends EventDispatcher {
 	public var frustumCorners(get, set):Vector<Float>;
 	public var matrix(get, set):Matrix3D;
@@ -20,7 +21,7 @@ class LensBase extends EventDispatcher {
 	public var far(get, set):Float;
 	public var unprojectionMatrix(get, never):Matrix3D;
 
-	@:allow(away3d) private var aspectRatio(get, set):Float;
+	public var aspectRatio(get, set):Float;
 
 	private var _matrix:Matrix3D;
 	private var _scissorRect:Rectangle = new Rectangle();
@@ -158,7 +159,6 @@ class LensBase extends EventDispatcher {
 
 	/**
 	 * The aspect ratio (width/height) of the view. Set by the renderer.
-	 * @private
 	 */
 	private function get_aspectRatio():Float {
 		return _aspectRatio;
@@ -192,7 +192,7 @@ class LensBase extends EventDispatcher {
 		throw new AbstractMethodError();
 	}
 
-	@:allow(away3d) private function updateScissorRect(x:Float, y:Float, width:Float, height:Float):Void {
+	private function updateScissorRect(x:Float, y:Float, width:Float, height:Float):Void {
 		_scissorRect.x = x;
 		_scissorRect.y = y;
 		_scissorRect.width = width;
@@ -200,7 +200,7 @@ class LensBase extends EventDispatcher {
 		invalidateMatrix();
 	}
 
-	@:allow(away3d) private function updateViewport(x:Float, y:Float, width:Float, height:Float):Void {
+	private function updateViewport(x:Float, y:Float, width:Float, height:Float):Void {
 		_viewPort.x = x;
 		_viewPort.y = y;
 		_viewPort.width = width;

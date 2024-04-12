@@ -51,6 +51,7 @@ import openfl.geom.Vector3D;
  *         additional translate *before* the current transform. x/y/z will be reset based on these operations. </li>
  * </ul>
  */
+@:allow(away3d)
 class Object3D extends NamedAssetBase {
 	public var x(get, set):Float;
 	public var y(get, set):Float;
@@ -73,8 +74,7 @@ class Object3D extends NamedAssetBase {
 	public var downVector(get, never):Vector3D;
 	public var zOffset(get, set):Int;
 
-	/** @private */
-	@:allow(away3d) private var _controller:ControllerBase;
+	private var _controller:ControllerBase;
 
 	private var _smallestNumber:Float = 0.0000000000000000000001;
 	private var _transformDirty:Bool = true;
@@ -846,7 +846,7 @@ class Object3D extends NamedAssetBase {
 	/**
 	 * Invalidates the transformation matrix, causing it to be updated upon the next request
 	 */
-	@:allow(away3d) private function invalidateTransform():Void {
+	private function invalidateTransform():Void {
 		_transformDirty = true;
 	}
 

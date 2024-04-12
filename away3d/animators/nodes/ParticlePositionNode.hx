@@ -14,12 +14,11 @@ import openfl.geom.Vector3D;
 /**
  * A particle animation node used to set the starting position of a particle.
  */
+@:allow(away3d)
 class ParticlePositionNode extends ParticleNodeBase {
-	/** @private */
-	@:allow(away3d) private static inline var POSITION_INDEX:Int = 0;
+	private static inline var POSITION_INDEX:Int = 0;
 
-	/** @private */
-	@:allow(away3d) private var _position:Vector3D;
+	private var _position:Vector3D;
 
 	/**
 	 * Creates a new <code>ParticlePositionNode</code>

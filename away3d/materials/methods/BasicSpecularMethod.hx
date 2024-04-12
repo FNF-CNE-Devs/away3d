@@ -15,13 +15,14 @@ import openfl.display3D.Context3DWrapMode;
  * BasicSpecularMethod provides the default shading method for Blinn-Phong specular highlights (an optimized but approximated
  * version of Phong specularity).
  */
+@:allow(away3d)
 class BasicSpecularMethod extends LightingMethodBase {
 	public var gloss(get, set):Float;
 	public var specular(get, set):Float;
 	public var specularColor(get, set):Int;
 	public var texture(get, set):Texture2DBase;
 
-	@:allow(away3d) private var shadowRegister(never, set):ShaderRegisterElement;
+	private var shadowRegister(never, set):ShaderRegisterElement;
 
 	private var _useTexture:Bool;
 	private var _totalLightColorReg:ShaderRegisterElement;
@@ -34,9 +35,9 @@ class BasicSpecularMethod extends LightingMethodBase {
 	private var _gloss:Float = 50;
 	private var _specular:Float = 1;
 	private var _specularColor:UInt = 0xffffff;
-	@:allow(away3d) private var _specularR:Float = 1;
-	@:allow(away3d) private var _specularG:Float = 1;
-	@:allow(away3d) private var _specularB:Float = 1;
+	private var _specularR:Float = 1;
+	private var _specularG:Float = 1;
+	private var _specularB:Float = 1;
 	private var _shadowRegister:ShaderRegisterElement;
 	private var _isFirstLight:Bool;
 

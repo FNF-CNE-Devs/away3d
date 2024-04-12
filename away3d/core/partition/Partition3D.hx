@@ -8,6 +8,7 @@ import away3d.entities.Entity;
  * hierarchically into a number of non-overlapping subspaces, forming a tree data structure. This is used to more
  * efficiently perform frustum culling, potential visibility determination and collision detection.
  */
+@:allow(away3d)
 class Partition3D {
 	public var showDebugBounds(get, set):Bool;
 
@@ -54,7 +55,7 @@ class Partition3D {
 	 * object's bounding box, upon the next traversal.
 	 * @param entity The entity to be updated in the tree.
 	 */
-	@:allow(away3d) private function markForUpdate(entity:Entity):Void {
+	private function markForUpdate(entity:Entity):Void {
 		var node:EntityNode = entity.getEntityPartitionNode();
 		// already marked to be updated
 		var t:EntityNode = _updateQueue;
@@ -77,7 +78,7 @@ class Partition3D {
 	 * Removes an entity from the partition tree.
 	 * @param entity The entity to be removed.
 	 */
-	@:allow(away3d) private function removeEntity(entity:Entity):Void {
+	private function removeEntity(entity:Entity):Void {
 		var node:EntityNode = entity.getEntityPartitionNode();
 		var t:EntityNode;
 

@@ -5,6 +5,7 @@ import openfl.Vector;
 import openfl.display3D.IndexBuffer3D;
 import openfl.geom.Matrix3D;
 
+@:allow(away3d)
 interface ISubGeometry {
 	/**
 	 * The total amount of vertices in the SubGeometry.
@@ -129,7 +130,7 @@ interface ISubGeometry {
 	/**
 	 * Retrieves the object's indices as a uint array.
 	 */
-	@:allow(away3d) private var indexData(get, never):Vector<UInt>;
+	private var indexData(get, never):Vector<UInt>;
 
 	/**
 	 * Retrieves the object's uvs as a Number array.
@@ -150,9 +151,9 @@ interface ISubGeometry {
 
 	function scaleUV(scaleU:Float = 1, scaleV:Float = 1):Void;
 
-	@:allow(away3d) private var parentGeometry(get, set):Geometry;
+	private var parentGeometry(get, set):Geometry;
 
-	@:allow(away3d) private var faceNormals(get, never):Vector<Float>;
+	private var faceNormals(get, never):Vector<Float>;
 
 	function cloneWithSeperateBuffers():SubGeometry;
 

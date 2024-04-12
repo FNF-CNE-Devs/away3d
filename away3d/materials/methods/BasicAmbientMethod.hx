@@ -14,6 +14,7 @@ import openfl.display3D.Context3DWrapMode;
 /**
  * BasicAmbientMethod provides the default shading method for uniform ambient lighting.
  */
+@:allow(away3d)
 class BasicAmbientMethod extends ShadingMethodBase {
 	public var ambient(get, set):Float;
 	public var ambientColor(get, set):Int;
@@ -29,9 +30,9 @@ class BasicAmbientMethod extends ShadingMethodBase {
 	private var _ambientG:Float = 0;
 	private var _ambientB:Float = 0;
 	private var _ambient:Float = 1;
-	@:allow(away3d) private var _lightAmbientR:Float = 0;
-	@:allow(away3d) private var _lightAmbientG:Float = 0;
-	@:allow(away3d) private var _lightAmbientB:Float = 0;
+	private var _lightAmbientR:Float = 0;
+	private var _lightAmbientG:Float = 0;
+	private var _lightAmbientB:Float = 0;
 
 	/**
 	 * Creates a new BasicAmbientMethod object.
@@ -43,14 +44,14 @@ class BasicAmbientMethod extends ShadingMethodBase {
 	/**
 	 * @inheritDoc
 	 */
-	@:allow(away3d) private override function initVO(vo:MethodVO):Void {
+	private override function initVO(vo:MethodVO):Void {
 		vo.needsUV = _useTexture;
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	@:allow(away3d) private override function initConstants(vo:MethodVO):Void {
+	private override function initConstants(vo:MethodVO):Void {
 		vo.fragmentData[vo.fragmentConstantsIndex + 3] = 1;
 	}
 
@@ -107,7 +108,7 @@ class BasicAmbientMethod extends ShadingMethodBase {
 	/**
 	 * @inheritDoc
 	 */
-	@:allow(away3d) private override function cleanCompilationData():Void {
+	private override function cleanCompilationData():Void {
 		super.cleanCompilationData();
 		_ambientInputRegister = null;
 	}
@@ -115,7 +116,7 @@ class BasicAmbientMethod extends ShadingMethodBase {
 	/**
 	 * @inheritDoc
 	 */
-	@:allow(away3d) private function getFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
+	private function getFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		var code:String = "";
 
 		if (_useTexture) {
@@ -142,7 +143,7 @@ class BasicAmbientMethod extends ShadingMethodBase {
 	/**
 	 * @inheritDoc
 	 */
-	@:allow(away3d) private override function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
+	private override function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		if (_useTexture) {
 			#if (!flash || flash11_6)
 			stage3DProxy.context3D.setSamplerStateAt(vo.texturesIndex, vo.repeatTextures ? Context3DWrapMode.REPEAT : Context3DWrapMode.CLAMP,
@@ -164,7 +165,7 @@ class BasicAmbientMethod extends ShadingMethodBase {
 	/**
 	 * @inheritDoc
 	 */
-	@:allow(away3d) private override function setRenderState(vo:MethodVO, renderable:IRenderable, stage3DProxy:Stage3DProxy, camera:Camera3D):Void {
+	private override function setRenderState(vo:MethodVO, renderable:IRenderable, stage3DProxy:Stage3DProxy, camera:Camera3D):Void {
 		updateAmbient();
 
 		if (!_useTexture) {

@@ -16,20 +16,21 @@ import openfl.geom.Vector3D;
  *
  * @see away3d.partition.Partition3D
  */
+@:allow(away3d)
 class PartitionTraverser {
-	@:allow(away3d) private var entryPoint(get, never):Vector3D;
+	private var entryPoint(get, never):Vector3D;
 
 	/**
 	 * The scene being traversed.
 	 */
 	public var scene:Scene3D;
 
-	@:allow(away3d) private var _entryPoint:Vector3D;
+	private var _entryPoint:Vector3D;
 
 	/**
 	 * A property that can be used to avoid processing a partition more than once.
 	 */
-	@:allow(away3d) private static var _collectionMark:Int = 0;
+	private static var _collectionMark:Int = 0;
 
 	public function new() {}
 

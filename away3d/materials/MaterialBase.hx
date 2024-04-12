@@ -33,6 +33,7 @@ import openfl.geom.Matrix3D;
  * methods to build the shader code. MaterialBase can be extended to build specific and high-performant custom
  * shaders, or entire new material frameworks.
  */
+@:allow(away3d)
 class MaterialBase extends NamedAssetBase implements IAsset {
 	public var assetType(get, never):Asset3DType;
 	public var lightPicker(get, set):LightPickerBase;
@@ -47,8 +48,8 @@ class MaterialBase extends NamedAssetBase implements IAsset {
 	public var requiresBlending(get, never):Bool;
 	public var uniqueId(get, never):Int;
 
-	@:allow(away3d) private var numPasses(get, never):Int;
-	@:allow(away3d) private var owners(get, never):Vector<IMaterialOwner>;
+	private var numPasses(get, never):Int;
+	private var owners(get, never):Vector<IMaterialOwner>;
 
 	/**
 	 * A counter used to assign unique ids per material, which is used to sort per material while rendering.
@@ -65,32 +66,24 @@ class MaterialBase extends NamedAssetBase implements IAsset {
 	 * A value that can be used by materials that only work with a given type of renderer. The renderer can test the
 	 * classification to choose which render path to use. For example, a deferred material could set this value so
 	 * that the deferred renderer knows not to take the forward rendering path.
-	 *
-	 * @private
 	 */
-	@:allow(away3d) private var _classification:String;
+	private var _classification:String;
 
 	/**
 	 * An id for this material used to sort the renderables by material, which reduces render state changes across
 	 * materials using the same Program3D.
-	 *
-	 * @private
 	 */
-	@:allow(away3d) private var _uniqueId:Int;
+	private var _uniqueId:Int;
 
 	/**
 	 * An id for this material used to sort the renderables by shader program, which reduces Program3D state changes.
-	 *
-	 * @private
 	 */
-	@:allow(away3d) private var _renderOrderId:Int;
+	private var _renderOrderId:Int;
 
 	/**
 	 * The same as _renderOrderId, but applied to the depth shader passes.
-	 *
-	 * @private
 	 */
-	@:allow(away3d) private var _depthPassId:Int;
+	private var _depthPassId:Int;
 
 	private var _bothSides:Bool;
 	private var _animationSet:IAnimationSet;
@@ -322,8 +315,6 @@ class MaterialBase extends NamedAssetBase implements IAsset {
 
 	/**
 	 * The amount of passes used by the material.
-	 *
-	 * @private
 	 */
 	private function get_numPasses():Int {
 		return _numPasses;
@@ -331,10 +322,8 @@ class MaterialBase extends NamedAssetBase implements IAsset {
 
 	/**
 	 * Indicates that the depth pass uses transparency testing to discard pixels.
-	 *
-	 * @private
 	 */
-	@:allow(away3d) private function hasDepthAlphaThreshold():Bool {
+	private function hasDepthAlphaThreshold():Bool {
 		return _depthPass.alphaThreshold > 0;
 	}
 
@@ -346,10 +335,8 @@ class MaterialBase extends NamedAssetBase implements IAsset {
 	 * @param camera The camera from which the scene is viewed.
 	 * @param distanceBased Whether or not the depth pass or distance pass should be activated. The distance pass
 	 * is required for shadow cube maps.
-	 *
-	 * @private
 	 */
-	@:allow(away3d) private function activateForDepth(stage3DProxy:Stage3DProxy, camera:Camera3D, distanceBased:Bool = false):Void {
+	private function activateForDepth(stage3DProxy:Stage3DProxy, camera:Camera3D, distanceBased:Bool = false):Void {
 		_distanceBasedDepthRender = distanceBased;
 
 		if (distanceBased)
@@ -362,10 +349,8 @@ class MaterialBase extends NamedAssetBase implements IAsset {
 	 * Clears the render state for the depth pass.
 	 *
 	 * @param stage3DProxy The Stage3DProxy used for rendering.
-	 *
-	 * @private
 	 */
-	@:allow(away3d) private function deactivateForDepth(stage3DProxy:Stage3DProxy):Void {
+	private function deactivateForDepth(stage3DProxy:Stage3DProxy):Void {
 		if (_distanceBasedDepthRender)
 			_distancePass.deactivate(stage3DProxy);
 		else
@@ -380,10 +365,8 @@ class MaterialBase extends NamedAssetBase implements IAsset {
 	 * @param camera The camera from which the scene is viewed.
 	 * @param viewProjection The view-projection matrix used to project to the screen. This is not the same as
 	 * camera.viewProjection as it includes the scaling factors when rendering to textures.
-	 *
-	 * @private
 	 */
-	@:allow(away3d) private function renderDepth(renderable:IRenderable, stage3DProxy:Stage3DProxy, camera:Camera3D, viewProjection:Matrix3D):Void {
+	private function renderDepth(renderable:IRenderable, stage3DProxy:Stage3DProxy, camera:Camera3D, viewProjection:Matrix3D):Void {
 		if (_distanceBasedDepthRender) {
 			if (renderable.animator != null)
 				_distancePass.updateAnimationState(renderable, stage3DProxy, camera);
@@ -399,10 +382,8 @@ class MaterialBase extends NamedAssetBase implements IAsset {
 	 * Indicates whether or not the pass with the given index renders to texture or not.
 	 * @param index The index of the pass.
 	 * @return True if the pass renders to texture, false otherwise.
-	 *
-	 * @private
 	 */
-	@:allow(away3d) private function passRendersToTexture(index:Int):Bool {
+	private function passRendersToTexture(index:Int):Bool {
 		return _passes[index].renderToTexture;
 	}
 
@@ -412,9 +393,8 @@ class MaterialBase extends NamedAssetBase implements IAsset {
 	 * @param index The index of the pass to activate.
 	 * @param stage3DProxy The Stage3DProxy object which is currently used for rendering.
 	 * @param camera The camera from which the scene is viewed.
-	 * @private
 	 */
-	@:allow(away3d) private function activatePass(index:Int, stage3DProxy:Stage3DProxy, camera:Camera3D):Void {
+	private function activatePass(index:Int, stage3DProxy:Stage3DProxy, camera:Camera3D):Void {
 		_passes[index].activate(stage3DProxy, camera);
 	}
 
@@ -422,10 +402,8 @@ class MaterialBase extends NamedAssetBase implements IAsset {
 	 * Clears the render state for a pass. This needs to be called before activating another pass.
 	 * @param index The index of the pass to deactivate.
 	 * @param stage3DProxy The Stage3DProxy used for rendering
-	 *
-	 * @private
 	 */
-	@:allow(away3d) private function deactivatePass(index:Int, stage3DProxy:Stage3DProxy):Void {
+	private function deactivatePass(index:Int, stage3DProxy:Stage3DProxy):Void {
 		_passes[index].deactivate(stage3DProxy);
 	}
 
@@ -438,8 +416,7 @@ class MaterialBase extends NamedAssetBase implements IAsset {
 	 * @param viewProjection The view-projection matrix used to project to the screen. This is not the same as
 	 * camera.viewProjection as it includes the scaling factors when rendering to textures.
 	 */
-	@:allow(away3d) private function renderPass(index:Int, renderable:IRenderable, stage3DProxy:Stage3DProxy, entityCollector:EntityCollector,
-			viewProjection:Matrix3D):Void {
+	private function renderPass(index:Int, renderable:IRenderable, stage3DProxy:Stage3DProxy, entityCollector:EntityCollector, viewProjection:Matrix3D):Void {
 		if (_lightPicker != null)
 			_lightPicker.collectLights(renderable, entityCollector);
 
@@ -461,10 +438,8 @@ class MaterialBase extends NamedAssetBase implements IAsset {
 	 * Program3Ds depend on animation. This method needs to be called when a material is assigned.
 	 *
 	 * @param owner The IMaterialOwner that had this material assigned
-	 *
-	 * @private
 	 */
-	@:allow(away3d) private function addOwner(owner:IMaterialOwner):Void {
+	private function addOwner(owner:IMaterialOwner):Void {
 		_owners.push(owner);
 
 		if (owner.animator != null) {
@@ -486,9 +461,8 @@ class MaterialBase extends NamedAssetBase implements IAsset {
 	/**
 	 * Removes an IMaterialOwner as owner.
 	 * @param owner
-	 * @private
 	 */
-	@:allow(away3d) private function removeOwner(owner:IMaterialOwner):Void {
+	private function removeOwner(owner:IMaterialOwner):Void {
 		_owners.splice(_owners.indexOf(owner), 1);
 		if (_owners.length == 0) {
 			_animationSet = null;
@@ -502,26 +476,20 @@ class MaterialBase extends NamedAssetBase implements IAsset {
 
 	/**
 	 * A list of the IMaterialOwners that use this material
-	 *
-	 * @private
 	 */
-	@:allow(away3d) private function get_owners():Vector<IMaterialOwner> {
+	private function get_owners():Vector<IMaterialOwner> {
 		return _owners;
 	}
 
 	/**
 	 * Performs any processing that needs to occur before any of its passes are used.
-	 *
-	 * @private
 	 */
-	@:allow(away3d) private function updateMaterial(context:Context3D):Void {}
+	private function updateMaterial(context:Context3D):Void {}
 
 	/**
 	 * Deactivates the last pass of the material.
-	 *
-	 * @private
 	 */
-	@:allow(away3d) private function deactivate(stage3DProxy:Stage3DProxy):Void {
+	private function deactivate(stage3DProxy:Stage3DProxy):Void {
 		_passes[_numPasses - 1].deactivate(stage3DProxy);
 	}
 
@@ -529,10 +497,8 @@ class MaterialBase extends NamedAssetBase implements IAsset {
 	 * Marks the shader programs for all passes as invalid, so they will be recompiled before the next use.
 	 * @param triggerPass The pass triggering the invalidation, if any. This is passed to prevent invalidating the
 	 * triggering pass, which would result in an infinite loop.
-	 *
-	 * @private
 	 */
-	@:allow(away3d) private function invalidatePasses(triggerPass:MaterialPassBase):Void {
+	private function invalidatePasses(triggerPass:MaterialPassBase):Void {
 		var owner:IMaterialOwner;
 
 		_depthPass.invalidateShaderProgram();

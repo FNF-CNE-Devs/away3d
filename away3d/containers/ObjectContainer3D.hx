@@ -18,11 +18,12 @@ import openfl.geom.Vector3D;
  * ObjectContainer3D can have its own scene partition assigned. However, when assigned to a different scene,
  * it will loose any partition information, since partitions are tied to a scene.
  */
+@:allow(away3d)
 class ObjectContainer3D extends Object3D implements IAsset {
 	public var ignoreTransform(get, set):Bool;
 
-	@:allow(away3d) private var implicitPartition(get, set):Partition3D;
-	@:allow(away3d) private var isVisible(get, never):Bool;
+	private var implicitPartition(get, set):Partition3D;
+	private var isVisible(get, never):Bool;
 
 	public var mouseEnabled(get, set):Bool;
 	public var mouseChildren(get, set):Bool;
@@ -42,10 +43,9 @@ class ObjectContainer3D extends Object3D implements IAsset {
 	public var parent(get, never):ObjectContainer3D;
 	public var numChildren(get, never):Int;
 
-	/** @private */
-	@:allow(away3d) private var _ancestorsAllowMouseEnabled:Bool;
+	private var _ancestorsAllowMouseEnabled:Bool;
 
-	@:allow(away3d) private var _isRoot:Bool;
+	private var _isRoot:Bool;
 
 	private var _scene:Scene3D;
 	private var _parent:ObjectContainer3D;
@@ -93,7 +93,6 @@ class ObjectContainer3D extends Object3D implements IAsset {
 	}
 
 	/**
-	 * @private
 	 * The space partition used for this object, possibly inherited from its parent.
 	 */
 	private function get_implicitPartition():Partition3D {
@@ -121,13 +120,11 @@ class ObjectContainer3D extends Object3D implements IAsset {
 		return value;
 	}
 
-	/** @private */
-	@:allow(away3d) private function get_isVisible():Bool {
+	private function get_isVisible():Bool {
 		return _implicitVisibility && _explicitVisibility;
 	}
 
-	/** @private */
-	@:allow(away3d) private function setParent(value:ObjectContainer3D):Void {
+	private function setParent(value:ObjectContainer3D):Void {
 		_parent = value;
 
 		updateMouseChildren();

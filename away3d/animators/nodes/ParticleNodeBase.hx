@@ -10,6 +10,7 @@ import openfl.Vector;
 /**
  * Provides an abstract base class for particle animation nodes.
  */
+@:allow(away3d)
 class ParticleNodeBase extends AnimationNodeBase {
 	public var mode(get, never):ParticlePropertiesMode;
 	public var priority(get, never):Int;
@@ -22,7 +23,7 @@ class ParticleNodeBase extends AnimationNodeBase {
 	private var _dataLength:Int = 3;
 	private var _oneData:Vector<Float>;
 
-	@:allow(away3d) private var dataOffset:Int;
+	private var dataOffset:Int;
 
 	/**
 	 * Returns the property mode of the particle animation node. Typically set in the node constructor
@@ -126,10 +127,10 @@ class ParticleNodeBase extends AnimationNodeBase {
 	 *
 	 * @see away3d.animators.ParticleAnimationSet#initParticleFunc
 	 */
-	@:allow(away3d) private function generatePropertyOfOneParticle(param:ParticleProperties):Void {}
+	private function generatePropertyOfOneParticle(param:ParticleProperties):Void {}
 
 	/**
 	 * Called internally by the particle animation set when determining the requirements of the particle animation node AGAL.
 	 */
-	@:allow(away3d) private function processAnimationSetting(particleAnimationSet:ParticleAnimationSet):Void {}
+	private function processAnimationSetting(particleAnimationSet:ParticleAnimationSet):Void {}
 }

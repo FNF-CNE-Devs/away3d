@@ -18,8 +18,8 @@ class MouseEvent3D extends Event {
 	public var sceneNormal(get, never):Vector3D;
 
 	// Private.
-	@:allow(away3d) private var _allowedToPropagate:Bool = true;
-	@:allow(away3d) private var _parentEvent:MouseEvent3D;
+	private var _allowedToPropagate:Bool = true;
+	private var _parentEvent:MouseEvent3D;
 
 	/**
 	 * Defines the value of the type property of a mouseOver3d event object.

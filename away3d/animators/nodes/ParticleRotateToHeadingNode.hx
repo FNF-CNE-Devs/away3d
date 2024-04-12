@@ -12,9 +12,9 @@ import away3d.materials.passes.MaterialPassBase;
 /**
  * A particle animation node used to control the rotation of a particle to match its heading vector.
  */
+@:allow(away3d)
 class ParticleRotateToHeadingNode extends ParticleNodeBase {
-	/** @private */
-	@:allow(away3d) private static inline var MATRIX_INDEX:Int = 0;
+	private static inline var MATRIX_INDEX:Int = 0;
 
 	/**
 	 * Creates a new <code>ParticleBillboardNode</code>

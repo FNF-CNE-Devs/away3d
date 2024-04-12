@@ -22,6 +22,7 @@ import openfl.geom.Vector3D;
  * @see away3d.partition.Partition3D
  * @see away3d.core.traverse.EntityCollector
  */
+@:allow(away3d)
 class Entity extends ObjectContainer3D {
 	public var shaderPickingDetails(get, set):Bool;
 	public var staticNode(get, set):Bool;
@@ -36,9 +37,9 @@ class Entity extends ObjectContainer3D {
 	private var _boundsIsShown:Bool = false;
 	private var _shaderPickingDetails:Bool;
 
-	@:allow(away3d) private var _pickingCollisionVO:PickingCollisionVO;
-	@:allow(away3d) private var _pickingCollider:IPickingCollider;
-	@:allow(away3d) private var _staticNode:Bool;
+	private var _pickingCollisionVO:PickingCollisionVO;
+	private var _pickingCollider:IPickingCollider;
+	private var _staticNode:Bool;
 
 	private var _bounds:BoundingVolumeBase;
 	private var _boundsInvalid:Bool = true;
@@ -94,7 +95,7 @@ class Entity extends ObjectContainer3D {
 	 * @param shortestCollisionDistance
 	 * @return
 	 */
-	@:allow(away3d) private function collidesBefore(shortestCollisionDistance:Float, findClosest:Bool):Bool {
+	private function collidesBefore(shortestCollisionDistance:Float, findClosest:Bool):Bool {
 		return true;
 	}
 
@@ -237,7 +238,7 @@ class Entity extends ObjectContainer3D {
 		if (value != null)
 			value.registerEntity(this);
 
-		super.scene = value;
+		super.set_scene(value);
 		return value;
 	}
 

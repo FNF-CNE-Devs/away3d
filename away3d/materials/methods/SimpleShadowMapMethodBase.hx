@@ -18,8 +18,9 @@ import openfl.geom.Vector3D;
 /**
  * SimpleShadowMapMethodBase provides an abstract method for simple (non-wrapping) shadow map methods.
  */
+@:allow(away3d)
 class SimpleShadowMapMethodBase extends ShadowMapMethodBase {
-	@:allow(away3d) private var depthMapCoordReg(get, set):ShaderRegisterElement;
+	private var depthMapCoordReg(get, set):ShaderRegisterElement;
 
 	private var _depthMapCoordReg:ShaderRegisterElement;
 	private var _usePoint:Bool;
@@ -191,7 +192,7 @@ class SimpleShadowMapMethodBase extends ShadowMapMethodBase {
 	 * @param targetRegister The register to contain the shadow coverage
 	 * @return
 	 */
-	@:allow(away3d) private function getCascadeFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, decodeRegister:ShaderRegisterElement,
+	private function getCascadeFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, decodeRegister:ShaderRegisterElement,
 			depthTexture:ShaderRegisterElement, depthProjection:ShaderRegisterElement, targetRegister:ShaderRegisterElement):String {
 		throw new Error("This shadow method is incompatible with cascade shadows");
 		return null;
@@ -225,7 +226,7 @@ class SimpleShadowMapMethodBase extends ShadowMapMethodBase {
 	/**
 	 * Sets the method state for cascade shadow mapping.
 	 */
-	@:allow(away3d) private function activateForCascade(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
+	private function activateForCascade(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		throw new Error("This shadow method is incompatible with cascade shadows");
 	}
 }

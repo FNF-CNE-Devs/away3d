@@ -11,23 +11,15 @@ import away3d.materials.passes.MaterialPassBase;
 import openfl.errors.Error;
 import openfl.geom.ColorTransform;
 
+@:allow(away3d)
 class ParticleInitialColorNode extends ParticleNodeBase {
-	/** @private */
-	@:allow(away3d) private static inline var MULTIPLIER_INDEX:Int = 0;
-
-	/** @private */
-	@:allow(away3d) private static inline var OFFSET_INDEX:Int = 1;
+	private static inline var MULTIPLIER_INDEX:Int = 0;
+	private static inline var OFFSET_INDEX:Int = 1;
 
 	// default values used when creating states
-
-	/** @private */
-	@:allow(away3d) private var _usesMultiplier:Bool;
-
-	/** @private */
-	@:allow(away3d) private var _usesOffset:Bool;
-
-	/** @private */
-	@:allow(away3d) private var _initialColor:ColorTransform;
+	private var _usesMultiplier:Bool;
+	private var _usesOffset:Bool;
+	private var _initialColor:ColorTransform;
 
 	public function new(mode:ParticlePropertiesMode, usesMultiplier:Bool = true, usesOffset:Bool = false, initialColor:ColorTransform = null) {
 		_stateConstructor = cast ParticleInitialColorState.new;

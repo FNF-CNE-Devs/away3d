@@ -14,12 +14,11 @@ import openfl.geom.Vector3D;
 /**
  * A particle animation node used to control the position of a particle over time using simple harmonic motion.
  */
+@:allow(away3d)
 class ParticleOscillatorNode extends ParticleNodeBase {
-	/** @private */
-	@:allow(away3d) private static inline var OSCILLATOR_INDEX:Int = 0;
+	private static inline var OSCILLATOR_INDEX:Int = 0;
 
-	/** @private */
-	@:allow(away3d) private var _oscillator:Vector3D;
+	private var _oscillator:Vector3D;
 
 	/**
 	 * Creates a new <code>ParticleOscillatorNode</code>

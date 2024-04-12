@@ -11,9 +11,10 @@ import openfl.display3D.Context3DWrapMode;
 /**
  * BasicNormalMethod is the default method for standard tangent-space normal mapping.
  */
+@:allow(away3d)
 class BasicNormalMethod extends ShadingMethodBase {
-	@:allow(away3d) private var tangentSpace(get, never):Bool;
-	@:allow(away3d) private var hasOutput(get, never):Bool;
+	private var tangentSpace(get, never):Bool;
+	private var hasOutput(get, never):Bool;
 
 	public var normalMap(get, set):Texture2DBase;
 
@@ -105,7 +106,7 @@ class BasicNormalMethod extends ShadingMethodBase {
 	/**
 	 * @inheritDoc
 	 */
-	@:allow(away3d) private function getFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
+	private function getFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		_normalTextureRegister = regCache.getFreeTextureReg();
 		vo.texturesIndex = _normalTextureRegister.index;
 		return getTex2DSampleCode(vo, targetReg, _normalTextureRegister, _texture)

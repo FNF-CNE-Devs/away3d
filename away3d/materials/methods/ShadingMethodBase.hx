@@ -20,6 +20,7 @@ import openfl.display3D.Context3DTextureFormat;
  * ShadingMethodBase provides an abstract base method for shading methods, used by compiled passes to compile
  * the final shading program.
  */
+@:allow(away3d)
 class ShadingMethodBase extends NamedAssetBase {
 	public var sharedRegisters(get, set):ShaderRegisterData;
 	public var passes(get, never):Vector<MaterialPassBase>;
@@ -40,22 +41,22 @@ class ShadingMethodBase extends NamedAssetBase {
 	 * Initializes the properties for a MethodVO, including register and texture indices.
 	 * @param vo The MethodVO object linking this method with the pass currently being compiled.
 	 */
-	@:allow(away3d) private function initVO(vo:MethodVO):Void {}
+	private function initVO(vo:MethodVO):Void {}
 
 	/**
 	 * Initializes unchanging shader constants using the data from a MethodVO.
 	 * @param vo The MethodVO object linking this method with the pass currently being compiled.
 	 */
-	@:allow(away3d) private function initConstants(vo:MethodVO):Void {}
+	private function initConstants(vo:MethodVO):Void {}
 
 	/**
 	 * The shared registers created by the compiler and possibly used by methods.
 	 */
-	@:allow(away3d) private function get_sharedRegisters():ShaderRegisterData {
+	private function get_sharedRegisters():ShaderRegisterData {
 		return _sharedRegisters;
 	}
 
-	@:allow(away3d) private function set_sharedRegisters(value:ShaderRegisterData):ShaderRegisterData {
+	private function set_sharedRegisters(value:ShaderRegisterData):ShaderRegisterData {
 		_sharedRegisters = value;
 		return value;
 	}
@@ -75,30 +76,28 @@ class ShadingMethodBase extends NamedAssetBase {
 	/**
 	 * Creates a data container that contains material-dependent data. Provided as a factory method so a custom subtype can be overridden when needed.
 	 */
-	@:allow(away3d) private function createMethodVO():MethodVO {
+	private function createMethodVO():MethodVO {
 		return new MethodVO();
 	}
 
 	/**
 	 * Resets the compilation state of the method.
 	 */
-	@:allow(away3d) private function reset():Void {
+	private function reset():Void {
 		cleanCompilationData();
 	}
 
 	/**
 	 * Resets the method's state for compilation.
-	 * @private
 	 */
-	@:allow(away3d) private function cleanCompilationData():Void {}
+	private function cleanCompilationData():Void {}
 
 	/**
 	 * Get the vertex shader code for this method.
 	 * @param vo The MethodVO object linking this method with the pass currently being compiled.
 	 * @param regCache The register cache used during the compilation.
-	 * @private
 	 */
-	@:allow(away3d) private function getVertexCode(vo:MethodVO, regCache:ShaderRegisterCache):String {
+	private function getVertexCode(vo:MethodVO, regCache:ShaderRegisterCache):String {
 		return "";
 	}
 
@@ -107,9 +106,8 @@ class ShadingMethodBase extends NamedAssetBase {
 	 *
 	 * @param vo The MethodVO object linking this method with the pass currently being compiled.
 	 * @param stage3DProxy The Stage3DProxy object currently used for rendering.
-	 * @private
 	 */
-	@:allow(away3d) private function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {}
+	private function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {}
 
 	/**
 	 * Sets the render state for a single renderable.
@@ -119,14 +117,14 @@ class ShadingMethodBase extends NamedAssetBase {
 	 * @param stage3DProxy The Stage3DProxy object currently used for rendering.
 	 * @param camera The camera from which the scene is currently rendered.
 	 */
-	@:allow(away3d) private function setRenderState(vo:MethodVO, renderable:IRenderable, stage3DProxy:Stage3DProxy, camera:Camera3D):Void {}
+	private function setRenderState(vo:MethodVO, renderable:IRenderable, stage3DProxy:Stage3DProxy, camera:Camera3D):Void {}
 
 	/**
 	 * Clears the render state for this method.
 	 * @param vo The MethodVO object linking this method with the pass currently being compiled.
 	 * @param stage3DProxy The Stage3DProxy object currently used for rendering.
 	 */
-	@:allow(away3d) private function deactivate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {}
+	private function deactivate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {}
 
 	/**
 	 * A helper method that generates standard code for sampling from a texture using the normal uv coordinates.

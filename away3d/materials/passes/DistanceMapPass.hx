@@ -81,7 +81,7 @@ class DistanceMapPass extends MaterialPassBase {
 	/**
 	 * @inheritDoc
 	 */
-	@:allow(away3d) override private function getVertexCode():String {
+	override private function getVertexCode():String {
 		var code:String;
 		code = "m44 op, vt0, vc0		\n" + "m44 vt1, vt0, vc5		\n" + "sub v0, vt1, vc9		\n";
 
@@ -100,7 +100,7 @@ class DistanceMapPass extends MaterialPassBase {
 	/**
 	 * @inheritDoc
 	 */
-	@:allow(away3d) override private function getFragmentCode(animationCode:String):String {
+	override private function getFragmentCode(animationCode:String):String {
 		// TODO: not used
 		var code:String;
 		var wrap:String = _repeat ? "wrap" : "clamp";
@@ -135,7 +135,7 @@ class DistanceMapPass extends MaterialPassBase {
 	/**
 	 * @inheritDoc
 	 */
-	@:allow(away3d) override private function render(renderable:IRenderable, stage3DProxy:Stage3DProxy, camera:Camera3D, viewProjection:Matrix3D):Void {
+	override private function render(renderable:IRenderable, stage3DProxy:Stage3DProxy, camera:Camera3D, viewProjection:Matrix3D):Void {
 		var context:Context3D = stage3DProxy._context3D;
 		var pos:Vector3D = camera.scenePosition;
 
@@ -163,7 +163,7 @@ class DistanceMapPass extends MaterialPassBase {
 	/**
 	 * @inheritDoc
 	 */
-	@:allow(away3d) override private function activate(stage3DProxy:Stage3DProxy, camera:Camera3D):Void {
+	override private function activate(stage3DProxy:Stage3DProxy, camera:Camera3D):Void {
 		var context:Context3D = stage3DProxy._context3D;
 		super.activate(stage3DProxy, camera);
 

@@ -3,6 +3,7 @@ package away3d.primitives.data;
 import away3d.entities.SegmentSet;
 import openfl.geom.Vector3D;
 
+@:allow(away3d)
 class Segment {
 	public var start(get, set):Vector3D;
 	public var end(get, set):Vector3D;

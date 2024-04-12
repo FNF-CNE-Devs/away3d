@@ -19,6 +19,7 @@ import openfl.geom.Matrix;
  * @see away3d.core.base.SubGeometry
  * @see away3d.scenegraph.Mesh
  */
+@:allow(away3d)
 class SubMesh implements IRenderable {
 	public var shaderPickingDetails(get, never):Bool;
 
@@ -44,7 +45,7 @@ class SubMesh implements IRenderable {
 	public var mouseEnabled(get, never):Bool;
 	public var castsShadows(get, never):Bool;
 
-	@:allow(away3d) private var parentMesh(get, set):Mesh;
+	private var parentMesh(get, set):Mesh;
 
 	public var uvTransform(get, never):Matrix;
 	public var uvTransform2(get, never):Matrix;
@@ -63,10 +64,10 @@ class SubMesh implements IRenderable {
 	public var vertexNormalOffset(get, never):Int;
 	public var vertexTangentOffset(get, never):Int;
 
-	@:allow(away3d) private var _material:MaterialBase;
+	private var _material:MaterialBase;
 	private var _parentMesh:Mesh;
 	private var _subGeometry:ISubGeometry;
-	@:allow(away3d) private var _index:Int;
+	private var _index:Int;
 
 	private var _uvTransform:Matrix;
 	private var _uvTransformDirty:Bool;
@@ -346,8 +347,6 @@ class SubMesh implements IRenderable {
 
 	/**
 	 * A reference to the owning Mesh object
-	 *
-	 * @private
 	 */
 	private function get_parentMesh():Mesh {
 		return _parentMesh;

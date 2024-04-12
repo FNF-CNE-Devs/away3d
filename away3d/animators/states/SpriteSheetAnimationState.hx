@@ -72,7 +72,7 @@ class SpriteSheetAnimationState extends AnimationClipState implements ISpriteShe
 	/**
 	 * returns the total frames for the current animation.
 	 */
-	@:allow(away3d) private function get_totalFrames():Int {
+	private function get_totalFrames():Int {
 		return (_frames == null) ? 0 : _frames.length;
 	}
 

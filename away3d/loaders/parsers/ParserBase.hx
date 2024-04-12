@@ -38,8 +38,9 @@ import openfl.utils.Timer;
  * @see away3d.loading.parsers.AssetLoader
  * @see away3d.loading.ResourceManager
  */
+@:allow(away3d)
 @:keepSub class ParserBase extends EventDispatcher {
-	@:allow(away3d) private var _fileName:String;
+	private var _fileName:String;
 	private var _dataFormat:ParserDataFormat;
 	private var _data:Dynamic;
 	private var _frameLimit:Float;
@@ -180,7 +181,7 @@ import openfl.utils.Timer;
 	 *
 	 * @param resourceDependency The dependency to be resolved.
 	 */
-	@:allow(away3d) private function resolveDependency(resourceDependency:ResourceDependency):Void {
+	private function resolveDependency(resourceDependency:ResourceDependency):Void {
 		throw new AbstractMethodError();
 	}
 
@@ -189,7 +190,7 @@ import openfl.utils.Timer;
 	 *
 	 * @param resourceDependency The dependency to be resolved.
 	 */
-	@:allow(away3d) private function resolveDependencyFailure(resourceDependency:ResourceDependency):Void {
+	private function resolveDependencyFailure(resourceDependency:ResourceDependency):Void {
 		throw new AbstractMethodError();
 	}
 
@@ -198,14 +199,14 @@ import openfl.utils.Timer;
 	 *
 	 * @param resourceDependency The dependency to be resolved.
 	 */
-	@:allow(away3d) private function resolveDependencyName(resourceDependency:ResourceDependency, asset:IAsset):String {
+	private function resolveDependencyName(resourceDependency:ResourceDependency, asset:IAsset):String {
 		return asset.name;
 	}
 
 	/**
 	 * After Dependencys has been loaded and parsed, continue to parse
 	 */
-	@:allow(away3d) private function resumeParsingAfterDependencies():Void {
+	private function resumeParsingAfterDependencies():Void {
 		_parsingPaused = false;
 		if (_timer != null)
 			_timer.start();
@@ -218,7 +219,7 @@ import openfl.utils.Timer;
 	 * @param asset The asset to finalize
 	 * @param name The name of the asset. The name will be applied to the asset
 	 */
-	@:allow(away3d) private function finalizeAsset(asset:IAsset, name:String = null):Void {
+	private function finalizeAsset(asset:IAsset, name:String = null):Void {
 		var type_event:String;
 
 		if (name != null)

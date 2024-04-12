@@ -9,6 +9,7 @@ import openfl.net.URLRequest;
  * ResourceDependency represents the data required to load, parse and resolve additional files ("dependencies")
  * required by a parser, used by ResourceLoadSession.
  */
+@:allow(away3d)
 class ResourceDependency {
 	private var _id:String;
 	private var _req:URLRequest;
@@ -19,8 +20,8 @@ class ResourceDependency {
 	private var _suppressAsset3DEvents:Bool;
 	private var _dependencies:Vector<ResourceDependency>;
 
-	@:allow(away3d) private var loader:SingleFileLoader;
-	@:allow(away3d) private var success:Bool;
+	private var loader:SingleFileLoader;
+	private var success:Bool;
 
 	public function new(id:String, req:URLRequest, data:Dynamic, parentParser:ParserBase, retrieveAsRawData:Bool = false, suppressAsset3DEvents:Bool = false) {
 		_id = id;
@@ -92,10 +93,9 @@ class ResourceDependency {
 	}
 
 	/**
-	 * @private
 	 * Method to set data after having already created the dependency object, e.g. after load.
 	 */
-	@:allow(away3d) private inline function setData(data:Dynamic):Void {
+	private inline function setData(data:Dynamic):Void {
 		_data = data;
 	}
 

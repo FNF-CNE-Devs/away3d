@@ -14,33 +14,18 @@ import openfl.geom.Vector3D;
 /**
  * A particle animation node used to control the position of a particle over time around a circular orbit.
  */
+@:allow(away3d)
 class ParticleOrbitNode extends ParticleNodeBase {
-	/** @private */
-	@:allow(away3d) private static inline var ORBIT_INDEX:Int = 0;
+	private static inline var ORBIT_INDEX:Int = 0;
+	private static inline var EULERS_INDEX:Int = 1;
 
-	/** @private */
-	@:allow(away3d) private static inline var EULERS_INDEX:Int = 1;
-
-	/** @private */
-	@:allow(away3d) private var _usesEulers:Bool;
-
-	/** @private */
-	@:allow(away3d) private var _usesCycle:Bool;
-
-	/** @private */
-	@:allow(away3d) private var _usesPhase:Bool;
-
-	/** @private */
-	@:allow(away3d) private var _radius:Float;
-
-	/** @private */
-	@:allow(away3d) private var _cycleDuration:Float;
-
-	/** @private */
-	@:allow(away3d) private var _cyclePhase:Float;
-
-	/** @private */
-	@:allow(away3d) private var _eulers:Vector3D;
+	private var _usesEulers:Bool;
+	private var _usesCycle:Bool;
+	private var _usesPhase:Bool;
+	private var _radius:Float;
+	private var _cycleDuration:Float;
+	private var _cyclePhase:Float;
+	private var _eulers:Vector3D;
 
 	/**
 	 * Creates a new <code>ParticleOrbitNode</code> object.

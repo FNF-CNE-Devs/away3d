@@ -16,19 +16,20 @@ import openfl.geom.Vector3D;
  * @see away3d.partition.Partition3D
  * @see away3d.containers.Scene3D
  */
+@:allow(away3d)
 class NodeBase {
 	public var showDebugBounds(get, set):Bool;
 	public var parent(get, never):NodeBase;
 
 	private var numEntities(get, never):Int;
 
-	@:allow(away3d) private var _parent:NodeBase;
+	private var _parent:NodeBase;
 	private var _childNodes:Vector<NodeBase>;
 	private var _numChildNodes:Int;
 	private var _debugPrimitive:WireframePrimitiveBase;
 
-	@:allow(away3d) private var _numEntities:Int;
-	@:allow(away3d) private var _collectionMark:Int;
+	private var _numEntities:Int;
+	private var _collectionMark:Int;
 
 	/**
 	 * Creates a new NodeBase object.
@@ -75,7 +76,7 @@ class NodeBase {
 	 *
 	 * @param node The node to be added as a child of the current node.
 	 */
-	@:allow(away3d) private function addNode(node:NodeBase):Void {
+	private function addNode(node:NodeBase):Void {
 		node._parent = this;
 		_numEntities += node._numEntities;
 		_childNodes[_numChildNodes++] = node;
@@ -94,7 +95,7 @@ class NodeBase {
 	 * Removes a child node from the tree.
 	 * @param node The child node to be removed.
 	 */
-	@:allow(away3d) private function removeNode(node:NodeBase):Void {
+	private function removeNode(node:NodeBase):Void {
 		// a bit faster than splice(i, 1), works only if order is not important
 		// override item to be removed with the last in the list, then remove that last one
 		// Also, the "real partition nodes" of the tree will always remain unmoved, first in the list, so if there's

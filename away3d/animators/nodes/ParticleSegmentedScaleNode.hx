@@ -8,21 +8,14 @@ import away3d.materials.passes.MaterialPassBase;
 import openfl.Vector;
 import openfl.geom.Vector3D;
 
+@:allow(away3d)
 class ParticleSegmentedScaleNode extends ParticleNodeBase {
-	/** @private */
-	@:allow(away3d) private static inline var START_INDEX:Int = 0;
+	private static inline var START_INDEX:Int = 0;
 
-	/** @private */
-	@:allow(away3d) private var _startScale:Vector3D;
-
-	/** @private */
-	@:allow(away3d) private var _endScale:Vector3D;
-
-	/** @private */
-	@:allow(away3d) private var _numSegmentPoint:Int;
-
-	/** @private */
-	@:allow(away3d) private var _segmentScales:Vector<Vector3D>;
+	private var _startScale:Vector3D;
+	private var _endScale:Vector3D;
+	private var _numSegmentPoint:Int;
+	private var _segmentScales:Vector<Vector3D>;
 
 	/**
 	 *

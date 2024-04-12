@@ -22,13 +22,14 @@ import openfl.geom.Matrix3D;
 import openfl.geom.Matrix;
 import openfl.geom.Vector3D;
 
+@:allow(away3d)
 class SegmentSet extends Entity implements IRenderable {
 	private static var LIMIT:Int = 3 * 0xFFFF;
 
 	public var segmentCount(get, never):Int;
 
-	@:allow(away3d) private var subSetCount(get, never):Int;
-	@:allow(away3d) private var hasData(get, never):Bool;
+	private var subSetCount(get, never):Int;
+	private var hasData(get, never):Bool;
 
 	public var numTriangles(get, never):Int;
 	public var sourceEntity(get, never):Entity;
@@ -257,7 +258,7 @@ class SegmentSet extends Entity implements IRenderable {
 		return _subSetCount;
 	}
 
-	@:allow(away3d) private function updateSegment(segment:Segment):Void {
+	private function updateSegment(segment:Segment):Void {
 		// to do: add support for curve segment
 		var start:Vector3D = segment._start;
 		var end:Vector3D = segment._end;

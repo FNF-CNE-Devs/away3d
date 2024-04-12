@@ -14,6 +14,8 @@ import openfl.errors.Error;
 import openfl.geom.Vector3D;
 
 // todo: provide markVisibleVolume to pass in another view volume to find all statics in the scene that intersect with target ViewVolume, for constructing view volumes more easily
+
+@:allow(away3d)
 class ViewVolume extends NodeBase {
 	public var minBound(get, never):Vector3D;
 	public var maxBound(get, never):Vector3D;
@@ -44,7 +46,7 @@ class ViewVolume extends NodeBase {
 	private var _maxX:Float;
 	private var _maxY:Float;
 	private var _maxZ:Float;
-	@:allow(away3d) private var _active:Bool;
+	private var _active:Bool;
 
 	private static var _entityWorldBounds:Vector<Float>;
 

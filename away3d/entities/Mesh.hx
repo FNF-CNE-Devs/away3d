@@ -265,7 +265,7 @@ class Mesh extends Entity implements IMaterialOwner implements IAsset {
 
 		len = numChildren;
 		for (i in 0...len)
-			clone.addChild(cast((getChildAt(i).clone()), ObjectContainer3D));
+			clone.addChild(cast(getChildAt(i).clone(), ObjectContainer3D));
 
 		if (_animator != null)
 			clone.animator = _animator.clone();

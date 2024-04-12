@@ -14,27 +14,16 @@ import openfl.geom.Vector3D;
 /**
  * A particle animation node used to control the scale variation of a particle over time.
  */
+@:allow(away3d)
 class ParticleScaleNode extends ParticleNodeBase {
-	/** @private */
-	@:allow(away3d) private static inline var SCALE_INDEX:Int = 0;
+	private static inline var SCALE_INDEX:Int = 0;
 
-	/** @private */
-	@:allow(away3d) private var _usesCycle:Bool;
-
-	/** @private */
-	@:allow(away3d) private var _usesPhase:Bool;
-
-	/** @private */
-	@:allow(away3d) private var _minScale:Float;
-
-	/** @private */
-	@:allow(away3d) private var _maxScale:Float;
-
-	/** @private */
-	@:allow(away3d) private var _cycleDuration:Float;
-
-	/** @private */
-	@:allow(away3d) private var _cyclePhase:Float;
+	private var _usesCycle:Bool;
+	private var _usesPhase:Bool;
+	private var _minScale:Float;
+	private var _maxScale:Float;
+	private var _cycleDuration:Float;
+	private var _cyclePhase:Float;
 
 	/**
 	 * Creates a new <code>ParticleScaleNode</code>

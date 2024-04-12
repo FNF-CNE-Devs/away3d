@@ -16,6 +16,7 @@ import openfl.geom.Rectangle;
 /**
  * The DepthRenderer class renders 32-bit depth information encoded as RGBA
  */
+@:allow(away3d)
 class DepthRenderer extends RendererBase {
 	public var disableColor(get, set):Bool;
 
@@ -59,7 +60,7 @@ class DepthRenderer extends RendererBase {
 		return value;
 	}
 
-	@:allow(away3d) private function renderCascades(entityCollector:EntityCollector, target:TextureBase, numCascades:Int, scissorRects:Vector<Rectangle>,
+	private function renderCascades(entityCollector:EntityCollector, target:TextureBase, numCascades:Int, scissorRects:Vector<Rectangle>,
 			cameras:Vector<Camera3D>):Void {
 		_renderTarget = target;
 		_renderTargetSurface = 0;

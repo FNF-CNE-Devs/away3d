@@ -16,37 +16,22 @@ import openfl.geom.Vector3D;
  * A particle animation node used when a spritesheet texture is required to animate the particle.
  * NB: to enable use of this node, the <code>repeat</code> property on the material has to be set to true.
  */
+@:allow(away3d)
 class ParticleSpriteSheetNode extends ParticleNodeBase {
 	public var numColumns(get, never):Float;
 	public var numRows(get, never):Float;
 	public var totalFrames(get, never):Float;
 
-	/** @private */
-	@:allow(away3d) private static inline var UV_INDEX_0:Int = 0;
+	private static inline var UV_INDEX_0:Int = 0;
+	private static inline var UV_INDEX_1:Int = 1;
 
-	/** @private */
-	@:allow(away3d) private static inline var UV_INDEX_1:Int = 1;
-
-	/** @private */
-	@:allow(away3d) private var _usesCycle:Bool;
-
-	/** @private */
-	@:allow(away3d) private var _usesPhase:Bool;
-
-	/** @private */
-	@:allow(away3d) private var _totalFrames:Int;
-
-	/** @private */
-	@:allow(away3d) private var _numColumns:Int;
-
-	/** @private */
-	@:allow(away3d) private var _numRows:Int;
-
-	/** @private */
-	@:allow(away3d) private var _cycleDuration:Float;
-
-	/** @private */
-	@:allow(away3d) private var _cyclePhase:Float;
+	private var _usesCycle:Bool;
+	private var _usesPhase:Bool;
+	private var _totalFrames:Int;
+	private var _numColumns:Int;
+	private var _numRows:Int;
+	private var _cycleDuration:Float;
+	private var _cyclePhase:Float;
 
 	/**
 	 * Defines the number of columns in the spritesheet, when in global mode. Defaults to 1. Read only.

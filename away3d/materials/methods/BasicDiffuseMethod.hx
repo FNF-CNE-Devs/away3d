@@ -12,15 +12,16 @@ import openfl.display3D.Context3DWrapMode;
 /**
  * BasicDiffuseMethod provides the default shading method for Lambert (dot3) diffuse lighting.
  */
+@:allow(away3d)
 class BasicDiffuseMethod extends LightingMethodBase {
-	@:allow(away3d) private var useAmbientTexture(get, set):Bool;
+	private var useAmbientTexture(get, set):Bool;
 
 	public var diffuseAlpha(get, set):Float;
 	public var diffuseColor(get, set):Int;
 	public var texture(get, set):Texture2DBase;
 	public var alphaThreshold(get, set):Float;
 
-	@:allow(away3d) private var shadowRegister(never, set):ShaderRegisterElement;
+	private var shadowRegister(never, set):ShaderRegisterElement;
 
 	private var _useAmbientTexture:Bool;
 

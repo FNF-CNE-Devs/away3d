@@ -13,6 +13,7 @@ import openfl.display.Sprite;
 import openfl.events.Event;
 import openfl.geom.Vector3D;
 
+@:allow(away3d)
 class AnimatorBase extends NamedAssetBase implements IAsset {
 	public var absoluteTime(get, never):Int;
 	public var animationSet(get, never):IAnimationSet;
@@ -240,28 +241,22 @@ class AnimatorBase extends NamedAssetBase implements IAsset {
 
 	/**
 	 * Used by the mesh object to which the animator is applied, registers the owner for internal use.
-	 *
-	 * @private
 	 */
-	@:allow(away3d) private function addOwner(mesh:Mesh):Void {
+	private function addOwner(mesh:Mesh):Void {
 		_owners.push(mesh);
 	}
 
 	/**
 	 * Used by the mesh object from which the animator is removed, unregisters the owner for internal use.
-	 *
-	 * @private
 	 */
-	@:allow(away3d) private function removeOwner(mesh:Mesh):Void {
+	private function removeOwner(mesh:Mesh):Void {
 		_owners.splice(_owners.indexOf(mesh), 1);
 	}
 
 	/**
 	 * Internal abstract method called when the time delta property of the animator's contents requires updating.
-	 *
-	 * @private
 	 */
-	@:allow(away3d) private function updateDeltaTime(dt:Int):Void {
+	private function updateDeltaTime(dt:Int):Void {
 		_absoluteTime += dt;
 
 		_activeState.update(_absoluteTime);
@@ -290,10 +285,8 @@ class AnimatorBase extends NamedAssetBase implements IAsset {
 
 	/**
 	 *  for internal use.
-	 *
-	 * @private
 	 */
-	@:allow(away3d) private function dispatchCycleEvent():Void {
+	private function dispatchCycleEvent():Void {
 		if (hasEventListener(AnimatorEvent.CYCLE_COMPLETE)) {
 			if (_cycleEvent == null)
 				_cycleEvent = new AnimatorEvent(AnimatorEvent.CYCLE_COMPLETE, this);

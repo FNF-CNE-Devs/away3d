@@ -15,47 +15,23 @@ import openfl.geom.ColorTransform;
 /**
  * A particle animation node used to control the color variation of a particle over time.
  */
+@:allow(away3d)
 class ParticleColorNode extends ParticleNodeBase {
-	/** @private */
-	@:allow(away3d) private static inline var START_MULTIPLIER_INDEX:Int = 0;
-
-	/** @private */
-	@:allow(away3d) private static inline var DELTA_MULTIPLIER_INDEX:Int = 1;
-
-	/** @private */
-	@:allow(away3d) private static inline var START_OFFSET_INDEX:Int = 2;
-
-	/** @private */
-	@:allow(away3d) private static inline var DELTA_OFFSET_INDEX:Int = 3;
-
-	/** @private */
-	@:allow(away3d) private static inline var CYCLE_INDEX:Int = 4;
+	private static inline var START_MULTIPLIER_INDEX:Int = 0;
+	private static inline var DELTA_MULTIPLIER_INDEX:Int = 1;
+	private static inline var START_OFFSET_INDEX:Int = 2;
+	private static inline var DELTA_OFFSET_INDEX:Int = 3;
+	private static inline var CYCLE_INDEX:Int = 4;
 
 	// default values used when creating states
-
-	/** @private */
-	@:allow(away3d) private var _usesMultiplier:Bool;
-
-	/** @private */
-	@:allow(away3d) private var _usesOffset:Bool;
-
-	/** @private */
-	@:allow(away3d) private var _usesCycle:Bool;
-
-	/** @private */
-	@:allow(away3d) private var _usesPhase:Bool;
-
-	/** @private */
-	@:allow(away3d) private var _startColor:ColorTransform;
-
-	/** @private */
-	@:allow(away3d) private var _endColor:ColorTransform;
-
-	/** @private */
-	@:allow(away3d) private var _cycleDuration:Float;
-
-	/** @private */
-	@:allow(away3d) private var _cyclePhase:Float;
+	private var _usesMultiplier:Bool;
+	private var _usesOffset:Bool;
+	private var _usesCycle:Bool;
+	private var _usesPhase:Bool;
+	private var _startColor:ColorTransform;
+	private var _endColor:ColorTransform;
+	private var _cycleDuration:Float;
+	private var _cyclePhase:Float;
 
 	/**
 	 * Creates a new <code>ParticleColorNode</code>

@@ -20,27 +20,28 @@ import openfl.geom.Rectangle;
  * RendererBase forms an abstract base class for classes that are used in the rendering pipeline to render geometry
  * to the back buffer or a texture.
  */
+@:allow(away3d)
 class RendererBase {
-	@:allow(away3d) private var viewWidth(get, set):Float;
-	@:allow(away3d) private var viewHeight(get, set):Float;
-	@:allow(away3d) private var renderToTexture(get, never):Bool;
+	private var viewWidth(get, set):Float;
+	private var viewHeight(get, set):Float;
+	private var renderToTexture(get, never):Bool;
 
 	public var renderableSorter(get, set):IEntitySorter;
 
-	@:allow(away3d) private var clearOnRender(get, set):Bool;
-	@:allow(away3d) private var backgroundR(get, set):Float;
-	@:allow(away3d) private var backgroundG(get, set):Float;
-	@:allow(away3d) private var backgroundB(get, set):Float;
-	@:allow(away3d) private var stage3DProxy(get, set):Stage3DProxy;
-	@:allow(away3d) private var shareContext(get, set):Bool;
-	@:allow(away3d) private var backgroundAlpha(get, set):Float;
-	@:allow(away3d) private var background(get, set):Texture2DBase;
+	private var clearOnRender(get, set):Bool;
+	private var backgroundR(get, set):Float;
+	private var backgroundG(get, set):Float;
+	private var backgroundB(get, set):Float;
+	private var stage3DProxy(get, set):Stage3DProxy;
+	private var shareContext(get, set):Bool;
+	private var backgroundAlpha(get, set):Float;
+	private var background(get, set):Texture2DBase;
 
 	public var backgroundImageRenderer(get, never):BackgroundImageRenderer;
 	public var antiAlias(get, set):Int;
 
-	@:allow(away3d) private var textureRatioX(get, set):Float;
-	@:allow(away3d) private var textureRatioY(get, set):Float;
+	private var textureRatioX(get, set):Float;
+	private var textureRatioY(get, set):Float;
 
 	private var _context:Context3D;
 	private var _stage3DProxy:Stage3DProxy;
@@ -81,7 +82,7 @@ class RendererBase {
 		_renderToTexture = renderToTexture;
 	}
 
-	@:allow(away3d) private function createEntityCollector():EntityCollector {
+	private function createEntityCollector():EntityCollector {
 		return new EntityCollector();
 	}
 
@@ -127,8 +128,6 @@ class RendererBase {
 
 	/**
 	 * The background color's red component, used when clearing.
-	 *
-	 * @private
 	 */
 	private function get_backgroundR():Float {
 		return _backgroundR;
@@ -141,8 +140,6 @@ class RendererBase {
 
 	/**
 	 * The background color's green component, used when clearing.
-	 *
-	 * @private
 	 */
 	private function get_backgroundG():Float {
 		return _backgroundG;
@@ -155,8 +152,6 @@ class RendererBase {
 
 	/**
 	 * The background color's blue component, used when clearing.
-	 *
-	 * @private
 	 */
 	private function get_backgroundB():Float {
 		return _backgroundB;
@@ -169,8 +164,6 @@ class RendererBase {
 
 	/**
 	 * The Stage3DProxy that will provide the Context3D used for rendering.
-	 *
-	 * @private
 	 */
 	private function get_stage3DProxy():Stage3DProxy {
 		return _stage3DProxy;
@@ -205,8 +198,6 @@ class RendererBase {
 	/**
 	 * Defers control of Context3D clear() and present() calls to Stage3DProxy, enabling multiple Stage3D frameworks
 	 * to share the same Context3D object.
-	 *
-	 * @private
 	 */
 	private function get_shareContext():Bool {
 		return _shareContext;
@@ -219,10 +210,8 @@ class RendererBase {
 
 	/**
 	 * Disposes the resources used by the RendererBase.
-	 *
-	 * @private
 	 */
-	@:allow(away3d) private function dispose():Void {
+	private function dispose():Void {
 		stage3DProxy = null;
 		if (_backgroundImageRenderer != null) {
 			_backgroundImageRenderer.dispose();

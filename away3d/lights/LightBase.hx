@@ -14,6 +14,7 @@ import openfl.geom.Matrix3D;
 /**
  * LightBase provides an abstract base class for subtypes representing lights.
  */
+@:allow(away3d)
 class LightBase extends Entity {
 	public var castsShadows(get, set):Bool;
 	public var specular(get, set):Float;
@@ -30,19 +31,19 @@ class LightBase extends Entity {
 
 	private var _ambientColor:Int = 0xffffff;
 	private var _ambient:Float = 0;
-	@:allow(away3d) private var _ambientR:Float = 0;
-	@:allow(away3d) private var _ambientG:Float = 0;
-	@:allow(away3d) private var _ambientB:Float = 0;
+	private var _ambientR:Float = 0;
+	private var _ambientG:Float = 0;
+	private var _ambientB:Float = 0;
 
 	private var _specular:Float = 1;
-	@:allow(away3d) private var _specularR:Float = 1;
-	@:allow(away3d) private var _specularG:Float = 1;
-	@:allow(away3d) private var _specularB:Float = 1;
+	private var _specularR:Float = 1;
+	private var _specularG:Float = 1;
+	private var _specularB:Float = 1;
 
 	private var _diffuse:Float = 1;
-	@:allow(away3d) private var _diffuseR:Float = 1;
-	@:allow(away3d) private var _diffuseG:Float = 1;
-	@:allow(away3d) private var _diffuseB:Float = 1;
+	private var _diffuseR:Float = 1;
+	private var _diffuseG:Float = 1;
+	private var _diffuseB:Float = 1;
 
 	public var _castsShadows:Bool;
 
@@ -177,7 +178,7 @@ class LightBase extends Entity {
 	 * @param target An optional target Matrix3D object. If not provided, an instance will be created.
 	 * @return A Matrix3D object containing the projection transformation.
 	 */
-	@:allow(away3d) private function getObjectProjectionMatrix(renderable:IRenderable, camera:Camera3D, target:Matrix3D = null):Matrix3D {
+	private function getObjectProjectionMatrix(renderable:IRenderable, camera:Camera3D, target:Matrix3D = null):Matrix3D {
 		throw new AbstractMethodError();
 		return null;
 	}

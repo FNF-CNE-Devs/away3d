@@ -15,12 +15,11 @@ import openfl.geom.Vector3D;
 /**
  * A particle animation node used to apply a constant acceleration vector to the motion of a particle.
  */
+@:allow(away3d)
 class ParticleAccelerationNode extends ParticleNodeBase {
-	/** @private */
-	@:allow(away3d) private static inline var ACCELERATION_INDEX:Int = 0;
+	private static inline var ACCELERATION_INDEX:Int = 0;
 
-	/** @private */
-	@:allow(away3d) private var _acceleration:Vector3D;
+	private var _acceleration:Vector3D;
 
 	/**
 	 * Creates a new <code>ParticleAccelerationNode</code>

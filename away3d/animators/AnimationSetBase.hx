@@ -61,10 +61,8 @@ class AnimationSetBase extends NamedAssetBase implements IAsset {
 	/**
 	 * Called by the material to reset the GPU indicator before testing whether register space in the shader
 	 * is available for running GPU-based animation code.
-	 *
-	 * @private
 	 */
-	@:allow(away3d) private function resetGPUCompatibility():Void {
+	private function resetGPUCompatibility():Void {
 		_usesCPU = false;
 	}
 

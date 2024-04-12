@@ -12,21 +12,14 @@ import away3d.materials.passes.MaterialPassBase;
 /**
  * A particle animation node used to create a follow behaviour on a particle system.
  */
+@:allow(away3d)
 class ParticleFollowNode extends ParticleNodeBase {
-	/** @private */
-	@:allow(away3d) private static inline var FOLLOW_POSITION_INDEX:Int = 0;
+	private static inline var FOLLOW_POSITION_INDEX:Int = 0;
+	private static inline var FOLLOW_ROTATION_INDEX:Int = 1;
 
-	/** @private */
-	@:allow(away3d) private static inline var FOLLOW_ROTATION_INDEX:Int = 1;
-
-	/** @private */
-	@:allow(away3d) private var _usesPosition:Bool;
-
-	/** @private */
-	@:allow(away3d) private var _usesRotation:Bool;
-
-	/** @private */
-	@:allow(away3d) private var _smooth:Bool;
+	private var _usesPosition:Bool;
+	private var _usesRotation:Bool;
+	private var _smooth:Bool;
 
 	/**
 	 * Creates a new <code>ParticleFollowNode</code>

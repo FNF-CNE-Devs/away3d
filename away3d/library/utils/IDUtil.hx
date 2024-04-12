@@ -2,10 +2,9 @@ package away3d.library.utils;
 
 class IDUtil {
 	/**
-	 *  @private
 	 *  Char codes for 0123456789ABCDEF
 	 */
-	@:allow(away3d) private static var ALPHA_CHAR_CODES:Array<Int> = [48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 65, 66, 67, 68, 69, 70];
+	private static var ALPHA_CHAR_CODES:Array<Int> = [48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 65, 66, 67, 68, 69, 70];
 
 	/**
 	 *  Generates a UID (unique identifier) based on ActionScript's
@@ -73,9 +72,8 @@ class IDUtil {
 
 	/**
 	 * Returns the decimal representation of a hex digit.
-	 * @private
 	 */
-	@:allow(away3d) private static function getDigit(hex:String):UInt {
+	private static function getDigit(hex:String):UInt {
 		return switch (hex) {
 			case "A", "a": 10;
 			case "B", "b": 11;

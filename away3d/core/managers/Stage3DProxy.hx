@@ -27,6 +27,7 @@ import openfl.geom.Rectangle;
  * todo: consider moving all creation methods (createVertexBuffer etc) in here, so that disposal can occur here
  * along with the context, instead of scattered throughout the framework
  */
+@:allow(away3d)
 class Stage3DProxy extends EventDispatcher {
 	public var profile(get, never):String;
 	public var enableDepthAndStencil(get, set):Bool;
@@ -52,8 +53,8 @@ class Stage3DProxy extends EventDispatcher {
 
 	private static var _frameEventDriver:Shape = new Shape();
 
-	@:allow(away3d) private var _context3D:Context3D;
-	@:allow(away3d) private var _stage3DIndex:Int = -1;
+	private var _context3D:Context3D;
+	private var _stage3DIndex:Int = -1;
 
 	private var _usesSoftwareRendering:Bool;
 	private var _profile:String;

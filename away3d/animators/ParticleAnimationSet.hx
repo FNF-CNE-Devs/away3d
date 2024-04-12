@@ -26,11 +26,11 @@ import openfl.errors.Error;
  *
  * @see away3d.animators.ParticleAnimator
  */
+@:allow(away3d)
 class ParticleAnimationSet extends AnimationSetBase implements IAnimationSet {
 	public var particleNodes(get, never):Vector<ParticleNodeBase>;
 
-	/** @private */
-	@:allow(away3d) private var _animationRegisterCache:AnimationRegisterCache;
+	private var _animationRegisterCache:AnimationRegisterCache;
 
 	// all other nodes dependent on it
 	private var _timeNode:ParticleTimeNode;
@@ -249,8 +249,7 @@ class ParticleAnimationSet extends AnimationSetBase implements IAnimationSet {
 		super.dispose();
 	}
 
-	/** @private */
-	@:allow(away3d) private function generateAnimationSubGeometries(mesh:Mesh):Void {
+	private function generateAnimationSubGeometries(mesh:Mesh):Void {
 		if (initParticleFunc == null)
 			throw new Error("no initParticleFunc set");
 

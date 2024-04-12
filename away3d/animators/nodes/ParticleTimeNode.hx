@@ -12,21 +12,14 @@ import away3d.materials.passes.MaterialPassBase;
 /**
  * A particle animation node used as the base node for timekeeping inside a particle. Automatically added to a particle animation set on instatiation.
  */
+@:allow(away3d)
 class ParticleTimeNode extends ParticleNodeBase {
-	/** @private */
-	@:allow(away3d) private static inline var TIME_STREAM_INDEX:Int = 0;
+	private static inline var TIME_STREAM_INDEX:Int = 0;
+	private static inline var TIME_CONSTANT_INDEX:Int = 1;
 
-	/** @private */
-	@:allow(away3d) private static inline var TIME_CONSTANT_INDEX:Int = 1;
-
-	/** @private */
-	@:allow(away3d) private var _usesDuration:Bool;
-
-	/** @private */
-	@:allow(away3d) private var _usesDelay:Bool;
-
-	/** @private */
-	@:allow(away3d) private var _usesLooping:Bool;
+	private var _usesDuration:Bool;
+	private var _usesDelay:Bool;
+	private var _usesLooping:Bool;
 
 	/**
 	 * Creates a new <code>ParticleTimeNode</code>

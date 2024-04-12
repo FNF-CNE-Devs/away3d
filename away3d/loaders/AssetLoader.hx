@@ -466,7 +466,7 @@ class AssetLoader extends EventDispatcher {
 		dispose();
 	}
 
-	private function dispose():Void {
+	public function dispose():Void {
 		_errorHandlers = null;
 		_parseErrorHandlers = null;
 		_context = null;
@@ -481,7 +481,6 @@ class AssetLoader extends EventDispatcher {
 	}
 
 	/**
-	 * @private
 	 * This method is used by other loader classes (e.g. Loader3D and Asset3DLibraryBundle) to
 	 * add error event listeners to the AssetLoader instance. This system is used instead of
 	 * the regular EventDispatcher system so that the Asset3DLibrary error handler can be sure
@@ -491,12 +490,12 @@ class AssetLoader extends EventDispatcher {
 	 * whether they in turn had any client code listening for the event.) If no handlers
 	 * return true, the AssetLoader knows that the event wasn't handled and will throw an RTE.
 	 */
-	@:allow(away3d) private function addParseErrorHandler(handler:Dynamic->Void):Void {
+	public function addParseErrorHandler(handler:Dynamic->Void):Void {
 		if (_parseErrorHandlers.indexOf(handler) < 0)
 			_parseErrorHandlers.push(handler);
 	}
 
-	@:allow(away3d) private function addErrorHandler(handler:Dynamic->Void):Void {
+	public function addErrorHandler(handler:Dynamic->Void):Void {
 		if (_errorHandlers.indexOf(handler) < 0)
 			_errorHandlers.push(handler);
 	}

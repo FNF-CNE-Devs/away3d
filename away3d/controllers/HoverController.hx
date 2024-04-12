@@ -23,8 +23,8 @@ class HoverController extends LookAtController {
 	public var yFactor(get, set):Float;
 	public var wrapPanAngle(get, set):Bool;
 
-	@:allow(away3d) private var _currentPanAngle:Float = 0;
-	@:allow(away3d) private var _currentTiltAngle:Float = 90;
+	private var _currentPanAngle:Float = 0;
+	private var _currentTiltAngle:Float = 90;
 
 	private var _panAngle:Float = 0;
 	private var _tiltAngle:Float = 90;

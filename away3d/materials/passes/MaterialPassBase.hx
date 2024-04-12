@@ -30,6 +30,7 @@ import openfl.geom.Rectangle;
  * MaterialPassBase provides an abstract base class for material shader passes. A material pass constitutes at least
  * a render call per required renderable.
  */
+@:allow(away3d)
 class MaterialPassBase extends EventDispatcher {
 	public var material(get, set):MaterialBase;
 	public var writeDepth(get, set):Bool;
@@ -48,15 +49,15 @@ class MaterialPassBase extends EventDispatcher {
 	public var needFragmentAnimation(get, never):Bool;
 	public var needUVAnimation(get, never):Bool;
 
-	@:allow(away3d) private var lightPicker(get, set):LightPickerBase;
+	private var lightPicker(get, set):LightPickerBase;
 
 	public var alphaPremultiplied(get, set):Bool;
 
 	private var _material:MaterialBase;
 	private var _animationSet:IAnimationSet;
 
-	@:allow(away3d) private var _program3Ds:Vector<Program3D> = new Vector<Program3D>(8);
-	@:allow(away3d) private var _program3Dids:Vector<Int> = Vector.ofArray([-1, -1, -1, -1, -1, -1, -1, -1]);
+	private var _program3Ds:Vector<Program3D> = new Vector<Program3D>(8);
+	private var _program3Dids:Vector<Int> = Vector.ofArray([-1, -1, -1, -1, -1, -1, -1, -1]);
 	private var _context3Ds:Vector<Context3D> = new Vector<Context3D>(8);
 
 	// agal props. these NEED to be set by subclasses!
@@ -310,26 +311,22 @@ class MaterialPassBase extends EventDispatcher {
 
 	/**
 	 * Sets up the animation state. This needs to be called before render()
-	 *
-	 * @private
 	 */
-	@:allow(away3d) private function updateAnimationState(renderable:IRenderable, stage3DProxy:Stage3DProxy, camera:Camera3D):Void {
+	private function updateAnimationState(renderable:IRenderable, stage3DProxy:Stage3DProxy, camera:Camera3D):Void {
 		renderable.animator.setRenderState(stage3DProxy, renderable, _numUsedVertexConstants, _numUsedStreams, camera);
 	}
 
 	/**
 	 * Renders an object to the current render target.
-	 *
-	 * @private
 	 */
-	@:allow(away3d) private function render(renderable:IRenderable, stage3DProxy:Stage3DProxy, camera:Camera3D, viewProjection:Matrix3D):Void {
+	private function render(renderable:IRenderable, stage3DProxy:Stage3DProxy, camera:Camera3D, viewProjection:Matrix3D):Void {
 		throw new AbstractMethodError();
 	}
 
 	/**
 	 * Returns the vertex AGAL code for the material.
 	 */
-	@:allow(away3d) private function getVertexCode():String {
+	private function getVertexCode():String {
 		throw new AbstractMethodError();
 		return null;
 	}
@@ -337,7 +334,7 @@ class MaterialPassBase extends EventDispatcher {
 	/**
 	 * Returns the fragment AGAL code for the material.
 	 */
-	@:allow(away3d) private function getFragmentCode(fragmentAnimatorCode:String):String {
+	private function getFragmentCode(fragmentAnimatorCode:String):String {
 		throw new AbstractMethodError();
 		return null;
 	}
@@ -388,9 +385,8 @@ class MaterialPassBase extends EventDispatcher {
 	 * calling renderPass. Before activating a pass, the previously used pass needs to be deactivated.
 	 * @param stage3DProxy The Stage3DProxy object which is currently used for rendering.
 	 * @param camera The camera from which the scene is viewed.
-	 * @private
 	 */
-	@:allow(away3d) private function activate(stage3DProxy:Stage3DProxy, camera:Camera3D):Void {
+	private function activate(stage3DProxy:Stage3DProxy, camera:Camera3D):Void {
 		var contextIndex:Int = stage3DProxy._stage3DIndex;
 		var context:Context3D = stage3DProxy._context3D;
 
@@ -430,10 +426,8 @@ class MaterialPassBase extends EventDispatcher {
 	/**
 	 * Clears the render state for the pass. This needs to be called before activating another pass.
 	 * @param stage3DProxy The Stage3DProxy used for rendering
-	 *
-	 * @private
 	 */
-	@:allow(away3d) private function deactivate(stage3DProxy:Stage3DProxy):Void {
+	private function deactivate(stage3DProxy:Stage3DProxy):Void {
 		var index:UInt = stage3DProxy._stage3DIndex;
 		_previousUsedStreams[index] = _numUsedStreams;
 		_previousUsedTexs[index] = _numUsedTextures;
@@ -459,7 +453,7 @@ class MaterialPassBase extends EventDispatcher {
 	 *
 	 * @param updateMaterial Indicates whether the invalidation should be performed on the entire material. Should always pass "true" unless it's called from the material itself.
 	 */
-	@:allow(away3d) private function invalidateShaderProgram(updateMaterial:Bool = true):Void {
+	private function invalidateShaderProgram(updateMaterial:Bool = true):Void {
 		for (i in 0...8)
 			_program3Ds[i] = null;
 
@@ -471,7 +465,7 @@ class MaterialPassBase extends EventDispatcher {
 	 * Compiles the shader program.
 	 * @param polyOffsetReg An optional register that contains an amount by which to inflate the model (used in single object depth map rendering).
 	 */
-	@:allow(away3d) private function updateProgram(stage3DProxy:Stage3DProxy):Void {
+	private function updateProgram(stage3DProxy:Stage3DProxy):Void {
 		var animatorCode:String = "";
 		var UVAnimatorCode:String = "";
 		var fragmentAnimatorCode:String = "";
@@ -514,11 +508,11 @@ class MaterialPassBase extends EventDispatcher {
 	 * @see away3d.materials.lightpickers.LightPickerBase
 	 * @see away3d.materials.lightpickers.StaticLightPicker
 	 */
-	@:allow(away3d) private function get_lightPicker():LightPickerBase {
+	private function get_lightPicker():LightPickerBase {
 		return _lightPicker;
 	}
 
-	@:allow(away3d) private function set_lightPicker(value:LightPickerBase):LightPickerBase {
+	private function set_lightPicker(value:LightPickerBase):LightPickerBase {
 		if (_lightPicker != null)
 			_lightPicker.removeEventListener(Event.CHANGE, onLightsChange);
 		_lightPicker = value;

@@ -23,6 +23,7 @@ import openfl.geom.Vector3D;
  *
  * @see away3d.materials.methods.ShadingMethodBase
  */
+@:allow(away3d)
 class SuperShaderPass extends CompiledPass {
 	var _includeCasters:Bool = true;
 	var _ignoreLights:Bool;
@@ -379,7 +380,7 @@ class SuperShaderPass extends CompiledPass {
 	 * Indicates whether lights should be ignored in this pass. This is used when only effect methods are rendered in
 	 * a multipass material.
 	 */
-	@:allow(away3d) private var ignoreLights(get, set):Bool;
+	private var ignoreLights(get, set):Bool;
 
 	private inline function set_ignoreLights(val:Bool):Bool {
 		return _ignoreLights = val;

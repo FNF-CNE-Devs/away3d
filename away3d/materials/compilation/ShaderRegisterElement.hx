@@ -6,6 +6,7 @@ import openfl.Vector;
 /**
  * A single register element (an entire register or a single register's component) used by the RegisterPool.
  */
+@:allow(away3d)
 class ShaderRegisterElement {
 	public var regName(get, never):String;
 	public var index(get, never):Int;
@@ -14,7 +15,7 @@ class ShaderRegisterElement {
 	private var _index:Int;
 	private var _toStr:String;
 
-	@:allow(away3d) private var _component:Int;
+	private var _component:Int;
 
 	/**
 	 * Creates a new ShaderRegisterElement object.

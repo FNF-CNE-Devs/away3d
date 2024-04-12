@@ -335,8 +335,6 @@ class SubGeometry extends SubGeometryBase implements ISubGeometry {
 
 	/**
 	 * The raw vertex tangent data.
-	 *
-	 * @private
 	 */
 	override private function get_vertexTangentData():Vector<Float> {
 		if (_autoDeriveVertexTangents && _vertexTangentsDirty)

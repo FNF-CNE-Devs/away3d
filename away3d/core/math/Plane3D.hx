@@ -23,7 +23,7 @@ class Plane3D {
 	 */
 	public var d:Float;
 
-	@:allow(away3d) private var _alignment:Int;
+	private var _alignment:Int;
 
 	// indicates the alignment of the plane
 	public static inline var ALIGN_ANY:Int = 0;

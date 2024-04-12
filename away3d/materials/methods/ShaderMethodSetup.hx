@@ -7,31 +7,32 @@ import openfl.events.EventDispatcher;
 /**
  * ShaderMethodSetup contains the method configuration for an entire material.
  */
+@:allow(away3d)
 class ShaderMethodSetup extends EventDispatcher {
 	public var normalMethod(get, set):BasicNormalMethod;
 
-	@:allow(away3d) private var ambientMethod(get, set):BasicAmbientMethod;
+	private var ambientMethod(get, set):BasicAmbientMethod;
 
 	public var shadowMethod(get, set):ShadowMapMethodBase;
 
-	@:allow(away3d) private var diffuseMethod(get, set):BasicDiffuseMethod;
-	@:allow(away3d) private var specularMethod(get, set):BasicSpecularMethod;
-	@:allow(away3d) private var colorTransformMethod(get, set):ColorTransformMethod;
-	@:allow(away3d) private var numMethods(get, never):Int;
+	private var diffuseMethod(get, set):BasicDiffuseMethod;
+	private var specularMethod(get, set):BasicSpecularMethod;
+	private var colorTransformMethod(get, set):ColorTransformMethod;
+	private var numMethods(get, never):Int;
 
-	@:allow(away3d) private var _colorTransformMethod:ColorTransformMethod;
-	@:allow(away3d) private var _colorTransformMethodVO:MethodVO;
-	@:allow(away3d) private var _normalMethod:BasicNormalMethod;
-	@:allow(away3d) private var _normalMethodVO:MethodVO;
-	@:allow(away3d) private var _ambientMethod:BasicAmbientMethod;
-	@:allow(away3d) private var _ambientMethodVO:MethodVO;
-	@:allow(away3d) private var _shadowMethod:ShadowMapMethodBase;
-	@:allow(away3d) private var _shadowMethodVO:MethodVO;
-	@:allow(away3d) private var _diffuseMethod:BasicDiffuseMethod;
-	@:allow(away3d) private var _diffuseMethodVO:MethodVO;
-	@:allow(away3d) private var _specularMethod:BasicSpecularMethod;
-	@:allow(away3d) private var _specularMethodVO:MethodVO;
-	@:allow(away3d) private var _methods:Vector<MethodVOSet>;
+	private var _colorTransformMethod:ColorTransformMethod;
+	private var _colorTransformMethodVO:MethodVO;
+	private var _normalMethod:BasicNormalMethod;
+	private var _normalMethodVO:MethodVO;
+	private var _ambientMethod:BasicAmbientMethod;
+	private var _ambientMethodVO:MethodVO;
+	private var _shadowMethod:ShadowMapMethodBase;
+	private var _shadowMethodVO:MethodVO;
+	private var _diffuseMethod:BasicDiffuseMethod;
+	private var _diffuseMethodVO:MethodVO;
+	private var _specularMethod:BasicSpecularMethod;
+	private var _specularMethodVO:MethodVO;
+	private var _methods:Vector<MethodVOSet>;
 
 	/**
 	 * Creates a new ShaderMethodSetup object.
@@ -185,9 +186,6 @@ class ShaderMethodSetup extends EventDispatcher {
 		return value;
 	}
 
-	/**
-	 * @private
-	 */
 	private function get_colorTransformMethod():ColorTransformMethod {
 		return _colorTransformMethod;
 	}

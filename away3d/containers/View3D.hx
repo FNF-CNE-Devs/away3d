@@ -29,6 +29,7 @@ import openfl.geom.Point;
 import openfl.geom.Rectangle;
 import openfl.geom.Vector3D;
 
+@:allow(away3d)
 class View3D extends Sprite {
 	private var _width:Float = 0;
 	private var _height:Float = 0;
@@ -989,9 +990,8 @@ class View3D extends Sprite {
 	 * The EntityCollector object that will collect all potentially visible entities in the partition tree.
 	 *
 	 * @see away3d.core.traverse.EntityCollector
-	 * @private
 	 */
-	@:allow(away3d) private var entityCollector(get, never):EntityCollector;
+	private var entityCollector(get, never):EntityCollector;
 
 	private function get_entityCollector():EntityCollector {
 		return _entityCollector;

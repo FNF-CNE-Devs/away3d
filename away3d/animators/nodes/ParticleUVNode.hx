@@ -13,16 +13,15 @@ import openfl.geom.Vector3D;
 /**
  * A particle animation node used to control the UV offset and scale of a particle over time.
  */
+@:allow(away3d)
 class ParticleUVNode extends ParticleNodeBase {
 	public var cycle(get, set):Float;
 	public var scale(get, set):Float;
 	public var axis(get, set):String;
 
-	/** @private */
-	@:allow(away3d) private static inline var UV_INDEX:Int = 0;
+	private static inline var UV_INDEX:Int = 0;
 
-	/** @private */
-	@:allow(away3d) private var _uvData:Vector3D;
+	private var _uvData:Vector3D;
 
 	/**
 	 * Used to set the time node into global property mode.

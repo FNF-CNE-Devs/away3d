@@ -17,8 +17,9 @@ import openfl.net.URLRequest;
  * It's purpose is to allow access to the default library bundle through a set of static shortcut methods.
  * If you are interested in creating multiple library bundles, please use the <code>getBundle()</code> method.
  */
+@:allow(away3d)
 class Asset3DLibrary {
-	@:allow(away3d) private static var _instances:Map<String, Asset3DLibraryBundle> = new Map<String, Asset3DLibraryBundle>();
+	private static var _instances:Map<String, Asset3DLibraryBundle> = new Map<String, Asset3DLibraryBundle>();
 
 	/**
 	 * Short-hand for conflictStrategy property on default asset library bundle.

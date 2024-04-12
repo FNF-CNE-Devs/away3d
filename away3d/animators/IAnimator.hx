@@ -14,6 +14,7 @@ import away3d.materials.passes.MaterialPassBase;
  *
  * @see away3d.animators.IAnimationSet
  */
+@:allow(away3d)
 interface IAnimator {
 	/**
 	 * Returns the animation data set in use by the animator.
@@ -38,17 +39,13 @@ interface IAnimator {
 
 	/**
 	 * Used by the mesh object to which the animator is applied, registers the owner for internal use.
-	 *
-	 * @private
 	 */
-	@:allow(away3d) private function addOwner(mesh:Mesh):Void;
+	private function addOwner(mesh:Mesh):Void;
 
 	/**
 	 * Used by the mesh object from which the animator is removed, unregisters the owner for internal use.
-	 *
-	 * @private
 	 */
-	@:allow(away3d) private function removeOwner(mesh:Mesh):Void;
+	private function removeOwner(mesh:Mesh):Void;
 
 	function getAnimationState(node:AnimationNodeBase):IAnimationState;
 

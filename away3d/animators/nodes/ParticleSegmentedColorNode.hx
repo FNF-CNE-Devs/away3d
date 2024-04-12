@@ -11,33 +11,18 @@ import openfl.Vector;
 import openfl.errors.Error;
 import openfl.geom.ColorTransform;
 
+@:allow(away3d)
 class ParticleSegmentedColorNode extends ParticleNodeBase {
-	/** @private */
-	@:allow(away3d) private static inline var START_MULTIPLIER_INDEX:Int = 0;
+	private static inline var START_MULTIPLIER_INDEX:Int = 0;
+	private static inline var START_OFFSET_INDEX:Int = 1;
+	private static inline var TIME_DATA_INDEX:Int = 2;
 
-	/** @private */
-	@:allow(away3d) private static inline var START_OFFSET_INDEX:Int = 1;
-
-	/** @private */
-	@:allow(away3d) private static inline var TIME_DATA_INDEX:Int = 2;
-
-	/** @private */
-	@:allow(away3d) private var _usesMultiplier:Bool;
-
-	/** @private */
-	@:allow(away3d) private var _usesOffset:Bool;
-
-	/** @private */
-	@:allow(away3d) private var _startColor:ColorTransform;
-
-	/** @private */
-	@:allow(away3d) private var _endColor:ColorTransform;
-
-	/** @private */
-	@:allow(away3d) private var _numSegmentPoint:Int;
-
-	/** @private */
-	@:allow(away3d) private var _segmentPoints:Vector<ColorSegmentPoint>;
+	private var _usesMultiplier:Bool;
+	private var _usesOffset:Bool;
+	private var _startColor:ColorTransform;
+	private var _endColor:ColorTransform;
+	private var _numSegmentPoint:Int;
+	private var _segmentPoints:Vector<ColorSegmentPoint>;
 
 	public function new(usesMultiplier:Bool, usesOffset:Bool, numSegmentPoint:Int, startColor:ColorTransform, endColor:ColorTransform,
 			segmentPoints:Vector<ColorSegmentPoint>) {

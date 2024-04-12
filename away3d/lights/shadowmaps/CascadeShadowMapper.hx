@@ -15,10 +15,11 @@ import openfl.events.IEventDispatcher;
 import openfl.geom.Matrix3D;
 import openfl.geom.Rectangle;
 
+@:allow(away3d)
 class CascadeShadowMapper extends DirectionalShadowMapper implements IEventDispatcher {
 	public var numCascades(get, set):Int;
 
-	@:allow(away3d) private var nearPlaneDistances(get, never):Vector<Float>;
+	private var nearPlaneDistances(get, never):Vector<Float>;
 
 	private var _scissorRects:Vector<Rectangle>;
 	private var _scissorRectsInvalid:Bool = true;

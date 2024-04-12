@@ -1,5 +1,6 @@
 package away3d.loaders.misc;
 
+@:allow(away3d)
 class AssetLoaderContext {
 	public static inline var UNDEFINED:UInt = 0;
 	public static inline var SINGLEPASS_MATERIALS:UInt = 1;
@@ -132,34 +133,30 @@ class AssetLoaderContext {
 	}
 
 	/**
-	 * @private
 	 * Defines whether embedded data has been mapped to a particular URL.
 	 */
-	@:allow(away3d) private inline function hasDataForUrl(url:String):Bool {
+	private inline function hasDataForUrl(url:String):Bool {
 		return _embeddedDataByUrl.exists(url);
 	}
 
 	/**
-	 * @private
 	 * Returns embedded data for a particular URL.
 	 */
-	@:allow(away3d) private inline function getDataForUrl(url:String):Dynamic {
+	private inline function getDataForUrl(url:String):Dynamic {
 		return _embeddedDataByUrl[url];
 	}
 
 	/**
-	 * @private
 	 * Defines whether a replacement URL has been mapped to a particular URL.
 	 */
-	@:allow(away3d) private inline function hasMappingForUrl(url:String):Bool {
+	private inline function hasMappingForUrl(url:String):Bool {
 		return _remappedUrls.exists(url);
 	}
 
 	/**
-	 * @private
 	 * Returns new (replacement) URL for a particular original URL.
 	 */
-	@:allow(away3d) private inline function getRemappedUrl(originalUrl:String):String {
+	private inline function getRemappedUrl(originalUrl:String):String {
 		return _remappedUrls[originalUrl];
 	}
 }
