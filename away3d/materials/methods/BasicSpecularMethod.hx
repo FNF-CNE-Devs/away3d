@@ -62,8 +62,7 @@ class BasicSpecularMethod extends LightingMethodBase {
 	}
 
 	private function set_gloss(value:Float):Float {
-		_gloss = value;
-		return value;
+		return _gloss = value;
 	}
 
 	/**
@@ -296,7 +295,6 @@ class BasicSpecularMethod extends LightingMethodBase {
 	 * Set internally by the compiler, so the method knows the register containing the shadow calculation.
 	 */
 	private function set_shadowRegister(shadowReg:ShaderRegisterElement):ShaderRegisterElement {
-		_shadowRegister = shadowReg;
-		return shadowReg;
+		return _shadowRegister = shadowReg;
 	}
 }

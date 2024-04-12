@@ -47,13 +47,12 @@ class LightingPass extends CompiledPass {
 	 */
 	public var directionalLightsOffset(get, set):UInt;
 
-	private function get_directionalLightsOffset():UInt {
+	private inline function get_directionalLightsOffset():UInt {
 		return _directionalLightsOffset;
 	}
 
-	private function set_directionalLightsOffset(value:UInt):UInt {
-		_directionalLightsOffset = value;
-		return value;
+	private inline function set_directionalLightsOffset(value:UInt):UInt {
+		return _directionalLightsOffset = value;
 	}
 
 	/**
@@ -62,13 +61,12 @@ class LightingPass extends CompiledPass {
 	 */
 	public var pointLightsOffset(get, set):UInt;
 
-	private function get_pointLightsOffset():UInt {
+	private inline function get_pointLightsOffset():UInt {
 		return _pointLightsOffset;
 	}
 
-	private function set_pointLightsOffset(value:UInt):UInt {
-		_pointLightsOffset = value;
-		return value;
+	private inline function set_pointLightsOffset(value:UInt):UInt {
+		return _pointLightsOffset = value;
 	}
 
 	/**
@@ -77,13 +75,12 @@ class LightingPass extends CompiledPass {
 	 */
 	public var lightProbesOffset(get, set):UInt;
 
-	private function get_lightProbesOffset():UInt {
+	private inline function get_lightProbesOffset():UInt {
 		return _lightProbesOffset;
 	}
 
-	private function set_lightProbesOffset(value:UInt):UInt {
-		_lightProbesOffset = value;
-		return value;
+	private inline function set_lightProbesOffset(value:UInt):UInt {
+		return _lightProbesOffset = value;
 	}
 
 	override private function createCompiler(profile:String):ShaderCompiler {
@@ -96,7 +93,7 @@ class LightingPass extends CompiledPass {
 	 */
 	public var includeCasters(get, set):Bool;
 
-	private function get_includeCasters():Bool {
+	private inline function get_includeCasters():Bool {
 		return _includeCasters;
 	}
 

@@ -25,13 +25,12 @@ class OcclusionMaterial extends ColorMaterial {
 	/**
 	 * Whether or not an object with this material applied hides other objects.
 	 */
-	private function get_occlude():Bool {
+	private inline function get_occlude():Bool {
 		return _occlude;
 	}
 
-	private function set_occlude(value:Bool):Bool {
-		_occlude = value;
-		return value;
+	private inline function set_occlude(value:Bool):Bool {
+		return _occlude = value;
 	}
 
 	override private function activatePass(index:Int, stage3DProxy:Stage3DProxy, camera:Camera3D):Void {

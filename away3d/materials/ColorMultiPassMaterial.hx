@@ -19,12 +19,11 @@ class ColorMultiPassMaterial extends MultiPassMaterialBase {
 	/**
 	 * The diffuse reflectivity color of the surface.
 	 */
-	private function get_color():Int {
+	private inline function get_color():Int {
 		return diffuseMethod.diffuseColor;
 	}
 
-	private function set_color(value:Int):Int {
-		diffuseMethod.diffuseColor = value;
-		return value;
+	private inline function set_color(value:Int):Int {
+		return diffuseMethod.diffuseColor = value;
 	}
 }

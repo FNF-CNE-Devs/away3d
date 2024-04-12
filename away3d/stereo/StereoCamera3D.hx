@@ -38,8 +38,7 @@ class StereoCamera3D extends Camera3D {
 		_leftCam.lens = value;
 		_rightCam.lens = value;
 
-		super.lens = value;
-		return value;
+		return super.set_lens(value);
 	}
 
 	private function get_leftCamera():Camera3D {

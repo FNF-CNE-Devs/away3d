@@ -110,7 +110,7 @@ class CompiledPass extends MaterialPassBase {
 	 * Whether or not to use fallOff and radius properties for lights. This can be used to improve performance and
 	 * compatibility for constrained mode.
 	 */
-	private function get_enableLightFallOff():Bool {
+	private inline function get_enableLightFallOff():Bool {
 		return _enableLightFallOff;
 	}
 
@@ -321,15 +321,13 @@ class CompiledPass extends MaterialPassBase {
 	override private function set_mipmap(value:Bool):Bool {
 		if (_mipmap == value)
 			return value;
-		super.mipmap = value;
-		return value;
+		return super.set_mipmap(value);
 	}
 
 	override private function set_anisotropy(value:Anisotropy):Anisotropy {
 		if (_anisotropy == value)
 			return value;
-		super.anisotropy = value;
-		return value;
+		return super.set_anisotropy(value);
 	}
 
 	/**

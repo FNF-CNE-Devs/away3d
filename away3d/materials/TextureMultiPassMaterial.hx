@@ -33,31 +33,29 @@ class TextureMultiPassMaterial extends MultiPassMaterialBase {
 	/**
 	 * Specifies whether or not the UV coordinates should be animated using a transformation matrix.
 	 */
-	private function get_animateUVs():Bool {
+	private inline function get_animateUVs():Bool {
 		return _animateUVs;
 	}
 
-	private function set_animateUVs(value:Bool):Bool {
-		_animateUVs = value;
-		return value;
+	private inline function set_animateUVs(value:Bool):Bool {
+		return _animateUVs = value;
 	}
 
 	/**
 	 * The texture object to use for the albedo colour.
 	 */
-	private function get_texture():Texture2DBase {
+	private inline function get_texture():Texture2DBase {
 		return diffuseMethod.texture;
 	}
 
-	private function set_texture(value:Texture2DBase):Texture2DBase {
-		diffuseMethod.texture = value;
-		return value;
+	private inline function set_texture(value:Texture2DBase):Texture2DBase {
+		return diffuseMethod.texture = value;
 	}
 
 	/**
 	 * The texture object to use for the ambient colour.
 	 */
-	private function get_ambientTexture():Texture2DBase {
+	private inline function get_ambientTexture():Texture2DBase {
 		return ambientMethod.texture;
 	}
 

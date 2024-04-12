@@ -39,7 +39,7 @@ class DepthMapPass extends MaterialPassBase {
 	 */
 	public var alphaThreshold(get, set):Float;
 
-	private function get_alphaThreshold():Float {
+	private inline function get_alphaThreshold():Float {
 		return _alphaThreshold;
 	}
 
@@ -54,9 +54,7 @@ class DepthMapPass extends MaterialPassBase {
 		if (value == 0 || _alphaThreshold == 0)
 			invalidateShaderProgram();
 
-		_alphaThreshold = value;
-		_data[8] = _alphaThreshold;
-		return value;
+		return _data[8] = _alphaThreshold = value;
 	}
 
 	/**
@@ -65,13 +63,12 @@ class DepthMapPass extends MaterialPassBase {
 	 */
 	public var alphaMask(get, set):Texture2DBase;
 
-	private function get_alphaMask():Texture2DBase {
+	private inline function get_alphaMask():Texture2DBase {
 		return _alphaMask;
 	}
 
-	private function set_alphaMask(value:Texture2DBase):Texture2DBase {
-		_alphaMask = value;
-		return value;
+	private inline function set_alphaMask(value:Texture2DBase):Texture2DBase {
+		return _alphaMask = value;
 	}
 
 	private override function getVertexCode():String {

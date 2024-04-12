@@ -94,40 +94,39 @@ class OutlinePass extends MaterialPassBase {
 	 * Set this to true to draw outlines for geometry overlapping in the view, useful to achieve a cel-shaded drawing outline.
 	 * Setting this to false will only cause the outline to appear around the 2D projection of the geometry.
 	 */
-	private function get_showInnerLines():Bool {
+	private inline function get_showInnerLines():Bool {
 		return _showInnerLines;
 	}
 
-	private function set_showInnerLines(value:Bool):Bool {
-		_showInnerLines = value;
-		return value;
+	private inline function set_showInnerLines(value:Bool):Bool {
+		return _showInnerLines = value;
 	}
 
 	/**
 	 * The colour of the outline.
 	 */
-	private function get_outlineColor():Int {
+	private inline function get_outlineColor():Int {
 		return _outlineColor;
 	}
 
 	private function set_outlineColor(value:Int):Int {
-		_outlineColor = value;
+		if (value == _outlineColor)
+			return value;
 		_colorData[0] = ((value >> 16) & 0xff) / 0xff;
 		_colorData[1] = ((value >> 8) & 0xff) / 0xff;
 		_colorData[2] = (value & 0xff) / 0xff;
-		return value;
+		return _outlineColor = value;
 	}
 
 	/**
 	 * The size of the outline.
 	 */
-	private function get_outlineSize():Float {
+	private inline function get_outlineSize():Float {
 		return _offsetData[0];
 	}
 
-	private function set_outlineSize(value:Float):Float {
-		_offsetData[0] = value;
-		return value;
+	private inline function set_outlineSize(value:Float):Float {
+		return _offsetData[0] = value;
 	}
 
 	override private function getVertexCode():String {

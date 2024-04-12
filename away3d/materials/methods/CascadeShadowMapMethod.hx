@@ -56,7 +56,7 @@ class CascadeShadowMapMethod extends ShadowMapMethodBase {
 	 * @see HardShadowMapMethod
 	 * @see SoftShadowMapMethod
 	 */
-	private function get_baseMethod():SimpleShadowMapMethodBase {
+	private inline function get_baseMethod():SimpleShadowMapMethodBase {
 		return _baseMethod;
 	}
 
@@ -78,7 +78,7 @@ class CascadeShadowMapMethod extends ShadowMapMethodBase {
 	}
 
 	override private function set_sharedRegisters(value:ShaderRegisterData):ShaderRegisterData {
-		super.sharedRegisters = value;
+		super.set_sharedRegisters(value);
 		_baseMethod.sharedRegisters = value;
 		return value;
 	}

@@ -37,13 +37,12 @@ class SkyBoxPass extends MaterialPassBase {
 	/**
 	 * The cube texture to use as the skybox.
 	 */
-	private function get_cubeTexture():CubeTextureBase {
+	private inline function get_cubeTexture():CubeTextureBase {
 		return _cubeTexture;
 	}
 
-	private function set_cubeTexture(value:CubeTextureBase):CubeTextureBase {
-		_cubeTexture = value;
-		return value;
+	private inline function set_cubeTexture(value:CubeTextureBase):CubeTextureBase {
+		return _cubeTexture = value;
 	}
 
 	override private function getVertexCode():String {

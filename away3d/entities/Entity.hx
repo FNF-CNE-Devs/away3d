@@ -49,7 +49,7 @@ class Entity extends ObjectContainer3D {
 	override private function set_ignoreTransform(value:Bool):Bool {
 		if (_scene != null)
 			_scene.invalidateEntityBounds(this);
-		super.ignoreTransform = value;
+		super.set_ignoreTransform(value);
 		return value;
 	}
 
@@ -197,7 +197,7 @@ class Entity extends ObjectContainer3D {
 		if (_implicitPartition != null)
 			notifyPartitionUnassigned();
 
-		super.implicitPartition = value;
+		super.set_implicitPartition(value);
 
 		notifyPartitionAssigned();
 		return value;

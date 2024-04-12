@@ -25,7 +25,7 @@ class ColorMaterial extends SinglePassMaterialBase {
 	/**
 	 * The alpha of the surface.
 	 */
-	private function get_alpha():Float {
+	private inline function get_alpha():Float {
 		return _screenPass.diffuseMethod.diffuseAlpha;
 	}
 
@@ -43,13 +43,12 @@ class ColorMaterial extends SinglePassMaterialBase {
 	/**
 	 * The diffuse reflectivity color of the surface.
 	 */
-	private function get_color():Int {
+	private inline function get_color():Int {
 		return _screenPass.diffuseMethod.diffuseColor;
 	}
 
 	private function set_color(value:Int):Int {
-		_screenPass.diffuseMethod.diffuseColor = value;
-		return value;
+		return _screenPass.diffuseMethod.diffuseColor = value;
 	}
 
 	override private function get_requiresBlending():Bool {

@@ -22,6 +22,8 @@ import openfl.errors.Error;
 import openfl.events.Event;
 import openfl.geom.Matrix3D;
 
+// (neo) TODO: rewrite this
+
 /**
  * MaterialBase forms an abstract base class for any material.
  * A material consists of several passes, each of which constitutes at least one render call. Several passes could

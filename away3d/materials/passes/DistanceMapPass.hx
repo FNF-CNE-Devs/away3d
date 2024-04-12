@@ -69,13 +69,12 @@ class DistanceMapPass extends MaterialPassBase {
 	 * A texture providing alpha data to be able to prevent semi-transparent pixels to write to the alpha mask.
 	 * Usually the diffuse texture when alphaThreshold is used.
 	 */
-	private function get_alphaMask():Texture2DBase {
+	private inline function get_alphaMask():Texture2DBase {
 		return _alphaMask;
 	}
 
-	private function set_alphaMask(value:Texture2DBase):Texture2DBase {
-		_alphaMask = value;
-		return value;
+	private inline function set_alphaMask(value:Texture2DBase):Texture2DBase {
+		return _alphaMask = value;
 	}
 
 	override private function getVertexCode():String {

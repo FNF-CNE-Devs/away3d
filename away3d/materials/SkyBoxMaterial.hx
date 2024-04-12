@@ -28,7 +28,7 @@ class SkyBoxMaterial extends MaterialBase {
 	/**
 	 * The cube texture to use as the skybox.
 	 */
-	private function get_cubeMap():CubeTextureBase {
+	private inline function get_cubeMap():CubeTextureBase {
 		return _cubeMap;
 	}
 

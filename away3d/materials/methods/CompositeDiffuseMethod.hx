@@ -74,8 +74,7 @@ class CompositeDiffuseMethod extends BasicDiffuseMethod {
 	}
 
 	override private function set_texture(value:Texture2DBase):Texture2DBase {
-		_baseMethod.texture = value;
-		return value;
+		return _baseMethod.texture = value;
 	}
 
 	override private function get_diffuseAlpha():Float {
@@ -140,14 +139,11 @@ class CompositeDiffuseMethod extends BasicDiffuseMethod {
 	}
 
 	override private function set_sharedRegisters(value:ShaderRegisterData):ShaderRegisterData {
-		super.sharedRegisters = _baseMethod.sharedRegisters = value;
-		return value;
+		return super.set_sharedRegisters(_baseMethod.sharedRegisters = value);
 	}
 
 	override private function set_shadowRegister(value:ShaderRegisterElement):ShaderRegisterElement {
-		super.shadowRegister = value;
-		_baseMethod.shadowRegister = value;
-		return value;
+		return super.set_shadowRegister(_baseMethod.shadowRegister = value);
 	}
 
 	/**

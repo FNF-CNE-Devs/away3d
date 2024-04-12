@@ -17,6 +17,8 @@ import openfl.display3D.Context3DCompareMode;
 import openfl.errors.Error;
 import openfl.geom.ColorTransform;
 
+// (neo) TODO: rewrite this
+
 /**
  * SinglePassMaterialBase forms an abstract base class for the default single-pass materials provided by Away3D,
  * using material methods to define their appearance.
@@ -57,13 +59,12 @@ class SinglePassMaterialBase extends MaterialBase {
 	 * Whether or not to use fallOff and radius properties for lights. This can be used to improve performance and
 	 * compatibility for constrained mode.
 	 */
-	private function get_enableLightFallOff():Bool {
+	private inline function get_enableLightFallOff():Bool {
 		return _screenPass.enableLightFallOff;
 	}
 
-	private function set_enableLightFallOff(value:Bool):Bool {
-		_screenPass.enableLightFallOff = value;
-		return value;
+	private inline function set_enableLightFallOff(value:Bool):Bool {
+		return _screenPass.enableLightFallOff = value;
 	}
 
 	/**
@@ -71,7 +72,7 @@ class SinglePassMaterialBase extends MaterialBase {
 	 * invisible or entirely opaque, often used with textures for foliage, etc.
 	 * Recommended values are 0 to disable alpha, or 0.5 to create smooth edges. Default value is 0 (disabled).
 	 */
-	private function get_alphaThreshold():Float {
+	private inline function get_alphaThreshold():Float {
 		return _screenPass.diffuseMethod.alphaThreshold;
 	}
 
@@ -83,15 +84,13 @@ class SinglePassMaterialBase extends MaterialBase {
 	}
 
 	override private function set_blendMode(value:BlendMode):BlendMode {
-		super.blendMode = value;
+		super.set_blendMode(value);
 		_screenPass.setBlendMode(blendMode == BlendMode.NORMAL && requiresBlending ? BlendMode.LAYER : blendMode);
 		return value;
 	}
 
 	override private function set_depthCompareMode(value:Context3DCompareMode):Context3DCompareMode {
-		super.depthCompareMode = value;
-		_screenPass.depthCompareMode = value;
-		return value;
+		return super.set_depthCompareMode(_screenPass.depthCompareMode = value);
 	}
 
 	override private function activateForDepth(stage3DProxy:Stage3DProxy, camera:Camera3D, distanceBased:Bool = false):Void {
@@ -265,21 +264,19 @@ class SinglePassMaterialBase extends MaterialBase {
 	override private function set_mipmap(value:Bool):Bool {
 		if (_mipmap == value)
 			return value;
-		super.mipmap = value;
-		return value;
+		return super.set_mipmap(value);
 	}
 
 	/**
 	 * The normal map to modulate the direction of the surface for each texel. The default normal method expects
 	 * tangent-space normal maps, but others could expect object-space maps.
 	 */
-	private function get_normalMap():Texture2DBase {
+	private inline function get_normalMap():Texture2DBase {
 		return _screenPass.normalMap;
 	}
 
-	private function set_normalMap(value:Texture2DBase):Texture2DBase {
-		_screenPass.normalMap = value;
-		return value;
+	private inline function set_normalMap(value:Texture2DBase):Texture2DBase {
+		return _screenPass.normalMap = value;
 	}
 
 	/**
@@ -287,7 +284,7 @@ class SinglePassMaterialBase extends MaterialBase {
 	 * and the gloss factor in the green channel. You can use SpecularBitmapTexture if you want to easily set
 	 * specular and gloss maps from grayscale images, but correctly authored images are preferred.
 	 */
-	private function get_specularMap():Texture2DBase {
+	private inline function get_specularMap():Texture2DBase {
 		return _screenPass.specularMethod.texture;
 	}
 
@@ -302,11 +299,11 @@ class SinglePassMaterialBase extends MaterialBase {
 	/**
 	 * The glossiness of the material (sharpness of the specular highlight).
 	 */
-	private function get_gloss():Float {
+	private inline function get_gloss():Float {
 		return (_screenPass.specularMethod != null) ? _screenPass.specularMethod.gloss : 0;
 	}
 
-	private function set_gloss(value:Float):Float {
+	private inline function set_gloss(value:Float):Float {
 		if (_screenPass.specularMethod != null)
 			_screenPass.specularMethod.gloss = value;
 		return value;
@@ -315,23 +312,22 @@ class SinglePassMaterialBase extends MaterialBase {
 	/**
 	 * The strength of the ambient reflection.
 	 */
-	private function get_ambient():Float {
+	private inline function get_ambient():Float {
 		return _screenPass.ambientMethod.ambient;
 	}
 
-	private function set_ambient(value:Float):Float {
-		_screenPass.ambientMethod.ambient = value;
-		return value;
+	private inline function set_ambient(value:Float):Float {
+		return _screenPass.ambientMethod.ambient = value;
 	}
 
 	/**
 	 * The overall strength of the specular reflection.
 	 */
-	private function get_specular():Float {
+	private inline function get_specular():Float {
 		return (_screenPass.specularMethod != null) ? _screenPass.specularMethod.specular : 0;
 	}
 
-	private function set_specular(value:Float):Float {
+	private inline function set_specular(value:Float):Float {
 		if (_screenPass.specularMethod != null)
 			_screenPass.specularMethod.specular = value;
 		return value;
@@ -340,32 +336,30 @@ class SinglePassMaterialBase extends MaterialBase {
 	/**
 	 * The colour of the ambient reflection.
 	 */
-	private function get_ambientColor():Int {
+	private inline function get_ambientColor():Int {
 		return _screenPass.ambientMethod.ambientColor;
 	}
 
-	private function set_ambientColor(value:Int):Int {
-		_screenPass.ambientMethod.ambientColor = value;
-		return value;
+	private inline function set_ambientColor(value:Int):Int {
+		return _screenPass.ambientMethod.ambientColor = value;
 	}
 
 	/**
 	 * The colour of the specular reflection.
 	 */
-	private function get_specularColor():Int {
+	private inline function get_specularColor():Int {
 		return _screenPass.specularMethod.specularColor;
 	}
 
-	private function set_specularColor(value:Int):Int {
-		_screenPass.specularMethod.specularColor = value;
-		return value;
+	private inline function set_specularColor(value:Int):Int {
+		return _screenPass.specularMethod.specularColor = value;
 	}
 
 	/**
 	 * Indicates whether or not the material has transparency. If binary transparency is sufficient, for
 	 * example when using textures of foliage, consider using alphaThreshold instead.
 	 */
-	private function get_alphaBlending():Bool {
+	private inline function get_alphaBlending():Bool {
 		return _alphaBlending;
 	}
 
@@ -391,8 +385,6 @@ class SinglePassMaterialBase extends MaterialBase {
 	}
 
 	override private function set_lightPicker(value:LightPickerBase):LightPickerBase {
-		super.lightPicker = value;
-		_screenPass.lightPicker = value;
-		return value;
+		return super.set_lightPicker(_screenPass.lightPicker = value);
 	}
 }

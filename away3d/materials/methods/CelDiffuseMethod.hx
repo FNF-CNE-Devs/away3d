@@ -44,8 +44,7 @@ class CelDiffuseMethod extends CompositeDiffuseMethod {
 	}
 
 	private function set_levels(value:Int):Int {
-		_levels = value;
-		return value;
+		return _levels = value;
 	}
 
 	/**
@@ -56,8 +55,7 @@ class CelDiffuseMethod extends CompositeDiffuseMethod {
 	}
 
 	private function set_smoothness(value:Float):Float {
-		_smoothness = value;
-		return value;
+		return _smoothness = value;
 	}
 
 	override private function cleanCompilationData():Void {

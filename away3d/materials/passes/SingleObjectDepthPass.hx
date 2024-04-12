@@ -105,7 +105,7 @@ class SingleObjectDepthPass extends MaterialPassBase {
 	 * @param stage3DProxy The Stage3DProxy object currently used for rendering.
 	 * @return A list of depth map textures for all supported lights.
 	 */
-	private function getDepthMap(renderable:IRenderable, stage3DProxy:Stage3DProxy):Texture {
+	private inline function getDepthMap(renderable:IRenderable, stage3DProxy:Stage3DProxy):Texture {
 		return _textures[stage3DProxy._stage3DIndex][renderable];
 	}
 

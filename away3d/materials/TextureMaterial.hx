@@ -37,13 +37,12 @@ class TextureMaterial extends SinglePassMaterialBase {
 	 *
 	 * @see IRenderable.uvTransform
 	 */
-	private function get_animateUVs():Bool {
+	private inline function get_animateUVs():Bool {
 		return _screenPass.animateUVs;
 	}
 
-	private function set_animateUVs(value:Bool):Bool {
-		_screenPass.animateUVs = value;
-		return value;
+	private inline function set_animateUVs(value:Bool):Bool {
+		return _screenPass.animateUVs = value;
 	}
 
 	/**
@@ -51,19 +50,18 @@ class TextureMaterial extends SinglePassMaterialBase {
 	 *
 	 * @see IRenderable.uvTransform
 	 */
-	private function get_animateUVs2():Bool {
+	private inline function get_animateUVs2():Bool {
 		return _screenPass.animateUVs2;
 	}
 
-	private function set_animateUVs2(value:Bool):Bool {
-		_screenPass.animateUVs2 = value;
-		return value;
+	private inline function set_animateUVs2(value:Bool):Bool {
+		return _screenPass.animateUVs2 = value;
 	}
 
 	/**
 	 * The alpha of the surface.
 	 */
-	private function get_alpha():Float {
+	private inline function get_alpha():Float {
 		return (_screenPass.colorTransform != null) ? _screenPass.colorTransform.alphaMultiplier : 1;
 	}
 
@@ -84,19 +82,18 @@ class TextureMaterial extends SinglePassMaterialBase {
 	/**
 	 * The texture object to use for the albedo colour.
 	 */
-	private function get_texture():Texture2DBase {
+	private inline function get_texture():Texture2DBase {
 		return _screenPass.diffuseMethod.texture;
 	}
 
-	private function set_texture(value:Texture2DBase):Texture2DBase {
-		_screenPass.diffuseMethod.texture = value;
-		return value;
+	private inline function set_texture(value:Texture2DBase):Texture2DBase {
+		return _screenPass.diffuseMethod.texture = value;
 	}
 
 	/**
 	 * The texture object to use for the ambient colour.
 	 */
-	private function get_ambientTexture():Texture2DBase {
+	private inline function get_ambientTexture():Texture2DBase {
 		return _screenPass.ambientMethod.texture;
 	}
 

@@ -575,7 +575,7 @@ class View3D extends Sprite {
 			return;
 			#end
 		}
-		super.x = value;
+		super.set_x(value);
 		_localTLPos.x = value;
 		_globalPos.x = parent != null ? parent.localToGlobal(_localTLPos).x : value;
 		_globalPosDirty = true;
@@ -597,7 +597,7 @@ class View3D extends Sprite {
 			return;
 			#end
 		}
-		super.y = value;
+		super.set_y(value);
 		_localTLPos.y = value;
 		_globalPos.y = parent != null ? parent.localToGlobal(_localTLPos).y : value;
 		_globalPosDirty = true;
@@ -612,7 +612,7 @@ class View3D extends Sprite {
 	#end
 
 	{
-		super.visible = value;
+		super.set_visible(value);
 		if (_stage3DProxy != null && !_shareContext)
 			_stage3DProxy.visible = value;
 		#if (!flash || haxe_ver >= 4.3)

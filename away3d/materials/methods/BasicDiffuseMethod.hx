@@ -89,8 +89,7 @@ class BasicDiffuseMethod extends LightingMethodBase {
 	}
 
 	private function set_diffuseAlpha(value:Float):Float {
-		_diffuseA = value;
-		return value;
+		return _diffuseA = value;
 	}
 
 	/**
@@ -340,7 +339,6 @@ class BasicDiffuseMethod extends LightingMethodBase {
 	 * Set internally by the compiler, so the method knows the register containing the shadow calculation.
 	 */
 	private function set_shadowRegister(value:ShaderRegisterElement):ShaderRegisterElement {
-		_shadowRegister = value;
-		return value;
+		return _shadowRegister = value;
 	}
 }

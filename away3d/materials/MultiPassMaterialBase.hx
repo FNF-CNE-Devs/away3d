@@ -23,6 +23,8 @@ import openfl.display3D.Context3DCompareMode;
 import openfl.errors.Error;
 import openfl.events.Event;
 
+// (neo) TODO: rewrite this
+
 /**
  * MultiPassMaterialBase forms an abstract base class for the default multi-pass materials provided by Away3D,
  * using material methods to define their appearance.
@@ -105,15 +107,13 @@ class MultiPassMaterialBase extends MaterialBase {
 	}
 
 	override private function set_depthCompareMode(value:Context3DCompareMode):Context3DCompareMode {
-		super.depthCompareMode = value;
 		invalidateScreenPasses();
-		return value;
+		return super.set_depthCompareMode(value);
 	}
 
 	override private function set_blendMode(value:BlendMode):BlendMode {
-		super.blendMode = value;
 		invalidateScreenPasses();
-		return value;
+		return super.set_blendMode(value);
 	}
 
 	override private function activateForDepth(stage3DProxy:Stage3DProxy, camera:Camera3D, distanceBased:Bool = false):Void {
@@ -136,8 +136,7 @@ class MultiPassMaterialBase extends MaterialBase {
 	}
 
 	private function set_specularLightSources(value:Int):Int {
-		_specularLightSources = value;
-		return value;
+		return _specularLightSources = value;
 	}
 
 	/**
@@ -158,7 +157,7 @@ class MultiPassMaterialBase extends MaterialBase {
 	override private function set_lightPicker(value:LightPickerBase):LightPickerBase {
 		if (_lightPicker != null)
 			_lightPicker.removeEventListener(Event.CHANGE, onLightsChange);
-		super.lightPicker = value;
+		super.set_lightPicker(value);
 		if (_lightPicker != null)
 			_lightPicker.addEventListener(Event.CHANGE, onLightsChange);
 		invalidateScreenPasses();
@@ -308,8 +307,7 @@ class MultiPassMaterialBase extends MaterialBase {
 	override private function set_mipmap(value:Bool):Bool {
 		if (_mipmap == value)
 			return value;
-		super.mipmap = value;
-		return value;
+		return super.set_mipmap(value);
 	}
 
 	/**
@@ -321,8 +319,7 @@ class MultiPassMaterialBase extends MaterialBase {
 	}
 
 	private function set_normalMap(value:Texture2DBase):Texture2DBase {
-		_normalMethod.normalMap = value;
-		return value;
+		return _normalMethod.normalMap = value;
 	}
 
 	/**

@@ -71,7 +71,7 @@ class SpecularBitmapTexture extends BitmapTexture {
 
 		if (w != bitmapData.width && h != bitmapData.height) {
 			var oldBitmap:BitmapData = bitmapData;
-			super.bitmapData = new BitmapData(_specularMap.width, specularMap.height, false, 0xffffff);
+			super.set_bitmapData(new BitmapData(_specularMap.width, specularMap.height, false, 0xffffff));
 			oldBitmap.dispose();
 		}
 	}

@@ -102,8 +102,7 @@ class CompositeSpecularMethod extends BasicSpecularMethod {
 	}
 
 	override private function set_sharedRegisters(value:ShaderRegisterData):ShaderRegisterData {
-		super.sharedRegisters = _baseMethod.sharedRegisters = value;
-		return value;
+		return super.set_sharedRegisters(_baseMethod.sharedRegisters = value);
 	}
 
 	override private function getVertexCode(vo:MethodVO, regCache:ShaderRegisterCache):String {
@@ -138,9 +137,7 @@ class CompositeSpecularMethod extends BasicSpecularMethod {
 	}
 
 	override private function set_shadowRegister(value:ShaderRegisterElement):ShaderRegisterElement {
-		super.shadowRegister = value;
-		_baseMethod.shadowRegister = value;
-		return value;
+		return super.set_shadowRegister(_baseMethod.shadowRegister = value);
 	}
 
 	/**

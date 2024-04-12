@@ -53,13 +53,12 @@ class AlphaMaskMethod extends EffectMethodBase {
 	/**
 	 * The texture to use as the alpha mask.
 	 */
-	private function get_texture():Texture2DBase {
+	private inline function get_texture():Texture2DBase {
 		return _texture;
 	}
 
-	private function set_texture(value:Texture2DBase):Texture2DBase {
-		_texture = value;
-		return value;
+	private inline function set_texture(value:Texture2DBase):Texture2DBase {
+		return _texture = value;
 	}
 
 	override private function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {

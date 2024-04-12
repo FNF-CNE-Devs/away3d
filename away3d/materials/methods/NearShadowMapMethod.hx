@@ -164,8 +164,7 @@ class NearShadowMapMethod extends SimpleShadowMapMethodBase {
 	}
 
 	override private function set_sharedRegisters(value:ShaderRegisterData):ShaderRegisterData {
-		super.sharedRegisters = _baseMethod.sharedRegisters = value;
-		return value;
+		return super.set_sharedRegisters(_baseMethod.sharedRegisters = value);
 	}
 
 	/**
