@@ -9,9 +9,6 @@ import away3d.core.base.IRenderable;
 import away3d.core.managers.Stage3DProxy;
 import openfl.geom.Vector3D;
 
-/**
- * ...
- */
 class ParticleUVState extends ParticleStateBase {
 	private var _particleUVNode:ParticleUVNode;
 

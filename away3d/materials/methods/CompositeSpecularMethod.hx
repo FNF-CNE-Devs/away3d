@@ -32,16 +32,10 @@ class CompositeSpecularMethod extends BasicSpecularMethod {
 		_baseMethod.addEventListener(ShadingMethodEvent.SHADER_INVALIDATED, onShaderInvalidated);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initVO(vo:MethodVO):Void {
 		_baseMethod.initVO(vo);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initConstants(vo:MethodVO):Void {
 		_baseMethod.initConstants(vo);
 	}
@@ -63,9 +57,6 @@ class CompositeSpecularMethod extends BasicSpecularMethod {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function get_gloss():Float {
 		return _baseMethod.gloss;
 	}
@@ -75,9 +66,6 @@ class CompositeSpecularMethod extends BasicSpecularMethod {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function get_specular():Float {
 		return _baseMethod.specular;
 	}
@@ -87,24 +75,15 @@ class CompositeSpecularMethod extends BasicSpecularMethod {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function get_passes():Vector<MaterialPassBase> {
 		return _baseMethod.passes;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function dispose():Void {
 		_baseMethod.removeEventListener(ShadingMethodEvent.SHADER_INVALIDATED, onShaderInvalidated);
 		_baseMethod.dispose();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function get_texture():Texture2DBase {
 		return _baseMethod.texture;
 	}
@@ -114,84 +93,50 @@ class CompositeSpecularMethod extends BasicSpecularMethod {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		_baseMethod.activate(vo, stage3DProxy);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function deactivate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		_baseMethod.deactivate(vo, stage3DProxy);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function set_sharedRegisters(value:ShaderRegisterData):ShaderRegisterData {
 		super.sharedRegisters = _baseMethod.sharedRegisters = value;
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getVertexCode(vo:MethodVO, regCache:ShaderRegisterCache):String {
 		return _baseMethod.getVertexCode(vo, regCache);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentPreLightingCode(vo:MethodVO, regCache:ShaderRegisterCache):String {
 		return _baseMethod.getFragmentPreLightingCode(vo, regCache);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentCodePerLight(vo:MethodVO, lightDirReg:ShaderRegisterElement, lightColReg:ShaderRegisterElement,
 			regCache:ShaderRegisterCache):String {
 		return _baseMethod.getFragmentCodePerLight(vo, lightDirReg, lightColReg, regCache);
 	}
 
-	/**
-	 * @inheritDoc
-	 * @return
-	 */
 	override private function getFragmentCodePerProbe(vo:MethodVO, cubeMapReg:ShaderRegisterElement, weightRegister:String,
 			regCache:ShaderRegisterCache):String {
 		return _baseMethod.getFragmentCodePerProbe(vo, cubeMapReg, weightRegister, regCache);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentPostLightingCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		return _baseMethod.getFragmentPostLightingCode(vo, regCache, targetReg);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function reset():Void {
 		_baseMethod.reset();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function cleanCompilationData():Void {
 		super.cleanCompilationData();
 		_baseMethod.cleanCompilationData();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function set_shadowRegister(value:ShaderRegisterElement):ShaderRegisterElement {
 		super.shadowRegister = value;
 		_baseMethod.shadowRegister = value;

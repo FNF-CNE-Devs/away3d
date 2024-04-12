@@ -38,9 +38,6 @@ class ParticleTimeNode extends ParticleNodeBase {
 		super("ParticleTime", ParticlePropertiesMode.LOCAL_STATIC, 4, 0);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function getAGALVertexCode(pass:MaterialPassBase, animationRegisterCache:AnimationRegisterCache):String {
 		var timeStreamRegister:ShaderRegisterElement = animationRegisterCache.getFreeVertexAttribute(); // timeStreamRegister.x is start，timeStreamRegister.y is during time
 		animationRegisterCache.setRegisterIndex(this, TIME_STREAM_INDEX, timeStreamRegister.index);
@@ -89,16 +86,10 @@ class ParticleTimeNode extends ParticleNodeBase {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getAnimationState(animator:IAnimator):ParticleTimeState {
 		return cast(animator.getAnimationState(this), ParticleTimeState);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function generatePropertyOfOneParticle(param:ParticleProperties):Void {
 		_oneData[0] = param.startTime;
 		_oneData[1] = param.duration;

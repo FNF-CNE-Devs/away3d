@@ -15,9 +15,6 @@ class CameraNode extends EntityNode {
 		super(camera);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function acceptTraverser(traverser:PartitionTraverser):Void {
 		// todo: dead end for now, if it has a debug mesh, then sure accept that
 	}

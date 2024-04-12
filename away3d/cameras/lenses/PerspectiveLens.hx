@@ -127,9 +127,6 @@ class PerspectiveLens extends LensBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateMatrix():Void {
 		var raw:Vector<Float> = Matrix3DUtils.RAW_DATA_CONTAINER;
 

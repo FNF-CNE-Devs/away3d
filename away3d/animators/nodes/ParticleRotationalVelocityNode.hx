@@ -35,9 +35,6 @@ class ParticleRotationalVelocityNode extends ParticleNodeBase {
 		_rotationalVelocity = rotationalVelocity;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function getAGALVertexCode(pass:MaterialPassBase, animationRegisterCache:AnimationRegisterCache):String {
 		var rotationRegister:ShaderRegisterElement = (_mode == ParticlePropertiesMode.GLOBAL) ? animationRegisterCache.getFreeVertexConstant() : animationRegisterCache.getFreeVertexAttribute();
 		animationRegisterCache.setRegisterIndex(this, ROTATIONALVELOCITY_INDEX, rotationRegister.index);
@@ -116,16 +113,10 @@ class ParticleRotationalVelocityNode extends ParticleNodeBase {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getAnimationState(animator:IAnimator):ParticleRotationalVelocityState {
 		return cast(animator.getAnimationState(this), ParticleRotationalVelocityState);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function generatePropertyOfOneParticle(param:ParticleProperties):Void {
 		// (Vector3d.x,Vector3d.y,Vector3d.z) is rotation axis,Vector3d.w is cycle duration
 		var rotate:Vector3D = param.nodes[ParticleNodeEnum.ROTATIONALVELOCITY_VECTOR3D];

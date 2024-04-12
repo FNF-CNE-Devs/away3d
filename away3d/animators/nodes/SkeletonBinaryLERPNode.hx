@@ -26,9 +26,6 @@ class SkeletonBinaryLERPNode extends AnimationNodeBase {
 		_stateConstructor = cast SkeletonBinaryLERPState.new;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getAnimationState(animator:IAnimator):SkeletonBinaryLERPState {
 		return cast(animator.getAnimationState(this), SkeletonBinaryLERPState);
 	}

@@ -27,9 +27,6 @@ class HeightMapNormalMethod extends BasicNormalMethod {
 		_worldXZRatio = worldDepth / worldHeight;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initConstants(vo:MethodVO):Void {
 		var index:Int = vo.fragmentConstantsIndex;
 		var data:Vector<Float> = vo.fragmentData;
@@ -41,25 +38,16 @@ class HeightMapNormalMethod extends BasicNormalMethod {
 		data[index + 5] = _worldXZRatio;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function get_tangentSpace():Bool {
 		return false;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function copyFrom(method:ShadingMethodBase):Void {
 		super.copyFrom(method);
 		_worldXYRatio = cast(method, HeightMapNormalMethod)._worldXYRatio;
 		_worldXZRatio = cast(method, HeightMapNormalMethod)._worldXZRatio;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		var temp:ShaderRegisterElement = regCache.getFreeFragmentVectorTemp();
 		var dataReg:ShaderRegisterElement = regCache.getFreeFragmentConstant();

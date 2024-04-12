@@ -13,9 +13,6 @@ import openfl.errors.Error;
 import openfl.geom.Matrix3D;
 import openfl.geom.Vector3D;
 
-/**
- * ...
- */
 class ParticleOrbitState extends ParticleStateBase {
 	public var radius(get, set):Float;
 	public var cycleDuration(get, set):Float;

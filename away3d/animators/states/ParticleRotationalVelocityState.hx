@@ -13,9 +13,6 @@ import openfl.display3D.Context3DVertexBufferFormat;
 import openfl.errors.Error;
 import openfl.geom.Vector3D;
 
-/**
- * ...
- */
 class ParticleRotationalVelocityState extends ParticleStateBase {
 	public var rotationalVelocity(get, set):Vector3D;
 
@@ -53,9 +50,6 @@ class ParticleRotationalVelocityState extends ParticleStateBase {
 		_rotationalVelocity = _particleRotationalVelocityNode._rotationalVelocity;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function setRenderState(stage3DProxy:Stage3DProxy, renderable:IRenderable, animationSubGeometry:AnimationSubGeometry,
 			animationRegisterCache:AnimationRegisterCache, camera:Camera3D):Void {
 		// TODO: not used

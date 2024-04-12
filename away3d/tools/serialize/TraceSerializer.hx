@@ -22,17 +22,11 @@ class TraceSerializer extends SerializerBase {
 		super();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function beginObject(className:String, instanceName:String):Void {
 		writeString(className, instanceName);
 		_indent += tabSize;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function writeInt(name:String, value:Int):Void {
 		var outputString:String = _indentString();
 		outputString += name;
@@ -41,9 +35,6 @@ class TraceSerializer extends SerializerBase {
 		trace(outputString);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function writeUint(name:String, value:Int):Void {
 		var outputString:String = _indentString();
 		outputString += name;
@@ -52,9 +43,6 @@ class TraceSerializer extends SerializerBase {
 		trace(outputString);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function writeBoolean(name:String, value:Bool):Void {
 		var outputString:String = _indentString();
 		outputString += name;
@@ -63,9 +51,6 @@ class TraceSerializer extends SerializerBase {
 		trace(outputString);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function writeString(name:String, value:String):Void {
 		var outputString:String = _indentString();
 		outputString += name;
@@ -76,9 +61,6 @@ class TraceSerializer extends SerializerBase {
 		trace(outputString);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function writeVector3D(name:String, value:Vector3D):Void {
 		var outputString:String = _indentString();
 		outputString += name;
@@ -89,9 +71,6 @@ class TraceSerializer extends SerializerBase {
 		trace(outputString);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function writeTransform(name:String, value:Vector<Float>):Void {
 		var outputString:String = _indentString();
 		outputString += name;
@@ -113,9 +92,6 @@ class TraceSerializer extends SerializerBase {
 		trace(outputString);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function writeQuaternion(name:String, value:Quaternion):Void {
 		var outputString:String = _indentString();
 		outputString += name;
@@ -126,9 +102,6 @@ class TraceSerializer extends SerializerBase {
 		trace(outputString);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function endObject():Void {
 		_indent -= tabSize;
 	}

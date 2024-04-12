@@ -46,9 +46,6 @@ class SingleObjectDepthPass extends MaterialPassBase {
 		_animationTargetRegisters = Vector.ofArray(["vt0", "vt1"]);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function dispose():Void {
 		if (_textures != null) {
 			for (i in 0..._textures.length) {
@@ -79,9 +76,6 @@ class SingleObjectDepthPass extends MaterialPassBase {
 		_projectionTexturesInvalid = false;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getVertexCode():String {
 		var code:String;
 		// offset
@@ -95,9 +89,6 @@ class SingleObjectDepthPass extends MaterialPassBase {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentCode(animationCode:String):String {
 		var code:String = "";
 
@@ -127,9 +118,6 @@ class SingleObjectDepthPass extends MaterialPassBase {
 		return _projections[renderable];
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function render(renderable:IRenderable, stage3DProxy:Stage3DProxy, camera:Camera3D, viewProjection:Matrix3D):Void {
 		var contextIndex:Int = stage3DProxy._stage3DIndex;
 		var context:Context3D = stage3DProxy._context3D;
@@ -161,9 +149,6 @@ class SingleObjectDepthPass extends MaterialPassBase {
 		stage3DProxy.drawTriangles(renderable.getIndexBuffer(stage3DProxy), 0, renderable.numTriangles);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(stage3DProxy:Stage3DProxy, camera:Camera3D):Void {
 		if (_projectionTexturesInvalid)
 			updateProjectionTextures();

@@ -30,9 +30,6 @@ class FresnelSpecularMethod extends CompositeSpecularMethod {
 		_incidentLight = !basedOnSurface;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initConstants(vo:MethodVO):Void {
 		var index:Int = vo.secondaryFragmentConstantsIndex;
 		vo.fragmentData[index + 2] = 1;
@@ -68,9 +65,6 @@ class FresnelSpecularMethod extends CompositeSpecularMethod {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function cleanCompilationData():Void {
 		super.cleanCompilationData();
 		_dataReg = null;
@@ -88,9 +82,6 @@ class FresnelSpecularMethod extends CompositeSpecularMethod {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		super.activate(vo, stage3DProxy);
 		var fragmentData:Vector<Float> = vo.fragmentData;
@@ -99,9 +90,6 @@ class FresnelSpecularMethod extends CompositeSpecularMethod {
 		fragmentData[index + 1] = _fresnelPower;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentPreLightingCode(vo:MethodVO, regCache:ShaderRegisterCache):String {
 		_dataReg = regCache.getFreeFragmentConstant();
 		vo.secondaryFragmentConstantsIndex = _dataReg.index * 4;

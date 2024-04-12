@@ -48,9 +48,6 @@ class SkeletonBinaryLERPState extends AnimationStateBase implements ISkeletonAni
 		_inputB = cast(animator.getAnimationState(_skeletonAnimationNode.inputB), ISkeletonAnimationState);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function phase(value:Float):Void {
 		_skeletonPoseDirty = true;
 
@@ -60,9 +57,6 @@ class SkeletonBinaryLERPState extends AnimationStateBase implements ISkeletonAni
 		_inputB.phase(value);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateTime(time:Int):Void {
 		_skeletonPoseDirty = true;
 
@@ -82,9 +76,6 @@ class SkeletonBinaryLERPState extends AnimationStateBase implements ISkeletonAni
 		return _skeletonPose;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updatePositionDelta():Void {
 		_positionDeltaDirty = false;
 

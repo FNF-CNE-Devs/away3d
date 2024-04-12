@@ -68,17 +68,11 @@ class LoaderEvent extends Event {
 		return _isDependency;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	/*
 		override public function preventDefault():Void
 		{
 			_isDefaultPrevented = true;
 		}
-	 */
-	/**
-	 * @inheritDoc
 	 */
 	/*
 		override public function isDefaultPrevented():Bool

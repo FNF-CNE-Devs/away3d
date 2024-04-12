@@ -42,9 +42,6 @@ class UVClipNode extends AnimationClipNodeBase {
 		_stitchDirty = true;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateStitch():Void {
 		super.updateStitch();
 		var i:Int;

@@ -30,9 +30,6 @@ class TripleFilteredShadowMapMethod extends SimpleShadowMapMethodBase {
 		fragmentData[index + 10] = 1 / castingLight.shadowMapper.depthMapSize;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getPlanarFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		var depthMapRegister:ShaderRegisterElement = regCache.getFreeTextureReg();
 		var decReg:ShaderRegisterElement = regCache.getFreeFragmentConstant();

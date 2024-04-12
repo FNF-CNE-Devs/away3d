@@ -26,6 +26,8 @@ import openfl.events.EventDispatcher;
 import openfl.geom.Matrix3D;
 import openfl.geom.Rectangle;
 
+// (neo) todo: clean this up
+
 /**
  * MaterialPassBase provides an abstract base class for material shader passes. A material pass constitutes at least
  * a render call per required renderable.

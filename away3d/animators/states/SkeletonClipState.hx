@@ -61,18 +61,12 @@ class SkeletonClipState extends AnimationClipState implements ISkeletonAnimation
 		return _skeletonPose;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateTime(time:Int):Void {
 		_skeletonPoseDirty = true;
 
 		super.updateTime(time);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateFrames():Void {
 		super.updateFrames();
 
@@ -138,9 +132,6 @@ class SkeletonClipState extends AnimationClipState implements ISkeletonAnimation
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updatePositionDelta():Void {
 		_positionDeltaDirty = false;
 

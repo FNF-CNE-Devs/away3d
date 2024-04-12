@@ -86,9 +86,6 @@ class ParticleUVNode extends ParticleNodeBase {
 		return _axis = value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function getAGALUVCode(pass:MaterialPassBase, animationRegisterCache:AnimationRegisterCache):String {
 		var code:String = "";
 
@@ -113,9 +110,6 @@ class ParticleUVNode extends ParticleNodeBase {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getAnimationState(animator:IAnimator):ParticleUVState {
 		return cast(animator.getAnimationState(this), ParticleUVState);
 	}
@@ -124,9 +118,6 @@ class ParticleUVNode extends ParticleNodeBase {
 		_uvData = new Vector3D(Math.PI * 2 / _cycle, _scale, 0, 0);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function processAnimationSetting(particleAnimationSet:ParticleAnimationSet):Void {
 		particleAnimationSet.hasUVNode = true;
 	}

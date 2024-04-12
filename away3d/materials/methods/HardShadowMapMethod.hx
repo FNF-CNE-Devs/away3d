@@ -16,9 +16,6 @@ class HardShadowMapMethod extends SimpleShadowMapMethodBase {
 		super(castingLight);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getPlanarFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		var depthMapRegister:ShaderRegisterElement = regCache.getFreeTextureReg();
 		var decReg:ShaderRegisterElement = regCache.getFreeFragmentConstant();
@@ -37,9 +34,6 @@ class HardShadowMapMethod extends SimpleShadowMapMethodBase {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getPointFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		var depthMapRegister:ShaderRegisterElement = regCache.getFreeTextureReg();
 		var decReg:ShaderRegisterElement = regCache.getFreeFragmentConstant();
@@ -66,9 +60,6 @@ class HardShadowMapMethod extends SimpleShadowMapMethodBase {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getCascadeFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, decodeRegister:ShaderRegisterElement,
 			depthTexture:ShaderRegisterElement, depthProjection:ShaderRegisterElement, targetRegister:ShaderRegisterElement):String {
 		var temp:ShaderRegisterElement = regCache.getFreeFragmentVectorTemp();
@@ -76,8 +67,5 @@ class HardShadowMapMethod extends SimpleShadowMapMethodBase {
 			+ decodeRegister + "\n" + "slt " + targetRegister + ".w, " + depthProjection + ".z, " + temp + ".z\n"; // 0 if in shadow
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activateForCascade(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {}
 }

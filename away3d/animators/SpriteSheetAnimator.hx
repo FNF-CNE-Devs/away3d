@@ -108,9 +108,6 @@ class SpriteSheetAnimator extends AnimatorBase implements IAnimator {
 		return cast(_activeState, SpriteSheetAnimationState).totalFrames;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function setRenderState(stage3DProxy:Stage3DProxy, renderable:IRenderable, vertexConstantOffset:Int, vertexStreamOffset:Int, camera:Camera3D):Void {
 		var material:MaterialBase = renderable.material;
 		if (material == null || !isOfType(material, TextureMaterial))
@@ -137,9 +134,6 @@ class SpriteSheetAnimator extends AnimatorBase implements IAnimator {
 		stage3DProxy._context3D.setProgramConstantsFromVector(Context3DProgramType.VERTEX, vertexConstantOffset, _vectorFrame);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function play(name:String, transition:IAnimationTransition = null, ?offset:Float = null):Void {
 		if (_activeAnimationName == name)
 			return;

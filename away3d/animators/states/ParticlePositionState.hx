@@ -49,9 +49,6 @@ class ParticlePositionState extends ParticleStateBase {
 		_position = _particlePositionNode._position;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function setRenderState(stage3DProxy:Stage3DProxy, renderable:IRenderable, animationSubGeometry:AnimationSubGeometry,
 			animationRegisterCache:AnimationRegisterCache, camera:Camera3D):Void {
 		if (_particlePositionNode.mode == ParticlePropertiesMode.LOCAL_DYNAMIC && !_dynamicPropertiesDirty.exists(animationSubGeometry))

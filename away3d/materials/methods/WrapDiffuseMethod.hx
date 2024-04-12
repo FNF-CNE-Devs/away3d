@@ -24,9 +24,6 @@ class WrapDiffuseMethod extends BasicDiffuseMethod {
 		this.wrapFactor = wrapFactor;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function cleanCompilationData():Void {
 		super.cleanCompilationData();
 		_wrapDataRegister = null;
@@ -45,9 +42,6 @@ class WrapDiffuseMethod extends BasicDiffuseMethod {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentPreLightingCode(vo:MethodVO, regCache:ShaderRegisterCache):String {
 		var code:String = super.getFragmentPreLightingCode(vo, regCache);
 		_isFirstLight = true;
@@ -57,9 +51,6 @@ class WrapDiffuseMethod extends BasicDiffuseMethod {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentCodePerLight(vo:MethodVO, lightDirReg:ShaderRegisterElement, lightColReg:ShaderRegisterElement,
 			regCache:ShaderRegisterCache):String {
 		var code:String = "";
@@ -92,9 +83,6 @@ class WrapDiffuseMethod extends BasicDiffuseMethod {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		super.activate(vo, stage3DProxy);
 		var index:Int = vo.secondaryFragmentConstantsIndex;

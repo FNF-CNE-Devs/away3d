@@ -48,9 +48,6 @@ class BasicSpecularMethod extends LightingMethodBase {
 		super();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initVO(vo:MethodVO):Void {
 		vo.needsUV = _useTexture;
 		vo.needsNormals = vo.numLights > 0;
@@ -123,9 +120,6 @@ class BasicSpecularMethod extends LightingMethodBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function copyFrom(method:ShadingMethodBase):Void {
 		var spec:BasicSpecularMethod = cast((method), BasicSpecularMethod);
 		texture = spec.texture;
@@ -134,9 +128,6 @@ class BasicSpecularMethod extends LightingMethodBase {
 		gloss = spec.gloss;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function cleanCompilationData():Void {
 		super.cleanCompilationData();
 		_shadowRegister = null;
@@ -146,9 +137,6 @@ class BasicSpecularMethod extends LightingMethodBase {
 		_specularDataRegister = null;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentPreLightingCode(vo:MethodVO, regCache:ShaderRegisterCache):String {
 		var code:String = "";
 
@@ -174,9 +162,6 @@ class BasicSpecularMethod extends LightingMethodBase {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentCodePerLight(vo:MethodVO, lightDirReg:ShaderRegisterElement, lightColReg:ShaderRegisterElement,
 			regCache:ShaderRegisterCache):String {
 		var code:String = "";
@@ -222,9 +207,6 @@ class BasicSpecularMethod extends LightingMethodBase {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentCodePerProbe(vo:MethodVO, cubeMapReg:ShaderRegisterElement, weightRegister:String,
 			regCache:ShaderRegisterCache):String {
 		var code:String = "";
@@ -257,9 +239,6 @@ class BasicSpecularMethod extends LightingMethodBase {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentPostLightingCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		var code:String = "";
 
@@ -283,9 +262,6 @@ class BasicSpecularMethod extends LightingMethodBase {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		// var context : Context3D = stage3DProxy._context3D;
 

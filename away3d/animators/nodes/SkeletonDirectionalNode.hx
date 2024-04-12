@@ -33,9 +33,6 @@ class SkeletonDirectionalNode extends AnimationNodeBase {
 		super();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getAnimationState(animator:IAnimator):SkeletonDirectionalState {
 		return cast(animator.getAnimationState(this), SkeletonDirectionalState);
 	}

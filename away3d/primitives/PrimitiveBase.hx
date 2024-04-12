@@ -27,9 +27,6 @@ class PrimitiveBase extends Geometry {
 		addSubGeometry(_subGeometry);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function get_subGeometries():Vector<ISubGeometry> {
 		if (_geomDirty)
 			updateGeometry();
@@ -39,9 +36,6 @@ class PrimitiveBase extends Geometry {
 		return super.get_subGeometries();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function clone():Geometry {
 		if (_geomDirty)
 			updateGeometry();
@@ -51,9 +45,6 @@ class PrimitiveBase extends Geometry {
 		return super.clone();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function scale(scale:Float):Void {
 		if (_geomDirty)
 			updateGeometry();
@@ -61,9 +52,6 @@ class PrimitiveBase extends Geometry {
 		super.scale(scale);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function scaleUV(scaleU:Float = 1, scaleV:Float = 1):Void {
 		if (_uvDirty)
 			updateUVs();
@@ -71,9 +59,6 @@ class PrimitiveBase extends Geometry {
 		super.scaleUV(scaleU, scaleV);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function applyTransformation(transform:Matrix3D):Void {
 		if (_geomDirty)
 			updateGeometry();

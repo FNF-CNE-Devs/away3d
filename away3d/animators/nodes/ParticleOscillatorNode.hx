@@ -36,9 +36,6 @@ class ParticleOscillatorNode extends ParticleNodeBase {
 		_oscillator = oscillator;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function getAGALVertexCode(pass:MaterialPassBase, animationRegisterCache:AnimationRegisterCache):String {
 		var oscillatorRegister:ShaderRegisterElement = (_mode == ParticlePropertiesMode.GLOBAL) ? animationRegisterCache.getFreeVertexConstant() : animationRegisterCache.getFreeVertexAttribute();
 		animationRegisterCache.setRegisterIndex(this, OSCILLATOR_INDEX, oscillatorRegister.index);
@@ -78,16 +75,10 @@ class ParticleOscillatorNode extends ParticleNodeBase {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getAnimationState(animator:IAnimator):ParticleOscillatorState {
 		return cast(animator.getAnimationState(this), ParticleOscillatorState);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function generatePropertyOfOneParticle(param:ParticleProperties):Void {
 		// (Vector3D.x,Vector3D.y,Vector3D.z) is oscillator axis, Vector3D.w is oscillator cycle duration
 		var drift:Vector3D = param.nodes[ParticleNodeEnum.OSCILLATOR_VECTOR3D];

@@ -42,17 +42,11 @@ class GradientDiffuseMethod extends BasicDiffuseMethod {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function cleanCompilationData():Void {
 		super.cleanCompilationData();
 		_gradientTextureRegister = null;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentPreLightingCode(vo:MethodVO, regCache:ShaderRegisterCache):String {
 		var code:String = super.getFragmentPreLightingCode(vo, regCache);
 		_isFirstLight = true;
@@ -64,9 +58,6 @@ class GradientDiffuseMethod extends BasicDiffuseMethod {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentCodePerLight(vo:MethodVO, lightDirReg:ShaderRegisterElement, lightColReg:ShaderRegisterElement,
 			regCache:ShaderRegisterCache):String {
 		var code:String = "";
@@ -107,9 +98,6 @@ class GradientDiffuseMethod extends BasicDiffuseMethod {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function applyShadow(vo:MethodVO, regCache:ShaderRegisterCache):String {
 		var t:ShaderRegisterElement = regCache.getFreeFragmentVectorTemp();
 
@@ -128,9 +116,6 @@ class GradientDiffuseMethod extends BasicDiffuseMethod {
 			+ "\n";
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		super.activate(vo, stage3DProxy);
 		stage3DProxy._context3D.setTextureAt(vo.secondaryTexturesIndex, _gradient.getTextureForStage3D(stage3DProxy));

@@ -12,9 +12,6 @@ import openfl.Vector;
 import openfl.display3D.Context3DVertexBufferFormat;
 import openfl.geom.Vector3D;
 
-/**
- * ...
- */
 class ParticleVelocityState extends ParticleStateBase {
 	public var velocity(get, set):Vector3D;
 

@@ -56,9 +56,6 @@ class ParticleScaleNode extends ParticleNodeBase {
 		_cyclePhase = cyclePhase;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function getAGALVertexCode(pass:MaterialPassBase, animationRegisterCache:AnimationRegisterCache):String {
 		var code:String = "";
 		var temp:ShaderRegisterElement = animationRegisterCache.getFreeVertexSingleTemp();
@@ -88,16 +85,10 @@ class ParticleScaleNode extends ParticleNodeBase {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getAnimationState(animator:IAnimator):ParticleScaleState {
 		return cast(animator.getAnimationState(this), ParticleScaleState);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function generatePropertyOfOneParticle(param:ParticleProperties):Void {
 		var scale:Vector3D = param.nodes[ParticleNodeEnum.SCALE_VECTOR3D];
 		if (scale == null)

@@ -33,16 +33,10 @@ class FogMethod extends EffectMethodBase {
 		this.fogColor = fogColor;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initVO(vo:MethodVO):Void {
 		vo.needsProjection = true;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initConstants(vo:MethodVO):Void {
 		var data:Vector<Float> = vo.fragmentData;
 		var index:Int = vo.fragmentConstantsIndex;
@@ -90,9 +84,6 @@ class FogMethod extends EffectMethodBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		var data:Vector<Float> = vo.fragmentData;
 		var index:Int = vo.fragmentConstantsIndex;
@@ -103,9 +94,6 @@ class FogMethod extends EffectMethodBase {
 		data[index + 5] = 1 / (_maxDistance - _minDistance);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		var fogColor:ShaderRegisterElement = regCache.getFreeFragmentConstant();
 		var fogData:ShaderRegisterElement = regCache.getFreeFragmentConstant();

@@ -15,9 +15,6 @@ class CrossfadeTransitionState extends SkeletonBinaryLERPState {
 		_crossfadeAnimationNode = crossfadeAnimationNode;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateTime(time:Int):Void {
 		blendWeight = Math.abs(time - _crossfadeAnimationNode.startBlend) / (1000 * _crossfadeAnimationNode.blendSpeed);
 

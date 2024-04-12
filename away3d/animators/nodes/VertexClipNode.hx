@@ -50,9 +50,6 @@ class VertexClipNode extends AnimationClipNodeBase {
 		_stitchDirty = true;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateStitch():Void {
 		super.updateStitch();
 

@@ -99,9 +99,6 @@ class ParticleAnimationSet extends AnimationSetBase implements IAnimationSet {
 		return _particleNodes;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function addAnimation(node:AnimationNodeBase):Void {
 		var i:Int;
 		var n:ParticleNodeBase = cast(node, ParticleNodeBase);
@@ -125,16 +122,10 @@ class ParticleAnimationSet extends AnimationSetBase implements IAnimationSet {
 		super.addAnimation(node);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function activate(stage3DProxy:Stage3DProxy, pass:MaterialPassBase):Void {
 		_animationRegisterCache = pass.animationRegisterCache;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function deactivate(stage3DProxy:Stage3DProxy, pass:MaterialPassBase):Void {
 		if (_animationRegisterCache != null) {
 			var context:Context3D = stage3DProxy.context3D;
@@ -145,9 +136,6 @@ class ParticleAnimationSet extends AnimationSetBase implements IAnimationSet {
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getAGALVertexCode(pass:MaterialPassBase, sourceRegisters:Vector<String>, targetRegisters:Vector<String>, profile:String):String {
 		// grab animationRegisterCache from the materialpassbase or create a new one if the first time
 		_animationRegisterCache = (pass.animationRegisterCache != null ? pass.animationRegisterCache : pass.animationRegisterCache = new AnimationRegisterCache(profile));
@@ -194,9 +182,6 @@ class ParticleAnimationSet extends AnimationSetBase implements IAnimationSet {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getAGALUVCode(pass:MaterialPassBase, UVSource:String, UVTarget:String):String {
 		var code:String = "";
 		if (hasUVNode) {
@@ -211,16 +196,10 @@ class ParticleAnimationSet extends AnimationSetBase implements IAnimationSet {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getAGALFragmentCode(pass:MaterialPassBase, shadedTarget:String, profile:String):String {
 		return _animationRegisterCache.getColorCombinationCode(shadedTarget);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function doneAGALCode(pass:MaterialPassBase):Void {
 		_animationRegisterCache.setDataLength();
 
@@ -228,16 +207,10 @@ class ParticleAnimationSet extends AnimationSetBase implements IAnimationSet {
 		_animationRegisterCache.setVertexConst(_animationRegisterCache.vertexZeroConst.index, 0, 1, 2, 0);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function get_usesCPU():Bool {
 		return false;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function cancelGPUCompatibility():Void {}
 
 	override public function dispose():Void {

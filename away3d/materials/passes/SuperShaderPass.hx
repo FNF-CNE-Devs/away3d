@@ -38,9 +38,6 @@ class SuperShaderPass extends CompiledPass {
 		_needFragmentAnimation = true;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function createCompiler(profile:String):ShaderCompiler {
 		return new SuperShaderCompiler(profile);
 	}
@@ -149,9 +146,6 @@ class SuperShaderPass extends CompiledPass {
 		_methodSetup.removeMethod(method);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateLights():Void {
 		if (_lightPicker != null && !_ignoreLights) {
 			_numPointLights = _lightPicker.numPointLights;
@@ -171,9 +165,6 @@ class SuperShaderPass extends CompiledPass {
 		invalidateShaderProgram();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(stage3DProxy:Stage3DProxy, camera:Camera3D):Void {
 		super.activate(stage3DProxy, camera);
 
@@ -195,9 +186,6 @@ class SuperShaderPass extends CompiledPass {
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	private override function deactivate(stage3DProxy:Stage3DProxy):Void {
 		super.deactivate(stage3DProxy);
 
@@ -213,9 +201,6 @@ class SuperShaderPass extends CompiledPass {
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function addPassesFromMethods():Void {
 		super.addPassesFromMethods();
 
@@ -241,9 +226,6 @@ class SuperShaderPass extends CompiledPass {
 		return _numLightProbes > 0 && (_diffuseLightSources & LightSources.PROBES) != 0;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateMethodConstants():Void {
 		super.updateMethodConstants();
 		if (_methodSetup._colorTransformMethod != null)
@@ -255,9 +237,6 @@ class SuperShaderPass extends CompiledPass {
 			methods[i].method.initConstants(methods[i].data);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateLightConstants():Void {
 		// first dirs, then points
 		var dirLight:DirectionalLight;
@@ -346,9 +325,6 @@ class SuperShaderPass extends CompiledPass {
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateProbes(stage3DProxy:Stage3DProxy):Void {
 		var probe:LightProbe;
 		var lightProbes:Vector<LightProbe> = _lightPicker.lightProbes;

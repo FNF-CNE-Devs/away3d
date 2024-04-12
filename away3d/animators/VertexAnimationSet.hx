@@ -61,9 +61,6 @@ class VertexAnimationSet extends AnimationSetBase implements IAnimationSet {
 		_blendMode = blendMode;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getAGALVertexCode(pass:MaterialPassBase, sourceRegisters:Vector<String>, targetRegisters:Vector<String>, profile:String):String {
 		if (_blendMode == VertexAnimationMode.ABSOLUTE)
 			return getAbsoluteAGALCode(pass, sourceRegisters, targetRegisters);
@@ -71,17 +68,11 @@ class VertexAnimationSet extends AnimationSetBase implements IAnimationSet {
 			return getAdditiveAGALCode(pass, sourceRegisters, targetRegisters);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function activate(stage3DProxy:Stage3DProxy, pass:MaterialPassBase):Void {
 		_uploadNormals = _useNormals[pass];
 		_uploadTangents = _useTangents[pass];
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function deactivate(stage3DProxy:Stage3DProxy, pass:MaterialPassBase):Void {
 		var index:Int = _streamIndices[pass];
 		var context:Context3D = stage3DProxy._context3D;
@@ -92,23 +83,14 @@ class VertexAnimationSet extends AnimationSetBase implements IAnimationSet {
 			context.setVertexBufferAt(index + 2, null);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getAGALFragmentCode(pass:MaterialPassBase, shadedTarget:String, profile:String):String {
 		return "";
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getAGALUVCode(pass:MaterialPassBase, UVSource:String, UVTarget:String):String {
 		return "mov " + UVTarget + "," + UVSource + "\n";
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function doneAGALCode(pass:MaterialPassBase):Void {}
 
 	/**

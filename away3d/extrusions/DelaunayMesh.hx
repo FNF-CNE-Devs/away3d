@@ -759,9 +759,6 @@ class DelaunayMesh extends Mesh {
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function get_bounds():BoundingVolumeBase {
 		if (_geomDirty)
 			buildExtrude();
@@ -769,9 +766,6 @@ class DelaunayMesh extends Mesh {
 		return super.get_bounds();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function get_geometry():Geometry {
 		if (_geomDirty)
 			buildExtrude();
@@ -779,9 +773,6 @@ class DelaunayMesh extends Mesh {
 		return super.get_geometry();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function get_subMeshes():Vector<SubMesh> {
 		if (_geomDirty)
 			buildExtrude();

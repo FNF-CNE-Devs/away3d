@@ -84,9 +84,6 @@ class PointLight extends LightBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateBounds():Void {
 		//			super.updateBounds();
 		//			_bounds.fromExtremes(-_fallOff, -_fallOff, -_fallOff, _fallOff, _fallOff, _fallOff);
@@ -94,16 +91,10 @@ class PointLight extends LightBase {
 		_boundsInvalid = false;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getDefaultBoundingVolume():BoundingVolumeBase {
 		return new BoundingSphere();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getObjectProjectionMatrix(renderable:IRenderable, camera:Camera3D, target:Matrix3D = null):Matrix3D {
 		var raw:Vector<Float> = Matrix3DUtils.RAW_DATA_CONTAINER;
 		var bounds:BoundingVolumeBase = renderable.sourceEntity.bounds;

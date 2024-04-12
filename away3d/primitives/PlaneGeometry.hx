@@ -122,9 +122,6 @@ class PlaneGeometry extends PrimitiveBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function buildGeometry(target:CompactSubGeometry):Void {
 		var data:Vector<Float>;
 		var indices:Vector<UInt>;
@@ -230,9 +227,6 @@ class PlaneGeometry extends PrimitiveBase {
 		target.updateIndexData(indices);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function buildUVs(target:CompactSubGeometry):Void {
 		var data:Vector<Float>;
 		var stride:Int = target.UVStride;

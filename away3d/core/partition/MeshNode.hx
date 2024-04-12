@@ -29,9 +29,6 @@ class MeshNode extends EntityNode {
 		return _mesh;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function acceptTraverser(traverser:PartitionTraverser):Void {
 		if (traverser.enterNode(this)) {
 			super.acceptTraverser(traverser);

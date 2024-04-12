@@ -71,33 +71,18 @@ class SkyBox extends Entity implements IRenderable {
 		buildGeometry(_geometry);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function activateVertexBuffer(index:Int, stage3DProxy:Stage3DProxy):Void {
 		_geometry.activateVertexBuffer(index, stage3DProxy);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function activateUVBuffer(index:Int, stage3DProxy:Stage3DProxy):Void {}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function activateVertexNormalBuffer(index:Int, stage3DProxy:Stage3DProxy):Void {}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function activateVertexTangentBuffer(index:Int, stage3DProxy:Stage3DProxy):Void {}
 
 	public function activateSecondaryUVBuffer(index:Int, stage3DProxy:Stage3DProxy):Void {}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getIndexBuffer(stage3DProxy:Stage3DProxy):IndexBuffer3D {
 		return _geometry.getIndexBuffer(stage3DProxy);
 	}
@@ -132,23 +117,14 @@ class SkyBox extends Entity implements IRenderable {
 		return Asset3DType.SKYBOX;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function invalidateBounds():Void {
 		// dead end
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function createEntityPartitionNode():EntityNode {
 		return new SkyBoxNode(this);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateBounds():Void {
 		_boundsInvalid = false;
 	}

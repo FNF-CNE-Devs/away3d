@@ -41,9 +41,6 @@ class SkeletonPose extends NamedAssetBase implements IAsset {
 		super();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	private function get_assetType():Asset3DType {
 		return Asset3DType.SKELETON_POSE;
 	}
@@ -105,9 +102,6 @@ class SkeletonPose extends NamedAssetBase implements IAsset {
 		return clone;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function dispose():Void {
 		jointPoses.length = 0;
 	}

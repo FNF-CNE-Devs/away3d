@@ -34,9 +34,6 @@ class ColorTransformMethod extends EffectMethodBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		var code:String = "";
 		var colorMultReg:ShaderRegisterElement = regCache.getFreeFragmentConstant();
@@ -47,9 +44,6 @@ class ColorTransformMethod extends EffectMethodBase {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		var inv:Float = 1 / 0xff;
 		var index:Int = vo.fragmentConstantsIndex;

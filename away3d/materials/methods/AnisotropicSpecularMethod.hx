@@ -16,17 +16,11 @@ class AnisotropicSpecularMethod extends BasicSpecularMethod {
 		super();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initVO(vo:MethodVO):Void {
 		vo.needsTangents = true;
 		vo.needsView = true;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentCodePerLight(vo:MethodVO, lightDirReg:ShaderRegisterElement, lightColReg:ShaderRegisterElement,
 			regCache:ShaderRegisterCache):String {
 		var code:String = "";

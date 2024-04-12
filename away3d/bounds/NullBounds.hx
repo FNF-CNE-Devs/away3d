@@ -34,26 +34,14 @@ class NullBounds extends BoundingVolumeBase {
 		return if (_renderable != null) _renderable; else new WireframeSphere(100, 16, 12, 0xffffff, 0.5);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function isInFrustum(planes:Vector<Plane3D>, numPlanes:Int):Bool {
 		return _alwaysIn;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function fromGeometry(geometry:Geometry):Void {}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function fromSphere(center:Vector3D, radius:Float):Void {}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function fromExtremes(minX:Float, minY:Float, minZ:Float, maxX:Float, maxY:Float, maxZ:Float):Void {}
 
 	override public function classifyToPlane(plane:Plane3D):Int {

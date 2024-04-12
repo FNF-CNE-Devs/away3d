@@ -9,9 +9,6 @@ import away3d.core.base.IRenderable;
 import away3d.core.managers.Stage3DProxy;
 import openfl.display3D.Context3DVertexBufferFormat;
 
-/**
- * ...
- */
 class ParticleTimeState extends ParticleStateBase {
 	private var _particleTimeNode:ParticleTimeNode;
 

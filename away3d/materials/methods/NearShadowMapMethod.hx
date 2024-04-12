@@ -62,9 +62,6 @@ class NearShadowMapMethod extends SimpleShadowMapMethodBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initConstants(vo:MethodVO):Void {
 		super.initConstants(vo);
 		_baseMethod.initConstants(vo);
@@ -75,24 +72,15 @@ class NearShadowMapMethod extends SimpleShadowMapMethodBase {
 		fragmentData[index + 3] = 1;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initVO(vo:MethodVO):Void {
 		_baseMethod.initVO(vo);
 		vo.needsProjection = true;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function dispose():Void {
 		_baseMethod.removeEventListener(ShadingMethodEvent.SHADER_INVALIDATED, onShaderInvalidated);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function get_alpha():Float {
 		return _baseMethod.alpha;
 	}
@@ -102,9 +90,6 @@ class NearShadowMapMethod extends SimpleShadowMapMethodBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function get_epsilon():Float {
 		return _baseMethod.epsilon;
 	}
@@ -126,9 +111,6 @@ class NearShadowMapMethod extends SimpleShadowMapMethodBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		var code:String = _baseMethod.getFragmentCode(vo, regCache, targetReg);
 		var dataReg:ShaderRegisterElement = regCache.getFreeFragmentConstant();
@@ -143,23 +125,14 @@ class NearShadowMapMethod extends SimpleShadowMapMethodBase {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		_baseMethod.activate(vo, stage3DProxy);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function deactivate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		_baseMethod.deactivate(vo, stage3DProxy);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function setRenderState(vo:MethodVO, renderable:IRenderable, stage3DProxy:Stage3DProxy, camera:Camera3D):Void {
 		// todo: move this to activate (needs camera)
 		var near:Float = camera.lens.near;
@@ -177,31 +150,19 @@ class NearShadowMapMethod extends SimpleShadowMapMethodBase {
 		_baseMethod.setRenderState(vo, renderable, stage3DProxy, camera);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getVertexCode(vo:MethodVO, regCache:ShaderRegisterCache):String {
 		return _baseMethod.getVertexCode(vo, regCache);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function reset():Void {
 		_baseMethod.reset();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function cleanCompilationData():Void {
 		super.cleanCompilationData();
 		_baseMethod.cleanCompilationData();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function set_sharedRegisters(value:ShaderRegisterData):ShaderRegisterData {
 		super.sharedRegisters = _baseMethod.sharedRegisters = value;
 		return value;

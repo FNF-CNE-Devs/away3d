@@ -70,9 +70,6 @@ class CascadeShadowMapMethod extends ShadowMapMethodBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initVO(vo:MethodVO):Void {
 		var tempVO:MethodVO = new MethodVO();
 		_baseMethod.initVO(tempVO);
@@ -80,18 +77,12 @@ class CascadeShadowMapMethod extends ShadowMapMethodBase {
 		vo.needsProjection = true;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function set_sharedRegisters(value:ShaderRegisterData):ShaderRegisterData {
 		super.sharedRegisters = value;
 		_baseMethod.sharedRegisters = value;
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initConstants(vo:MethodVO):Void {
 		var fragmentData:Vector<Float> = vo.fragmentData;
 		var vertexData:Vector<Float> = vo.vertexData;
@@ -110,18 +101,12 @@ class CascadeShadowMapMethod extends ShadowMapMethodBase {
 		vertexData[index + 2] = 0;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function cleanCompilationData():Void {
 		super.cleanCompilationData();
 		_cascadeProjections = null;
 		_depthMapCoordVaryings = null;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getVertexCode(vo:MethodVO, regCache:ShaderRegisterCache):String {
 		var code:String = "";
 		var dataReg:ShaderRegisterElement = regCache.getFreeVertexConstant();
@@ -155,9 +140,6 @@ class CascadeShadowMapMethod extends ShadowMapMethodBase {
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		var numCascades:Int = _cascadeShadowMapper.numCascades;
 		var depthMapRegister:ShaderRegisterElement = regCache.getFreeTextureReg();
@@ -217,9 +199,6 @@ class CascadeShadowMapMethod extends ShadowMapMethodBase {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		stage3DProxy._context3D.setTextureAt(vo.texturesIndex, _castingLight.shadowMapper.depthMap.getTextureForStage3D(stage3DProxy));
 
@@ -248,9 +227,6 @@ class CascadeShadowMapMethod extends ShadowMapMethodBase {
 		_baseMethod.activateForCascade(vo, stage3DProxy);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function setRenderState(vo:MethodVO, renderable:IRenderable, stage3DProxy:Stage3DProxy, camera:Camera3D):Void {}
 
 	/**

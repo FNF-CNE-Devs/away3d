@@ -35,23 +35,14 @@ class AWDParser extends ParserBase {
 		return (AWD1Parser.supportsData(data) || AWD2Parser.supportsData(data));
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public override function get_dependencies():Vector<ResourceDependency> {
 		return _parser != null ? _parser.dependencies : super.get_dependencies();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public override function get_parsingComplete():Bool {
 		return _parser != null ? _parser.parsingComplete : false;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public override function get_parsingPaused():Bool {
 		return _parser != null ? _parser.parsingPaused : false;
 	}

@@ -116,9 +116,6 @@ class Entity extends ObjectContainer3D {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function get_minX():Float {
 		if (_boundsInvalid)
 			updateBounds();
@@ -126,9 +123,6 @@ class Entity extends ObjectContainer3D {
 		return _bounds.min.x;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function get_minY():Float {
 		if (_boundsInvalid)
 			updateBounds();
@@ -136,9 +130,6 @@ class Entity extends ObjectContainer3D {
 		return _bounds.min.y;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function get_minZ():Float {
 		if (_boundsInvalid)
 			updateBounds();
@@ -146,9 +137,6 @@ class Entity extends ObjectContainer3D {
 		return _bounds.min.z;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function get_maxX():Float {
 		if (_boundsInvalid)
 			updateBounds();
@@ -156,9 +144,6 @@ class Entity extends ObjectContainer3D {
 		return _bounds.max.x;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function get_maxY():Float {
 		if (_boundsInvalid)
 			updateBounds();
@@ -166,9 +151,6 @@ class Entity extends ObjectContainer3D {
 		return _bounds.max.y;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function get_maxZ():Float {
 		if (_boundsInvalid)
 			updateBounds();
@@ -208,9 +190,6 @@ class Entity extends ObjectContainer3D {
 		_worldBoundsInvalid = false;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function set_implicitPartition(value:Partition3D):Partition3D {
 		if (value == _implicitPartition)
 			return value;
@@ -224,9 +203,6 @@ class Entity extends ObjectContainer3D {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function set_scene(value:Scene3D):Scene3D {
 		if (value == _scene)
 			return value;
@@ -336,9 +312,6 @@ class Entity extends ObjectContainer3D {
 		throw new AbstractMethodError();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function invalidateSceneTransform():Void {
 		if (!_ignoreTransform) {
 			super.invalidateSceneTransform();

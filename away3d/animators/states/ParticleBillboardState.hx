@@ -14,9 +14,6 @@ import openfl.geom.Matrix3D;
 import openfl.geom.Orientation3D;
 import openfl.geom.Vector3D;
 
-/**
- * ...
- */
 class ParticleBillboardState extends ParticleStateBase {
 	public var billboardAxis(get, set):Vector3D;
 

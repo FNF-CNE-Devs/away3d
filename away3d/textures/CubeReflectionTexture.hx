@@ -49,9 +49,6 @@ class CubeReflectionTexture extends RenderCubeTexture {
 		initCameras();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function getTextureForStage3D(stage3DProxy:Stage3DProxy):TextureBase {
 		return _isRendering ? _mockTexture.getTextureForStage3D(stage3DProxy) : super.getTextureForStage3D(stage3DProxy);
 	}
@@ -124,9 +121,6 @@ class CubeReflectionTexture extends RenderCubeTexture {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function dispose():Void {
 		super.dispose();
 		_mockTexture.dispose();

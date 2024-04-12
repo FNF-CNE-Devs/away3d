@@ -107,9 +107,6 @@ class UVAnimator extends AnimatorBase implements IAnimator {
 		return _translateIncrease;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function setRenderState(stage3DProxy:Stage3DProxy, renderable:IRenderable, vertexConstantOffset:Int, vertexStreamOffset:Int, camera:Camera3D):Void {
 		var material:TextureMaterial = expect(renderable.material, TextureMaterial);
 		var subMesh:SubMesh = expect(renderable, SubMesh);
@@ -148,9 +145,6 @@ class UVAnimator extends AnimatorBase implements IAnimator {
 		stage3DProxy._context3D.setProgramConstantsFromVector(Context3DProgramType.VERTEX, vertexConstantOffset + 4, _matrix2d);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function play(name:String, transition:IAnimationTransition = null, ?offset:Float = null):Void {
 		if (_activeAnimationName == name)
 			return;
@@ -193,9 +187,6 @@ class UVAnimator extends AnimatorBase implements IAnimator {
 	 */
 	public function testGPUCompatibility(pass:MaterialPassBase):Void {}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function clone():IAnimator {
 		return new UVAnimator(_uvAnimationSet);
 	}

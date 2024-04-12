@@ -60,17 +60,11 @@ class DitheredShadowMapMethod extends SimpleShadowMapMethodBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initVO(vo:MethodVO):Void {
 		super.initVO(vo);
 		vo.needsProjection = true;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initConstants(vo:MethodVO):Void {
 		super.initConstants(vo);
 
@@ -126,9 +120,6 @@ class DitheredShadowMapMethod extends SimpleShadowMapMethodBase {
 		_grainTexture = new BitmapTexture(_grainBitmapData);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function dispose():Void {
 		if (--_grainUsages == 0) {
 			_grainTexture.dispose();
@@ -137,9 +128,6 @@ class DitheredShadowMapMethod extends SimpleShadowMapMethodBase {
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		super.activate(vo, stage3DProxy);
 		var data:Vector<Float> = vo.fragmentData;
@@ -150,9 +138,6 @@ class DitheredShadowMapMethod extends SimpleShadowMapMethodBase {
 		stage3DProxy._context3D.setTextureAt(vo.texturesIndex + 1, _grainTexture.getTextureForStage3D(stage3DProxy));
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getPlanarFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		var depthMapRegister:ShaderRegisterElement = regCache.getFreeTextureReg();
 		var decReg:ShaderRegisterElement = regCache.getFreeFragmentConstant();
@@ -334,9 +319,6 @@ class DitheredShadowMapMethod extends SimpleShadowMapMethodBase {
 			"add " + targetReg + ".w, " + targetReg + ".w, " + temp + ".z\n";
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activateForCascade(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		var data:Vector<Float> = vo.fragmentData;
 		var index:Int = vo.secondaryFragmentConstantsIndex;
@@ -347,9 +329,6 @@ class DitheredShadowMapMethod extends SimpleShadowMapMethodBase {
 		stage3DProxy._context3D.setTextureAt(vo.texturesIndex + 1, _grainTexture.getTextureForStage3D(stage3DProxy));
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getCascadeFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, decodeRegister:ShaderRegisterElement,
 			depthTexture:ShaderRegisterElement, depthProjection:ShaderRegisterElement, targetRegister:ShaderRegisterElement):String {
 		_depthMapCoordReg = depthProjection;

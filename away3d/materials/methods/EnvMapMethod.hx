@@ -46,9 +46,6 @@ class EnvMapMethod extends EffectMethodBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initVO(vo:MethodVO):Void {
 		vo.needsNormals = true;
 		vo.needsView = true;
@@ -67,9 +64,6 @@ class EnvMapMethod extends EffectMethodBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function dispose():Void {}
 
 	/**
@@ -84,9 +78,6 @@ class EnvMapMethod extends EffectMethodBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		var context:Context3D = stage3DProxy._context3D;
 		vo.fragmentData[vo.fragmentConstantsIndex] = _alpha;
@@ -95,9 +86,6 @@ class EnvMapMethod extends EffectMethodBase {
 			context.setTextureAt(vo.texturesIndex + 1, _mask.getTextureForStage3D(stage3DProxy));
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		var dataRegister:ShaderRegisterElement = regCache.getFreeFragmentConstant();
 		var temp:ShaderRegisterElement = regCache.getFreeFragmentVectorTemp();

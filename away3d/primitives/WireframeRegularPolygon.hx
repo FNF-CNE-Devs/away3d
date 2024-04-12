@@ -71,9 +71,6 @@ class WireframeRegularPolygon extends WireframePrimitiveBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function buildGeometry():Void {
 		var v0:Vector3D = new Vector3D();
 		var v1:Vector3D = new Vector3D();

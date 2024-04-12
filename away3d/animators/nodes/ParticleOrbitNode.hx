@@ -61,9 +61,6 @@ class ParticleOrbitNode extends ParticleNodeBase {
 		_eulers = eulers;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function getAGALVertexCode(pass:MaterialPassBase, animationRegisterCache:AnimationRegisterCache):String {
 		var orbitRegister:ShaderRegisterElement = (_mode == ParticlePropertiesMode.GLOBAL) ? animationRegisterCache.getFreeVertexConstant() : animationRegisterCache.getFreeVertexAttribute();
 		animationRegisterCache.setRegisterIndex(this, ORBIT_INDEX, orbitRegister.index);
@@ -130,16 +127,10 @@ class ParticleOrbitNode extends ParticleNodeBase {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getAnimationState(animator:IAnimator):ParticleOrbitState {
 		return cast(animator.getAnimationState(this), ParticleOrbitState);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function generatePropertyOfOneParticle(param:ParticleProperties):Void {
 		// Vector3D.x is radius, Vector3D.y is cycle duration, Vector3D.z is phase
 		var orbit:Vector3D = param.nodes[ParticleNodeEnum.ORBIT_VECTOR3D];

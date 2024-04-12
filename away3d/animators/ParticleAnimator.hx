@@ -60,16 +60,10 @@ class ParticleAnimator extends AnimatorBase implements IAnimator {
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function clone():IAnimator {
 		return new ParticleAnimator(_particleAnimationSet);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function setRenderState(stage3DProxy:Stage3DProxy, renderable:IRenderable, vertexConstantOffset:Int, vertexStreamOffset:Int, camera:Camera3D):Void {
 		var subMesh:SubMesh = expect(renderable, SubMesh);
 
@@ -105,32 +99,20 @@ class ParticleAnimator extends AnimatorBase implements IAnimator {
 				animationRegisterCache.fragmentConstantData, animationRegisterCache.numFragmentConstant);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function testGPUCompatibility(pass:MaterialPassBase):Void {}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function start():Void {
 		super.start();
 		for (state in _timeParticleStates)
 			state.offset(_absoluteTime);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateDeltaTime(dt:Int):Void {
 		_absoluteTime += dt;
 		for (state in _timeParticleStates)
 			state.update(_absoluteTime);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function resetTime(offset:Int = 0):Void {
 		for (state in _timeParticleStates)
 			state.offset(_absoluteTime + offset);

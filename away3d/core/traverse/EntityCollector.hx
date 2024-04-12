@@ -255,9 +255,6 @@ class EntityCollector extends PartitionTraverser {
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function applyEntity(entity:Entity):Void {
 		++_numEntities;
 

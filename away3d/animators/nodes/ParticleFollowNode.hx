@@ -38,9 +38,6 @@ class ParticleFollowNode extends ParticleNodeBase {
 		super("ParticleFollow", ParticlePropertiesMode.LOCAL_DYNAMIC, (_usesPosition && _usesRotation) ? 6 : 3, ParticleAnimationSet.POST_PRIORITY);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function getAGALVertexCode(pass:MaterialPassBase, animationRegisterCache:AnimationRegisterCache):String {
 		// TODO: use Quaternion to implement this function
 		var code:String = "";
@@ -172,9 +169,6 @@ class ParticleFollowNode extends ParticleNodeBase {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getAnimationState(animator:IAnimator):ParticleFollowState {
 		return cast(animator.getAnimationState(this), ParticleFollowState);
 	}

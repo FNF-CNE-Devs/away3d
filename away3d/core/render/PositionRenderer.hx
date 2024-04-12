@@ -33,9 +33,6 @@ class PositionRenderer extends RendererBase {
 		super();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function draw(entityCollector:EntityCollector, target:TextureBase):Void {
 		var item:RenderableListItem;
 		var renderable:IRenderable;

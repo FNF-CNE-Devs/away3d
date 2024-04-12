@@ -380,9 +380,6 @@ class SkinExtrude extends Mesh {
 		_subGeometry.autoDeriveVertexTangents = true;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function get_bounds():BoundingVolumeBase {
 		if (_geomDirty)
 			buildExtrude();
@@ -390,9 +387,6 @@ class SkinExtrude extends Mesh {
 		return super.get_bounds();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function get_geometry():Geometry {
 		if (_geomDirty)
 			buildExtrude();
@@ -400,9 +394,6 @@ class SkinExtrude extends Mesh {
 		return super.get_geometry();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function get_subMeshes():Vector<SubMesh> {
 		if (_geomDirty)
 			buildExtrude();

@@ -35,9 +35,6 @@ class SimpleWaterNormalMethod extends BasicNormalMethod {
 		secondaryNormalMap = waveMap2;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initConstants(vo:MethodVO):Void {
 		var index:Int = vo.fragmentConstantsIndex;
 		vo.fragmentData[index] = .5;
@@ -46,9 +43,6 @@ class SimpleWaterNormalMethod extends BasicNormalMethod {
 		vo.fragmentData[index + 3] = 1;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initVO(vo:MethodVO):Void {
 		super.initVO(vo);
 
@@ -103,9 +97,6 @@ class SimpleWaterNormalMethod extends BasicNormalMethod {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function set_normalMap(value:Texture2DBase):Texture2DBase {
 		if (value == null)
 			return value;
@@ -124,25 +115,16 @@ class SimpleWaterNormalMethod extends BasicNormalMethod {
 		return _texture2 = value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function cleanCompilationData():Void {
 		super.cleanCompilationData();
 		_normalTextureRegister2 = null;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function dispose():Void {
 		super.dispose();
 		_texture2 = null;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		super.activate(vo, stage3DProxy);
 
@@ -158,9 +140,6 @@ class SimpleWaterNormalMethod extends BasicNormalMethod {
 			stage3DProxy._context3D.setTextureAt(vo.texturesIndex + 1, _texture2.getTextureForStage3D(stage3DProxy));
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		var temp:ShaderRegisterElement = regCache.getFreeFragmentVectorTemp();
 		var dataReg:ShaderRegisterElement = regCache.getFreeFragmentConstant();

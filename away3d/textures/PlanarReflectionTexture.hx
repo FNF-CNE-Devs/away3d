@@ -90,9 +90,6 @@ class PlanarReflectionTexture extends RenderTexture {
 		_plane.d = -_vector.w;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function getTextureForStage3D(stage3DProxy:Stage3DProxy):TextureBase {
 		return _isRendering ? _mockTexture.getTextureForStage3D(stage3DProxy) : super.getTextureForStage3D(stage3DProxy);
 	}
@@ -160,9 +157,6 @@ class PlanarReflectionTexture extends RenderTexture {
 		return _renderer.textureRatioY;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function uploadContent(texture:TextureBase):Void {/* disallow */
 	}
 

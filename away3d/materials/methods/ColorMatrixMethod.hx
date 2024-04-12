@@ -39,9 +39,6 @@ class ColorMatrixMethod extends EffectMethodBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		var code:String = "";
 		var colorMultReg:ShaderRegisterElement = regCache.getFreeFragmentConstant();
@@ -70,9 +67,6 @@ class ColorMatrixMethod extends EffectMethodBase {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		var matrix:Array<Float> = _matrix;
 		var index:Int = vo.fragmentConstantsIndex;

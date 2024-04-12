@@ -20,9 +20,6 @@ class EffectMethodBase extends ShadingMethodBase implements IAsset {
 		super();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	private function get_assetType():Asset3DType {
 		return Asset3DType.EFFECTS_METHOD;
 	}

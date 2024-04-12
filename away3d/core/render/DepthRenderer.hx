@@ -122,9 +122,6 @@ class DepthRenderer extends RendererBase {
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function draw(entityCollector:EntityCollector, target:TextureBase):Void {
 		_context.setBlendFactors(Context3DBlendFactor.ONE, Context3DBlendFactor.ZERO);
 		_context.setDepthTest(true, Context3DCompareMode.LESS);

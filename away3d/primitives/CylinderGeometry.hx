@@ -55,9 +55,6 @@ class CylinderGeometry extends PrimitiveBase {
 		_currentTriangleIndex++;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function buildGeometry(target:CompactSubGeometry):Void {
 		var i:Int = 0, j:Int = 0;
 		var x:Float = 0,
@@ -265,9 +262,6 @@ class CylinderGeometry extends PrimitiveBase {
 		target.updateIndexData(_rawIndices);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function buildUVs(target:CompactSubGeometry):Void {
 		var i:Int, j:Int;
 		var x:Float, y:Float, revolutionAngle:Float;

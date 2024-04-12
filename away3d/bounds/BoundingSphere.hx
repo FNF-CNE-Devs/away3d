@@ -36,9 +36,6 @@ class BoundingSphere extends BoundingVolumeBase {
 		super();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function nullify():Void {
 		super.nullify();
 		_centerX = _centerY = _centerZ = 0;
@@ -47,7 +44,6 @@ class BoundingSphere extends BoundingVolumeBase {
 
 	/**
 	 * todo: pass planes?
-	 * @inheritDoc
 	 */
 	override public function isInFrustum(planes:Vector<Plane3D>, numPlanes:Int):Bool {
 		for (i in 0...numPlanes) {
@@ -64,9 +60,6 @@ class BoundingSphere extends BoundingVolumeBase {
 		return true;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function fromSphere(center:Vector3D, radius:Float):Void {
 		_centerX = center.x;
 		_centerY = center.y;
@@ -86,9 +79,6 @@ class BoundingSphere extends BoundingVolumeBase {
 	// TODO: fromGeometry can probably be updated a lot
 	// find center from extremes, but radius from actual furthest distance from center
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function fromExtremes(minX:Float, minY:Float, minZ:Float, maxX:Float, maxY:Float, maxZ:Float):Void {
 		_centerX = (maxX + minX) * .5;
 		_centerY = (maxY + minY) * .5;
@@ -106,9 +96,6 @@ class BoundingSphere extends BoundingVolumeBase {
 		super.fromExtremes(minX, minY, minZ, maxX, maxY, maxZ);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function clone():BoundingVolumeBase {
 		var clone:BoundingSphere = new BoundingSphere();
 		clone.fromSphere(new Vector3D(_centerX, _centerY, _centerZ), _radius);
@@ -149,9 +136,6 @@ class BoundingSphere extends BoundingVolumeBase {
 		return -1;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function containsPoint(position:Vector3D):Bool {
 		var px:Float = position.x - _centerX,
 			py:Float = position.y - _centerY,

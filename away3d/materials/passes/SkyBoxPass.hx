@@ -46,16 +46,10 @@ class SkyBoxPass extends MaterialPassBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getVertexCode():String {
 		return "mul vt0, va0, vc5		\n" + "add vt0, vt0, vc4		\n" + "m44 op, vt0, vc0		\n" + "mov v0, va0\n";
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentCode(animationCode:String):String {
 		var format:String;
 		switch (_cubeTexture.format) {
@@ -72,9 +66,6 @@ class SkyBoxPass extends MaterialPassBase {
 		return "tex ft0, v0, fs0 <cube," + format + "linear,clamp" + mip + ">	\n" + "mov oc, ft0							\n";
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function render(renderable:IRenderable, stage3DProxy:Stage3DProxy, camera:Camera3D, viewProjection:Matrix3D):Void {
 		var context:Context3D = stage3DProxy._context3D;
 		var pos:Vector3D = camera.scenePosition;
@@ -88,9 +79,6 @@ class SkyBoxPass extends MaterialPassBase {
 		stage3DProxy.drawTriangles(renderable.getIndexBuffer(stage3DProxy), 0, renderable.numTriangles);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(stage3DProxy:Stage3DProxy, camera:Camera3D):Void {
 		super.activate(stage3DProxy, camera);
 		var context:Context3D = stage3DProxy._context3D;

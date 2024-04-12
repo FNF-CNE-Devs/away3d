@@ -148,16 +148,10 @@ class BasicDiffuseMethod extends LightingMethodBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function dispose():Void {
 		_texture = null;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function copyFrom(method:ShadingMethodBase):Void {
 		var diff:BasicDiffuseMethod = cast(method, BasicDiffuseMethod);
 		alphaThreshold = diff.alphaThreshold;
@@ -167,9 +161,6 @@ class BasicDiffuseMethod extends LightingMethodBase {
 		diffuseColor = diff.diffuseColor;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function cleanCompilationData():Void {
 		super.cleanCompilationData();
 		_shadowRegister = null;
@@ -177,9 +168,6 @@ class BasicDiffuseMethod extends LightingMethodBase {
 		_diffuseInputRegister = null;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentPreLightingCode(vo:MethodVO, regCache:ShaderRegisterCache):String {
 		var code:String = "";
 
@@ -193,9 +181,6 @@ class BasicDiffuseMethod extends LightingMethodBase {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentCodePerLight(vo:MethodVO, lightDirReg:ShaderRegisterElement, lightColReg:ShaderRegisterElement,
 			regCache:ShaderRegisterCache):String {
 		var code:String = "";
@@ -230,9 +215,6 @@ class BasicDiffuseMethod extends LightingMethodBase {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentCodePerProbe(vo:MethodVO, cubeMapReg:ShaderRegisterElement, weightRegister:String,
 			regCache:ShaderRegisterCache):String {
 		var code:String = "";
@@ -262,9 +244,6 @@ class BasicDiffuseMethod extends LightingMethodBase {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentPostLightingCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		var code:String = "";
 		var albedo:ShaderRegisterElement;
@@ -329,9 +308,6 @@ class BasicDiffuseMethod extends LightingMethodBase {
 		return "mul " + _totalLightColorReg + ".xyz, " + _totalLightColorReg + ", " + _shadowRegister + ".w\n";
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		if (_useTexture) {
 			#if (!flash || flash11_6)

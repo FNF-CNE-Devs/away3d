@@ -64,9 +64,6 @@ class SubGeometry extends SubGeometryBase implements ISubGeometry {
 		return _numVertices;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function activateVertexBuffer(index:Int, stage3DProxy:Stage3DProxy):Void {
 		var contextIndex:Int = stage3DProxy._stage3DIndex;
 		var context:Context3D = stage3DProxy._context3D;
@@ -83,9 +80,6 @@ class SubGeometry extends SubGeometryBase implements ISubGeometry {
 		context.setVertexBufferAt(index, _vertexBuffer[contextIndex], 0, Context3DVertexBufferFormat.FLOAT_3);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function activateUVBuffer(index:Int, stage3DProxy:Stage3DProxy):Void {
 		var contextIndex:Int = stage3DProxy._stage3DIndex;
 		var context:Context3D = stage3DProxy._context3D;
@@ -106,9 +100,6 @@ class SubGeometry extends SubGeometryBase implements ISubGeometry {
 		context.setVertexBufferAt(index, _uvBuffer[contextIndex], 0, Context3DVertexBufferFormat.FLOAT_2);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function activateSecondaryUVBuffer(index:Int, stage3DProxy:Stage3DProxy):Void {
 		var contextIndex:Int = stage3DProxy._stage3DIndex;
 		var context:Context3D = stage3DProxy._context3D;
@@ -200,17 +191,11 @@ class SubGeometry extends SubGeometryBase implements ISubGeometry {
 		return clone;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function scale(scale:Float):Void {
 		super.scale(scale);
 		invalidateBuffers(_verticesInvalid);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function scaleUV(scaleU:Float = 1, scaleV:Float = 1):Void {
 		super.scaleUV(scaleU, scaleV);
 		invalidateBuffers(_uvsInvalid);

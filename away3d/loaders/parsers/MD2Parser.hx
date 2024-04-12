@@ -101,9 +101,6 @@ class MD2Parser extends ParserBase {
 		return (ParserUtil.toString(data, 4) == 'IDP2');
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function resolveDependency(resourceDependency:ResourceDependency):Void {
 		if (resourceDependency.assets.length != 1)
 			return;
@@ -125,9 +122,6 @@ class MD2Parser extends ParserBase {
 		materialFinal = true;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function resolveDependencyFailure(resourceDependency:ResourceDependency):Void {
 		// apply system default
 		if (materialMode < 2)
@@ -140,9 +134,6 @@ class MD2Parser extends ParserBase {
 		materialFinal = true;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function proceedParsing():Bool {
 		if (!_startedParsing) {
 			_byteData = getByteData();

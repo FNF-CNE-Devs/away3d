@@ -6,9 +6,6 @@ import openfl.display3D.Context3D;
 import openfl.display3D.Context3DVertexBufferFormat;
 import openfl.display3D.VertexBuffer3D;
 
-/**
- * ...
- */
 class AnimationSubGeometry {
 	public var vertexData(get, never):Vector<Float>;
 	public var numVertices(get, never):Int;

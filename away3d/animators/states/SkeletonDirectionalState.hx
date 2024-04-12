@@ -58,9 +58,6 @@ class SkeletonDirectionalState extends AnimationStateBase implements ISkeletonAn
 		_right = cast(animator.getAnimationState(_skeletonAnimationNode.right), ISkeletonAnimationState);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function phase(value:Float):Void {
 		if (_blendDirty)
 			updateBlend();
@@ -73,9 +70,6 @@ class SkeletonDirectionalState extends AnimationStateBase implements ISkeletonAn
 		_inputB.phase(value);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateTime(time:Int):Void {
 		if (_blendDirty)
 			updateBlend();
@@ -98,9 +92,6 @@ class SkeletonDirectionalState extends AnimationStateBase implements ISkeletonAn
 		return _skeletonPose;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updatePositionDelta():Void {
 		_positionDeltaDirty = false;
 		if (_blendDirty)

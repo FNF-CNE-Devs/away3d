@@ -153,9 +153,6 @@ class MouseEvent3D extends Event {
 		super(type, true, true);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	#if flash
 	#if (haxe_ver < 4.3) @:getter(bubbles) #else override #end private function get_bubbles():Bool {
 		var doesBubble:Bool = super.bubbles && _allowedToPropagate;
@@ -165,9 +162,6 @@ class MouseEvent3D extends Event {
 	}
 	#end
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function stopPropagation():Void {
 		super.stopPropagation();
 		_allowedToPropagate = false;
@@ -175,9 +169,6 @@ class MouseEvent3D extends Event {
 			_parentEvent.stopPropagation();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function stopImmediatePropagation():Void {
 		super.stopImmediatePropagation();
 		_allowedToPropagate = false;

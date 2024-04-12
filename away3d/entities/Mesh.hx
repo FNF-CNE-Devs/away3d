@@ -207,9 +207,6 @@ class Mesh extends Entity implements IMaterialOwner implements IAsset {
 			_subMeshes[i].animationSubGeometry = null;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function dispose():Void {
 		super.dispose();
 
@@ -273,17 +270,11 @@ class Mesh extends Entity implements IMaterialOwner implements IAsset {
 		return clone;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateBounds():Void {
 		_bounds.fromGeometry(_geometry);
 		_boundsInvalid = false;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function createEntityPartitionNode():EntityNode {
 		return new MeshNode(this);
 	}

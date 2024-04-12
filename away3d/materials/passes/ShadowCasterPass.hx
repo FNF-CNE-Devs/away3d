@@ -33,16 +33,10 @@ class ShadowCasterPass extends CompiledPass {
 		super(material);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function createCompiler(profile:String):ShaderCompiler {
 		return new LightingShaderCompiler(profile);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateLights():Void {
 		super.updateLights();
 
@@ -69,25 +63,16 @@ class ShadowCasterPass extends CompiledPass {
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateShaderProperties():Void {
 		super.updateShaderProperties();
 		_tangentSpace = cast(_compiler, LightingShaderCompiler).tangentSpace;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateRegisterIndices():Void {
 		super.updateRegisterIndices();
 		_lightVertexConstantIndex = cast(_compiler, LightingShaderCompiler).lightVertexConstantIndex;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function render(renderable:IRenderable, stage3DProxy:Stage3DProxy, camera:Camera3D, viewProjection:Matrix3D):Void {
 		renderable.inverseSceneTransform.copyRawDataTo(_inverseSceneMatrix);
 
@@ -107,9 +92,6 @@ class ShadowCasterPass extends CompiledPass {
 		super.render(renderable, stage3DProxy, camera, viewProjection);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(stage3DProxy:Stage3DProxy, camera:Camera3D):Void {
 		super.activate(stage3DProxy, camera);
 
@@ -121,9 +103,6 @@ class ShadowCasterPass extends CompiledPass {
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateLightConstants():Void {
 		// first dirs, then points
 		var dirLight:DirectionalLight;
@@ -206,22 +185,13 @@ class ShadowCasterPass extends CompiledPass {
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function usesProbes():Bool {
 		return false;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function usesLights():Bool {
 		return true;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateProbes(stage3DProxy:Stage3DProxy):Void {}
 }

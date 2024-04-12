@@ -95,9 +95,6 @@ class MD5MeshParser extends ParserBase {
 		return false;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function proceedParsing():Bool {
 		var token:String;
 

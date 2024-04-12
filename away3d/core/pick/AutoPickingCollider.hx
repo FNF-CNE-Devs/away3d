@@ -35,17 +35,11 @@ class AutoPickingCollider implements IPickingCollider {
 		// _pbPickingCollider = new PBPickingCollider(findClosestCollision);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function setLocalRay(localPosition:Vector3D, localDirection:Vector3D):Void {
 		_haxePickingCollider.setLocalRay(localPosition, localDirection);
 		// _pbPickingCollider.setLocalRay(localPosition, localDirection);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function testSubMeshCollision(subMesh:SubMesh, pickingCollisionVO:PickingCollisionVO, shortestCollisionDistance:Float):Bool {
 		_activePickingCollider = _haxePickingCollider;
 		// _activePickingCollider = (subMesh.numTriangles > triangleThreshold)? _pbPickingCollider : _haxePickingCollider;

@@ -12,9 +12,6 @@ import openfl.display3D.Context3DVertexBufferFormat;
 import openfl.errors.Error;
 import openfl.geom.Vector3D;
 
-/**
- * ...
- */
 class ParticleScaleState extends ParticleStateBase {
 	public var minScale(get, set):Float;
 	public var maxScale(get, set):Float;

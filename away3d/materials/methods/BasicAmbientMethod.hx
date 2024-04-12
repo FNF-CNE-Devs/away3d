@@ -41,16 +41,10 @@ class BasicAmbientMethod extends ShadingMethodBase {
 		super();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	private override function initVO(vo:MethodVO):Void {
 		vo.needsUV = _useTexture;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	private override function initConstants(vo:MethodVO):Void {
 		vo.fragmentData[vo.fragmentConstantsIndex + 3] = 1;
 	}
@@ -96,26 +90,17 @@ class BasicAmbientMethod extends ShadingMethodBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function copyFrom(method:ShadingMethodBase):Void {
 		var diff:BasicAmbientMethod = cast(method, BasicAmbientMethod);
 		ambient = diff.ambient;
 		ambientColor = diff.ambientColor;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	private override function cleanCompilationData():Void {
 		super.cleanCompilationData();
 		_ambientInputRegister = null;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	private function getFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		var code:String = "";
 
@@ -140,9 +125,6 @@ class BasicAmbientMethod extends ShadingMethodBase {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	private override function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		if (_useTexture) {
 			#if (!flash || flash11_6)
@@ -162,9 +144,6 @@ class BasicAmbientMethod extends ShadingMethodBase {
 		_ambientB = (_ambientColor & 0xff) / 0xff * _ambient * _lightAmbientB;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	private override function setRenderState(vo:MethodVO, renderable:IRenderable, stage3DProxy:Stage3DProxy, camera:Camera3D):Void {
 		updateAmbient();
 

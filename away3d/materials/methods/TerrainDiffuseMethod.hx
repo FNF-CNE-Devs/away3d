@@ -35,9 +35,6 @@ class TerrainDiffuseMethod extends BasicDiffuseMethod {
 			throw new Error("More than 4 splatting layers is not supported!");
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initConstants(vo:MethodVO):Void {
 		var data:Vector<Float> = vo.fragmentData;
 		var index:Int = vo.fragmentConstantsIndex;
@@ -50,9 +47,6 @@ class TerrainDiffuseMethod extends BasicDiffuseMethod {
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentPostLightingCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		var code:String = "";
 		var albedo:ShaderRegisterElement = null;
@@ -124,9 +118,6 @@ class TerrainDiffuseMethod extends BasicDiffuseMethod {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		var context:Context3D = stage3DProxy._context3D;
 		var i:Int;
@@ -139,9 +130,6 @@ class TerrainDiffuseMethod extends BasicDiffuseMethod {
 			context.setTextureAt(i + texIndex, _splats[i].getTextureForStage3D(stage3DProxy));
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function set_alphaThreshold(value:Float):Float {
 		if (value > 0)
 			throw new Error("Alpha threshold not supported for TerrainDiffuseMethod");

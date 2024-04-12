@@ -33,9 +33,6 @@ class SkeletonAnimationSet extends AnimationSetBase implements IAnimationSet {
 		super();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getAGALVertexCode(pass:MaterialPassBase, sourceRegisters:Vector<String>, targetRegisters:Vector<String>, profile:String):String {
 		var len:Int = sourceRegisters.length;
 
@@ -78,14 +75,8 @@ class SkeletonAnimationSet extends AnimationSetBase implements IAnimationSet {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function activate(stage3DProxy:Stage3DProxy, pass:MaterialPassBase):Void {}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function deactivate(stage3DProxy:Stage3DProxy, pass:MaterialPassBase):Void {
 		var streamOffset:Int = pass.numUsedStreams;
 		var context:Context3D = stage3DProxy._context3D;
@@ -93,22 +84,13 @@ class SkeletonAnimationSet extends AnimationSetBase implements IAnimationSet {
 		context.setVertexBufferAt(streamOffset + 1, null);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getAGALFragmentCode(pass:MaterialPassBase, shadedTarget:String, profile:String):String {
 		return "";
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getAGALUVCode(pass:MaterialPassBase, UVSource:String, UVTarget:String):String {
 		return "mov " + UVTarget + "," + UVSource + "\n";
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function doneAGALCode(pass:MaterialPassBase):Void {}
 }

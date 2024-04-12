@@ -80,9 +80,6 @@ class OutlinePass extends MaterialPassBase {
 		_outlineMeshes.remove(keySubMesh);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function dispose():Void {
 		super.dispose();
 
@@ -133,9 +130,6 @@ class OutlinePass extends MaterialPassBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getVertexCode():String {
 		var code:String;
 		// offset
@@ -145,16 +139,10 @@ class OutlinePass extends MaterialPassBase {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentCode(animationCode:String):String {
 		return "mov oc, fc0\n";
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(stage3DProxy:Stage3DProxy, camera:Camera3D):Void {
 		var context:Context3D = stage3DProxy._context3D;
 		super.activate(stage3DProxy, camera);
@@ -167,18 +155,12 @@ class OutlinePass extends MaterialPassBase {
 		context.setProgramConstantsFromVector(Context3DProgramType.VERTEX, 5, _offsetData, 1);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function deactivate(stage3DProxy:Stage3DProxy):Void {
 		super.deactivate(stage3DProxy);
 		if (!_showInnerLines)
 			stage3DProxy._context3D.setDepthTest(true, Context3DCompareMode.LESS);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function render(renderable:IRenderable, stage3DProxy:Stage3DProxy, camera:Camera3D, viewProjection:Matrix3D):Void {
 		var mesh:Mesh = null, dedicatedRenderable:IRenderable;
 

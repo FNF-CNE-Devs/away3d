@@ -11,9 +11,6 @@ import away3d.core.managers.Stage3DProxy;
 import openfl.Vector;
 import openfl.geom.Vector3D;
 
-/**
- * ...
- */
 class ParticleStateBase extends AnimationStateBase {
 	public var needUpdateTime(get, never):Bool;
 

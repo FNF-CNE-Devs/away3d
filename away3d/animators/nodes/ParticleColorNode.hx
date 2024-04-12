@@ -69,9 +69,6 @@ class ParticleColorNode extends ParticleNodeBase {
 		super("ParticleColor", mode, (_usesMultiplier && _usesOffset) ? 16 : 8, ParticleAnimationSet.COLOR_PRIORITY);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function getAGALVertexCode(pass:MaterialPassBase, animationRegisterCache:AnimationRegisterCache):String {
 		var code:String = "";
 		if (animationRegisterCache.needFragmentAnimation) {
@@ -134,16 +131,10 @@ class ParticleColorNode extends ParticleNodeBase {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getAnimationState(animator:IAnimator):ParticleColorState {
 		return cast(animator.getAnimationState(this), ParticleColorState);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function processAnimationSetting(particleAnimationSet:ParticleAnimationSet):Void {
 		if (_usesMultiplier)
 			particleAnimationSet.hasColorMulNode = true;
@@ -151,9 +142,6 @@ class ParticleColorNode extends ParticleNodeBase {
 			particleAnimationSet.hasColorAddNode = true;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function generatePropertyOfOneParticle(param:ParticleProperties):Void {
 		var startColor:ColorTransform = param.nodes[ParticleNodeEnum.COLOR_START_COLORTRANSFORM];
 		if (startColor == null)

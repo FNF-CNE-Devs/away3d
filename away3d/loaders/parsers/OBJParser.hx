@@ -100,9 +100,6 @@ class OBJParser extends ParserBase {
 		return hasV && hasF;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function resolveDependency(resourceDependency:ResourceDependency):Void {
 		if (resourceDependency.id == 'mtl') {
 			var str:String = ParserUtil.toString(resourceDependency.data);
@@ -128,9 +125,6 @@ class OBJParser extends ParserBase {
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function resolveDependencyFailure(resourceDependency:ResourceDependency):Void {
 		var lm:LoadedMaterial = null;
 		if (resourceDependency.id == "mtl") {
@@ -146,9 +140,6 @@ class OBJParser extends ParserBase {
 			applyMaterial(lm);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function proceedParsing():Bool {
 		var line:String;
 		var creturn:String = String.fromCharCode(10);

@@ -52,9 +52,6 @@ class SkeletonNaryLERPNode extends AnimationNodeBase {
 		_inputs[_numInputs++] = input;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getAnimationState(animator:IAnimator):SkeletonNaryLERPState {
 		return cast(animator.getAnimationState(this), SkeletonNaryLERPState);
 	}

@@ -15,9 +15,6 @@ class RenderableMergeSort implements IEntitySorter {
 	 */
 	public function new() {}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function sort(collector:EntityCollector):Void {
 		collector.opaqueRenderableHead = mergeSortByMaterial(collector.opaqueRenderableHead);
 		collector.blendedRenderableHead = mergeSortByDepth(collector.blendedRenderableHead);

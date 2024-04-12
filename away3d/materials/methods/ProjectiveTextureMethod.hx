@@ -43,9 +43,6 @@ class ProjectiveTextureMethod extends EffectMethodBase {
 		_mode = mode == null ? BlendMode.MULTIPLY : mode; // (neo) this is probably not needed // _mode = mode;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initConstants(vo:MethodVO):Void {
 		var index:Int = vo.fragmentConstantsIndex;
 		var data:Vector<Float> = vo.fragmentData;
@@ -55,9 +52,6 @@ class ProjectiveTextureMethod extends EffectMethodBase {
 		data[index + 3] = 1.0;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function cleanCompilationData():Void {
 		super.cleanCompilationData();
 		_uvVarying = null;
@@ -95,9 +89,6 @@ class ProjectiveTextureMethod extends EffectMethodBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getVertexCode(vo:MethodVO, regCache:ShaderRegisterCache):String {
 		var projReg:ShaderRegisterElement = regCache.getFreeVertexConstant();
 		regCache.getFreeVertexConstant();
@@ -110,9 +101,6 @@ class ProjectiveTextureMethod extends EffectMethodBase {
 		return "m44 " + _uvVarying + ", vt0, " + projReg + "\n";
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		var code:String = "";
 		var mapRegister:ShaderRegisterElement = regCache.getFreeTextureReg();
@@ -138,18 +126,12 @@ class ProjectiveTextureMethod extends EffectMethodBase {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function setRenderState(vo:MethodVO, renderable:IRenderable, stage3DProxy:Stage3DProxy, camera:Camera3D):Void {
 		_projMatrix.copyFrom(_projector.viewProjection);
 		_projMatrix.prepend(renderable.getRenderSceneTransform(camera));
 		_projMatrix.copyRawDataTo(vo.vertexData, vo.vertexConstantsIndex, true);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		stage3DProxy._context3D.setTextureAt(vo.texturesIndex, _projector.texture.getTextureForStage3D(stage3DProxy));
 	}

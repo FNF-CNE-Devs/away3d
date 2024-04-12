@@ -37,9 +37,6 @@ class CapsuleGeometry extends PrimitiveBase {
 		_yUp = yUp;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function buildGeometry(target:CompactSubGeometry):Void {
 		var data:Vector<Float>;
 		var indices:Vector<UInt>;
@@ -149,9 +146,6 @@ class CapsuleGeometry extends PrimitiveBase {
 		target.updateIndexData(indices);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function buildUVs(target:CompactSubGeometry):Void {
 		var i:Int, j:Int;
 		var index:Int;

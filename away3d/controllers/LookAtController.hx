@@ -95,9 +95,6 @@ class LookAtController extends ControllerBase {
 		return val;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function update(interpolate:Bool = true):Void {
 		if (_targetObject != null) {
 			if (_lookAtPosition != null) {

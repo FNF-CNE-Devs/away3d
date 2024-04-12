@@ -183,16 +183,10 @@ class LightBase extends Entity {
 		return null;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function createEntityPartitionNode():EntityNode {
 		return new LightNode(this);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function get_assetType():Asset3DType {
 		return Asset3DType.LIGHT;
 	}

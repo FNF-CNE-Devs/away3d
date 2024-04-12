@@ -41,9 +41,6 @@ class ParticleSegmentedColorNode extends ParticleNodeBase {
 		_segmentPoints = segmentPoints;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function processAnimationSetting(particleAnimationSet:ParticleAnimationSet):Void {
 		if (_usesMultiplier)
 			particleAnimationSet.hasColorMulNode = true;
@@ -51,9 +48,6 @@ class ParticleSegmentedColorNode extends ParticleNodeBase {
 			particleAnimationSet.hasColorAddNode = true;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function getAGALVertexCode(pass:MaterialPassBase, animationRegisterCache:AnimationRegisterCache):String {
 		var code:String = "";
 		if (animationRegisterCache.needFragmentAnimation) {

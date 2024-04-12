@@ -30,9 +30,6 @@ class PlanarReflectionMethod extends EffectMethodBase {
 		_alpha = alpha;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initVO(vo:MethodVO):Void {
 		vo.needsProjection = true;
 		vo.needsNormals = _normalDisplacement > 0;
@@ -78,9 +75,6 @@ class PlanarReflectionMethod extends EffectMethodBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		var index:Int = vo.fragmentConstantsIndex;
 		stage3DProxy._context3D.setTextureAt(vo.texturesIndex, _texture.getTextureForStage3D(stage3DProxy));
@@ -96,9 +90,6 @@ class PlanarReflectionMethod extends EffectMethodBase {
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		var textureReg:ShaderRegisterElement = regCache.getFreeTextureReg();
 		var temp:ShaderRegisterElement = regCache.getFreeFragmentVectorTemp();

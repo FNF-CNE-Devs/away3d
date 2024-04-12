@@ -128,9 +128,6 @@ class DAEParser extends ParserBase {
 		return text.indexOf("COLLADA") != -1 || text.indexOf("collada") != -1;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function resolveDependency(resourceDependency:ResourceDependency):Void {
 		if (resourceDependency.assets.length != 1)
 			return;
@@ -148,9 +145,6 @@ class DAEParser extends ParserBase {
 			_parseState = DAEParserState.PARSE_MATERIALS;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function resolveDependencyFailure(resourceDependency:ResourceDependency):Void {
 		_dependencyCount--;
 
@@ -158,9 +152,6 @@ class DAEParser extends ParserBase {
 			_parseState = DAEParserState.PARSE_MATERIALS;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function proceedParsing():Bool {
 		if (_defaultBitmapMaterial == null)
 			_defaultBitmapMaterial = buildDefaultMaterial();

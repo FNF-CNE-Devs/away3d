@@ -82,9 +82,6 @@ class ImageParser extends ParserBase {
 		return false;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	private override function proceedParsing():Bool {
 		var asset:Texture2DBase;
 		if (isOfType(_data, Bitmap)) {

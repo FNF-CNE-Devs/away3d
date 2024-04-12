@@ -51,9 +51,6 @@ class CelSpecularMethod extends CompositeSpecularMethod {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		super.activate(vo, stage3DProxy);
 		var index:Int = vo.secondaryFragmentConstantsIndex;
@@ -62,9 +59,6 @@ class CelSpecularMethod extends CompositeSpecularMethod {
 		data[index + 1] = _specularCutOff;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function cleanCompilationData():Void {
 		super.cleanCompilationData();
 		_dataReg = null;
@@ -116,9 +110,6 @@ class CelSpecularMethod extends CompositeSpecularMethod {
 			+ ".y\n";
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentPreLightingCode(vo:MethodVO, regCache:ShaderRegisterCache):String {
 		_dataReg = regCache.getFreeFragmentConstant();
 		vo.secondaryFragmentConstantsIndex = _dataReg.index * 4;

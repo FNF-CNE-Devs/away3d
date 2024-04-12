@@ -133,9 +133,6 @@ class SkeletonAnimator extends AnimatorBase implements IAnimator {
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function clone():IAnimator {
 		/* The cast to SkeletonAnimationSet should never fail, as _animationSet can only be set
 			through the constructor, which will only accept a SkeletonAnimationSet. */
@@ -181,9 +178,6 @@ class SkeletonAnimator extends AnimatorBase implements IAnimator {
 			reset(name, Std.int(offset));
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function setRenderState(stage3DProxy:Stage3DProxy, renderable:IRenderable, vertexConstantOffset:Int, vertexStreamOffset:Int, camera:Camera3D):Void {
 		// do on request of globalProperties
 		if (_globalPropertiesDirty)
@@ -220,9 +214,6 @@ class SkeletonAnimator extends AnimatorBase implements IAnimator {
 		skinnedGeom.activateJointWeightsBuffer(vertexStreamOffset + 1, stage3DProxy);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function testGPUCompatibility(pass:MaterialPassBase):Void {
 		if (!_useCondensedIndices && (_forceCPU || _jointsPerVertex > 4 || pass.numUsedVertexConstants + _numJoints * 3 > 128))
 			_animationSet.cancelGPUCompatibility();

@@ -203,9 +203,6 @@ class ObjectContainer3D extends Object3D implements IAsset {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function invalidateTransform():Void {
 		super.invalidateTransform();
 
@@ -576,9 +573,6 @@ class ObjectContainer3D extends Object3D implements IAsset {
 		return _children.length;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function lookAt(target:Vector3D, upAxis:Vector3D = null):Void {
 		super.lookAt(target, upAxis);
 
@@ -591,9 +585,6 @@ class ObjectContainer3D extends Object3D implements IAsset {
 		notifySceneTransformChange();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function dispose():Void {
 		if (parent != null)
 			parent.removeChild(this);
@@ -636,9 +627,6 @@ class ObjectContainer3D extends Object3D implements IAsset {
 		notifySceneTransformChange();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function dispatchEvent(event:Event):Bool {
 		// maybe not the best way to fake bubbling?
 		var ret:Bool = super.dispatchEvent(event);

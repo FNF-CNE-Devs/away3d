@@ -227,9 +227,6 @@ class AWD2Parser extends ParserBase {
 		return (ParserUtil.toString(data, 3) == 'AWD');
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function resolveDependency(resourceDependency:ResourceDependency):Void {
 		// this function will be called when Dependency has finished loading.
 		// the Assets waiting for this Bitmap, can be Texture or CubeTexture.
@@ -286,9 +283,6 @@ class AWD2Parser extends ParserBase {
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function resolveDependencyFailure(resourceDependency:ResourceDependency):Void {
 		// not used - if a dependcy fails, the awaiting Texture or CubeTexture will never be finalized, and the default-bitmaps will be used.
 		// this means, that if one Bitmap of a CubeTexture fails, the CubeTexture will have the DefaultTexture applied for all six Bitmaps.
@@ -312,9 +306,6 @@ class AWD2Parser extends ParserBase {
 		return newName;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	private override function startParsing(frameLimit:Float):Void {
 		super.startParsing(frameLimit);
 
@@ -349,9 +340,6 @@ class AWD2Parser extends ParserBase {
 		_body.endian = Endian.LITTLE_ENDIAN;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function proceedParsing():Bool {
 		while (_body.bytesAvailable > 0 && !parsingPaused && hasTime())
 			parseNextBlock();

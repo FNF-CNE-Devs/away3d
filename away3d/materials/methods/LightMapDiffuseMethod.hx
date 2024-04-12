@@ -46,9 +46,6 @@ class LightMapDiffuseMethod extends CompositeDiffuseMethod {
 		this.blendMode = blendMode;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initVO(vo:MethodVO):Void {
 		vo.needsSecondaryUV = _useSecondaryUV;
 		vo.needsUV = !_useSecondaryUV;
@@ -86,17 +83,11 @@ class LightMapDiffuseMethod extends CompositeDiffuseMethod {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		stage3DProxy._context3D.setTextureAt(vo.secondaryTexturesIndex, _texture.getTextureForStage3D(stage3DProxy));
 		super.activate(vo, stage3DProxy);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentPostLightingCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		var code:String;
 		var lightMapReg:ShaderRegisterElement = regCache.getFreeTextureReg();

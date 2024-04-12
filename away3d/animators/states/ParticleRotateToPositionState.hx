@@ -13,9 +13,6 @@ import openfl.display3D.Context3DVertexBufferFormat;
 import openfl.geom.Matrix3D;
 import openfl.geom.Vector3D;
 
-/**
- * ...
- */
 class ParticleRotateToPositionState extends ParticleStateBase {
 	public var position(get, set):Vector3D;
 

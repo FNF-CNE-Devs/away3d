@@ -176,9 +176,6 @@ class Camera3D extends Entity {
 		_frustumPlanesDirty = false;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function invalidateSceneTransform():Void {
 		super.invalidateSceneTransform();
 
@@ -186,18 +183,12 @@ class Camera3D extends Entity {
 		_frustumPlanesDirty = true;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateBounds():Void {
 		_bounds.nullify();
 
 		_boundsInvalid = false;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function createEntityPartitionNode():EntityNode {
 		return new CameraNode(this);
 	}

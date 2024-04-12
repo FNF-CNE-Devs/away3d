@@ -82,27 +82,18 @@ class SinglePassMaterialBase extends MaterialBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function set_blendMode(value:BlendMode):BlendMode {
 		super.blendMode = value;
 		_screenPass.setBlendMode(blendMode == BlendMode.NORMAL && requiresBlending ? BlendMode.LAYER : blendMode);
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function set_depthCompareMode(value:Context3DCompareMode):Context3DCompareMode {
 		super.depthCompareMode = value;
 		_screenPass.depthCompareMode = value;
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activateForDepth(stage3DProxy:Stage3DProxy, camera:Camera3D, distanceBased:Bool = false):Void {
 		if (distanceBased)
 			_distancePass.alphaMask = _screenPass.diffuseMethod.texture;
@@ -141,9 +132,6 @@ class SinglePassMaterialBase extends MaterialBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function get_requiresBlending():Bool {
 		return super.requiresBlending
 			|| _alphaBlending
@@ -274,9 +262,6 @@ class SinglePassMaterialBase extends MaterialBase {
 		_screenPass.removeMethod(method);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function set_mipmap(value:Bool):Bool {
 		if (_mipmap == value)
 			return value;
@@ -391,9 +376,6 @@ class SinglePassMaterialBase extends MaterialBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateMaterial(context:Context3D):Void {
 		if (_screenPass._passesDirty) {
 			clearPasses();
@@ -408,9 +390,6 @@ class SinglePassMaterialBase extends MaterialBase {
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function set_lightPicker(value:LightPickerBase):LightPickerBase {
 		super.lightPicker = value;
 		_screenPass.lightPicker = value;

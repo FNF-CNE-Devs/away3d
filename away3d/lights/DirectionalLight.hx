@@ -74,22 +74,13 @@ class DirectionalLight extends LightBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getDefaultBoundingVolume():BoundingVolumeBase {
 		// directional lights are to be considered global, hence always in view
 		return new NullBounds();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateBounds():Void {}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateSceneTransform():Void {
 		super.updateSceneTransform();
 		sceneTransform.copyColumnTo(2, _sceneDirection);
@@ -100,9 +91,6 @@ class DirectionalLight extends LightBase {
 		return new DirectionalShadowMapper();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getObjectProjectionMatrix(renderable:IRenderable, camera:Camera3D, target:Matrix3D = null):Matrix3D {
 		var raw:Vector<Float> = Matrix3DUtils.RAW_DATA_CONTAINER;
 		var bounds:BoundingVolumeBase = renderable.sourceEntity.bounds;

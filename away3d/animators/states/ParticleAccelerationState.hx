@@ -11,9 +11,6 @@ import away3d.core.managers.Stage3DProxy;
 import openfl.display3D.Context3DVertexBufferFormat;
 import openfl.geom.Vector3D;
 
-/**
- * ...
- */
 class ParticleAccelerationState extends ParticleStateBase {
 	public var acceleration(get, set):Vector3D;
 
@@ -46,9 +43,6 @@ class ParticleAccelerationState extends ParticleStateBase {
 		updateAccelerationData();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function setRenderState(stage3DProxy:Stage3DProxy, renderable:IRenderable, animationSubGeometry:AnimationSubGeometry,
 			animationRegisterCache:AnimationRegisterCache, camera:Camera3D):Void {
 		// TODO: not used

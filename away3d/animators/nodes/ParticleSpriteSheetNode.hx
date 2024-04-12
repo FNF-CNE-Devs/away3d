@@ -90,9 +90,6 @@ class ParticleSpriteSheetNode extends ParticleNodeBase {
 		_totalFrames = Std.int(Math.min(totalFrames, numColumns * numRows));
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function getAGALUVCode(pass:MaterialPassBase, animationRegisterCache:AnimationRegisterCache):String {
 		// get 2 vc
 		var uvParamConst1:ShaderRegisterElement = animationRegisterCache.getFreeVertexConstant();
@@ -154,23 +151,14 @@ class ParticleSpriteSheetNode extends ParticleNodeBase {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getAnimationState(animator:IAnimator):ParticleSpriteSheetState {
 		return cast(animator.getAnimationState(this), ParticleSpriteSheetState);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function processAnimationSetting(particleAnimationSet:ParticleAnimationSet):Void {
 		particleAnimationSet.hasUVNode = true;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function generatePropertyOfOneParticle(param:ParticleProperties):Void {
 		if (_usesCycle) {
 			var uvCycle:Vector3D = param.nodes[ParticleNodeEnum.UV_VECTOR3D];

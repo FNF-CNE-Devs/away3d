@@ -76,9 +76,6 @@ class WireframeTetrahedron extends WireframePrimitiveBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function buildGeometry():Void {
 		var bv0:Vector3D = null;
 		var bv1:Vector3D = null;

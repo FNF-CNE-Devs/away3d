@@ -44,9 +44,6 @@ class RefractionEnvMapMethod extends EffectMethodBase {
 		_refractionIndex = refractionIndex;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initConstants(vo:MethodVO):Void {
 		var index:Int = vo.fragmentConstantsIndex;
 		var data:Vector<Float> = vo.fragmentData;
@@ -55,9 +52,6 @@ class RefractionEnvMapMethod extends EffectMethodBase {
 		data[index + 7] = 1;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initVO(vo:MethodVO):Void {
 		vo.needsNormals = true;
 		vo.needsView = true;
@@ -154,9 +148,6 @@ class RefractionEnvMapMethod extends EffectMethodBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		var index:Int = vo.fragmentConstantsIndex;
 		var data:Vector<Float> = vo.fragmentData;
@@ -169,9 +160,6 @@ class RefractionEnvMapMethod extends EffectMethodBase {
 		stage3DProxy._context3D.setTextureAt(vo.texturesIndex, _envMap.getTextureForStage3D(stage3DProxy));
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		// todo: data2.x could use common reg, so only 1 reg is used
 		var data:ShaderRegisterElement = regCache.getFreeFragmentConstant();

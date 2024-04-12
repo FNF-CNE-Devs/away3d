@@ -7,9 +7,6 @@ import away3d.materials.compilation.ShaderRegisterElement;
 import openfl.Vector;
 import openfl.geom.Matrix3D;
 
-/**
- * ...
- */
 class AnimationRegisterCache extends ShaderRegisterCache {
 	public var numVertexConstant(get, never):Int;
 	public var numFragmentConstant(get, never):Int;

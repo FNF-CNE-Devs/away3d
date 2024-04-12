@@ -49,25 +49,16 @@ class LightProbe extends LightBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateBounds():Void {
 		//			super.updateBounds();
 		_boundsInvalid = false;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getDefaultBoundingVolume():BoundingVolumeBase {
 		// todo: consider if this can be culled?
 		return new NullBounds();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getObjectProjectionMatrix(renderable:IRenderable, camera:Camera3D, target:Matrix3D = null):Matrix3D {
 		// TODO: not used
 

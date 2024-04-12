@@ -20,9 +20,6 @@ class FilteredShadowMapMethod extends SimpleShadowMapMethodBase {
 		super(castingLight);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initConstants(vo:MethodVO):Void {
 		super.initConstants(vo);
 
@@ -34,9 +31,6 @@ class FilteredShadowMapMethod extends SimpleShadowMapMethodBase {
 		fragmentData[index + 10] = 1 / size;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getPlanarFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		var depthMapRegister:ShaderRegisterElement = regCache.getFreeTextureReg();
 		var decReg:ShaderRegisterElement = regCache.getFreeFragmentConstant();
@@ -90,9 +84,6 @@ class FilteredShadowMapMethod extends SimpleShadowMapMethodBase {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activateForCascade(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		var size:Int = _castingLight.shadowMapper.depthMapSize;
 		var index:Int = vo.secondaryFragmentConstantsIndex;
@@ -101,9 +92,6 @@ class FilteredShadowMapMethod extends SimpleShadowMapMethodBase {
 		data[index + 1] = 1 / size;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getCascadeFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, decodeRegister:ShaderRegisterElement,
 			depthTexture:ShaderRegisterElement, depthProjection:ShaderRegisterElement, targetRegister:ShaderRegisterElement):String {
 		var code:String;

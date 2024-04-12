@@ -37,9 +37,6 @@ class ShadowMapMethodBase extends ShadingMethodBase implements IAsset {
 		_shadowMapper = castingLight.shadowMapper;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	private function get_assetType():Asset3DType {
 		return Asset3DType.SHADOW_MAP_METHOD;
 	}
@@ -76,9 +73,6 @@ class ShadowMapMethodBase extends ShadingMethodBase implements IAsset {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	private function getFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		throw new AbstractMethodError();
 		return null;

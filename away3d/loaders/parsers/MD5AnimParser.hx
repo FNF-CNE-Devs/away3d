@@ -95,9 +95,6 @@ class MD5AnimParser extends ParserBase {
 		return false;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function proceedParsing():Bool {
 		var token:String;
 

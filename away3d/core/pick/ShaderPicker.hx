@@ -74,9 +74,6 @@ class ShaderPicker implements IPicker {
 
 	private static var MOUSE_SCISSOR_RECT:Rectangle = new Rectangle(0, 0, 1, 1);
 
-	/**
-	 * @inheritDoc
-	 */
 	private function get_onlyMouseEnabled():Bool {
 		return _onlyMouseEnabled;
 	}
@@ -97,9 +94,6 @@ class ShaderPicker implements IPicker {
 		_boundOffsetScale[7] = 1;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getViewCollision(x:Float, y:Float, view:View3D):PickingCollisionVO {
 		var collector:EntityCollector = view.entityCollector;
 
@@ -161,16 +155,10 @@ class ShaderPicker implements IPicker {
 		return _collisionVO;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getSceneCollision(position:Vector3D, direction:Vector3D, scene:Scene3D):PickingCollisionVO {
 		return null;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	private function draw(entityCollector:EntityCollector, target:TextureBase):Void {
 		var camera:Camera3D = entityCollector.camera;
 

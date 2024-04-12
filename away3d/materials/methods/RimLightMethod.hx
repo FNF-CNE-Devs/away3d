@@ -41,16 +41,10 @@ class RimLightMethod extends EffectMethodBase {
 		this.color = color;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initConstants(vo:MethodVO):Void {
 		vo.fragmentData[vo.fragmentConstantsIndex + 3] = 1;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initVO(vo:MethodVO):Void {
 		vo.needsNormals = true;
 		vo.needsView = true;
@@ -114,9 +108,6 @@ class RimLightMethod extends EffectMethodBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		var index:Int = vo.fragmentConstantsIndex;
 		var data:Vector<Float> = vo.fragmentData;
@@ -127,9 +118,6 @@ class RimLightMethod extends EffectMethodBase {
 		data[index + 5] = _power;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		var dataRegister:ShaderRegisterElement = regCache.getFreeFragmentConstant();
 		var dataRegister2:ShaderRegisterElement = regCache.getFreeFragmentConstant();

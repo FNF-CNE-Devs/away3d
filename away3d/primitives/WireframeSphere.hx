@@ -27,9 +27,6 @@ class WireframeSphere extends WireframePrimitiveBase {
 		_segmentsH = segmentsH;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function buildGeometry():Void {
 		var vertices:Vector<Float> = new Vector<Float>();
 		var v0:Vector3D = new Vector3D();

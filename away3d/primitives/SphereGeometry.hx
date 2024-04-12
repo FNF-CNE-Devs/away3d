@@ -33,9 +33,6 @@ class SphereGeometry extends PrimitiveBase {
 		_yUp = yUp;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function buildGeometry(target:CompactSubGeometry):Void {
 		var vertices:Vector<Float>;
 		var indices:Vector<UInt>;
@@ -143,9 +140,6 @@ class SphereGeometry extends PrimitiveBase {
 		target.updateIndexData(indices);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function buildUVs(target:CompactSubGeometry):Void {
 		var i:Int, j:Int;
 		var stride:Int = target.UVStride;

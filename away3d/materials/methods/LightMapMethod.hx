@@ -44,9 +44,6 @@ class LightMapMethod extends EffectMethodBase {
 		this.blendMode = blendMode;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initVO(vo:MethodVO):Void {
 		vo.needsUV = !_useSecondaryUV;
 		vo.needsSecondaryUV = _useSecondaryUV;
@@ -86,17 +83,11 @@ class LightMapMethod extends EffectMethodBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		stage3DProxy._context3D.setTextureAt(vo.texturesIndex, _texture.getTextureForStage3D(stage3DProxy));
 		super.activate(vo, stage3DProxy);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		var code:String;
 		var lightMapReg:ShaderRegisterElement = regCache.getFreeTextureReg();

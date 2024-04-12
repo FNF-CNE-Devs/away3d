@@ -29,9 +29,6 @@ class BasicNormalMethod extends ShadingMethodBase {
 		super();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initVO(vo:MethodVO):Void {
 		vo.needsUV = (_texture != null);
 	}
@@ -51,9 +48,6 @@ class BasicNormalMethod extends ShadingMethodBase {
 		return _useTexture;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function copyFrom(method:ShadingMethodBase):Void {
 		normalMap = cast(method, BasicNormalMethod).normalMap;
 	}
@@ -75,24 +69,15 @@ class BasicNormalMethod extends ShadingMethodBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function cleanCompilationData():Void {
 		super.cleanCompilationData();
 		_normalTextureRegister = null;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function dispose():Void {
 		_texture = null;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		if (vo.texturesIndex >= 0) {
 			#if (!flash || flash11_6)
@@ -103,9 +88,6 @@ class BasicNormalMethod extends ShadingMethodBase {
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	private function getFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		_normalTextureRegister = regCache.getFreeTextureReg();
 		vo.texturesIndex = _normalTextureRegister.index;

@@ -37,9 +37,6 @@ class PBPickingCollider extends PickingColliderBase implements IPickingCollider 
 		// _rayTriangleKernel = new Shader(new RayTriangleKernelClass() as ByteArray);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function setLocalRay(localPosition:Vector3D, localDirection:Vector3D):Void {
 		super.setLocalRay(localPosition, localDirection);
 
@@ -48,9 +45,6 @@ class PBPickingCollider extends PickingColliderBase implements IPickingCollider 
 		_rayTriangleKernel.data.rayDirection.value = [rayDirection.x, rayDirection.y, rayDirection.z];
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function testSubMeshCollision(subMesh:SubMesh, pickingCollisionVO:PickingCollisionVO, shortestCollisionDistance:Float):Bool {
 		var cx:Float, cy:Float, cz:Float;
 		var u:Float, v:Float, w:Float;

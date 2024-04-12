@@ -79,16 +79,10 @@ class Skeleton extends NamedAssetBase implements IAsset {
 		return -1;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function dispose():Void {
 		joints.length = 0;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	private function get_assetType():Asset3DType {
 		return Asset3DType.SKELETON;
 	}

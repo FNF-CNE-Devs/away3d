@@ -25,9 +25,6 @@ class ParticleRotateToHeadingNode extends ParticleNodeBase {
 		_stateConstructor = cast ParticleRotateToHeadingState.new;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function getAGALVertexCode(pass:MaterialPassBase, animationRegisterCache:AnimationRegisterCache):String {
 		var code:String = "";
 		var len:Int = animationRegisterCache.rotationRegisters.length;
@@ -181,16 +178,10 @@ class ParticleRotateToHeadingNode extends ParticleNodeBase {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getAnimationState(animator:IAnimator):ParticleRotateToHeadingState {
 		return cast(animator.getAnimationState(this), ParticleRotateToHeadingState);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function processAnimationSetting(particleAnimationSet:ParticleAnimationSet):Void {
 		particleAnimationSet.needVelocity = true;
 	}

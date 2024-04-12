@@ -51,16 +51,10 @@ class SkeletonClipNode extends AnimationClipNodeBase {
 		_stitchDirty = true;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getAnimationState(animator:IAnimator):SkeletonClipState {
 		return cast(animator.getAnimationState(this), SkeletonClipState);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateStitch():Void {
 		super.updateStitch();
 

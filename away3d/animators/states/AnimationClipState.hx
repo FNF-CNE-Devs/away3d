@@ -61,9 +61,6 @@ class AnimationClipState extends AnimationStateBase {
 		_animationClipNode = animationClipNode;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function update(time:Int):Void {
 		if (!_animationClipNode.looping) {
 			if (time > _startTime + _animationClipNode.totalDuration)
@@ -78,9 +75,6 @@ class AnimationClipState extends AnimationStateBase {
 		updateTime(time);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function phase(value:Float):Void {
 		var time:Int = Std.int(value * _animationClipNode.totalDuration + _startTime);
 
@@ -90,9 +84,6 @@ class AnimationClipState extends AnimationStateBase {
 		updateTime(time);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateTime(time:Int):Void {
 		_framesDirty = true;
 

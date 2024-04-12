@@ -24,17 +24,11 @@ class EnvMapAmbientMethod extends BasicAmbientMethod {
 		_cubeTexture = envMap;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initVO(vo:MethodVO):Void {
 		super.initVO(vo);
 		vo.needsNormals = true;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function dispose():Void {}
 
 	/**
@@ -49,18 +43,12 @@ class EnvMapAmbientMethod extends BasicAmbientMethod {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		super.activate(vo, stage3DProxy);
 
 		stage3DProxy._context3D.setTextureAt(vo.texturesIndex, _cubeTexture.getTextureForStage3D(stage3DProxy));
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		var code:String = "";
 		var cubeMapReg:ShaderRegisterElement = regCache.getFreeTextureReg();

@@ -74,9 +74,6 @@ class FresnelPlanarReflectionMethod extends EffectMethodBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initVO(vo:MethodVO):Void {
 		vo.needsProjection = true;
 		vo.needsNormals = true;
@@ -113,9 +110,6 @@ class FresnelPlanarReflectionMethod extends EffectMethodBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		stage3DProxy._context3D.setTextureAt(vo.texturesIndex, _texture.getTextureForStage3D(stage3DProxy));
 		vo.fragmentData[vo.fragmentConstantsIndex] = _texture.textureRatioX * .5;
@@ -130,9 +124,6 @@ class FresnelPlanarReflectionMethod extends EffectMethodBase {
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		var textureReg:ShaderRegisterElement = regCache.getFreeTextureReg();
 		var temp:ShaderRegisterElement = regCache.getFreeFragmentVectorTemp();

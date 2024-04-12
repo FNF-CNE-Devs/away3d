@@ -59,9 +59,6 @@ class LightPickerBase extends NamedAssetBase implements IAsset {
 	 */
 	public function dispose():Void {}
 
-	/**
-	 * @inheritDoc
-	 */
 	private function get_assetType():Asset3DType {
 		return Asset3DType.LIGHT_PICKER;
 	}

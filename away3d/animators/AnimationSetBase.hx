@@ -70,9 +70,6 @@ class AnimationSetBase extends NamedAssetBase implements IAsset {
 		_usesCPU = true;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	private function get_assetType():Asset3DType {
 		return Asset3DType.ANIMATION_SET;
 	}

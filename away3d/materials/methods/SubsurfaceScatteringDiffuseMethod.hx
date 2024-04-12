@@ -50,9 +50,6 @@ class SubsurfaceScatteringDiffuseMethod extends CompositeDiffuseMethod {
 		_translucency = 1;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initConstants(vo:MethodVO):Void {
 		super.initConstants(vo);
 		var data:Vector<Float> = vo.vertexData;
@@ -124,9 +121,6 @@ class SubsurfaceScatteringDiffuseMethod extends CompositeDiffuseMethod {
 		return scatterColor;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getVertexCode(vo:MethodVO, regCache:ShaderRegisterCache):String {
 		var code:String = super.getVertexCode(vo, regCache);
 		var lightProjection:ShaderRegisterElement;
@@ -149,9 +143,6 @@ class SubsurfaceScatteringDiffuseMethod extends CompositeDiffuseMethod {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentPreLightingCode(vo:MethodVO, regCache:ShaderRegisterCache):String {
 		_colorReg = regCache.getFreeFragmentConstant();
 		_decReg = regCache.getFreeFragmentConstant();
@@ -161,9 +152,6 @@ class SubsurfaceScatteringDiffuseMethod extends CompositeDiffuseMethod {
 		return super.getFragmentPreLightingCode(vo, regCache);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentCodePerLight(vo:MethodVO, lightDirReg:ShaderRegisterElement, lightColReg:ShaderRegisterElement,
 			regCache:ShaderRegisterCache):String {
 		_isFirstLight = true;
@@ -171,9 +159,6 @@ class SubsurfaceScatteringDiffuseMethod extends CompositeDiffuseMethod {
 		return super.getFragmentCodePerLight(vo, lightDirReg, lightColReg, regCache);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentPostLightingCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		var code:String = super.getFragmentPostLightingCode(vo, regCache, targetReg);
 		var temp:ShaderRegisterElement = regCache.getFreeFragmentVectorTemp();
@@ -187,9 +172,6 @@ class SubsurfaceScatteringDiffuseMethod extends CompositeDiffuseMethod {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		super.activate(vo, stage3DProxy);
 
@@ -202,9 +184,6 @@ class SubsurfaceScatteringDiffuseMethod extends CompositeDiffuseMethod {
 		data[index + 9] = _translucency;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function setRenderState(vo:MethodVO, renderable:IRenderable, stage3DProxy:Stage3DProxy, camera:Camera3D):Void {
 		var depthMap:Texture = _depthPass.getDepthMap(renderable, stage3DProxy);
 		var projection:Matrix3D = _depthPass.getProjection(renderable);

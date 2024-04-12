@@ -30,9 +30,6 @@ class ParticleBillboardNode extends ParticleNodeBase {
 		_billboardAxis = billboardAxis;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function getAGALVertexCode(pass:MaterialPassBase, animationRegisterCache:AnimationRegisterCache):String {
 		var rotationMatrixRegister:ShaderRegisterElement = animationRegisterCache.getFreeVertexConstant();
 		animationRegisterCache.setRegisterIndex(this, MATRIX_INDEX, rotationMatrixRegister.index);
@@ -51,16 +48,10 @@ class ParticleBillboardNode extends ParticleNodeBase {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getAnimationState(animator:IAnimator):ParticleBillboardState {
 		return cast(animator.getAnimationState(this), ParticleBillboardState);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function processAnimationSetting(particleAnimationSet:ParticleAnimationSet):Void {
 		particleAnimationSet.hasBillboard = true;
 	}

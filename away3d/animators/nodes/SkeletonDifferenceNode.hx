@@ -26,9 +26,6 @@ class SkeletonDifferenceNode extends AnimationNodeBase {
 		super();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getAnimationState(animator:IAnimator):SkeletonDifferenceState {
 		return cast(animator.getAnimationState(this), SkeletonDifferenceState);
 	}

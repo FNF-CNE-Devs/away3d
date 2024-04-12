@@ -145,9 +145,6 @@ class CubeGeometry extends PrimitiveBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function buildGeometry(target:CompactSubGeometry):Void {
 		var data:Vector<Float>;
 		var indices:Vector<UInt>;
@@ -349,9 +346,6 @@ class CubeGeometry extends PrimitiveBase {
 		target.updateIndexData(indices);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function buildUVs(target:CompactSubGeometry):Void {
 		var i:Int = 0, j:Int = 0, uidx:Int;
 		var data:Vector<Float>;

@@ -112,9 +112,6 @@ class DXFParser extends ParserBase {
 		return str.indexOf("ENDSEC") != -1 && str.indexOf("EOF") != -1;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function proceedParsing():Bool {
 		var line:String;
 		var _vSet:Int = 0;

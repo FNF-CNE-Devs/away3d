@@ -64,9 +64,6 @@ class PickingColliderBase {
 		return GeomUtil.getMeshSubMeshIndex(subMesh);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function setLocalRay(localPosition:Vector3D, localDirection:Vector3D):Void {
 		rayPosition = localPosition;
 		rayDirection = localDirection;

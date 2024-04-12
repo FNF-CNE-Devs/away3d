@@ -294,14 +294,8 @@ class AnimatorBase extends NamedAssetBase implements IAsset {
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function dispose():Void {}
 
-	/**
-	 * @inheritDoc
-	 */
 	private function get_assetType():Asset3DType {
 		return Asset3DType.ANIMATOR;
 	}

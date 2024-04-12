@@ -330,9 +330,6 @@ class Elevation extends Mesh {
 		_subGeometry.updateIndexData(indices);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	private function buildUVs():Void {
 		var uvs:Vector<Float> = new Vector<Float>();
 		var numUvs:Int = (_segmentsH + 1) * (_segmentsW + 1) * 2;

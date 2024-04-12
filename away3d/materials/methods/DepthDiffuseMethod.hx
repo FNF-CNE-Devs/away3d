@@ -16,9 +16,6 @@ class DepthDiffuseMethod extends BasicDiffuseMethod {
 		super();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initConstants(vo:MethodVO):Void {
 		var data:Vector<Float> = vo.fragmentData;
 		var index:Int = vo.fragmentConstantsIndex;
@@ -28,9 +25,6 @@ class DepthDiffuseMethod extends BasicDiffuseMethod {
 		data[index + 3] = 1 / 16581375.0;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentPostLightingCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		var code:String = "";
 		var temp:ShaderRegisterElement;

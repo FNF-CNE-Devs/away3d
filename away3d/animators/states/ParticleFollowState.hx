@@ -14,9 +14,6 @@ import openfl.Vector;
 import openfl.display3D.Context3DVertexBufferFormat;
 import openfl.geom.Vector3D;
 
-/**
- * ...
- */
 class ParticleFollowState extends ParticleStateBase {
 	public var followTarget(get, set):Object3D;
 	public var smooth(get, set):Bool;
@@ -58,9 +55,6 @@ class ParticleFollowState extends ParticleStateBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function setRenderState(stage3DProxy:Stage3DProxy, renderable:IRenderable, animationSubGeometry:AnimationSubGeometry,
 			animationRegisterCache:AnimationRegisterCache, camera:Camera3D):Void {
 		// TODO: not used

@@ -74,9 +74,6 @@ class OrthographicLens extends LensBase {
 		return clone;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateMatrix():Void {
 		var raw:Vector<Float> = Matrix3DUtils.RAW_DATA_CONTAINER;
 		_yMax = _projectionHeight * .5;

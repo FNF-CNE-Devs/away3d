@@ -32,17 +32,11 @@ class LightingShaderCompiler extends ShaderCompiler {
 		return _lightVertexConstantIndex;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initRegisterIndices():Void {
 		super.initRegisterIndices();
 		_lightVertexConstantIndex = -1;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function createNormalRegisters():Void {
 		// need to be created FIRST and in this order
 		if (tangentSpace) {
@@ -76,9 +70,6 @@ class LightingShaderCompiler extends ShaderCompiler {
 		return _numLightProbes == 0 && methodSetup._normalMethod.hasOutput && _methodSetup._normalMethod.tangentSpace;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initLightData():Void {
 		super.initLightData();
 
@@ -91,18 +82,12 @@ class LightingShaderCompiler extends ShaderCompiler {
 			_dirLightFragmentConstants = new Vector<ShaderRegisterElement>(_numDirectionalLights * 3, true);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function calculateDependencies():Void {
 		super.calculateDependencies();
 		if (!tangentSpace)
 			_dependencyCounter.addWorldSpaceDependencies(false);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function compileNormalCode():Void {
 		_sharedRegisters.normalFragment = _registerCache.getFreeFragmentVectorTemp();
 		_registerCache.addFragmentTempUsages(_sharedRegisters.normalFragment, _dependencyCounter.normalDependencies);
@@ -162,9 +147,6 @@ class LightingShaderCompiler extends ShaderCompiler {
 			_registerCache.removeVertexTempUsage(_sharedRegisters.globalPositionVertex);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function compileViewDirCode():Void {
 		var cameraPositionReg:ShaderRegisterElement = _registerCache.getFreeVertexConstant();
 		_sharedRegisters.viewDirVarying = _registerCache.getFreeVarying();
@@ -193,9 +175,6 @@ class LightingShaderCompiler extends ShaderCompiler {
 			+ _sharedRegisters.viewDirFragment + ".w,   " + _sharedRegisters.viewDirVarying + ".w 		\n";
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function compileLightingCode():Void {
 		if (_methodSetup._shadowMethod != null)
 			compileShadowCode();

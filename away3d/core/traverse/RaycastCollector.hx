@@ -59,9 +59,6 @@ class RaycastCollector extends EntityCollector {
 		return node.isIntersectingRay(_rayPosition, _rayDirection);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function applySkyBox(renderable:IRenderable):Void {}
 
 	/**
@@ -70,8 +67,5 @@ class RaycastCollector extends EntityCollector {
 	 */
 	override public function applyRenderable(renderable:IRenderable):Void {}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function applyUnknownLight(light:LightBase):Void {}
 }

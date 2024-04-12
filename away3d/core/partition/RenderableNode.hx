@@ -20,9 +20,6 @@ class RenderableNode extends EntityNode {
 		_renderable = renderable; // also keep a stronger typed reference
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function acceptTraverser(traverser:PartitionTraverser):Void {
 		if (traverser.enterNode(this)) {
 			super.acceptTraverser(traverser);

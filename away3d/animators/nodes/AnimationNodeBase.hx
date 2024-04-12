@@ -26,14 +26,8 @@ class AnimationNodeBase extends NamedAssetBase implements IAsset {
 		super();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function dispose():Void {}
 
-	/**
-	 * @inheritDoc
-	 */
 	private function get_assetType():Asset3DType {
 		return Asset3DType.ANIMATION_NODE;
 	}

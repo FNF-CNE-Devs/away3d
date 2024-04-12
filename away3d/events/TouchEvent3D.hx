@@ -102,9 +102,6 @@ class TouchEvent3D extends Event {
 		super(type, true, true);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	#if flash
 	#if (haxe_ver < 4.3) @:getter(bubbles) #else override #end private function get_bubbles():Bool {
 		// Don't bubble if propagation has been stopped.
@@ -112,9 +109,6 @@ class TouchEvent3D extends Event {
 	}
 	#end
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function stopPropagation():Void {
 		super.stopPropagation();
 		_allowedToPropagate = false;
@@ -122,9 +116,6 @@ class TouchEvent3D extends Event {
 			_parentEvent._allowedToPropagate = false;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function stopImmediatePropagation():Void {
 		super.stopImmediatePropagation();
 		_allowedToPropagate = false;

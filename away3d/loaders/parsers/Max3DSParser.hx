@@ -84,9 +84,6 @@ class Max3DSParser extends ParserBase {
 		return false;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function resolveDependency(resourceDependency:ResourceDependency):Void {
 		if (resourceDependency.assets.length == 1) {
 			var asset:IAsset;
@@ -101,16 +98,10 @@ class Max3DSParser extends ParserBase {
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function resolveDependencyFailure(resourceDependency:ResourceDependency):Void {
 		// TODO: Implement
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	private override function startParsing(frameLimit:Float):Void {
 		super.startParsing(frameLimit);
 
@@ -123,9 +114,6 @@ class Max3DSParser extends ParserBase {
 		_unfinalized_objects = new Map<String, ObjectVO>();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function proceedParsing():Bool {
 		// TODO: With this construct, the loop will run no-op for as long
 		// as there is time once file has finished reading. Consider a nice

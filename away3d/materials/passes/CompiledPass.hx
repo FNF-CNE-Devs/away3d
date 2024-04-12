@@ -126,39 +126,35 @@ class CompiledPass extends MaterialPassBase {
 	 * view-projection matrix. This is used to prevent rounding errors when using multiple passes with different
 	 * projection code.
 	 */
-	private function get_forceSeparateMVP():Bool {
+	private inline function get_forceSeparateMVP():Bool {
 		return _forceSeparateMVP;
 	}
 
-	private function set_forceSeparateMVP(value:Bool):Bool {
-		_forceSeparateMVP = value;
-		return value;
+	private inline function set_forceSeparateMVP(value:Bool):Bool {
+		return _forceSeparateMVP = value;
 	}
 
 	/**
 	 * The amount of point lights that need to be supported.
 	 */
-	private function get_numPointLights():Int {
+	private inline function get_numPointLights():Int {
 		return _numPointLights;
 	}
 
 	/**
 	 * The amount of directional lights that need to be supported.
 	 */
-	private function get_numDirectionalLights():Int {
+	private inline function get_numDirectionalLights():Int {
 		return _numDirectionalLights;
 	}
 
 	/**
 	 * The amount of light probes that need to be supported.
 	 */
-	private function get_numLightProbes():Int {
+	private inline function get_numLightProbes():Int {
 		return _numLightProbes;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateProgram(stage3DProxy:Stage3DProxy):Void {
 		reset(stage3DProxy.profile);
 		super.updateProgram(stage3DProxy);
@@ -279,7 +275,7 @@ class CompiledPass extends MaterialPassBase {
 	/**
 	 * Indicates whether the output alpha value should remain unchanged compared to the material's original alpha.
 	 */
-	private function get_preserveAlpha():Bool {
+	private inline function get_preserveAlpha():Bool {
 		return _preserveAlpha;
 	}
 
@@ -294,7 +290,7 @@ class CompiledPass extends MaterialPassBase {
 	/**
 	 * Indicate whether UV coordinates need to be animated using the renderable's transformUV matrix.
 	 */
-	private function get_animateUVs():Bool {
+	private inline function get_animateUVs():Bool {
 		return _animateUVs;
 	}
 
@@ -310,7 +306,7 @@ class CompiledPass extends MaterialPassBase {
 	/**
 	 * Indicate whether UV coordinates need to be animated using the renderable's transformUV matrix.
 	 */
-	private function get_animateUVs2():Bool {
+	private inline function get_animateUVs2():Bool {
 		return _animateUVs2;
 	}
 
@@ -322,9 +318,6 @@ class CompiledPass extends MaterialPassBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function set_mipmap(value:Bool):Bool {
 		if (_mipmap == value)
 			return value;
@@ -332,9 +325,6 @@ class CompiledPass extends MaterialPassBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function set_anisotropy(value:Anisotropy):Anisotropy {
 		if (_anisotropy == value)
 			return value;
@@ -346,73 +336,67 @@ class CompiledPass extends MaterialPassBase {
 	 * The normal map to modulate the direction of the surface for each texel. The default normal method expects
 	 * tangent-space normal maps, but others could expect object-space maps.
 	 */
-	private function get_normalMap():Texture2DBase {
+	private inline function get_normalMap():Texture2DBase {
 		return _methodSetup._normalMethod.normalMap;
 	}
 
-	private function set_normalMap(value:Texture2DBase):Texture2DBase {
-		_methodSetup._normalMethod.normalMap = value;
-		return value;
+	private inline function set_normalMap(value:Texture2DBase):Texture2DBase {
+		return _methodSetup._normalMethod.normalMap = value;
 	}
 
 	/**
 	 * The method used to generate the per-pixel normals. Defaults to BasicNormalMethod.
 	 */
-	private function get_normalMethod():BasicNormalMethod {
+	private inline function get_normalMethod():BasicNormalMethod {
 		return _methodSetup.normalMethod;
 	}
 
-	private function set_normalMethod(value:BasicNormalMethod):BasicNormalMethod {
-		_methodSetup.normalMethod = value;
-		return value;
+	private inline function set_normalMethod(value:BasicNormalMethod):BasicNormalMethod {
+		return _methodSetup.normalMethod = value;
 	}
 
 	/**
 	 * The method that provides the ambient lighting contribution. Defaults to BasicAmbientMethod.
 	 */
-	private function get_ambientMethod():BasicAmbientMethod {
+	private inline function get_ambientMethod():BasicAmbientMethod {
 		return _methodSetup.ambientMethod;
 	}
 
-	private function set_ambientMethod(value:BasicAmbientMethod):BasicAmbientMethod {
-		_methodSetup.ambientMethod = value;
-		return value;
+	private inline function set_ambientMethod(value:BasicAmbientMethod):BasicAmbientMethod {
+		return _methodSetup.ambientMethod = value;
 	}
 
 	/**
 	 * The method used to render shadows cast on this surface, or null if no shadows are to be rendered. Defaults to null.
 	 */
-	private function get_shadowMethod():ShadowMapMethodBase {
+	private inline function get_shadowMethod():ShadowMapMethodBase {
 		return _methodSetup.shadowMethod;
 	}
 
-	private function set_shadowMethod(value:ShadowMapMethodBase):ShadowMapMethodBase {
-		_methodSetup.shadowMethod = value;
-		return value;
+	private inline function set_shadowMethod(value:ShadowMapMethodBase):ShadowMapMethodBase {
+		return _methodSetup.shadowMethod = value;
 	}
 
 	/**
 	 * The method that provides the diffuse lighting contribution. Defaults to BasicDiffuseMethod.
 	 */
-	private function get_diffuseMethod():BasicDiffuseMethod {
+	private inline function get_diffuseMethod():BasicDiffuseMethod {
 		return _methodSetup.diffuseMethod;
 	}
 
-	private function set_diffuseMethod(value:BasicDiffuseMethod):BasicDiffuseMethod {
-		_methodSetup.diffuseMethod = value;
-		return value;
+	private inline function set_diffuseMethod(value:BasicDiffuseMethod):BasicDiffuseMethod {
+		return _methodSetup.diffuseMethod = value;
 	}
 
 	/**
 	 * The method that provides the specular lighting contribution. Defaults to BasicSpecularMethod.
 	 */
-	private function get_specularMethod():BasicSpecularMethod {
+	private inline function get_specularMethod():BasicSpecularMethod {
 		return _methodSetup.specularMethod;
 	}
 
-	private function set_specularMethod(value:BasicSpecularMethod):BasicSpecularMethod {
-		_methodSetup.specularMethod = value;
-		return value;
+	private inline function set_specularMethod(value:BasicSpecularMethod):BasicSpecularMethod {
+		return _methodSetup.specularMethod = value;
 	}
 
 	/**
@@ -423,9 +407,6 @@ class CompiledPass extends MaterialPassBase {
 		_methodSetup.addEventListener(ShadingMethodEvent.SHADER_INVALIDATED, onShaderInvalidated);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function dispose():Void {
 		super.dispose();
 		if (_methodSetup != null) {
@@ -435,9 +416,6 @@ class CompiledPass extends MaterialPassBase {
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function invalidateShaderProgram(updateMaterial:Bool = true):Void {
 		var oldPasses:Vector<MaterialPassBase> = _passes;
 		_passes = new Vector<MaterialPassBase>();
@@ -577,25 +555,16 @@ class CompiledPass extends MaterialPassBase {
 		invalidateShaderProgram();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getVertexCode():String {
 		return _vertexCode;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentCode(animatorCode:String):String {
 		return _fragmentLightCode + animatorCode + _framentPostLightCode;
 	}
 
 	// RENDER LOOP
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(stage3DProxy:Stage3DProxy, camera:Camera3D):Void {
 		super.activate(stage3DProxy, camera);
 
@@ -609,9 +578,6 @@ class CompiledPass extends MaterialPassBase {
 			_methodSetup._specularMethod.activate(_methodSetup._specularMethodVO, stage3DProxy);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function render(renderable:IRenderable, stage3DProxy:Stage3DProxy, camera:Camera3D, viewProjection:Matrix3D):Void {
 		var i:Int = 0;
 		var context:Context3D = stage3DProxy._context3D;
@@ -729,9 +695,6 @@ class CompiledPass extends MaterialPassBase {
 			&& ((_diffuseLightSources | _specularLightSources) & LightSources.LIGHTS) != 0;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function deactivate(stage3DProxy:Stage3DProxy):Void {
 		super.deactivate(stage3DProxy);
 
@@ -751,13 +714,12 @@ class CompiledPass extends MaterialPassBase {
 	 *
 	 * @see away3d.materials.LightSources
 	 */
-	private function get_specularLightSources():Int {
+	private inline function get_specularLightSources():Int {
 		return _specularLightSources;
 	}
 
-	private function set_specularLightSources(value:Int):Int {
-		_specularLightSources = value;
-		return value;
+	private inline function set_specularLightSources(value:Int):Int {
+		return _specularLightSources = value;
 	}
 
 	/**
@@ -766,12 +728,11 @@ class CompiledPass extends MaterialPassBase {
 	 *
 	 * @see away3d.materials.LightSources
 	 */
-	private function get_diffuseLightSources():Int {
+	private inline function get_diffuseLightSources():Int {
 		return _diffuseLightSources;
 	}
 
-	private function set_diffuseLightSources(value:Int):Int {
-		_diffuseLightSources = value;
-		return value;
+	private inline function set_diffuseLightSources(value:Int):Int {
+		return _diffuseLightSources = value;
 	}
 }

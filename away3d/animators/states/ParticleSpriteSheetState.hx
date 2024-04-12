@@ -12,9 +12,6 @@ import openfl.Vector;
 import openfl.display3D.Context3DVertexBufferFormat;
 import openfl.errors.Error;
 
-/**
- * ...
- */
 class ParticleSpriteSheetState extends ParticleStateBase {
 	public var cyclePhase(get, set):Float;
 	public var cycleDuration(get, set):Float;

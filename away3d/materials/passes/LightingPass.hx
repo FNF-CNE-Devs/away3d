@@ -86,9 +86,6 @@ class LightingPass extends CompiledPass {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function createCompiler(profile:String):ShaderCompiler {
 		_maxLights = profile == "baselineConstrained" ? 1 : 3;
 		return new LightingShaderCompiler(profile);
@@ -111,9 +108,6 @@ class LightingPass extends CompiledPass {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateLights():Void {
 		super.updateLights();
 		var numDirectionalLights:Int = _numDirectionalLights;
@@ -175,25 +169,16 @@ class LightingPass extends CompiledPass {
 		return Std.int(Math.min(numLightProbes - _lightProbesOffset, Std.int(4 / numChannels)));
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateShaderProperties():Void {
 		super.updateShaderProperties();
 		_tangentSpace = cast(_compiler, LightingShaderCompiler).tangentSpace;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateRegisterIndices():Void {
 		super.updateRegisterIndices();
 		_lightVertexConstantIndex = cast(_compiler, LightingShaderCompiler).lightVertexConstantIndex;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function render(renderable:IRenderable, stage3DProxy:Stage3DProxy, camera:Camera3D, viewProjection:Matrix3D):Void {
 		renderable.inverseSceneTransform.copyRawDataTo(_inverseSceneMatrix);
 
@@ -213,9 +198,6 @@ class LightingPass extends CompiledPass {
 		super.render(renderable, stage3DProxy, camera, viewProjection);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(stage3DProxy:Stage3DProxy, camera:Camera3D):Void {
 		super.activate(stage3DProxy, camera);
 
@@ -241,9 +223,6 @@ class LightingPass extends CompiledPass {
 		return _numLightProbes > 0 && (_diffuseLightSources & LightSources.PROBES) != 0;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateLightConstants():Void {
 		var dirLight:DirectionalLight;
 		var pointLight:PointLight;
@@ -388,9 +367,6 @@ class LightingPass extends CompiledPass {
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateProbes(stage3DProxy:Stage3DProxy):Void {
 		var context:Context3D = stage3DProxy._context3D;
 		var probe:LightProbe;

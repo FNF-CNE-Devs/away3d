@@ -111,9 +111,6 @@ class TextureProxyBase extends NamedAssetBase implements IAsset {
 		return null;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function dispose():Void {
 		for (i in 0...8) {
 			if (_textures[i] != null)

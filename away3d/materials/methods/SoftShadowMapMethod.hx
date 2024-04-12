@@ -63,9 +63,6 @@ class SoftShadowMapMethod extends SimpleShadowMapMethodBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initConstants(vo:MethodVO):Void {
 		super.initConstants(vo);
 
@@ -73,9 +70,6 @@ class SoftShadowMapMethod extends SimpleShadowMapMethodBase {
 		vo.fragmentData[vo.fragmentConstantsIndex + 9] = 0;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		super.activate(vo, stage3DProxy);
 		var texRange:Float = .5 * _range / _castingLight.shadowMapper.depthMapSize;
@@ -87,9 +81,6 @@ class SoftShadowMapMethod extends SimpleShadowMapMethodBase {
 			data[index + i] = _offsets[i] * texRange;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getPlanarFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		// todo: move some things to super
 		var depthMapRegister:ShaderRegisterElement = regCache.getFreeTextureReg();
@@ -120,9 +111,6 @@ class SoftShadowMapMethod extends SimpleShadowMapMethodBase {
 			"add " + target + ".w, " + target + ".w, " + uv + ".w\n";
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activateForCascade(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		super.activate(vo, stage3DProxy);
 		var texRange:Float = _range / _castingLight.shadowMapper.depthMapSize;
@@ -141,9 +129,6 @@ class SoftShadowMapMethod extends SimpleShadowMapMethodBase {
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getCascadeFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, decodeRegister:ShaderRegisterElement,
 			depthTexture:ShaderRegisterElement, depthProjection:ShaderRegisterElement, targetRegister:ShaderRegisterElement):String {
 		_depthMapCoordReg = depthProjection;

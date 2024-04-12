@@ -101,9 +101,6 @@ class TextureProjector extends ObjectContainer3D {
 		return _viewProjection;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function invalidateSceneTransform():Void {
 		super.invalidateSceneTransform();
 		_viewProjectionInvalid = true;

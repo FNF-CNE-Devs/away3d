@@ -91,9 +91,6 @@ class AC3DParser extends ParserBase {
 		return str == 'AC3D';
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function resolveDependency(resourceDependency:ResourceDependency):Void {
 		var mesh:Mesh = null;
 		var asset:Texture2DBase = null;
@@ -114,9 +111,6 @@ class AC3DParser extends ParserBase {
 		// handled with default material
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function proceedParsing():Bool {
 		var line:String;
 

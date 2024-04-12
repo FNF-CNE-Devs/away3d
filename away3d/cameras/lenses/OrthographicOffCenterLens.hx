@@ -104,9 +104,6 @@ class OrthographicOffCenterLens extends LensBase {
 		return clone;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateMatrix():Void {
 		var raw:Vector<Float> = Matrix3DUtils.RAW_DATA_CONTAINER;
 		var w:Float = 1 / (_maxX - _minX);

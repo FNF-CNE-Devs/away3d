@@ -407,9 +407,6 @@ class SegmentSet extends Entity implements IRenderable {
 		return subSet;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function dispose():Void {
 		super.dispose();
 		removeAllSegments();
@@ -423,23 +420,14 @@ class SegmentSet extends Entity implements IRenderable {
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function get_mouseEnabled():Bool {
 		return false;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getDefaultBoundingVolume():BoundingVolumeBase {
 		return new BoundingSphere();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateBounds():Void {
 		var subSet:SubSet;
 		var len:Int;
@@ -500,9 +488,6 @@ class SegmentSet extends Entity implements IRenderable {
 		_boundsInvalid = false;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function createEntityPartitionNode():EntityNode {
 		return new RenderableNode(this);
 	}

@@ -11,9 +11,6 @@ import away3d.core.managers.Stage3DProxy;
 import openfl.display3D.Context3DVertexBufferFormat;
 import openfl.geom.Vector3D;
 
-/**
- * ...
- */
 class ParticleBezierCurveState extends ParticleStateBase {
 	public var controlPoint(get, set):Vector3D;
 	public var endPoint(get, set):Vector3D;

@@ -278,44 +278,26 @@ class SubMesh implements IRenderable {
 		return _parentMesh.inverseSceneTransform;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function activateVertexBuffer(index:Int, stage3DProxy:Stage3DProxy):Void {
 		_subGeometry.activateVertexBuffer(index, stage3DProxy);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function activateVertexNormalBuffer(index:Int, stage3DProxy:Stage3DProxy):Void {
 		_subGeometry.activateVertexNormalBuffer(index, stage3DProxy);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function activateVertexTangentBuffer(index:Int, stage3DProxy:Stage3DProxy):Void {
 		_subGeometry.activateVertexTangentBuffer(index, stage3DProxy);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function activateUVBuffer(index:Int, stage3DProxy:Stage3DProxy):Void {
 		_subGeometry.activateUVBuffer(index, stage3DProxy);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function activateSecondaryUVBuffer(index:Int, stage3DProxy:Stage3DProxy):Void {
 		_subGeometry.activateSecondaryUVBuffer(index, stage3DProxy);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getIndexBuffer(stage3DProxy:Stage3DProxy):IndexBuffer3D {
 		return _subGeometry.getIndexBuffer(stage3DProxy);
 	}

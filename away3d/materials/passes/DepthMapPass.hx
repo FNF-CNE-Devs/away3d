@@ -74,9 +74,6 @@ class DepthMapPass extends MaterialPassBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	private override function getVertexCode():String {
 		var code:String;
 		// project
@@ -95,9 +92,6 @@ class DepthMapPass extends MaterialPassBase {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	private override function getFragmentCode(code:String):String {
 		var codeF:String = "div ft2, v0, v0.w		\n" + "mul ft0, fc0, ft2.z	\n" + "frc ft0, ft0			\n" + "mul ft1, ft0.yzww, fc1	\n";
 
@@ -127,9 +121,6 @@ class DepthMapPass extends MaterialPassBase {
 		return codeF;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	private override function render(renderable:IRenderable, stage3DProxy:Stage3DProxy, camera:Camera3D, viewProjection:Matrix3D):Void {
 		if (_alphaThreshold > 0)
 			renderable.activateUVBuffer(1, stage3DProxy);
@@ -143,9 +134,6 @@ class DepthMapPass extends MaterialPassBase {
 		stage3DProxy.drawTriangles(renderable.getIndexBuffer(stage3DProxy), 0, renderable.numTriangles);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(stage3DProxy:Stage3DProxy, camera:Camera3D):Void {
 		var context:Context3D = stage3DProxy._context3D;
 		super.activate(stage3DProxy, camera);

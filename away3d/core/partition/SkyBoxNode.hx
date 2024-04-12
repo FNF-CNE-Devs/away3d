@@ -20,9 +20,6 @@ class SkyBoxNode extends EntityNode {
 		_skyBox = skyBox;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function acceptTraverser(traverser:PartitionTraverser):Void {
 		if (traverser.enterNode(this)) {
 			super.acceptTraverser(traverser);

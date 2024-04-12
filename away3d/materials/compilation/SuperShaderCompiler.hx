@@ -18,9 +18,6 @@ class SuperShaderCompiler extends ShaderCompiler {
 		super(profile);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initLightData():Void {
 		super.initLightData();
 
@@ -28,17 +25,11 @@ class SuperShaderCompiler extends ShaderCompiler {
 		_dirLightRegisters = new Vector<ShaderRegisterElement>(_numDirectionalLights * 3, true);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function calculateDependencies():Void {
 		super.calculateDependencies();
 		_dependencyCounter.addWorldSpaceDependencies(true);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function compileNormalCode():Void {
 		var normalMatrix:Vector<ShaderRegisterElement> = new Vector<ShaderRegisterElement>(3, true);
 
@@ -81,9 +72,6 @@ class SuperShaderCompiler extends ShaderCompiler {
 		_registerCache.removeVertexTempUsage(_sharedRegisters.animatedNormal);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function createNormalRegisters():Void {
 		if (_dependencyCounter.normalDependencies > 0) {
 			_sharedRegisters.normalInput = _registerCache.getFreeVertexAttribute();
@@ -180,9 +168,6 @@ class SuperShaderCompiler extends ShaderCompiler {
 		_registerCache.removeFragmentTempUsage(n);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function compileViewDirCode():Void {
 		var cameraPositionReg:ShaderRegisterElement = _registerCache.getFreeVertexConstant();
 		_sharedRegisters.viewDirVarying = _registerCache.getFreeVarying();
@@ -204,9 +189,6 @@ class SuperShaderCompiler extends ShaderCompiler {
 		_registerCache.removeVertexTempUsage(_sharedRegisters.globalPositionVertex);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function compileLightingCode():Void {
 		var shadowReg:ShaderRegisterElement = null;
 

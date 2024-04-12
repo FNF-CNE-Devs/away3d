@@ -3,9 +3,6 @@ package away3d.tools.helpers.data;
 import openfl.geom.Matrix3D;
 import openfl.geom.Matrix;
 
-/**
- * ...
- */
 class ParticleGeometryTransform {
 	public var vertexTransform(get, set):Matrix3D;
 	public var UVTransform(get, set):Matrix;

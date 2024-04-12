@@ -52,9 +52,6 @@ class SkeletonDifferenceState extends AnimationStateBase implements ISkeletonAni
 		_differenceInput = cast(animator.getAnimationState(_skeletonAnimationNode.differenceInput), ISkeletonAnimationState);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function phase(value:Float):Void {
 		_skeletonPoseDirty = true;
 
@@ -64,9 +61,6 @@ class SkeletonDifferenceState extends AnimationStateBase implements ISkeletonAni
 		_baseInput.phase(value);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateTime(time:Int):Void {
 		_skeletonPoseDirty = true;
 
@@ -86,9 +80,6 @@ class SkeletonDifferenceState extends AnimationStateBase implements ISkeletonAni
 		return _skeletonPose;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updatePositionDelta():Void {
 		_positionDeltaDirty = false;
 

@@ -45,7 +45,7 @@ class DistanceMapPass extends MaterialPassBase {
 	 * invisible or entirely opaque, often used with textures for foliage, etc.
 	 * Recommended values are 0 to disable alpha, or 0.5 to create smooth edges. Default value is 0 (disabled).
 	 */
-	private function get_alphaThreshold():Float {
+	private inline function get_alphaThreshold():Float {
 		return _alphaThreshold;
 	}
 
@@ -78,9 +78,6 @@ class DistanceMapPass extends MaterialPassBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getVertexCode():String {
 		var code:String;
 		code = "m44 op, vt0, vc0		\n" + "m44 vt1, vt0, vc5		\n" + "sub v0, vt1, vc9		\n";
@@ -97,9 +94,6 @@ class DistanceMapPass extends MaterialPassBase {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentCode(animationCode:String):String {
 		// TODO: not used
 		var code:String;
@@ -132,9 +126,6 @@ class DistanceMapPass extends MaterialPassBase {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function render(renderable:IRenderable, stage3DProxy:Stage3DProxy, camera:Camera3D, viewProjection:Matrix3D):Void {
 		var context:Context3D = stage3DProxy._context3D;
 		var pos:Vector3D = camera.scenePosition;
@@ -160,9 +151,6 @@ class DistanceMapPass extends MaterialPassBase {
 		stage3DProxy.drawTriangles(renderable.getIndexBuffer(stage3DProxy), 0, renderable.numTriangles);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(stage3DProxy:Stage3DProxy, camera:Camera3D):Void {
 		var context:Context3D = stage3DProxy._context3D;
 		super.activate(stage3DProxy, camera);

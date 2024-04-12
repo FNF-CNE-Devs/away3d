@@ -12,9 +12,6 @@ import openfl.geom.Matrix;
 import openfl.geom.Point;
 import openfl.geom.Vector3D;
 
-/**
- * ...
- */
 class ParticleGeometryHelper {
 	public static inline var MAX_VERTEX:Int = 65535;
 

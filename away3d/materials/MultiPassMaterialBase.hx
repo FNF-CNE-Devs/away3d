@@ -104,27 +104,18 @@ class MultiPassMaterialBase extends MaterialBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function set_depthCompareMode(value:Context3DCompareMode):Context3DCompareMode {
 		super.depthCompareMode = value;
 		invalidateScreenPasses();
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function set_blendMode(value:BlendMode):BlendMode {
 		super.blendMode = value;
 		invalidateScreenPasses();
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activateForDepth(stage3DProxy:Stage3DProxy, camera:Camera3D, distanceBased:Bool = false):Void {
 		if (distanceBased)
 			_distancePass.alphaMask = _diffuseMethod.texture;
@@ -164,9 +155,6 @@ class MultiPassMaterialBase extends MaterialBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function set_lightPicker(value:LightPickerBase):LightPickerBase {
 		if (_lightPicker != null)
 			_lightPicker.removeEventListener(Event.CHANGE, onLightsChange);
@@ -177,9 +165,6 @@ class MultiPassMaterialBase extends MaterialBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function get_requiresBlending():Bool {
 		return false;
 	}
@@ -320,9 +305,6 @@ class MultiPassMaterialBase extends MaterialBase {
 			invalidateScreenPasses();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function set_mipmap(value:Bool):Bool {
 		if (_mipmap == value)
 			return value;
@@ -422,9 +404,6 @@ class MultiPassMaterialBase extends MaterialBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function updateMaterial(context:Context3D):Void {
 		var passesInvalid:Bool = false;
 
@@ -497,18 +476,12 @@ class MultiPassMaterialBase extends MaterialBase {
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activatePass(index:Int, stage3DProxy:Stage3DProxy, camera:Camera3D):Void {
 		if (index == 0)
 			stage3DProxy._context3D.setBlendFactors(Context3DBlendFactor.ONE, Context3DBlendFactor.ZERO);
 		super.activatePass(index, stage3DProxy, camera);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function deactivate(stage3DProxy:Stage3DProxy):Void {
 		super.deactivate(stage3DProxy);
 		stage3DProxy._context3D.setBlendFactors(Context3DBlendFactor.ONE, Context3DBlendFactor.ZERO);

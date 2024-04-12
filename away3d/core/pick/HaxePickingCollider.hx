@@ -26,9 +26,6 @@ class HaxePickingCollider extends PickingColliderBase implements IPickingCollide
 		_findClosestCollision = findClosestCollision;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function testSubMeshCollision(subMesh:SubMesh, pickingCollisionVO:PickingCollisionVO, shortestCollisionDistance:Float):Bool {
 		var t:Float;
 		var i0:Int, i1:Int, i2:Int;

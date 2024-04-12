@@ -16,9 +16,6 @@ class UVClipState extends AnimationClipState implements IUVAnimationState {
 	private var _currentUVFrame:UVAnimationFrame;
 	private var _nextUVFrame:UVAnimationFrame;
 
-	/**
-	 * @inheritDoc
-	 */
 	private function get_currentUVFrame():UVAnimationFrame {
 		if (_framesDirty)
 			updateFrames();
@@ -26,9 +23,6 @@ class UVClipState extends AnimationClipState implements IUVAnimationState {
 		return _currentUVFrame;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	private function get_nextUVFrame():UVAnimationFrame {
 		if (_framesDirty)
 			updateFrames();
@@ -43,9 +37,6 @@ class UVClipState extends AnimationClipState implements IUVAnimationState {
 		_frames = _uvClipNode.frames;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateFrames():Void {
 		super.updateFrames();
 

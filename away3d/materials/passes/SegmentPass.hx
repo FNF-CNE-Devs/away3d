@@ -35,9 +35,6 @@ class SegmentPass extends MaterialPassBase {
 		super();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getVertexCode():String {
 		return "m44 vt0, va0, vc8			\n"
 			+ // transform Q0 to eye space
@@ -129,15 +126,11 @@ class SegmentPass extends MaterialPassBase {
 			"mov v0, va3				\n";
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentCode(animationCode:String):String {
 		return "mov oc, v0\n";
 	}
 
 	/**
-	 * @inheritDoc
 	 * todo: keep maps in dictionary per renderable
 	 */
 	override private function render(renderable:IRenderable, stage3DProxy:Stage3DProxy, camera:Camera3D, viewProjection:Matrix3D):Void {
@@ -156,9 +149,6 @@ class SegmentPass extends MaterialPassBase {
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(stage3DProxy:Stage3DProxy, camera:Camera3D):Void {
 		var context:Context3D = stage3DProxy._context3D;
 		super.activate(stage3DProxy, camera);
@@ -187,9 +177,6 @@ class SegmentPass extends MaterialPassBase {
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function deactivate(stage3DProxy:Stage3DProxy):Void {
 		var context:Context3D = stage3DProxy._context3D;
 		context.setVertexBufferAt(0, null);

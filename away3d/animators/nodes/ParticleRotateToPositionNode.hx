@@ -34,9 +34,6 @@ class ParticleRotateToPositionNode extends ParticleNodeBase {
 		_position = position;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function getAGALVertexCode(pass:MaterialPassBase, animationRegisterCache:AnimationRegisterCache):String {
 		var positionAttribute:ShaderRegisterElement = (_mode == ParticlePropertiesMode.GLOBAL) ? animationRegisterCache.getFreeVertexConstant() : animationRegisterCache.getFreeVertexAttribute();
 		animationRegisterCache.setRegisterIndex(this, POSITION_INDEX, positionAttribute.index);
@@ -196,16 +193,10 @@ class ParticleRotateToPositionNode extends ParticleNodeBase {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getAnimationState(animator:IAnimator):ParticleRotateToPositionState {
 		return cast(animator.getAnimationState(this), ParticleRotateToPositionState);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function generatePropertyOfOneParticle(param:ParticleProperties):Void {
 		var offset:Vector3D = param.nodes[ParticleNodeEnum.ROTATE_TO_POSITION_VECTOR3D];
 		if (offset == null)

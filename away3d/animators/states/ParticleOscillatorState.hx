@@ -42,9 +42,6 @@ class ParticleOscillatorState extends ParticleStateBase {
 		updateOscillatorData();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function setRenderState(stage3DProxy:Stage3DProxy, renderable:IRenderable, animationSubGeometry:AnimationSubGeometry,
 			animationRegisterCache:AnimationRegisterCache, camera:Camera3D):Void {
 		var index:Int = animationRegisterCache.getRegisterIndex(_animationNode, ParticleOscillatorNode.OSCILLATOR_INDEX);

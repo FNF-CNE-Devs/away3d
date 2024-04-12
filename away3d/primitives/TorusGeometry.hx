@@ -48,9 +48,6 @@ class TorusGeometry extends PrimitiveBase {
 		_currentTriangleIndex++;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function buildGeometry(target:CompactSubGeometry):Void {
 		var i:Int = 0, j:Int;
 		var x:Float,
@@ -155,9 +152,6 @@ class TorusGeometry extends PrimitiveBase {
 		target.updateIndexData(_rawIndices);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function buildUVs(target:CompactSubGeometry):Void {
 		var i:Int, j:Int;
 		var data:Vector<Float>;

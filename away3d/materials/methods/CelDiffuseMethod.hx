@@ -28,9 +28,6 @@ class CelDiffuseMethod extends CompositeDiffuseMethod {
 		_levels = levels;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initConstants(vo:MethodVO):Void {
 		var data:Vector<Float> = vo.fragmentData;
 		var index:Int = vo.secondaryFragmentConstantsIndex;
@@ -63,26 +60,17 @@ class CelDiffuseMethod extends CompositeDiffuseMethod {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function cleanCompilationData():Void {
 		super.cleanCompilationData();
 		_dataReg = null;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentPreLightingCode(vo:MethodVO, regCache:ShaderRegisterCache):String {
 		_dataReg = regCache.getFreeFragmentConstant();
 		vo.secondaryFragmentConstantsIndex = _dataReg.index * 4;
 		return super.getFragmentPreLightingCode(vo, regCache);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		super.activate(vo, stage3DProxy);
 		var data:Vector<Float> = vo.fragmentData;

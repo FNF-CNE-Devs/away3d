@@ -36,9 +36,6 @@ class ParticleSegmentedScaleNode extends ParticleNodeBase {
 		_segmentScales = segmentScales;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function getAGALVertexCode(pass:MaterialPassBase, animationRegisterCache:AnimationRegisterCache):String {
 		var code:String = "";
 

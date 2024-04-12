@@ -836,9 +836,6 @@ class Object3D extends NamedAssetBase {
 	 */
 	public function dispose():Void {}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function disposeAsset():Void {
 		dispose();
 	}

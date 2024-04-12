@@ -33,18 +33,12 @@ class AxisAlignedBoundingBox extends BoundingVolumeBase {
 		super();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function nullify():Void {
 		super.nullify();
 		_centerX = _centerY = _centerZ = 0;
 		_halfExtentsX = _halfExtentsY = _halfExtentsZ = 0;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function isInFrustum(planes:Vector<Plane3D>, numPlanes:Int):Bool {
 		for (i in 0...numPlanes) {
 			var plane:Plane3D = planes[i];
@@ -160,9 +154,6 @@ class AxisAlignedBoundingBox extends BoundingVolumeBase {
 		return intersects ? rayEntryDistance : -1;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function containsPoint(position:Vector3D):Bool {
 		var px:Float = position.x - _centerX,
 			py:Float = position.y - _centerY,
@@ -170,9 +161,6 @@ class AxisAlignedBoundingBox extends BoundingVolumeBase {
 		return px <= _halfExtentsX && px >= -_halfExtentsX && py <= _halfExtentsY && py >= -_halfExtentsY && pz <= _halfExtentsZ && pz >= -_halfExtentsZ;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function fromExtremes(minX:Float, minY:Float, minZ:Float, maxX:Float, maxY:Float, maxZ:Float):Void {
 		_centerX = (maxX + minX) * .5;
 		_centerY = (maxY + minY) * .5;
@@ -183,9 +171,6 @@ class AxisAlignedBoundingBox extends BoundingVolumeBase {
 		super.fromExtremes(minX, minY, minZ, maxX, maxY, maxZ);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function clone():BoundingVolumeBase {
 		var clone:AxisAlignedBoundingBox = new AxisAlignedBoundingBox();
 		clone.fromExtremes(_min.x, _min.y, _min.z, _max.x, _max.y, _max.z);

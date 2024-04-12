@@ -29,9 +29,6 @@ class SkeletonNaryLERPState extends AnimationStateBase implements ISkeletonAnima
 			_inputs[i] = cast(animator.getAnimationState(_skeletonAnimationNode._inputs[i]), ISkeletonAnimationState);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function phase(value:Float):Void {
 		_skeletonPoseDirty = true;
 
@@ -43,9 +40,6 @@ class SkeletonNaryLERPState extends AnimationStateBase implements ISkeletonAnima
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateTime(time:Int):Void {
 		for (j in 0..._skeletonAnimationNode.numInputs) {
 			if (_blendWeights[j] > 0)
@@ -87,9 +81,6 @@ class SkeletonNaryLERPState extends AnimationStateBase implements ISkeletonAnima
 		_skeletonPoseDirty = true;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updatePositionDelta():Void {
 		_positionDeltaDirty = false;
 

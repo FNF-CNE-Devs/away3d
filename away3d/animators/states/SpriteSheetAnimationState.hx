@@ -45,9 +45,6 @@ class SpriteSheetAnimationState extends AnimationClipState implements ISpriteShe
 		return b;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	private function get_currentFrameData():SpriteSheetAnimationFrame {
 		if (_framesDirty)
 			updateFrames();
@@ -76,9 +73,6 @@ class SpriteSheetAnimationState extends AnimationClipState implements ISpriteShe
 		return (_frames == null) ? 0 : _frames.length;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateFrames():Void {
 		if (paused)
 			return;

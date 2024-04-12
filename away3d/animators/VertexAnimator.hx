@@ -43,9 +43,6 @@ class VertexAnimator extends AnimatorBase implements IAnimator {
 		_blendMode = vertexAnimationSet.blendMode;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function clone():IAnimator {
 		return new VertexAnimator(_vertexAnimationSet);
 	}
@@ -83,9 +80,6 @@ class VertexAnimator extends AnimatorBase implements IAnimator {
 			reset(name, offset);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function updateDeltaTime(dt:Int):Void {
 		super.updateDeltaTime(dt);
 
@@ -94,9 +88,6 @@ class VertexAnimator extends AnimatorBase implements IAnimator {
 		_weights[0] = 1 - (_weights[1] = _activeVertexState.blendWeight);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function setRenderState(stage3DProxy:Stage3DProxy, renderable:IRenderable, vertexConstantOffset:Int, vertexStreamOffset:Int, camera:Camera3D):Void {
 		// todo: add code for when running on cpu
 

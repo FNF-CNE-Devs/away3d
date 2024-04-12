@@ -30,9 +30,6 @@ class RaycastPicker implements IPicker {
 	private var _numEntities:Int;
 	private var _hasCollisions:Bool;
 
-	/**
-	 * @inheritDoc
-	 */
 	private function get_onlyMouseEnabled():Bool {
 		return _onlyMouseEnabled;
 	}
@@ -53,9 +50,6 @@ class RaycastPicker implements IPicker {
 		_entities = new Vector<Entity>();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getViewCollision(x:Float, y:Float, view:View3D):PickingCollisionVO {
 		// cast ray through the collection of entities on the view
 		var collector:EntityCollector = view.entityCollector;
@@ -97,9 +91,6 @@ class RaycastPicker implements IPicker {
 		return getPickingCollisionVO();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getSceneCollision(position:Vector3D, direction:Vector3D, scene:Scene3D):PickingCollisionVO {
 		// clear collector
 		_raycastCollector.clear();

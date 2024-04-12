@@ -42,9 +42,6 @@ class EntityNode extends NodeBase {
 		return _entity;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function acceptTraverser(traverser:PartitionTraverser):Void {
 		traverser.applyEntity(_entity);
 	}
@@ -66,9 +63,6 @@ class EntityNode extends NodeBase {
 		return _entity.worldBounds.isInFrustum(planes, numPlanes);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function isIntersectingRay(rayPosition:Vector3D, rayDirection:Vector3D):Bool {
 		if (!_entity.isVisible)
 			return false;

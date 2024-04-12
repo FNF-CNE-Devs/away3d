@@ -35,9 +35,6 @@ class SimpleShadowMapMethodBase extends ShadowMapMethodBase {
 		super(castingLight);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initVO(vo:MethodVO):Void {
 		vo.needsView = true;
 		vo.needsGlobalVertexPos = true;
@@ -45,9 +42,6 @@ class SimpleShadowMapMethodBase extends ShadowMapMethodBase {
 		vo.needsNormals = vo.numLights > 0;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initConstants(vo:MethodVO):Void {
 		var fragmentData:Vector<Float> = vo.fragmentData;
 		var vertexData:Vector<Float> = vo.vertexData;
@@ -88,18 +82,12 @@ class SimpleShadowMapMethodBase extends ShadowMapMethodBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function cleanCompilationData():Void {
 		super.cleanCompilationData();
 
 		_depthMapCoordReg = null;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getVertexCode(vo:MethodVO, regCache:ShaderRegisterCache):String {
 		return _usePoint ? getPointVertexCode(vo, regCache) : getPlanarVertexCode(vo, regCache);
 	}
@@ -140,9 +128,6 @@ class SimpleShadowMapMethodBase extends ShadowMapMethodBase {
 		return code;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		var code:String = _usePoint ? getPointFragmentCode(vo, regCache, targetReg) : getPlanarFragmentCode(vo, regCache, targetReg);
 		code += "add " + targetReg + ".w, " + targetReg + ".w, fc" + (vo.fragmentConstantsIndex / 4 + 1) + ".y\n" + "sat " + targetReg + ".w, " + targetReg
@@ -174,9 +159,6 @@ class SimpleShadowMapMethodBase extends ShadowMapMethodBase {
 		return "";
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function setRenderState(vo:MethodVO, renderable:IRenderable, stage3DProxy:Stage3DProxy, camera:Camera3D):Void {
 		if (!_usePoint)
 			cast(_shadowMapper, DirectionalShadowMapper).depthProjection.copyRawDataTo(vo.vertexData, vo.vertexConstantsIndex + 4, true);
@@ -198,9 +180,6 @@ class SimpleShadowMapMethodBase extends ShadowMapMethodBase {
 		return null;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		var fragmentData:Vector<Float> = vo.fragmentData;
 		var index:Int = vo.fragmentConstantsIndex;

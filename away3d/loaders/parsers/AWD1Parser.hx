@@ -94,9 +94,6 @@ class AWD1Parser extends ParserBase {
 		return false;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function resolveDependency(resourceDependency:ResourceDependency):Void {
 		if (resourceDependency.assets.length != 1)
 			return;
@@ -112,16 +109,10 @@ class AWD1Parser extends ParserBase {
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function resolveDependencyFailure(resourceDependency:ResourceDependency):Void {
 		// missing load for resourceDependency.id;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function proceedParsing():Bool {
 		var line:String;
 		var creturn:String = String.fromCharCode(10);

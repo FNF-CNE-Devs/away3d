@@ -36,18 +36,12 @@ class FresnelEnvMapMethod extends EffectMethodBase {
 		_alpha = alpha;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initVO(vo:MethodVO):Void {
 		vo.needsNormals = true;
 		vo.needsView = true;
 		vo.needsUV = _mask != null;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function initConstants(vo:MethodVO):Void {
 		vo.fragmentData[vo.fragmentConstantsIndex + 3] = 1;
 	}
@@ -92,9 +86,6 @@ class FresnelEnvMapMethod extends EffectMethodBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override public function dispose():Void {}
 
 	/**
@@ -121,9 +112,6 @@ class FresnelEnvMapMethod extends EffectMethodBase {
 		return value;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function activate(vo:MethodVO, stage3DProxy:Stage3DProxy):Void {
 		var data:Vector<Float> = vo.fragmentData;
 		var index:Int = vo.fragmentConstantsIndex;
@@ -136,9 +124,6 @@ class FresnelEnvMapMethod extends EffectMethodBase {
 			context.setTextureAt(vo.texturesIndex + 1, _mask.getTextureForStage3D(stage3DProxy));
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	override private function getFragmentCode(vo:MethodVO, regCache:ShaderRegisterCache, targetReg:ShaderRegisterElement):String {
 		var dataRegister:ShaderRegisterElement = regCache.getFreeFragmentConstant();
 		var temp:ShaderRegisterElement = regCache.getFreeFragmentVectorTemp();
