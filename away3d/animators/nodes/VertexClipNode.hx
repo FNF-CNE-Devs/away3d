@@ -36,7 +36,7 @@ class VertexClipNode extends AnimationClipNodeBase {
 	 * @param duration The specified duration of the frame in milliseconds.
 	 * @param translation The absolute translation of the frame, used in root delta calculations for mesh movement.
 	 */
-	public function addFrame(geometry:Geometry, duration:Int, translation:Vector3D = null):Void {
+	public function addFrame(geometry:Geometry, duration:Float, translation:Vector3D = null):Void {
 		_frames.push(geometry);
 		_durations.push(duration);
 		if (translation != null) {

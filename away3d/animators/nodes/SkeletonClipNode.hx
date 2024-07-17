@@ -41,7 +41,7 @@ class SkeletonClipNode extends AnimationClipNodeBase {
 	 * @param skeletonPose The skeleton pose object to add to the timeline of the node.
 	 * @param duration The specified duration of the frame in milliseconds.
 	 */
-	public function addFrame(skeletonPose:SkeletonPose, duration:Int):Void {
+	public function addFrame(skeletonPose:SkeletonPose, duration:Time):Void {
 		_frames.push(skeletonPose);
 		_durations.push(duration);
 

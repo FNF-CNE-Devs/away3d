@@ -66,7 +66,7 @@ class SkeletonDifferenceState extends AnimationStateBase implements ISkeletonAni
 	/**
 	 * @inheritDoc
 	 */
-	override private function updateTime(time:Int):Void {
+	override private function updateTime(time:Time):Void {
 		_skeletonPoseDirty = true;
 
 		_baseInput.update(time);

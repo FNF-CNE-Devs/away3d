@@ -8,3 +8,5 @@ import Std.is as isOfType;
 #end
 import away3d.utils.Utils.expect;
 #end
+
+import away3d.utils.Types;

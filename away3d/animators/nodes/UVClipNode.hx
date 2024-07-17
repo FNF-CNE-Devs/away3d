@@ -33,7 +33,7 @@ class UVClipNode extends AnimationClipNodeBase {
 	 * @param uvFrame The uv frame object to add to the timeline of the node.
 	 * @param duration The specified duration of the frame in milliseconds.
 	 */
-	public function addFrame(uvFrame:UVAnimationFrame, duration:Int):Void {
+	public function addFrame(uvFrame:UVAnimationFrame, duration:Time):Void {
 		_frames.push(uvFrame);
 		_durations.push(duration);
 		_numFrames = _durations.length;

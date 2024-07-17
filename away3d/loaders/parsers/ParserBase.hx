@@ -43,7 +43,7 @@ import openfl.utils.Timer;
 	private var _dataFormat:String;
 	private var _data:Dynamic;
 	private var _frameLimit:Float;
-	private var _lastFrameTime:UInt;
+	private var _lastFrameTime:Time;
 
 	private function getTextData():String {
 		var s = ParserUtil.toString(_data);

@@ -5,9 +5,9 @@ import openfl.geom.Vector3D;
 interface IAnimationState {
 	var positionDelta(get, never):Vector3D;
 
-	function offset(startTime:Int):Void;
+	function offset(startTime:Time):Void;
 
-	function update(time:Int):Void;
+	function update(time:Time):Void;
 
 	/**
 	 * Sets the animation phase of the node.

@@ -14,13 +14,13 @@ import openfl.events.Event;
 import openfl.geom.Vector3D;
 
 class AnimatorBase extends NamedAssetBase implements IAsset {
-	public var absoluteTime(get, never):Int;
+	public var absoluteTime(get, never):Time;
 	public var animationSet(get, never):IAnimationSet;
 	public var activeState(get, never):IAnimationState;
 	public var activeAnimation(get, never):AnimationNodeBase;
 	public var activeAnimationName(get, never):String;
 	public var autoUpdate(get, set):Bool;
-	public var time(get, set):Int;
+	public var time(get, set):Time;
 	public var playbackSpeed(get, set):Float;
 	public var assetType(get, never):String;
 
@@ -30,7 +30,7 @@ class AnimatorBase extends NamedAssetBase implements IAsset {
 	private var _startEvent:AnimatorEvent;
 	private var _stopEvent:AnimatorEvent;
 	private var _cycleEvent:AnimatorEvent;
-	private var _time:Int = 0;
+	private var _time:Time = 0;
 	private var _playbackSpeed:Float = 1;
 
 	private var _animationSet:IAnimationSet;
@@ -38,7 +38,7 @@ class AnimatorBase extends NamedAssetBase implements IAsset {
 	private var _activeNode:AnimationNodeBase;
 	private var _activeState:IAnimationState;
 	private var _activeAnimationName:String;
-	private var _absoluteTime:Int = 0;
+	private var _absoluteTime:Time = 0;
 	private var _animationStates:Map<AnimationNodeBase, IAnimationState> = new Map();
 
 	/**
@@ -67,7 +67,7 @@ class AnimatorBase extends NamedAssetBase implements IAsset {
 	 * @see #time
 	 * @see #playbackSpeed
 	 */
-	private function get_absoluteTime():Int {
+	private function get_absoluteTime():Time {
 		return _absoluteTime;
 	}
 
@@ -128,11 +128,11 @@ class AnimatorBase extends NamedAssetBase implements IAsset {
 	/**
 	 * Gets and sets the internal time clock of the animator.
 	 */
-	private function get_time():Int {
+	private function get_time():Time {
 		return _time;
 	}
 
-	private function set_time(value:Int):Int {
+	private function set_time(value:Time):Time {
 		if (_time == value)
 			return value;
 
@@ -226,15 +226,15 @@ class AnimatorBase extends NamedAssetBase implements IAsset {
 	 * @see #stop()
 	 * @see #autoUpdate
 	 */
-	public function update(time:Int):Void {
-		var dt:Int = Std.int((time - _time) * playbackSpeed);
+	public function update(time:Time):Void {
+		var dt:Time = ((time - _time) * playbackSpeed);
 
 		updateDeltaTime(dt);
 
 		_time = time;
 	}
 
-	public function reset(name:String, offset:Int = 0):Void {
+	public function reset(name:String, offset:Time = 0):Void {
 		getAnimationState(_animationSet.getAnimation(name)).offset(offset + _absoluteTime);
 	}
 
@@ -261,7 +261,7 @@ class AnimatorBase extends NamedAssetBase implements IAsset {
 	 *
 	 * @private
 	 */
-	@:allow(away3d) private function updateDeltaTime(dt:Int):Void {
+	@:allow(away3d) private function updateDeltaTime(dt:Time):Void {
 		_absoluteTime += dt;
 
 		_activeState.update(_absoluteTime);

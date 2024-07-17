@@ -141,7 +141,7 @@ class SkeletonAnimator extends AnimatorBase implements IAnimator {
 	 * @param transition An optional transition object that determines how the animator will transition from the currently active animation state.
 	 * @param offset An option offset time (in milliseconds) that resets the state's internal clock to the absolute time of the animator plus the offset value. Required for non-looping animation states.
 	 */
-	public function play(name:String, ?transition:IAnimationTransition = null, ?offset:Int = null):Void {
+	public function play(name:String, ?transition:IAnimationTransition = null, ?offset:Time = null):Void {
 		if (_activeAnimationName != name) {
 			_activeAnimationName = name;
 
@@ -170,7 +170,7 @@ class SkeletonAnimator extends AnimatorBase implements IAnimator {
 
 		// apply a time offset if specified
 		if (offset != null && !Math.isNaN(offset))
-			reset(name, Std.int(offset));
+			reset(name, offset);
 	}
 
 	/**
@@ -223,7 +223,7 @@ class SkeletonAnimator extends AnimatorBase implements IAnimator {
 	/**
 	 * Applies the calculated time delta to the active animation state node or state transition object.
 	 */
-	override private function updateDeltaTime(dt:Int):Void {
+	override private function updateDeltaTime(dt:Time):Void {
 		super.updateDeltaTime(dt);
 
 		// invalidate pose matrices

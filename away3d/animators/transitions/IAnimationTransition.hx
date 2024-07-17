@@ -4,5 +4,5 @@ import away3d.animators.*;
 import away3d.animators.nodes.*;
 
 interface IAnimationTransition {
-	function getAnimationNode(animator:IAnimator, startNode:AnimationNodeBase, endNode:AnimationNodeBase, startTime:Int):AnimationNodeBase;
+	function getAnimationNode(animator:IAnimator, startNode:AnimationNodeBase, endNode:AnimationNodeBase, startTime:Time):AnimationNodeBase;
 }

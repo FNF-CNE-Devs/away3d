@@ -38,14 +38,14 @@ class SkeletonNaryLERPState extends AnimationStateBase implements ISkeletonAnima
 
 		for (j in 0..._skeletonAnimationNode.numInputs) {
 			if (_blendWeights[j] > 0)
-				_inputs[j].update(Std.int(value));
+				_inputs[j].update(value);
 		}
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	override private function updateTime(time:Int):Void {
+	override private function updateTime(time:Time):Void {
 		for (j in 0..._skeletonAnimationNode.numInputs) {
 			if (_blendWeights[j] > 0)
 				_inputs[j].update(time);

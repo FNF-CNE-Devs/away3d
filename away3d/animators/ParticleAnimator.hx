@@ -117,7 +117,7 @@ class ParticleAnimator extends AnimatorBase implements IAnimator {
 	/**
 	 * @inheritDoc
 	 */
-	override private function updateDeltaTime(dt:Int):Void {
+	override private function updateDeltaTime(dt:Time):Void {
 		_absoluteTime += dt;
 		for (state in _timeParticleStates)
 			state.update(_absoluteTime);
@@ -126,7 +126,7 @@ class ParticleAnimator extends AnimatorBase implements IAnimator {
 	/**
 	 * @inheritDoc
 	 */
-	public function resetTime(offset:Int = 0):Void {
+	public function resetTime(offset:Time = 0):Void {
 		for (state in _timeParticleStates)
 			state.offset(_absoluteTime + offset);
 		update(time);

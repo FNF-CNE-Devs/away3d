@@ -10,20 +10,20 @@ import openfl.geom.Vector3D;
 class AnimationClipNodeBase extends AnimationNodeBase {
 	public var looping(get, set):Bool;
 	public var stitchFinalFrame(get, set):Bool;
-	public var totalDuration(get, never):Int;
+	public var totalDuration(get, never):Float;
 	public var totalDelta(get, never):Vector3D;
 	public var lastFrame(get, never):Int;
-	public var durations(get, never):Vector<UInt>;
+	public var durations(get, never):Vector<Time>;
 
 	private var _looping:Bool = true;
-	private var _totalDuration:Int = 0;
+	private var _totalDuration:Float = 0;
 	private var _lastFrame:Int;
 
 	private var _stitchDirty:Bool = true;
 	private var _stitchFinalFrame:Bool = false;
 	private var _numFrames:Int = 0;
 
-	private var _durations:Vector<UInt> = new Vector<UInt>();
+	private var _durations:Vector<Time> = new Vector<Time>();
 	private var _totalDelta:Vector3D = new Vector3D();
 
 	public var fixedFrameRate:Bool = true;
@@ -63,7 +63,7 @@ class AnimationClipNodeBase extends AnimationNodeBase {
 		return value;
 	}
 
-	private function get_totalDuration():Int {
+	private function get_totalDuration():Float {
 		if (_stitchDirty)
 			updateStitch();
 
@@ -87,7 +87,7 @@ class AnimationClipNodeBase extends AnimationNodeBase {
 	/**
 	 * Returns a vector of time values representing the duration (in milliseconds) of each animation frame in the clip.
 	 */
-	private function get_durations():Vector<UInt> {
+	private function get_durations():Vector<Time> {
 		return _durations;
 	}
 

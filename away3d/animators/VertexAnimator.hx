@@ -80,7 +80,7 @@ class VertexAnimator extends AnimatorBase implements IAnimator {
 	/**
 	 * @inheritDoc
 	 */
-	override private function updateDeltaTime(dt:Int):Void {
+	override private function updateDeltaTime(dt:Time):Void {
 		super.updateDeltaTime(dt);
 
 		_poses[0] = _activeVertexState.currentGeometry;

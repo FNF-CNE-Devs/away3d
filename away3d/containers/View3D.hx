@@ -48,8 +48,8 @@ class View3D extends Sprite {
 	private var _entityCollector:EntityCollector;
 
 	private var _aspectRatio:Float;
-	private var _time:UInt = 0;
-	private var _deltaTime:UInt;
+	private var _time:Time = 0;
+	private var _deltaTime:Time;
 	private var _backgroundColor:UInt = 0x000000;
 	private var _backgroundAlpha:Float = 1;
 
@@ -437,9 +437,9 @@ class View3D extends Sprite {
 	/**
 	 * The amount of milliseconds the last render call took
 	 */
-	public var deltaTime(get, null):UInt;
+	public var deltaTime(get, null):Time;
 
-	private function get_deltaTime():UInt {
+	private function get_deltaTime():Time {
 		return _deltaTime;
 	}
 
@@ -820,7 +820,7 @@ class View3D extends Sprite {
 	}
 
 	private function updateTime():Void {
-		var time:UInt = Lib.getTimer();
+		var time = Lib.getTimer();
 		if (_time == 0)
 			_time = time;
 		_deltaTime = time - _time;

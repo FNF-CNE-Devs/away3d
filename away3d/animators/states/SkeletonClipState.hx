@@ -62,7 +62,7 @@ class SkeletonClipState extends AnimationClipState implements ISkeletonAnimation
 	/**
 	 * @inheritDoc
 	 */
-	override private function updateTime(time:Int):Void {
+	override private function updateTime(time:Time):Void {
 		_skeletonPoseDirty = true;
 
 		super.updateTime(time);

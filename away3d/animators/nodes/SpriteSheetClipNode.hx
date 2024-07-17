@@ -33,7 +33,7 @@ class SpriteSheetClipNode extends AnimationClipNodeBase {
 	 * @param spriteSheetAnimationFrame The frame object to add to the timeline of the node.
 	 * @param duration The specified duration of the frame in milliseconds.
 	 */
-	public function addFrame(spriteSheetAnimationFrame:SpriteSheetAnimationFrame, duration:Int):Void {
+	public function addFrame(spriteSheetAnimationFrame:SpriteSheetAnimationFrame, duration:Time):Void {
 		_frames.push(spriteSheetAnimationFrame);
 		_durations.push(duration);
 		_numFrames = _durations.length;

@@ -166,7 +166,7 @@ class UVAnimator extends AnimatorBase implements IAnimator {
 	/**
 	 * Applies the calculated time delta to the active animation state node.
 	 */
-	override private function updateDeltaTime(dt:Int):Void {
+	override private function updateDeltaTime(dt:Time):Void {
 		_absoluteTime += dt;
 		_activeUVState.update(_absoluteTime);
 

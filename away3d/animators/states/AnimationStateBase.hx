@@ -11,8 +11,8 @@ class AnimationStateBase implements IAnimationState {
 	private var _rootDelta:Vector3D = new Vector3D();
 	private var _positionDeltaDirty:Bool = true;
 
-	private var _time:Int = 0;
-	private var _startTime:Int = 0;
+	private var _time:Time = 0;
+	private var _startTime:Time = 0;
 	private var _animator:IAnimator;
 
 	/**
@@ -35,7 +35,7 @@ class AnimationStateBase implements IAnimationState {
 	 *
 	 * @param startTime The absolute start time (in milliseconds) of the node's starting time.
 	 */
-	public function offset(startTime:Int):Void {
+	public function offset(startTime:Time):Void {
 		_startTime = startTime;
 
 		_positionDeltaDirty = true;
@@ -48,7 +48,7 @@ class AnimationStateBase implements IAnimationState {
 	 *
 	 * @see away3d.animators.AnimatorBase#update()
 	 */
-	public function update(time:Int):Void {
+	public function update(time:Time):Void {
 		if (_time == time - _startTime)
 			return;
 
@@ -67,7 +67,7 @@ class AnimationStateBase implements IAnimationState {
 	 *
 	 * @param time The local time (in milliseconds) of the node's playhead position.
 	 */
-	private function updateTime(time:Int):Void {
+	private function updateTime(time:Time):Void {
 		_time = time - _startTime;
 
 		_positionDeltaDirty = true;

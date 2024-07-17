@@ -66,7 +66,7 @@ class AnimationClipState extends AnimationStateBase {
 	/**
 	 * @inheritDoc
 	 */
-	override public function update(time:Int):Void {
+	override public function update(time:Time):Void {
 		if (!_animationClipNode.looping) {
 			if (time > _startTime + _animationClipNode.totalDuration)
 				time = _startTime + _animationClipNode.totalDuration;
@@ -84,7 +84,7 @@ class AnimationClipState extends AnimationStateBase {
 	 * @inheritDoc
 	 */
 	override public function phase(value:Float):Void {
-		var time:Int = Std.int(value * _animationClipNode.totalDuration + _startTime);
+		var time = (value * _animationClipNode.totalDuration + _startTime);
 
 		if (_time == time - _startTime)
 			return;
@@ -95,7 +95,7 @@ class AnimationClipState extends AnimationStateBase {
 	/**
 	 * @inheritDoc
 	 */
-	override private function updateTime(time:Int):Void {
+	override private function updateTime(time:Time):Void {
 		_framesDirty = true;
 
 		_timeDir = (time - _startTime > _time) ? 1 : -1;
@@ -114,9 +114,9 @@ class AnimationClipState extends AnimationStateBase {
 		_framesDirty = false;
 
 		var looping:Bool = _animationClipNode.looping;
-		var totalDuration:Int = _animationClipNode.totalDuration;
+		var totalDuration = _animationClipNode.totalDuration;
 		var lastFrame:Int = _animationClipNode.lastFrame;
-		var time:Int = _time;
+		var time = _time;
 
 		// trace("time", time, totalDuration)
 		if (looping && (time >= totalDuration || time < 0) && totalDuration > 0) {
@@ -143,8 +143,8 @@ class AnimationClipState extends AnimationStateBase {
 			_currentFrame = 0;
 			_nextFrame = 0;
 
-			var dur:Int = 0, frameTime:Int;
-			var durations:Vector<UInt> = _animationClipNode.durations;
+			var dur:Time = 0, frameTime:Time;
+			var durations:Vector<Time> = _animationClipNode.durations;
 
 			do {
 				frameTime = dur;

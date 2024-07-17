@@ -75,7 +75,7 @@ class SkeletonDirectionalState extends AnimationStateBase implements ISkeletonAn
 	/**
 	 * @inheritDoc
 	 */
-	override private function updateTime(time:Int):Void {
+	override private function updateTime(time:Time):Void {
 		if (_blendDirty)
 			updateBlend();
 

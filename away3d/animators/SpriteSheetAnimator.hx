@@ -21,7 +21,7 @@ import openfl.errors.Error;
  * automatically updated or manually triggered.
  */
 class SpriteSheetAnimator extends AnimatorBase implements IAnimator {
-	public var fps(get, set):Int;
+	public var fps(get, set):Float;
 	public var reverse(get, set):Bool;
 	public var backAndForth(get, set):Bool;
 	public var currentFrameNumber(get, never):Int;
@@ -31,9 +31,9 @@ class SpriteSheetAnimator extends AnimatorBase implements IAnimator {
 	private var _spriteSheetAnimationSet:SpriteSheetAnimationSet;
 	private var _frame:SpriteSheetAnimationFrame = new SpriteSheetAnimationFrame();
 	private var _vectorFrame:Vector<Float>;
-	private var _fps:Int = 10;
-	private var _ms:Int = 100;
-	private var _lastTime:Int = 0;
+	private var _fps:Float = 10;
+	private var _ms:Float = 100;
+	private var _lastTime:Time = 0;
 	private var _reverse:Bool;
 	private var _backAndForth:Bool;
 	private var _specsDirty:Bool;
@@ -50,13 +50,13 @@ class SpriteSheetAnimator extends AnimatorBase implements IAnimator {
 	}
 
 	/* Set the playrate of the animation in frames per second (not depending on player fps)*/
-	private function set_fps(val:Int):Int {
-		_ms = Std.int(1000 / val);
+	private function set_fps(val:Float):Float {
+		_ms = (1000 / val);
 		_fps = val;
 		return val;
 	}
 
-	private function get_fps():Int {
+	private function get_fps():Float {
 		return _fps;
 	}
 
@@ -154,7 +154,7 @@ class SpriteSheetAnimator extends AnimatorBase implements IAnimator {
 	/**
 	 * Applies the calculated time delta to the active animation state node.
 	 */
-	override private function updateDeltaTime(dt:Int):Void {
+	override private function updateDeltaTime(dt:Time):Void {
 		if (_specsDirty) {
 			cast(_activeSpriteSheetState, SpriteSheetAnimationState).reverse = _reverse;
 			cast(_activeSpriteSheetState, SpriteSheetAnimationState).backAndForth = _backAndForth;
@@ -162,7 +162,7 @@ class SpriteSheetAnimator extends AnimatorBase implements IAnimator {
 		}
 
 		_absoluteTime += dt;
-		var now:Int = Lib.getTimer();
+		var now = Lib.getTimer();
 
 		if ((now - _lastTime) > _ms) {
 			_mapDirty = true;

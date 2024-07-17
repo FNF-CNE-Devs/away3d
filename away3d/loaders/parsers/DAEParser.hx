@@ -644,7 +644,7 @@ class DAEParser extends ParserBase {
 			if (t >= _animationInfo.maxTime)
 				t = _animationInfo.maxTime;
 
-			clip.addFrame(skeletonPose, Std.int(frameDuration * 1000));
+			clip.addFrame(skeletonPose, (frameDuration * 1000));
 		}
 
 		finalizeAsset(clip);
