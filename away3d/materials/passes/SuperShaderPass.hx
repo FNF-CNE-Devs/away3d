@@ -109,7 +109,7 @@ class SuperShaderPass extends CompiledPass {
 	/**
 	 * The number of "effect" methods added to the material.
 	 */
-	public var numMethods(get, null):Int;
+	public var numMethods(get, never):Int;
 
 	private function get_numMethods():Int {
 		return _methodSetup.numMethods;

@@ -35,37 +35,37 @@ class ResourceDependency {
 		_dependencies = new Vector<ResourceDependency>();
 	}
 
-	public var id(get, null):String;
+	public var id(get, never):String;
 
 	private function get_id():String {
 		return _id;
 	}
 
-	public var assets(get, null):Vector<IAsset>;
+	public var assets(get, never):Vector<IAsset>;
 
 	private function get_assets():Vector<IAsset> {
 		return _assets;
 	}
 
-	public var dependencies(get, null):Vector<ResourceDependency>;
+	public var dependencies(get, never):Vector<ResourceDependency>;
 
 	private function get_dependencies():Vector<ResourceDependency> {
 		return _dependencies;
 	}
 
-	public var request(get, null):URLRequest;
+	public var request(get, never):URLRequest;
 
 	private function get_request():URLRequest {
 		return _req;
 	}
 
-	public var retrieveAsRawData(get, null):Bool;
+	public var retrieveAsRawData(get, never):Bool;
 
 	private function get_retrieveAsRawData():Bool {
 		return _retrieveAsRawData;
 	}
 
-	public var suppresAsset3DEvents(get, null):Bool;
+	public var suppresAsset3DEvents(get, never):Bool;
 
 	private function get_suppresAsset3DEvents():Bool {
 		return _suppressAsset3DEvents;
@@ -74,7 +74,7 @@ class ResourceDependency {
 	/**
 	 * The data containing the dependency to be parsed, if the resource was already loaded.
 	 */
-	public var data(get, null):Dynamic;
+	public var data(get, never):Dynamic;
 
 	private function get_data():Dynamic {
 		return _data;
@@ -91,7 +91,7 @@ class ResourceDependency {
 	/**
 	 * The parser which is dependent on this ResourceDependency object.
 	 */
-	public var parentParser(get, null):ParserBase;
+	public var parentParser(get, never):ParserBase;
 
 	private function get_parentParser():ParserBase {
 		return _parentParser;

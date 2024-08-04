@@ -253,8 +253,8 @@ import openfl.utils.ByteArray;
 		</chars>
 	</font>');
 
-	public static var texture(get, null):TextureMaterial;
-	public static var xml(get, null):Xml;
+	public static var texture(get, never):TextureMaterial;
+	public static var xml(get, never):Xml;
 
 	private static function get_texture():TextureMaterial {
 		var bitmapData:BitmapData = getBitmapData();

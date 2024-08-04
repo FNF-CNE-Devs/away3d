@@ -462,14 +462,14 @@ class BitmapFont {
 	}
 
 	/** The name of the font as it was parsed from the font file. */
-	public var name(get, null):String;
+	public var name(get, never):String;
 
 	private function get_name():String {
 		return mName;
 	}
 
 	/** The native size of the font. */
-	public var size(get, null):Float;
+	public var size(get, never):Float;
 
 	private function get_size():Float {
 		return mSize;
@@ -523,7 +523,7 @@ class BitmapFont {
 	}
 
 	/** The underlying texture that contains all the chars. */
-	public var fontMaterial(get, null):TextureMaterial;
+	public var fontMaterial(get, never):TextureMaterial;
 
 	private function get_fontMaterial():TextureMaterial {
 		return mFontMaterial;

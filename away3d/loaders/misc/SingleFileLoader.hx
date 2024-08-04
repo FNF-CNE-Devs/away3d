@@ -46,19 +46,19 @@ class SingleFileLoader extends EventDispatcher {
 		_materialMode = materialMode;
 	}
 
-	public var url(get, null):String;
+	public var url(get, never):String;
 
 	private function get_url():String {
 		return _req != null ? _req.url : '';
 	}
 
-	public var data(get, null):Dynamic;
+	public var data(get, never):Dynamic;
 
 	private function get_data():Dynamic {
 		return _data;
 	}
 
-	public var loadAsRawData(get, null):Bool;
+	public var loadAsRawData(get, never):Bool;
 
 	private function get_loadAsRawData():Bool {
 		return _loadAsRawData;
@@ -141,7 +141,7 @@ class SingleFileLoader extends EventDispatcher {
 	/**
 	 * A reference to the parser that will translate the loaded data into a usable resource.
 	 */
-	public var parser(get, null):ParserBase;
+	public var parser(get, never):ParserBase;
 
 	private function get_parser():ParserBase {
 		return _parser;

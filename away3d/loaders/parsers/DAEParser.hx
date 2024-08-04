@@ -965,31 +965,31 @@ class DAEParser extends ParserBase {
 		return sub;
 	}
 
-	public var geometries(get, null):Vector<Geometry>;
+	public var geometries(get, never):Vector<Geometry>;
 
 	private function get_geometries():Vector<Geometry> {
 		return _geometries;
 	}
 
-	public var effects(get, null):Map<String, DAEEffect>;
+	public var effects(get, never):Map<String, DAEEffect>;
 
 	private function get_effects():Map<String, DAEEffect> {
 		return _libEffects;
 	}
 
-	public var images(get, null):Map<String, DAEImage>;
+	public var images(get, never):Map<String, DAEImage>;
 
 	private function get_images():Map<String, DAEImage> {
 		return _libImages;
 	}
 
-	public var materials(get, null):Map<String, DAEMaterial>;
+	public var materials(get, never):Map<String, DAEMaterial>;
 
 	private function get_materials():Map<String, DAEMaterial> {
 		return _libMaterials;
 	}
 
-	public var isAnimated(get, null):Bool;
+	public var isAnimated(get, never):Bool;
 
 	private function get_isAnimated():Bool {
 		var animations = _fastDoc.hasNode.library_animations;
@@ -1234,7 +1234,7 @@ class DAEVertex {
 		x = y = z = nx = ny = nz = uvx = uvy = uvx2 = uvy2 = 0;
 	}
 
-	public var hash(get, null):String;
+	public var hash(get, never):String;
 
 	private function get_hash():String {
 		var s:String = format(x);
@@ -1644,13 +1644,13 @@ class DAEColor {
 
 	public function new() {}
 
-	public var rgb(get, null):UInt;
+	public var rgb(get, never):UInt;
 
 	private function get_rgb():UInt {
 		return Std.int(r * 255.0) << 16 | Std.int(g * 255.0) << 8 | Std.int(b * 255.0);
 	}
 
-	public var rgba(get, null):UInt;
+	public var rgba(get, never):UInt;
 
 	private function get_rgba():UInt {
 		return (Std.int(a * 255.0) << 24 | Std.int(r * 255.0) << 16 | Std.int(g * 255.0) << 8 | Std.int(b * 255.0));
@@ -1862,7 +1862,7 @@ class DAETransform extends DAEElement {
 		this.data = readFloatArray(element);
 	}
 
-	public var matrix(get, null):Matrix3D;
+	public var matrix(get, never):Matrix3D;
 
 	private function get_matrix():Matrix3D {
 		var matrix:Matrix3D = new Matrix3D();
@@ -2078,7 +2078,7 @@ class DAENode extends DAEElement {
 		return matrix;
 	}
 
-	public var matrix(get, null):Matrix3D;
+	public var matrix(get, never):Matrix3D;
 
 	private function get_matrix():Matrix3D {
 		var matrix:Matrix3D = new Matrix3D();

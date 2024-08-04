@@ -223,21 +223,21 @@ class TextField extends Mesh {
 		return value;
 	}
 
-	public var textHeight(get, null):Float;
+	public var textHeight(get, never):Float;
 
 	private function get_textHeight():Float {
 		_textHeight = Math.abs(bounds.min.z - bounds.max.z);
 		return _textHeight;
 	}
 
-	public var textWidth(get, null):Float;
+	public var textWidth(get, never):Float;
 
 	private function get_textWidth():Float {
 		_textWidth = Math.abs(bounds.min.x - bounds.max.x);
 		return _textWidth;
 	}
 
-	public var boundsRect(get, null):Rectangle;
+	public var boundsRect(get, never):Rectangle;
 
 	private function get_boundsRect():Rectangle {
 		var minX:Float = bounds.min.x;
