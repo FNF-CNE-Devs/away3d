@@ -138,7 +138,7 @@ class DAEParser extends ParserBase {
 	override private function resolveDependency(resourceDependency:ResourceDependency):Void {
 		if (resourceDependency.assets.length != 1)
 			return;
-		var resource:Texture2DBase = expect(resourceDependency.assets[0], Texture2DBase);
+		var resource:Texture2DBase = Utils.expect(resourceDependency.assets[0], Texture2DBase);
 		_dependencyCount--;
 
 		if (resource != null && cast(resource, BitmapTexture).bitmapData != null) {

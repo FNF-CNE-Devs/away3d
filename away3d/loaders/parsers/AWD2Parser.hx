@@ -170,7 +170,7 @@ class AWD2Parser extends ParserBase {
 			var thisBitmapTexture:Texture2DBase;
 			var block:AWDBlock;
 			if (isCubeTextureArray.length == 1) {
-				asset = expect(resourceDependency.assets[0], Texture2DBase);
+				asset = Utils.expect(resourceDependency.assets[0], Texture2DBase);
 				if (asset != null) {
 					var mat:TextureMaterial;
 					// var users:Array;
@@ -1259,7 +1259,7 @@ class AWD2Parser extends ParserBase {
 			if (!assetVO.enable && (lightPickerAddr != 0))
 				_blocks[blockID].addError("Could not find the LightPicker (ID = " + lightPickerAddr + " ) for this TextureMaterial");
 			else {
-				cast(mat, MaterialBase).lightPicker = expect(assetVO.data, LightPickerBase);
+				cast(mat, MaterialBase).lightPicker = Utils.expect(assetVO.data, LightPickerBase);
 				// debugString+=" | Lightpicker-Name = "+LightPickerBase(returnedArray[1]).name;
 			}
 

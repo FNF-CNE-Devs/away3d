@@ -104,7 +104,7 @@ class MD2Parser extends ParserBase {
 		if (resourceDependency.assets.length != 1)
 			return;
 
-		var asset:Texture2DBase = expect(resourceDependency.assets[0], Texture2DBase);
+		var asset:Texture2DBase = Utils.expect(resourceDependency.assets[0], Texture2DBase);
 		if (asset != null) {
 			var material:MaterialBase;
 			if (materialMode < 2)

@@ -201,19 +201,19 @@ class Loader3D extends ObjectContainer3D {
 			var obj:ObjectContainer3D = null;
 			switch (ev.asset.assetType) {
 				case Asset3DType.LIGHT:
-					obj = expect(ev.asset, LightBase);
+					obj = Utils.expect(ev.asset, LightBase);
 				case Asset3DType.CONTAINER:
-					obj = expect(ev.asset, ObjectContainer3D);
+					obj = Utils.expect(ev.asset, ObjectContainer3D);
 				case Asset3DType.MESH:
-					obj = expect(ev.asset, Mesh);
+					obj = Utils.expect(ev.asset, Mesh);
 				case Asset3DType.SKYBOX:
-					obj = expect(ev.asset, SkyBox);
+					obj = Utils.expect(ev.asset, SkyBox);
 				case Asset3DType.TEXTURE_PROJECTOR:
-					obj = expect(ev.asset, TextureProjector);
+					obj = Utils.expect(ev.asset, TextureProjector);
 				case Asset3DType.CAMERA:
-					obj = expect(ev.asset, Camera3D);
+					obj = Utils.expect(ev.asset, Camera3D);
 				case Asset3DType.SEGMENT_SET:
-					obj = expect(ev.asset, SegmentSet);
+					obj = Utils.expect(ev.asset, SegmentSet);
 			}
 
 			// If asset was of fitting type, and doesn't

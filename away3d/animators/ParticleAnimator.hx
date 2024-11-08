@@ -68,7 +68,7 @@ class ParticleAnimator extends AnimatorBase implements IAnimator {
 	public function setRenderState(stage3DProxy:Stage3DProxy, renderable:IRenderable, vertexConstantOffset:Int, vertexStreamOffset:Int, camera:Camera3D):Void {
 		var animationRegisterCache:AnimationRegisterCache = _particleAnimationSet._animationRegisterCache;
 
-		var subMesh:SubMesh = expect(renderable, SubMesh);
+		var subMesh:SubMesh = Utils.expect(renderable, SubMesh);
 		var state:ParticleStateBase;
 
 		if (subMesh == null)

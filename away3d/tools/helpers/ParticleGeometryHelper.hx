@@ -86,7 +86,7 @@ class ParticleGeometryHelper {
 
 				var k:Int;
 				var tempLen:Int;
-				var compact:CompactSubGeometry = expect(sourceSubGeometry, CompactSubGeometry);
+				var compact:CompactSubGeometry = Utils.expect(sourceSubGeometry, CompactSubGeometry);
 				var product:Int;
 				var sourceVertices:Vector<Float>;
 

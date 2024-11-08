@@ -107,8 +107,8 @@ class UVAnimator extends AnimatorBase implements IAnimator {
 	 * @inheritDoc
 	 */
 	public function setRenderState(stage3DProxy:Stage3DProxy, renderable:IRenderable, vertexConstantOffset:Int, vertexStreamOffset:Int, camera:Camera3D):Void {
-		var material:TextureMaterial = expect(renderable.material, TextureMaterial);
-		var subMesh:SubMesh = expect(renderable, SubMesh);
+		var material:TextureMaterial = Utils.expect(renderable.material, TextureMaterial);
+		var subMesh:SubMesh = Utils.expect(renderable, SubMesh);
 
 		if (material == null || subMesh == null)
 			return;

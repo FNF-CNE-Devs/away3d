@@ -87,14 +87,14 @@ class LightsHelper {
 		if (materialOwner.material != null) {
 			switch (_state) {
 				case 0:
-					picker = expect(materialOwner.material.lightPicker, StaticLightPicker);
+					picker = Utils.expect(materialOwner.material.lightPicker, StaticLightPicker);
 					if (picker == null || picker.lights != _lightsArray)
 						materialOwner.material.lightPicker = new StaticLightPicker(_lightsArray);
 
 				case 1:
 					if (materialOwner.material.lightPicker == null)
 						materialOwner.material.lightPicker = new StaticLightPicker([]);
-					picker = expect(materialOwner.material.lightPicker, StaticLightPicker);
+					picker = Utils.expect(materialOwner.material.lightPicker, StaticLightPicker);
 					if (picker != null) {
 						aLights = picker.lights;
 						if (aLights != null && aLights.length > 0) {
@@ -118,7 +118,7 @@ class LightsHelper {
 				case 2:
 					if (materialOwner.material.lightPicker == null)
 						materialOwner.material.lightPicker = new StaticLightPicker([]);
-					picker = expect(materialOwner.material.lightPicker, StaticLightPicker);
+					picker = Utils.expect(materialOwner.material.lightPicker, StaticLightPicker);
 					if (picker != null) {
 						aLights = picker.lights;
 						if (aLights != null) {

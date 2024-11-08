@@ -6,5 +6,5 @@ import Std.isOfType;
 #else
 import Std.is as isOfType;
 #end
-import away3d.utils.Utils.expect;
+import away3d.utils.Utils;
 #end
